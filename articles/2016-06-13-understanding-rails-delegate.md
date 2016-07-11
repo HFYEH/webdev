@@ -12,8 +12,6 @@ categories:
 
 
 
-
-
 Delegation 是一個Ruby專案中常見的例子，如果你把proxies, mixins 和 composition 當成一種delegation模式的話。
 
 Delegation 設計模式是讓物件或實例曝露一些性質，但這些性質其實是取用與當前實例相關連的其它實例的性質而來的。

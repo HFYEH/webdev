@@ -19,33 +19,33 @@
 （Vagrant基礎說明 http://www.codedata.com.tw/social-coding/vagrant-tutorial-4-guest-host-communication/）
 
 # Part 2 更新
-`sudo apt-get update`
+`sudo apt-get update`  
 `sudo apt-get upgrade`
 
 # Part 3 新增使用者sharefun
 
-`sudo adduser sharefun` or `sudo adduser --disabled-password sharefun`
-`sudo passwd sharefun`
-`sudo su` # retrieve root
-`adduser sharefun sudo` # make sharefun have sudo power
-`exit`
-`sudo su sharefun` # switch to sharefun
+`sudo adduser sharefun` or `sudo adduser --disabled-password sharefun`  
+`sudo passwd sharefun`  
+`sudo su` # retrieve root  
+`adduser sharefun sudo` # make sharefun have sudo power  
+`exit`  
+`sudo su sharefun` # switch to sharefun  
 
 # Part 4 ssh 登入
-沒有公私鑰才使用下列指令
-`ssh-keygen -t rsa`
-複製本機的 ~/.ssh/id_rsa.pub 到機器的 /home/sharefun/.ssh/authorized_keys
+沒有公私鑰才使用下列指令  
+`ssh-keygen -t rsa`  
+複製本機的 ~/.ssh/id_rsa.pub 到機器的 /home/sharefun/.ssh/authorized_keys  
 `cat ~/.ssh/id_rsa.pub | ssh sharefun@xxx.xxx.xxx.xxx 'cat >> ~/.ssh/authorized_keys'`
-chmod 644 /home/sharefun/.ssh/authorized_keys
-chown sharefun:sharefun /home/sharefun/.ssh/authorized_keys
+chmod 644 /home/sharefun/.ssh/authorized_keys  
+chown sharefun:sharefun /home/sharefun/.ssh/authorized_keys  
 
-更改ssh登錄port，並拒絕密碼登入，在server的修改
+更改ssh登錄port，並拒絕密碼登入，在server的修改  
 sudo vi /etc/ssh/sshd_config
 ```
 PasswordAuthentication no
 ```
-執行`sudo service ssh restart`使之生效
-如果之後搞壞.bashrc，導致登不進去（我就發生這個問題），可以在不跑.bashrc的情況登入（因為已經不能用密碼登入了）
+執行`sudo service ssh restart`使之生效  
+如果之後搞壞.bashrc，導致登不進去（我就發生這個問題），可以在不跑.bashrc的情況登入（因為已經不能用密碼登入了）  
 `ssh -t username@xxx.xxx.xxx.xxx /bin/sh`
 
 # Part 5 裝機
@@ -78,12 +78,12 @@ gem install bunlder --no-doc --no-ri
 ```
 
 - 裝postgres
-請見[postgresql on ubuntu](http://sharefun.logdown.com/posts/253465-postgresql-on-ubuntu)
-安裝完發現無法啟動
+請見[postgresql on ubuntu](http://sharefun.logdown.com/posts/253465-postgresql-on-ubuntu)  
+安裝完發現無法啟動  
 `sudo service postgresql start`
-發現錯誤訊息，是因為語系沒有先設定好，所以安裝過程出錯
- `* No PostgreSQL clusters exist; see "man pg_createcluster"`
- 根據這篇繼續找原因 http://dba.stackexchange.com/questions/50906/why-wont-postgresql-9-3-start-on-ubuntu
+發現錯誤訊息，是因為語系沒有先設定好，所以安裝過程出錯  
+ `* No PostgreSQL clusters exist; see "man pg_createcluster"`  
+根據這篇繼續找原因   http://dba.stackexchange.com/questions/50906/why-wont-postgresql-9-3-start-on-ubuntu  
 `sudo vi /etc/default/locale`
 加入三行
 ```
@@ -96,21 +96,21 @@ LC_ALL="en_US.UTF-8"
 再回去打第一條，打完收工~
  
 - 裝Nginx + Passenger
-移除系統預裝的nginx
-`sudo apt-get purge nginx nginx-full nginx-light nginx-naxsi nginx-common`
-`sudo rm -rf /etc/nginx`
+移除系統預裝的nginx  
+`sudo apt-get purge nginx nginx-full nginx-light nginx-naxsi nginx-common`  
+`sudo rm -rf /etc/nginx`  
 
 `gem install passenger --no-ri --no-rdoc`
-`which passenger-install-nginx-module`
-`rvmsudo 上面的輸出`
-碰到虛擬記憶體不足的問題，依建議輸入指令即可解決
-驗證安裝是否成功
-`rvmsudo passenger-config validate-install`
-片尾有訊息說要改passenger和ruby的路徑，可用下列指令查詢，並在其下找passenger path
-`which ruby`
-`which passenger`
+`which passenger-install-nginx-module`  
+`rvmsudo 上面的輸出`  
+碰到虛擬記憶體不足的問題，依建議輸入指令即可解決  
+驗證安裝是否成功  
+`rvmsudo passenger-config validate-install`  
+片尾有訊息說要改passenger和ruby的路徑，可用下列指令查詢，並在其下找passenger path  
+`which ruby`  
+`which passenger`  
 
-如果無法啟動rails server，出現這樣的訊息
+如果無法啟動rails server，出現這樣的訊息  
 
 The program 'rails' can be found in the following packages:
  * ruby-railties-3.2

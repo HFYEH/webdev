@@ -1,8 +1,8 @@
 # Summary
 
 * [Introduction](README.md)
-   * [Server](server.md)
-       * [Linux 部署環境配置](articles/2016-04-19-deploying-rails-on-ubuntu-14-trusty-with-nginx-passenger-using-capistrano.md)
+* [Server](server.md)
+   * [Linux 部署環境配置](articles/2016-04-19-deploying-rails-on-ubuntu-14-trusty-with-nginx-passenger-using-capistrano.md)
 * [AWS](aws.md)
    * [aws note](articles/2016-05-20-aws-note.md)
 * [Rails](rails.md)

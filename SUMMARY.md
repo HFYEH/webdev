@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+   * Server
 * [AWS](aws.md)
    * [aws note](articles/2016-05-20-aws-note.md)
 * [Rails](rails.md)

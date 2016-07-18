@@ -1,10 +1,4 @@
----
-layout: post
-title: '部署rails於vagrant ubuntu 14 trusty with nginx + passenger using capistrano'
-date: 2016-04-19 09:01
-comments: true
-categories: 
----
+
 # Part 1 虛擬環境設置
 在這裡小卡關，因為機器沒有開啟Visualization，又因為一開始沒有在Vagrantfile裡打開virtualbox視窗的選項，所以看到錯誤訊息一直不明究理。總之，到BIOS設定開啟visualization後就好了。
 
@@ -14,12 +8,12 @@ categories:
 `vagrant ssh`登入（預設會使用vagrant/vagrant登入）
 因為user和ssh已經被Vagrant設定好了，這邊先跳過
 
-之前用慣VirtaulBox的圖形介面，把Vagrant CLI與其相對應一下
-`vagrant init` = 從image開新的vm
-`vagrant up` = 開啟該vm
-`vagrant halt` = 把該vm關機
-`vagrant destroy` = 從VirtualBox移除該vm（image並不會移除）
-`vagrant box list` = 看有那些image(box)
+之前用慣VirtaulBox的圖形介面，把Vagrant CLI與其相對應一下  
+`vagrant init` = 從image開新的vm  
+`vagrant up` = 開啟該vm  
+`vagrant halt` = 把該vm關機  
+`vagrant destroy` = 從VirtualBox移除該vm（image並不會移除）  
+`vagrant box list` = 看有那些image(box)  
 `vagrant box remove _box_name_` = 移除特定image(box)
 
 （Vagrant基礎說明 http://www.codedata.com.tw/social-coding/vagrant-tutorial-4-guest-host-communication/）

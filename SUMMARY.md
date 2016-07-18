@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
    * [Server](server.md)
+       * Linux 部署環境配置
 * [AWS](aws.md)
    * [aws note](articles/2016-05-20-aws-note.md)
 * [Rails](rails.md)

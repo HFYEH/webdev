@@ -1,6 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-* [資料庫](chapter1.md)
+* [資料庫](database.md)
    * postgresql on ubuntu
 

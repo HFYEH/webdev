@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+   * Rails
 * [AWS](aws.md)
    * [aws note](articles/2016-05-20-aws-note.md)
 * [資料庫](database.md)

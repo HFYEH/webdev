@@ -80,27 +80,27 @@ gem install bunlder --no-doc --no-ri
 - 裝postgres
 請見[postgresql on ubuntu](http://sharefun.logdown.com/posts/253465-postgresql-on-ubuntu)  
 安裝完發現無法啟動  
-`sudo service postgresql start`
+`sudo service postgresql start`  
 發現錯誤訊息，是因為語系沒有先設定好，所以安裝過程出錯  
  `* No PostgreSQL clusters exist; see "man pg_createcluster"`  
 根據這篇繼續找原因   http://dba.stackexchange.com/questions/50906/why-wont-postgresql-9-3-start-on-ubuntu  
-`sudo vi /etc/default/locale`
-加入三行
+`sudo vi /etc/default/locale`  
+加入三行  
 ```
 LANG="en_US.UTF-8"
 LANGAUGE="en_US.UTF-8"
 LC_ALL="en_US.UTF-8"
 ```
-`sudo dpkg-reconfigure locale`
-`sudo pg_createcluster 9.3 main --start`
-再回去打第一條，打完收工~
+`sudo dpkg-reconfigure locale`  
+`sudo pg_createcluster 9.3 main --start`  
+再回去打第一條，打完收工~  
  
 - 裝Nginx + Passenger
 移除系統預裝的nginx  
 `sudo apt-get purge nginx nginx-full nginx-light nginx-naxsi nginx-common`  
 `sudo rm -rf /etc/nginx`  
 
-`gem install passenger --no-ri --no-rdoc`
+`gem install passenger --no-ri --no-rdoc`  
 `which passenger-install-nginx-module`  
 `rvmsudo 上面的輸出`  
 碰到虛擬記憶體不足的問題，依建議輸入指令即可解決  

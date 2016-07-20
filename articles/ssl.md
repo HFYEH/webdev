@@ -12,3 +12,6 @@ http://www.netadmin.com.tw/article_content.aspx?sn=1106140008
 
 
 https://www.digicert.com/ssl-certificate-installation-nginx.htm
+
+
+https://www.digicert.com/csr-creation-nginx.htm

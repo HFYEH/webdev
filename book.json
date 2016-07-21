@@ -4,11 +4,6 @@
     "-mermaid",
     "collapsible-menu",
     "youtube",
-  ],
-  "pluginsConfig": {
-    "-disqus": {
-    "shortName": "sharefunyeh",
-    "useIdentifier": true
-  }
+  ]
  }
 }

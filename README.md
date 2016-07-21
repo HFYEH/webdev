@@ -2,4 +2,4 @@
 
 WebDev記錄。
 
-本書內容多屬片段式，整理成較完整的文章將會放在[這裡](sharefun.logdown.com)。
+本書內容屬筆記形式，整理成較完整的文章將會放在[這裡](sharefun.logdown.com)。

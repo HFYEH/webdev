@@ -66,16 +66,26 @@ git config --global core.autocrlf false
 
 ## git push
 `git push -u name branch`	上傳遠端 Repo 並且儲存此次設定
+
 `git push origin :branch_name`	刪除遠端分支
+
 `git push --tags`	為遠端 Repo 加上 tag
 
 ### 如果遠端 Repo 與本機的 commit 不同,且不同處非同一個文件
-`git pull`	1. 同步遠端 Repo 至本機(git fetch), 2. 合併 origin/master (git merge origin/master)
+`git pull`	
+
+1. 同步遠端 Repo 至本機(git fetch)
+2. 合併 origin/master (git merge origin/master)
 (此時 master 多一個 commit,但 origin/master 不知道這個新的 commit)
+
 `git push`	origin/master 與 master 到相同位置,並且上傳至遠端 Repo
 
 或想以rebase操作
-`git pull --rebase`	1. 同步遠端 Repo 至本機(git fetch), 2. rebase origin/master (git rebase origin/master)
+`git pull --rebase`
+
+1. 同步遠端 Repo 至本機(git fetch)
+2. rebase origin/master (git rebase origin/master)
+
 `git push`
 
 ### 如果遠端 Repo 與本機的 commit 不同,且不同處是同一個文件
@@ -89,11 +99,17 @@ git config --global core.autocrlf false
 
 ### 當想要合併遠端 Repo 但是產生衝突時除了用 merge 外,還可以用 rebase (無衝突情況)
 `git fetch`	把遠端 Repo 與更新到本地
-`git rebase`	1. 移動所有 master 的更變到暫存資料夾,這些更變是相對 origin/master 而言, 2. 跑所有 origin/master 的 commit, 3. 跑所有在暫存資料夾中的 commit, 一次一個
+
+`git rebase`
+
+1. 移動所有 master 的更變到暫存資料夾,這些更變是相對 origin/master 而言
+2. 跑所有 origin/master 的 commit, 3. 跑所有在暫存資料夾中的 commit, 一次一個
 
 ### 當想要合併遠端 Repo 但是產生衝突時除了用 merge 外,還可以用 rebase (有衝突情況)
 `git fetch`
+
 `git rebase`
+
 碰到衝突有三種處置方法
 1. 解決衝突後 `git rebase --continue`
 2. 跳過 master 上的這個 commit `git rebase --skip`
@@ -101,8 +117,11 @@ git config --global core.autocrlf false
 
 ### Local branch rebase (無衝突情況)
 `git checkout branch_name`
+
 `git rebase master`	先在 branch 上跑 master 的 commit, 再跑 branch 上的 commit
+
 `git checkout master`
+
 `git merge branch_name`
 
 > Rebase 真正含義
@@ -115,20 +134,32 @@ Rebase 時,先把自己的 commit 移到暫存資料夾,再把HEAD指向要被 r
 
 ## git branch
 `git branch` 列出目前有多少 branch (分支)
+
 `git branch branch_name`	建立一個分支 branch_name
+
 `git checkout branch_name`	切換到 branch_name 分支
+
 `git checkout -b branch_name`	建立分支並切換到該分支
+
 `git branch -d branch_name`	刪除 branch_name 分支
+
 `git branch -D branch_name`	強制刪除 branch_name 分支(有 commit 但未 merge 時用)
+
 `git branch -r`	檢視所有遠端分支
 
 ## git log
 `git config --global color.ui true`	設定顏色
+
 `git log --pretty=oneline`	一個 commit 只顯示一行
+
 `git log --oneline -p` 將所有 log 和修改過的檔案內容列出
+
 `git log --oneline --stat --summary`	查每個版本間的更動檔案和行數
+
 `git log --oneline --graph`	圖形化
+
 `git log --until=1.minute.ago`	只顯示一分鐘前的所有 commit
+
 `git log --since=1.day(hour/month).ago`	只顯示一天(小時/月)以內的所有 commit
 
 

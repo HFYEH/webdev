@@ -227,6 +227,7 @@ master 分支有新的 commit 的狀況
 
 ## Stashing
 正在分支編寫,臨時要去 master 救火
+
 `git stash save "message"`	把目前還沒有 commit 的文件存到暫存區並且回到最後一次 commit
 
 救火完成後...

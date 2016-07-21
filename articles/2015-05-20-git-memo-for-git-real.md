@@ -129,7 +129,9 @@ Rebase 時,先把自己的 commit 移到暫存資料夾,再把HEAD指向要被 r
 
 ## Interactive rebse
 在同一個分支裡跑 rebase 是在更改 commit 順序
+
 `git rebase -i HEAD^`	因為 HEAD^ 之後只有一個commit,故只會有一個 commit 出現
+
 `git rebase -i HEAD~3`	重跑最後三個 commit,會跑出 editor,編輯完後再執行該 editor
 
 ## git branch
@@ -171,7 +173,9 @@ Rebase 時,先把自己的 commit 移到暫存資料夾,再把HEAD指向要被 r
 
 ## 合併分支至 master (fast-forward merge)
 master 分支沒有新的 commit 的狀況
+
 `git checkout master`
+
 `git merge branch_name`
 
 # git blame
@@ -179,36 +183,54 @@ master 分支沒有新的 commit 的狀況
 
 ## Aliases
 `git config --global alias.mylog "log --pretty=format:'%h %s [%an]' --graph"`
+
 `git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-commit --all"`
 
 ## 修復 master上的 bug 工作流程,再合併分支 (recursive merge)
 master 分支有新的 commit 的狀況
+
 `git pull`
+
 `git branch -b branch_name`	開新分支
+
 (editing...)
+
 (master 發生狀況...)
+
 (將現有工作 commit 在該分支)
+
 `git checkout master`	切換回 master
+
 `git pull`	確保目前版本為最新
+
 (修復 bug 並 commit 在 master)
+
 (現在要合併...)
+
 `git merge branch_name`
+
 (跳出VI,產生新的 commit)
 
 ## 建立遠端 branch
 1. 須要別人協作自己的 branch
 2. 存在超過一天的分支,想儲存在遠端 Repo
+
 `git checkout -b branch_name`	建立並切換分支
+
 `git push origin branch_name`	連結近端 branch 到遠端 branch 並追蹤
 (修改...)
+
 `git commit -am "message"`
+
 `git push`	會自動儲存到遠端 Repo 的該 branch
 其他人只要`git pull`就可以同步了
 
 ## Stashing
 正在分支編寫,臨時要去 master 救火
 `git stash save "message"`	把目前還沒有 commit 的文件存到暫存區並且回到最後一次 commit
+
 救火完成後...
+
 `git checkout branch_name`	切回剛剛寫到一半的分支
 `git stash apply`	回到 stash 前的未 commit 狀態
 

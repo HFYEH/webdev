@@ -142,7 +142,7 @@ end
 `bundle install --without production`
 
 
-
+遠端操作資料庫
 
 psql \-f mydb2dump.sql \--host dingtaxi.ck44hqdryldr.ap-northeast-1.rds.amazonaws.com \--port 5432 \--username dingtaxi \--dbname dingtaxi
 

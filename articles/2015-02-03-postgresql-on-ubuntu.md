@@ -143,6 +143,7 @@ end
 
 
 
+
 psql \-f mydb2dump.sql \--host dingtaxi.ck44hqdryldr.ap-northeast-1.rds.amazonaws.com \--port 5432 \--username dingtaxi \--dbname dingtaxi
 
-
+pg_dump ...

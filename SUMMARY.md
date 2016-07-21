@@ -10,6 +10,7 @@
     * [Gemfile](articles/2014-12-27-gemfile.md)
     * [Railsfun Ruby 介紹](articles/2015-03-04-railsfun-1st-class.md)
     * [Railsfun Rails 介紹](articles/2015-03-09-railsfun-2nd-class.md)
+    * [Grape 初體驗（於rails）](articles/2016-04-29-grape-first-experience.md)
 * [AWS](aws.md)
     * [aws note](articles/2016-05-20-aws-note.md)
 * [DevOps](devops.md)

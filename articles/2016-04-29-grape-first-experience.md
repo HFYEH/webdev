@@ -30,7 +30,9 @@ mount GeneralApi::ApiV1 => '/api/v1'
 mount關鍵字是告訴rails app說我們有另一個app在跑，在此例中，我們的app是一個API Rack app。
 它會先跑middleware，如果沒找到path才會到Rails端，所以應該把api的routes都寫到routes的上方。
 而這樣的寫法，等一下就會開一個去找GeneralApi::API這個class。GeneralApi這個module，裡面有一個class叫ApiV1。
+
 這樣表示把`GeneralApi::ApiV1`掛在`/api/v1`下。雖然grape有支援版本號，可以在同一個class內打不同版本的api，但是如果所有的版本都打在同一個class裡，裡面的hepler一改動，會影響到其他版本，所以JC建議把不同的版本寫成不同的class。像這樣：
+
 ```ruby
 mount GeneralApi::ApiV1 => '/api/v1'
 mount GeneralApi::ApiV2 => '/api/v2'
@@ -56,8 +58,11 @@ module GeneralApi
 end
 ```
 好了，這樣基本上可以快樂的跑`rails server`了，而且也完成了一個簡單的api。
+
 在網址列輸入`localhost:3000/api/v1/sayhi`，console下會看到
+
 `Started GET "/api/v1" for 127.0.0.1 at 2016-04-30 14:01:37 +0800`
+
 瀏覽器會得到一個json，就是上面打的{greeting: "Hi hi!"}，在get下的最後一行可以直接帶hash就好，grape會自動轉成你要求的格式（此例是寫在最上面的format :json）。
 
 **重點是，desc, params, get/post等三個為一組，不可少。desc是對此api的描述，params是參數，get是http method。**
@@ -88,23 +93,31 @@ module GeneralApi
   end
 end
 ```
-打這個`http://localhost:3000/api/v1/sayhi?name=sharefun`
+打這個
+
+`http://localhost:3000/api/v1/sayhi?name=sharefun`
 ```
 {"greeting": "Hi hi! sharefun "}
 ```
-打這個`http://localhost:3000/api/v1/sayhi?name=sharefun&gender=male`會得到
+打這個
+
+`http://localhost:3000/api/v1/sayhi?name=sharefun&gender=male`會得到
 ```
 {"greeting": "Hi hi! sharefun 先生"}
 ```
 而如果沒有給requires的東西，就會自動回錯誤，相當方便！
+
 `http://localhost:3000/api/v1/sayhi?gender=male`
 ```
 {"error": "name is missing"}
 ```
 但是有打name但是給空值也是可以...也就是還要另外再過濾
+
 `http://localhost:3000/api/v1/sayhi?name=&gender=male`
+
 只要加上validator就行了！名字那行改成
 ```
+
 requires :name, type: String, allow_blank: false, desc: "名字為必需"
 ```
 可以參照文檔，還有許多的validator可用~

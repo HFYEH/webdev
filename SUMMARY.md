@@ -20,6 +20,7 @@
 * [Database](database.md)
     * [Railsfun RDBMS](articles/2014-12-28-247766.md)
     * [postgresql on ubuntu](articles/2015-02-03-postgresql-on-ubuntu.md)
+    * [N+1 query, repack](articles/2015-07-18-n-1-query.md)
 * [Virtualization](virtualization.md)
     * [VirtualBox共享資料夾](articles/2015-03-22-vb-shared.md)
 * [Android](android.md)

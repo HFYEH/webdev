@@ -17,6 +17,13 @@ git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-
 git config --global core.autocrlf false
 ```
 
+
+
+b
+c
+
+
+
 ## git diff
 
 `git diff`    比較未 staging 與所在 branch 中最後一個 commit,等同 `git diff HEAD`

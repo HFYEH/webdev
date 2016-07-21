@@ -1,10 +1,3 @@
----
-layout: post
-title: 'Git memo'
-date: 2015-05-20 12:35
-comments: true
-categories: 
----
 ## Configuration
 ```
 git config --global user.name "Username"
@@ -25,31 +18,51 @@ git config --global core.autocrlf false
 
 ## git diff
 `git diff`	比較未 staging 與所在 branch 中最後一個 commit,等同 `git diff HEAD`
+
 `git diff --cached`	比較 staging area 跟 Repo
+
 `git diff HEAD^`	比較未 staging 與 Repo中倒數第二個 commit
+
 想看先前的版本間差異
+
 `git log --oneline`	先顯示 log,方便後續操作
+
 `git diff SHA1..SHA2`
+
 `git diff --since=1.week.ago --until=1.minute.ago`
 
 ## git reset (已經 git push後嚴禁使用)
 `git reset HEAD filename` 從 staging area 狀態回到 unstaging 或 untracked (檔案內容並不會改變)
+
 `git reset HEAD --soft HEAD^`	把最後一次 commit 的檔案回復到 staging 並取消最後一次 commit
+
 若只是忘記加入某檔案可以使用`git add filename`和`git commit --amend -m "message"`加入並 commit
+
 `git reset --hard HEAD^`	返回上一個 commit 並且回復檔案內容
 
 ## git checkout
 `git checkout .`	Recover all to repo version
+
 `git checkout -- filename`	回復為repo中的版本
+
 `git checkout branch_name`	切換到 branch_name 分支
+
 `git checkout v0.0.1`	切換到具有'v0.0.1'的特定 commit
 
 ## git remote
 `git remote add <name> <address>`	加入遠端 Repo
+
 `git remote -v`	檢視所有遠端 Repo
+
 `git remote rm <name>`	刪除遠端 Repo
+
 `heroku create`	創建新的遠端 Repo 於 Heroku 上並且在本地加入遠端 Repo
-`git remote show origin`	1. 顯示所有 remote branch 及追蹤狀態, 2. 顯示所有 local 及它們與 remote branch 的關係(使用git pull會發生的事), 3. 顯示所有 local 及它們與 remote branch 的關係(使用git push會發生的事)
+
+`git remote show origin`
+
+1. 顯示所有 remote branch 及追蹤狀態
+2. 顯示所有 local 及它們與 remote branch 的關係(使用git pull會發生的事)
+3. 顯示所有 local 及它們與 remote branch 的關係(使用git push會發生的事)
 
 ## git push
 `git push -u name branch`	上傳遠端 Repo 並且儲存此次設定

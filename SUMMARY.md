@@ -19,6 +19,10 @@
 * [Database](database.md)
     * [Railsfun RDBMS](articles/2014-12-28-247766.md)
     * [postgresql on ubuntu](articles/2015-02-03-postgresql-on-ubuntu.md)
-* Virtualization
+* [Virtualization](virtualization.md)
     * [VirtualBox共享資料夾](articles/2015-03-22-vb-shared.md)
+* [Android](android.md)
+    * [建置 Android 開發環境](articles/2015-04-13-260136.md)
+* Miscellenous
+    * [Git memo](articles/2015-05-20-git-memo-for-git-real.md)
 

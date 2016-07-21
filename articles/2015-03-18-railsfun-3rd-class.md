@@ -1,10 +1,4 @@
----
-layout: post
-title: 'RailsFun 3rd class'
-date: 2015-03-18 10:49
-comments: true
-categories: [railsfun]
----
+
 #3.HTML & CSS & RWD
 
 教學大綱

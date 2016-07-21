@@ -275,23 +275,28 @@ master 分支有新的 commit 的狀況
 
 shortcut
 
-\`sdfjaijf\`
 `git stash` = `git stash save`
+
 `git stash apply` = `git stash apply stash@{0}`
+
 `git stash drop` = `git stash drop stash@{0}`
+
 `git stash pop` = `git stash apply; git stash drop;`
 
 ## 遠端 branch 被砍掉
 
 自己的分支變成 local branch
 `git push`    無遠端可 push
+
 `git remote show origin`    可以看到被砍掉的 branch 狀態為 stale
+
 `git remote prune origin`    清理被刪除的遠端分支
 
 ## 在 Heroku 部署 local 分支
 
 Heroku 只會部署 master
 `<commit position>:<remote branch>`
+
 `git push heroku-staging local_branch:master`    把 local 分支部署到 Heroku master
 
 ## exclude \(專屬自己的資料夾,不給別人看的\)

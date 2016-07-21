@@ -14,9 +14,11 @@
     * [Railsfun Rails 介紹](articles/2015-03-09-railsfun-2nd-class.md)
 * [DevOps](devops.md)
     * [相關文章](articles/2016-07-09-devops.md)
-* [前端](前端.md)
+* [Front-End](前端.md)
     * [Railsfun HTML & CSS & RWD](articles/2015-03-18-railsfun-3rd-class.md)
-* [資料庫](database.md)
+* [Database](database.md)
     * [Railsfun RDBMS](articles/2014-12-28-247766.md)
     * [postgresql on ubuntu](articles/2015-02-03-postgresql-on-ubuntu.md)
+* Virtualization
+    * [VirtualBox共享資料夾](articles/2015-03-22-vb-shared.md)
 

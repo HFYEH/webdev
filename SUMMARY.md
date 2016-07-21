@@ -9,9 +9,10 @@
 * [Rails](rails.md)
     * [RSpec資料](articles/2016-07-08-rspec.md)
     * [CSRF and CORS](articles/2016-04-28-csrf-and-cors.md)
+    * [Gemfile](articles/2014-12-27-gemfile.md)
 * [DevOps](devops.md)
     * [相關文章](articles/2016-07-09-devops.md)
 * [資料庫](database.md)
-    * [postgresql on ubuntu](articles/2015-02-03-postgresql-on-ubuntu.md)
     * [Railsfun RDBMS](articles/2014-12-28-247766.md)
+    * [postgresql on ubuntu](articles/2015-02-03-postgresql-on-ubuntu.md)
 

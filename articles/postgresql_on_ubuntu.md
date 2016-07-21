@@ -1,2 +1,0 @@
-# postgresql on ubuntu
-

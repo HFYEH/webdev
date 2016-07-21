@@ -15,6 +15,9 @@ https://ihower.tw/rails4/security.html
 
 
 
+[原文](https://github.com/pillarjs/understanding-csrf)
+
+
 CSRF工作方式
 ```html
 <form action="https://my.site.com/me/something-destructive" method="POST">

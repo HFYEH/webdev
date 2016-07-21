@@ -462,3 +462,17 @@ In rails console, find_by_xxx methods do the same thing!
 `Book.where(:title=>'19').first`
 `Book.where('id < 20').first`
 
+
+Rails DB connection and commands
+```
+ActiveRecord::Base.connection.tables
+ActiveRecord::Base.connection.table_structure("projects")
+
+config = Rails.configuration.database_configuration
+host = config[Rails.env]["host"]
+database = config[Rails.env]["database"]
+username = config[Rails.env]["username"]
+password = config[Rails.env]["password"]
+
+
+```

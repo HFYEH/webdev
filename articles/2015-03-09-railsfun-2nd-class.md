@@ -1,10 +1,3 @@
----
-layout: post
-title: 'RailsFun 2nd class (mostly rails)'
-date: 2015-03-09 10:54
-comments: true
-categories: [railsfun]
----
 #Rails 指令介紹
 ##rails 新增前，新增後，請愛用 --help 去問它，server 與 console，
 `rails --help`	#Give different outputs inside and outside rails project

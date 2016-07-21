@@ -389,5 +389,20 @@ t.timestamp :updated_at
 t.timestampe :created_at
 ```
 
+# h and raw
+```
+<%= "<h1>yooo</h1>" %>
+<%= raw("<h1>mooo</h1>") %>
+<%= h("<h1>hooo</h1>") %>
+```
+
+h => blacklist, before rails3, the html will be inserted into html unless you use h, after rails3, it becomes a default setting
+
+Source
+```
+&lt;h1&gt;yooo&lt;/h1&gt;
+<h1>mooo</h1>
+&lt;h3 &gt;hooo&lt;/h3&gt;
+```
 
 

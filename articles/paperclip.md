@@ -22,3 +22,4 @@ http://blog.project-sierra.de/archives/1701
 https://www.stormconsultancy.co.uk/blog/development/ror-using-paperclip-with-amazon-s3-and-cloudfront/
 http://stackoverflow.com/questions/29756313/custom-url-with-paperclip-and-aws-s3
 https://github.com/thoughtbot/paperclip/blob/master/lib/paperclip/storage/s3.rb
+http://www.rubydoc.info/github/thoughtbot/paperclip/Paperclip/Storage/S3#s3_host_alias-instance_method

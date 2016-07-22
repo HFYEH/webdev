@@ -4,7 +4,7 @@
 
 # 資料轉移
 
-如果使用
+在Gemfile加上`gem 'aws-sdk', '< 2.0'`
 
 首先，public/
 

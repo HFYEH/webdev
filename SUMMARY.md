@@ -11,7 +11,7 @@
     * [Railsfun Ruby 介紹](articles/2015-03-04-railsfun-1st-class.md)
     * [Railsfun Rails 介紹](articles/2015-03-09-railsfun-2nd-class.md)
     * [Grape 初體驗（於rails）](articles/2016-04-29-grape-first-experience.md)
-    * [paperclip.md](paperclipmd.md)
+    * [伺服器圖片轉移至S3，並使用自訂的domain name](articles/paperclip.md)
 * [AWS](aws.md)
     * [aws note](articles/2016-05-20-aws-note.md)
 * [DevOps](devops.md)

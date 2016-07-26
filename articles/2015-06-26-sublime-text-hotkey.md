@@ -14,6 +14,7 @@ Ctrl + K + L 轉換為小寫
 Alt+Shift+1 切至單欄
 Alt+Shift+2 切換至兩攔
 Alt+Shift+5 切換至四塊
+ctrl + . 開啟並切換至test檔
 ```
 
 ```

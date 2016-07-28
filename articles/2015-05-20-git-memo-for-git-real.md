@@ -19,10 +19,6 @@ git config --global core.autocrlf false
 
 
 
-b
-c
-
-
 
 ## git diff
 

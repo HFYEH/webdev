@@ -19,7 +19,7 @@
 * [Front-End](前端.md)
     * [Railsfun HTML & CSS & RWD](articles/2015-03-18-railsfun-3rd-class.md)
     * [jQuery memo](articles/2015-05-25-jquery-memo.md)
-    * [Content Security Policy](articles/content_security_policy)
+    * [Content Security Policy](articles/content_security_policy.md)
 * [Database](database.md)
     * [Railsfun RDBMS](articles/2014-12-28-247766.md)
     * [postgresql on ubuntu](articles/2015-02-03-postgresql-on-ubuntu.md)

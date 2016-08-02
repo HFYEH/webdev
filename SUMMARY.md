@@ -4,6 +4,7 @@
 * [Server](server.md)
     * [Linux 部署環境配置](articles/2016-04-19-deploying-rails-on-ubuntu-14-trusty-with-nginx-passenger-using-capistrano.md)
     * [ssl](articles/ssl.md)
+    * [Nginx 中文文章 與如何做websocket server](articles/2016-07-06-nginx-in-chinese.md)
 * [Ruby & Rails](rails.md)
     * [RSpec資料](articles/2016-07-08-rspec.md)
     * [CSRF and CORS](articles/2016-04-28-csrf-and-cors.md)

@@ -11,6 +11,7 @@ class Dog
   end
 end
 dog = Dog.new
+
 # 可以用下列方式使用該方法
 dog.bark	# call
 dog.send("bark")	# send

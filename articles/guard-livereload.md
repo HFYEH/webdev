@@ -1,10 +1,3 @@
----
-layout: post
-title: 'guard-livereload'
-date: 2015-11-28 05:04
-comments: true
-categories: 
----
 ```
 gem install guard-livereload
 

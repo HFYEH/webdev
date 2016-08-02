@@ -30,7 +30,7 @@ Session
 d 脫離目前session；暫時回到Shell界面，输入tmux attach能够重新进入之前的会话
 D 選擇要脫離的session；若同時有多個sessions時使用
 ctrl+z 關閉目前session
-s 切換session；
+s 切換session
 
 ****
 多視窗操作

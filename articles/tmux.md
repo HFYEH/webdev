@@ -31,7 +31,7 @@ D 選擇要脫離的session；若同時有多個sessions時使用
 ctrl+z 關閉目前session
 s 切換session；
 
-
+****
 多視窗操作
 c：建立新的視窗；
 d：卸載目前的 client；
@@ -74,5 +74,6 @@ http://blog.lyhdev.com/2013/01/tmux-tmuxifier-console-screen.html
 
 http://blog.csdn.net/gatieme/article/details/49301037
 
+https://linux.cn/article-3952-1.html
 
 

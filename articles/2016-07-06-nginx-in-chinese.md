@@ -35,6 +35,7 @@
 
 
 
+# proxy_pass
 
 [nginx 配置 location 总结及 rewrite 规则写法](https://linux.cn/article-5714-1.html)
 

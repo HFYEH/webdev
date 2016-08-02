@@ -148,4 +148,4 @@ adb的工作方式比较特殊采用监听Socket TCP 5554等端口的方式让ID
 
 29、访问数据库SQLite3
 
- adb shell  sqlite3
+ adb shell sqlite3

@@ -37,8 +37,6 @@
 
 # proxy_pass
 
-[nginx 配置 location 总结及 rewrite 规则写法](https://linux.cn/article-5714-1.html)
-
 [nginx配置location总结及rewrite规则写法](http://seanlook.com/2015/05/17/nginx-location-rewrite/)
 
 Gitbook好書

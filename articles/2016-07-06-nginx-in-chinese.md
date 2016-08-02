@@ -41,5 +41,5 @@
 
 [nginx配置location总结及rewrite规则写法](http://seanlook.com/2015/05/17/nginx-location-rewrite/)
 
-Gitbook好文
+Gitbook好書
 [关于proxy_pass的参数路径问题](https://rocfang.gitbooks.io/dev-notes/content/guan_yu_proxy_pass_de_can_shu_lu_jing_wen_ti.html)

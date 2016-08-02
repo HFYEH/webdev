@@ -24,7 +24,8 @@ tmux可以開啟server
 t 時鐘, 現在時間
 : 指令模式
 tmux ls 查目前session
-
+tmux attach 進入上次的session
+tmux attach -t session_count 選擇session編號進入
 
 Session
 d 脫離目前session；暫時回到Shell界面，输入tmux attach能够重新进入之前的会话

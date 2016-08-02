@@ -17,10 +17,6 @@ git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-
 git config --global core.autocrlf false
 ```
 
-
-
-#Git 教學（因為要收作業，所以先教最基本的）
-
 ##裸裝與平裝的分別
 
 ```

@@ -1,10 +1,4 @@
----
-layout: post
-title: 'User story and Agile'
-date: 2016-01-06 11:20
-comments: true
-categories: 
----
+
 User story reference
 
 Reference (read):

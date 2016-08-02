@@ -19,6 +19,28 @@ git config --global core.autocrlf false
 
 
 
+#Git 教學（因為要收作業，所以先教最基本的）
+
+##裸裝與平裝的分別
+
+```
+
+git init project` #單人使用(平裝)
+
+git init --bare project.git` #多人使用(裸裝)
+
+```
+
+##clone剛剛開好的裸裝repo
+
+```
+
+git clone /var/git/project.git/ #內部連線
+
+git clone ssh://imroot@127.0.0.1:/var/git/project.git/ #外部連線
+
+```
+
 
 ## git diff
 

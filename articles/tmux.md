@@ -95,9 +95,6 @@ tmuxifier load-window project_name
 
 
 
-
-
-
 ```
 
 

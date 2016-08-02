@@ -81,3 +81,13 @@ http://www.maxincai.com/post/tmux/
 
 以後再玩config
 https://github.com/gpakosz/.tmux
+
+
+使用tmuxifier
+`tmuxifier new-window example`
+```
+
+
+```
+
+

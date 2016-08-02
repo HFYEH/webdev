@@ -1,10 +1,3 @@
----
-layout: post
-title: 'Ruby China 文章筆記'
-date: 2016-01-28 14:29
-comments: true
-categories: 
----
 # [Ruby和元编程的故事 - 第2回: 类与模块，Ruby的绝代双骄](https://ruby-china.org/topics/1581)
 
 self是特殊的變量,保存的是當前的object,object調用method或實例變數都會使用self

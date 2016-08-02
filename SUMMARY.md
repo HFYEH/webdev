@@ -23,6 +23,7 @@
     * [ActiveRecord Coursera 課程](articles/coursera-active-record-and-action-pack-active-record.md)
     * [ActionPack Coursera Course](articles/coursera-active-record-and-action-pack-expressing-database-relationships.md)
     * [User Story and Agile](articles/user-story-agile.md)
+    * [Metaprogramming](articles/metaprogramming.md)
 * [AWS](aws.md)
     * [aws note](articles/2016-05-20-aws-note.md)
 * [DevOps](devops.md)

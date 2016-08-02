@@ -23,6 +23,7 @@ tmux可以開啟server
 ? 看說明 (M 代表要先按一下 Esc 鍵)
 t 時鐘, 現在時間
 : 指令模式
+tmux ls 查目前session
 
 
 Session

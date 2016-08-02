@@ -50,9 +50,8 @@ o：切換到下個區塊；
 w：列出目前 clinet 的視窗，可以用數字鍵切換；
 ```
 
-
 http://blog.chh.tw/posts/tmux-terminal-multiplexer/
-http://blog.chh.tw/posts/tmux-terminal-multiplexer/
+http://blog.lyhdev.com/2013/01/tmux-tmuxifier-console-screen.html
 
 
 

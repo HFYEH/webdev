@@ -2,7 +2,6 @@
 
 [adb shell 命令詳解](http://www.open-open.com/lib/view/1327557366686)
 
-
 SDK的Tools文件夹下包含着Android模拟器操作的重要命令adb，adb的全称为(Android Debug Bridge就是调试桥的作用。通过adb我们可以在Eclipse中方面通过DDMS来调试Android程序。借助这个工具，我们可以管理设备或手机模拟器的状态。还可以进行以下的操作： 
 
 1. 快速更新设备或手机模拟器中的代码，如应用或Android 系统升级； 

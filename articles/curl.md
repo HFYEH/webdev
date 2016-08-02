@@ -13,3 +13,6 @@
 -s 不顯示處理的訊息
 
 -o 指定輸出檔案
+
+
+[curl测试网站](http://www.zhengdazhi.com/archives/788)

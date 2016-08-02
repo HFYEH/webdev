@@ -33,4 +33,5 @@
     * [Git memo](articles/2015-05-20-git-memo-for-git-real.md)
     * [Sublime text](articles/2015-06-26-sublime-text-hotkey.md)
     * [cURL](articles/curl.md)
+    * [adb \(android debug bridge\)](articles/adb_cheet_sheet.md)
 

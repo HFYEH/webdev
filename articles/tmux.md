@@ -52,5 +52,8 @@ ctrl按著 + 上下左右, 可以調整視窗大小
 
 
 http://blog.chh.tw/posts/tmux-terminal-multiplexer/
+http://blog.chh.tw/posts/tmux-terminal-multiplexer/
+
+
 
 

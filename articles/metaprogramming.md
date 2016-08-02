@@ -21,5 +21,9 @@ Class的superclass如Object, BasicObject都是Class的實例(有點怪)
 Test是Class的一個實例,Test.new會產生新的Test實例
 
 
+
+http://sibevin.github.io/tags?t=mp
+
+
 國外Metagramming教學網站
 [Metaprogramming in Ruby](http://ruby-metaprogramming.rubylearning.com/)

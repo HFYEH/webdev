@@ -2,10 +2,11 @@
 
 * [Introduction](README.md)
 * [Server](server.md)
-    * [Linux 部署環境配置](articles/2016-04-19-deploying-rails-on-ubuntu-14-trusty-with-nginx-passenger-using-capistrano.md)
+    * [Linux 部署環境配置 \(Nginx + Passenger + Rails by Capistrano\)](articles/deploying-rails-on-ubuntu-14-trusty-with-nginx-passenger-using-capistrano.md)
     * [Nginx 中文文章 與如何做websocket server](articles/nginx.md)
     * [http \/ https](articles/http.md)
     * [理解Nginx代理，負載平衡，緩衝和緩存](articles/understand-nginx-proxy-load-balancing-buffer-and-cache.md)
+    * [Process \/ Thread 和 App Server 的種類](articles/webserver.md)
 * [Ruby & Rails](rails.md)
     * [RSpec資料](articles/rspec.md)
     * [CSRF and CORS](articles/2016-04-28-csrf-and-cors.md)

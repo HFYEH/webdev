@@ -1,3 +1,5 @@
+# Nginx 中文文章
+
 [nginx 基礎設定教學](http://blog.hellojcc.tw/2015/12/07/nginx-beginner-tutorial/)
 
 [Nginx 基本設定教學](http://blog.yslin.tw/2012/02/nginx.html)
@@ -9,6 +11,9 @@
 [Nginx配置参数中文说明](http://wangying.sinaapp.com/archives/931)
 
 [nginx基础及其配制说明](http://lawrence-zxc.github.io/2012/05/01/nginx-jichu/)
+
+
+# Websocket
 
 [Nginx反向代理Websocket](http://www.uml.org.cn/AJAX/201410103.asp?artid=15303)
 
@@ -27,6 +32,8 @@
 [基本的 WebSocket 的 Nginx 配置](https://segmentfault.com/a/1190000000453817)
 
 [nginx websocket简介及配置](http://coolnull.com/4275.html)
+
+
 
 
 [nginx 配置 location 总结及 rewrite 规则写法](https://linux.cn/article-5714-1.html)

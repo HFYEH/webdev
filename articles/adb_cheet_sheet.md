@@ -1,12 +1,140 @@
-[](http://www.open-open.com/lib/view/1327557366686)
+# 轉載文章
+
+[adb shell 命令詳解](http://www.open-open.com/lib/view/1327557366686)
+
+
+SDK的Tools文件夹下包含着Android模拟器操作的重要命令adb，adb的全称为(Android Debug Bridge就是调试桥的作用。通过adb我们可以在Eclipse中方面通过DDMS来调试Android程序。借助这个工具，我们可以管理设备或手机模拟器的状态。还可以进行以下的操作： 1、快速更新设备或手机模拟器中的代码，如应用或Android 系统升级； 2、在设备上运行shell命令； 3、管理设备或手机模拟器上的预定端口； 4、在设备或手机模拟器上复制或粘贴文件；
 
 
 
-sdf
+adb在集成开发环境中的工作  adb的工作方式比较特殊采用监听Socket TCP 5554等端口的方式让IDE和Qemu通讯，默认情况下adb会daemon相关的网络端口，所以当我们运行Eclipse时adb进程就会自动运行。  1.通过adb可以轻松的执行Linux Shell命令，如adb shell dir 就是列举目录，在Linux中根目录为/而不是Windows上的C盘、D盘。  2.安装apk程序到模拟器则执行adb install android123.apk，这样名为android123的安装包就会安装到Android模拟器中，前提是android123.apk文件需要放到SDK/Tools目录下。  3.向emulator传送文件， 使用adb push android123.txt /tmp/android123.txt命令可以把SDK/Tools下的android123.txt文件传输到模拟器的/tmp/文件夹中，需要注意的是/tmp/文件夹中内容会在Android模拟器重新启动时清空。  4.从Android仿真器中回传文件到电脑  通过adb pull /tmp/android123.txt android123.txt命令就会把仿真器的tmp文件夹下android123.txt文件回传到电脑SDK/Tools目录下。  adb 常用命令大全
 
-sdf
-sdf
+1. 显示系统中全部Android平台：
 
+ android list targets
 
+2. 显示系统中全部AVD（模拟器）：
 
-adb介紹SDK的Tools文件夾下包含著Android模擬器操作的重要命令adb，adb的全稱為(Android Debug Bridge就是調試橋的作用。通過adb我們可以在Eclipse中方面通過DDMS來調試Android程序。借助這個工具，我們可以管理設備或手機模擬器的狀態。還可以進行以下的操作： 1、快速更新設備或手機模擬器中的代碼，如應用或Android 系統升級； 2、在設備上運行shell命令； 3、管理設備或手機模擬器上的預定端口； 4、在設備或手機模擬器上復制或粘貼文件； adb在集成開發環境中的工作  adb的工作方式比較特殊采用監聽Socket TCP 5554等端口的方式讓IDE和Qemu通訊，默認情況下adb會daemon相關的網絡端口，所以當我們運行Eclipse時adb進程就會自動運行。  1.通過adb可以輕松的執行Linux Shell命令，如adb shell dir 就是列舉目錄，在Linux中根目錄為/而不是Windows上的C盤、D盤。  2.安裝apk程序到模擬器則執行adb install android123.apk，這樣名為android123的安裝包就會安裝到Android模擬器中，前提是android123.apk文件需要放到SDK/Tools目錄下。  3.向emulator傳送文件， 使用adb push android123.txt /tmp/android123.txt命令可以把SDK/Tools下的android123.txt文件傳輸到模擬器的/tmp/文件夾中，需要註意的是/tmp/文件夾中內容會在Android模擬器重新啟動時清空。  4.從Android仿真器中回傳文件到電腦  通過adb pull /tmp/android123.txt android123.txt命令就會把仿真器的tmp文件夾下android123.txt文件回傳到電腦SDK/Tools目錄下。  adb 常用命令大全1. 顯示系統中全部Android平臺： android list targets2. 顯示系統中全部AVD（模擬器）： android list avd3. 創建AVD（模擬器）： android create avd --name 名稱 --target 平臺編號4. 啟動模擬器： emulator -avd 名稱 -sdcard ~/名稱.img (-skin 1280x800)5. 刪除AVD（模擬器）： android delete avd --name 名稱6. 創建SDCard： mksdcard 1024M ~/名稱.img7. AVD(模擬器)所在位置： Linux(~/.android/avd) Windows(C:\Documents and Settings\Administrator\.android\avd)8. 啟動DDMS： ddms9. 顯示當前運行的全部模擬器： adb devices10. 對某一模擬器執行命令： abd -s 模擬器編號 命令11. 安裝應用程序： adb install -r 應用程序.apk12. 獲取模擬器中的文件： adb pull <remote> <local>13. 向模擬器中寫文件： adb push <local> <remote>14. 進入模擬器的shell模式： adb shell15. 啟動SDK，文檔，實例下載管理器： android16. 缷載apk包： adb shell cd data/app rm apk包 exit adb uninstall apk包的主包名 adb install -r apk包17. 查看adb命令幫助信息： adb help18. 在命令行中查看LOG信息： adb logcat -s 標簽名19. adb shell後面跟的命令主要來自： 源碼\system\core\toolbox目錄和源碼\frameworks\base\cmds目錄。20. 刪除系統應用： adb remount （重新掛載系統分區，使系統分區重新可寫）。 adb shell cd system/app rm *.apk21. 獲取管理員權限： adb root22. 啟動Activity： adb shell am start -n 包名/包名＋類名（-n 類名,-a action,-d date,-m MIME-TYPE,-c category,-e 擴展數據,等）。23、發布端口： 你可以設置任意的端口號，做為主機向模擬器或設備的請求端口。如： adb forward tcp:5555 tcp:800024、復制文件： 你可向一個設備或從一個設備中復制文件，  復制一個文件或目錄到設備或模擬器上：  adb push <source> <destination></destination></source>  如：adb push test.txt /tmp/test.txt  從設備或模擬器上復制一個文件或目錄：  adb pull <source> <destination></destination></source>  如：adb pull /addroid/lib/libwebcore.so .25、搜索模擬器/設備的實例： 取得當前運行的模擬器/設備的實例的列表及每個實例的狀態：  adb devices26、查看bug報告： adb bugreport 27、記錄無線通訊日誌： 一般來說，無線通訊的日誌非常多，在運行時沒必要去記錄，但我們還是可以通過命令，設置記錄：  adb shell  logcat -b radio28、獲取設備的ID和序列號： adb get-product  adb get-serialno29、訪問數據庫SQLite3 adb shell  sqlite3#cd system/sd/data //進入系統內指定文件夾 #ls //列表顯示當前文件夾內容 #rm -r xxx //刪除名字為xxx的文件夾及其裏面的所有文件 #rm xxx //刪除文件xxx #rmdir xxx //刪除xxx的文件夾
+ android list avd
+
+3. 创建AVD（模拟器）：
+
+ android create avd --name 名称 --target 平台编号
+
+4. 启动模拟器：
+
+ emulator -avd 名称 -sdcard ~/名称.img (-skin 1280x800)
+
+5. 删除AVD（模拟器）：
+
+ android delete avd --name 名称
+
+6. 创建SDCard：
+
+ mksdcard 1024M ~/名称.img
+
+7. AVD(模拟器)所在位置：
+
+ Linux(~/.android/avd) Windows(C:\Documents and Settings\Administrator\.android\avd)
+
+8. 启动DDMS：
+
+ ddms
+
+9. 显示当前运行的全部模拟器：
+
+ adb devices
+
+10. 对某一模拟器执行命令：
+
+ abd -s 模拟器编号 命令
+
+11. 安装应用程序：
+
+ adb install -r 应用程序.apk
+
+12. 获取模拟器中的文件：
+
+ adb pull <remote> <local>
+
+13. 向模拟器中写文件：
+
+ adb push <local> <remote>
+
+14. 进入模拟器的shell模式：
+
+ adb shell
+
+15. 启动SDK，文档，实例下载管理器：
+
+ android
+
+16. 缷载apk包：
+
+ adb shell
+
+ cd data/app
+
+ rm apk包
+
+ exit
+
+ adb uninstall apk包的主包名
+
+ adb install -r apk包
+
+17. 查看adb命令帮助信息：
+
+ adb help
+
+18. 在命令行中查看LOG信息：
+
+ adb logcat -s 标签名
+
+19. adb shell后面跟的命令主要来自：
+
+ 源码\system\core\toolbox目录和源码\frameworks\base\cmds目录。
+
+20. 删除系统应用：
+
+ adb remount （重新挂载系统分区，使系统分区重新可写）。
+
+ adb shell
+
+ cd system/app
+
+ rm *.apk
+
+21. 获取管理员权限：
+
+ adb root
+
+22. 启动Activity：
+
+ adb shell am start -n 包名/包名＋类名（-n 类名,-a action,-d date,-m MIME-TYPE,-c category,-e 扩展数据,等）。
+
+23、发布端口：
+
+ 你可以设置任意的端口号，做为主机向模拟器或设备的请求端口。如： adb forward tcp:5555 tcp:8000
+
+24、复制文件：
+
+ 你可向一个设备或从一个设备中复制文件，  复制一个文件或目录到设备或模拟器上：  adb push <source> <destination></destination></source>  如：adb push test.txt /tmp/test.txt  从设备或模拟器上复制一个文件或目录：  adb pull <source> <destination></destination></source>  如：adb pull /addroid/lib/libwebcore.so .
+
+25、搜索模拟器/设备的实例：
+
+ 取得当前运行的模拟器/设备的实例的列表及每个实例的状态：  adb devices
+
+26、查看bug报告： adb bugreport 27、记录无线通讯日志：
+
+ 一般来说，无线通讯的日志非常多，在运行时没必要去记录，但我们还是可以通过命令，设置记录：  adb shell  logcat -b radio
+
+28、获取设备的ID和序列号：
+
+ adb get-product  adb get-serialno
+
+29、访问数据库SQLite3
+
+ adb shell  sqlite3
+
+#cd system/sd/data //进入系统内指定文件夹 #ls //列表显示当前文件夹内容 #rm -r xxx //删除名字为xxx的文件夹及其里面的所有文件 #rm xxx //删除文件xxx #rmdir xxx //删除xxx的文件夹

@@ -1,10 +1,3 @@
----
-layout: post
-title: '理解Nginx代理，負載平衡，緩衝和緩存'
-date: 2016-06-23 02:09
-comments: true
-categories: 
----
 [DigitalOcean的原文](https://www.digitalocean.com/community/tutorials/understanding-nginx-http-proxying-load-balancing-buffering-and-caching)
 
 

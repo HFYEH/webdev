@@ -25,6 +25,7 @@
     * [User Story and Agile](articles/user-story-agile.md)
     * [Metaprogramming](articles/metaprogramming.md)
     * [ActionMailer 透過 Gmail 寄信遇到二階段驗證問題](articles/actionmail_2_factor_auth.md)
+    * [CSRF & CORS](articles/csrf-and-cors.md)
 * [AWS](aws.md)
     * [aws note](articles/2016-05-20-aws-note.md)
 * [DevOps](devops.md)

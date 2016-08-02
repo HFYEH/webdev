@@ -18,6 +18,7 @@
     * [Rack Middleware](articles/rack-middleware.md)
     * [使用 Live Reload](articles/guard-livereload.md)
     * [Metaprogramming - 解釋find\_by\_xxx](articles/metagramming-find-by-method.md)
+    * [Metaprogramming - Coursera 課程](articles/coursera-metaprogramming.md)
 * [AWS](aws.md)
     * [aws note](articles/2016-05-20-aws-note.md)
 * [DevOps](devops.md)

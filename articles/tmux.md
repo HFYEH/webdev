@@ -79,3 +79,5 @@ https://linux.cn/article-3952-1.html
 
 http://www.maxincai.com/post/tmux/
 
+以後再玩config
+https://github.com/gpakosz/.tmux

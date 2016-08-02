@@ -16,6 +16,9 @@ xdite
 
 Agile Reference (unread):
 [Displined Agile 2.0](http://www.disciplinedagiledelivery.com/)
+
 [All About Agile](http://www.allaboutagile.com/)
+
 [Extreme Programming](http://www.extremeprogramming.org/)
+
 [Agile Modeling](http://agilemodeling.com/)

@@ -39,4 +39,7 @@
 
 [nginx 配置 location 总结及 rewrite 规则写法](https://linux.cn/article-5714-1.html)
 
+[nginx配置location总结及rewrite规则写法](http://seanlook.com/2015/05/17/nginx-location-rewrite/)
 
+
+[关于proxy_pass的参数路径问题](https://rocfang.gitbooks.io/dev-notes/content/guan_yu_proxy_pass_de_can_shu_lu_jing_wen_ti.html)

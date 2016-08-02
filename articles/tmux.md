@@ -20,9 +20,11 @@ tmux可以開啟server
 一個session有許多視窗
 一個視窗有許多區域
 
-Session
 ? 看說明 (M 代表要先按一下 Esc 鍵)
 t 時鐘, 現在時間
+
+
+Session
 d 脫離目前session；暫時回到Shell界面，输入tmux attach能够重新进入之前的会话
 D 選擇要脫離的session；若同時有多個sessions時使用
 ctrl+z 關閉目前session

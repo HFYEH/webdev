@@ -85,8 +85,17 @@ https://github.com/gpakosz/.tmux
 
 
 使用tmuxifier
-`tmuxifier new-window example`
 ```
+新建
+tmuxifier new-window project_name
+修改設定
+tmuxifier edit-window project_name
+進入tmux後，可以讀此設定
+tmuxifier load-window project_name
+
+
+
+
 
 
 ```

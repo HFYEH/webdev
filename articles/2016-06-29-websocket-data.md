@@ -17,9 +17,6 @@ Websocket server的實作極多，本篇目標是想以 faye-websocket 這個 ge
 [Railsfun JC 大解釋](http://railsfun.tw/t/rails-websocket/498/3)
 
 
-
-
-
 ## 參考資料
 
 [Ruby & Websocket & websocket-js 支援與詳解 by JC](http://jokercatz.blogspot.tw/2013/04/ruby-websocket.html)

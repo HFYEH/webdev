@@ -12,6 +12,8 @@
 
 [nginx基础及其配制说明](http://lawrence-zxc.github.io/2012/05/01/nginx-jichu/)
 
+編入時未尚未完成
+[Nginx开发从入门到精通](http://tengine.taobao.org/book/index.html)
 
 # Websocket
 

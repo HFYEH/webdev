@@ -1,10 +1,3 @@
----
-layout: post
-title: '使用ActionMailer透過Gmail寄信'
-date: 2016-02-05 13:51
-comments: true
-categories: 
----
 參考ihower的Ruby on Rails實戰聖經的[ActionMailer - E-mail 發送](https://ihower.tw/rails4/actionmailer.html)章節。
 
 在development.rb裡加入寄信的設定。

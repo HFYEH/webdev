@@ -1,10 +1,3 @@
----
-layout: post
-title: '(Coursera) Active Record and Action Pack - Metaprogramming'
-date: 2015-10-27 10:55
-comments: true
-categories: 
----
 # Metaprogramming
 
 ## Dynamic dispatch

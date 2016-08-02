@@ -26,7 +26,7 @@ t 時鐘, 現在時間
 tmux ls 查目前session
 tmux attach 進入上次的session
 tmux attach -t session_count 選擇session編號進入
-tmux kill-session -t session_count 刪除session
+tmux kill-session -t session_count 依編號刪除session
 
 Session
 d 脫離目前session；暫時回到Shell界面，输入tmux attach能够重新进入之前的会话

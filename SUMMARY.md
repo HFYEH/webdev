@@ -30,7 +30,7 @@
 * [Android](android.md)
     * [建置 Android 開發環境](articles/2015-04-13-260136.md)
     * [cordova](articles/cordova.md)
-* [Miscellenous](miscellenous.md)
+* [Cheet Sheets](miscellenous.md)
     * [Git memo](articles/2015-05-20-git-memo-for-git-real.md)
     * [Sublime text](articles/2015-06-26-sublime-text-hotkey.md)
     * [cURL](articles/curl.md)

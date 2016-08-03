@@ -8,6 +8,7 @@ categories:
 # Introduction
 
 使用 ActiveRecord 的先決條件:
+
 1. ActiveRecord 必須知道如何存取資料庫(rails讀取時會讀config/database.yml獲取這些資訊)
 2. 按照慣例,table名稱為複數,其對應的ActiveRecord::Base的subclass為單數
 3. 按照慣例,ActiveRecord預期其table有primary key, 其名稱為id

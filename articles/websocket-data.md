@@ -1,10 +1,3 @@
----
-layout: post
-title: 'websocket資料'
-date: 2016-06-29 02:52
-comments: true
-categories: 
----
 Websocket server的實作極多，本篇目標是想以 faye-websocket 這個 gem 做一個純websocket service。玩熟之後可能還會玩玩看 em-websocket 和 plezi。那麽，開始吧！
 
 從Wikipedia的定義
@@ -15,9 +8,6 @@ Websocket server的實作極多，本篇目標是想以 faye-websocket 這個 ge
 不過有另外兩個資料寫得比較好
 [知乎原理介紹](https://www.zhihu.com/question/20215561)
 [Railsfun JC 大解釋](http://railsfun.tw/t/rails-websocket/498/3)
-
-
-
 
 
 ## 參考資料

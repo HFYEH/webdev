@@ -1,10 +1,3 @@
----
-layout: post
-title: '(Coursera) Active Record and Action Pack - Metaprogramming'
-date: 2015-10-27 10:55
-comments: true
-categories: 
----
 # Metaprogramming
 
 ## Dynamic dispatch
@@ -18,6 +11,7 @@ class Dog
   end
 end
 dog = Dog.new
+
 # 可以用下列方式使用該方法
 dog.bark	# call
 dog.send("bark")	# send

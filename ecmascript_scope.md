@@ -143,8 +143,13 @@ funcA()(); //Global name
 上面我們在閉包中引用this，本來以為this指向funcA，結果卻是"Global name"，說明this指向全局對象window。因為this指向調用自己的對象，上面的代碼可以寫成`window.funcA()()`，即是window。在全局定義的域中定義的變量和函數都是window的成員。
 
 
+關於this，可以讀
 
+http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html
 
+和
+
+http://www.zcfy.cc/article/901
 
 
 

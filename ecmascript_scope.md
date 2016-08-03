@@ -124,7 +124,23 @@ funcA執行完成後作用域鏈被銷毀，但其變量對象（紅色）因為
 閉包，就是該匿名函數，正式一點說，****閉包就是能訪問另一個函數作用域中變量的函數****。閉包優點是可以訪問另一個函數域中的變量，缺點就是耗記憶體。
 
 
+## 關於this
+****this和作用域沒什麽關係****。在使用閉包時常會誤用this
 
+```
+var name = "Global name";
+
+function funcA(){
+    var name = "FuncA name";
+    return function(){
+        alert(this.name);
+    };
+}
+
+funcA()(); //Global name
+```
+
+上面我們在閉包中引用this，本來以為this指向funcA，結果卻是"Global name"，說明this指向全局對象window。因為this指向調用自己的對象，上面的代碼可以寫成`window.funcA()()`，即是window。在全局定義的域中定義的變量和函數都是window的成員。
 
 
 

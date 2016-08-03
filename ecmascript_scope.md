@@ -87,7 +87,24 @@ funcA內部有個特殊的pointer，指向funcA的作用域鏈，funcA的作用�
 ****不能理解閉包關鍵是沒有理解ECMAScript模型****（就是說我）。
 
 
+結合上面的執行模型，想像一下將一個函數內嵌套另一個函數，並將此函數作為返回值，執行模型為何？
 
+```
+var name = "Microsoft";
+
+function funcA(){
+    var name = "Google";
+    alert(name);
+    return function(){
+        name = "Facebook";
+        alert(name);
+    };
+}
+
+var o = funcA(); //Google
+alert(name); //Microsoft
+o(); //Facebook
+```
 
 
 

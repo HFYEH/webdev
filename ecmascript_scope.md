@@ -157,6 +157,3 @@ funcA()(); //Global name
 
 
 
-
-
-

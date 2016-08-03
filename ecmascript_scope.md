@@ -30,4 +30,29 @@ console.log(i); // 11
 
 ## ECMAScirpt作用域模型
 
+#### 執行環境 Execution context
+可執行代碼分成三種：Global code, Eval code, Function code
+****當執行控制流進入Global code或Function code時，都會創建一個執行環境。而執行一函數時，該執行環境會在棧頂，離開時，會銷毀該環境。****
 
+#### 變量對象 Variable Object
+****每一個執行環境都有一個與其相關的變量對象，它記憶了此環境中的的變量和函數。****
+
+一段程式碼如下
+```
+var name = "Microsoft";
+
+function funcA(){
+    var name = "Google";
+    alert(name);
+}
+
+funcA(); //Google
+
+alert(name); //Microsoft
+```
+
+![](http://images.cnblogs.com/cnblogs_com/leoo2sk/201012/201012192354556315.png)
+
+當執行到funcA時，建立一個環境並壓到棧頂，而兩個執行環境各自指向funcA的變數對象和全局變數對象，每個變量對象如同Hash table，保存所有函數和變量。
+
+****this保存的是觸發此環境的對象，arguments保存的是函數的參數（全局執行環境沒有）****

@@ -56,3 +56,26 @@ alert(name); //Microsoft
 當執行到funcA時，建立一個環境並壓到棧頂，而兩個執行環境各自指向funcA的變數對象和全局變數對象，每個變量對象如同Hash table，保存所有函數和變量。
 
 ****this保存的是觸發此環境的對象，arguments保存的是函數的參數（全局執行環境沒有）****
+
+作用域鏈 Scope Chain
+
+上面提到函數中的var會覆蓋全域變量，這個模型怎麽知道何時該用函數域變量，何時該用全局變量？這就涉及到作用域鏈。
+
+假設另一個例子
+```
+var name = "Microsoft";
+
+function funcA(){
+    // var name = "Google";
+    alert(name);
+}
+
+funcA(); //Microsoft
+alert(name); //Microsoft
+```
+ECMAScript執行模型中每個環境都會關聯一個作用域鏈。可以把作用域鏈想成是一個pointer stack，每個元素都是指向某個變量對象的指針，從棧頂到棧底，指向的對象分別是當前環境的變量對象，上一層的變量對象，依此類推，最後一個指向全局變量對象。下圖是對上圖增加作用域後的樣子。
+![](http://images.cnblogs.com/cnblogs_com/leoo2sk/201012/201012192354569281.png)
+
+
+
+

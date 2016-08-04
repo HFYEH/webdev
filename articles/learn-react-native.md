@@ -4,3 +4,4 @@
 
 照範例做，react-native packer可能不會自動運行，解法是在另一個terminal跑`react-native start`。
 
+

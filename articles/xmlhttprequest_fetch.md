@@ -102,3 +102,5 @@ async/await的例子說明
 [JavaScript Promise API](https://segmentfault.com/a/1190000004476610)
 
 [深入浅出Fetch API](http://wwsun.github.io/posts/fetch-api-intro.html)
+
+[Fetch API](https://segmentfault.com/a/1190000006039533)

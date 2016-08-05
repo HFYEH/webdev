@@ -83,8 +83,8 @@ pending狀態可轉為fulfilled或rejected，當狀態發生轉喚，promise.the
 
 Promise.prototype.then和Promise.prototype.catch方法返回promises，所以可以被鏈式調用。
 
-Fetch API
 
+###### Fetch API
 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalFetch/fetch)
 
 

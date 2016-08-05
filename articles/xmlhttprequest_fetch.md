@@ -58,9 +58,31 @@ try {
 
 ### Promise
 
+整理自[MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+
 Fetch API是基於Promise標準庫來做異步請求的。一個Promise對象代表一個還未完成，但預期將來會完成的操作。
 
+###### 函數型式與參數
+
 `new Promise(function(resolve, reject){...});`
+
+resolve: 處理執行成功的場景
+
+reject: 處理執行失敗的場景
+
+此對象是fetch的返回值，此返回值promise創建時未必已知。它允許會異步請求的成功或失敗指定處理方法。
+
+###### Promise的狀態
+
+1. pending: 初始狀態
+2. fulfilled: 成功的操作
+3. rejected: 失敗的操作
+
+pending狀態可轉為fulfilled或rejected，當狀態發生轉喚，promise.then綁定的方法就會被調用。
+![](https://mdn.mozillademos.org/files/8633/promises.png)
+
+
+###### Promise的屬性
 
 
 

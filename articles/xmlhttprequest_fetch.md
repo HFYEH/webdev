@@ -7,6 +7,12 @@ JavaScript發出異步請求（AJAX）過去普遍仰賴XMLHttpRequest，然而X
 新的Fetch API打算修正這些缺陷。它引入一個實用的函數fecth()用來捕捉網路上檢索一個資源的意圖。
 
 
+### XMLHttpRequest
+http://www.ruanyifeng.com/blog/2012/09/xmlhttprequest_level_2.html
+
+
+
+
 ### 範例：
 
 使用XHR發送json請求：

@@ -30,13 +30,24 @@ fetch(url).then(function(response){
  });
 ```
 
-使用ES6箭頭函數
+使用ES6的箭頭函數
 ```
 fetch(url)
   .then(response => response.json())
   .then(data => console.log(data))
   .catch(e => console.log("Oops, error", e))
 
+```
+使用async/await做最終優化
+```
+try {
+  let response = await fetch(url);
+  let data = response.json();
+   console.log(data);
+} catch(e) {
+  console.log("Oops, error", e);
+}
+// 注：这段代码如果想运行，外面需要包一个 async function
 ```
 
 

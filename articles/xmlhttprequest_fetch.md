@@ -81,6 +81,7 @@ reject: 處理執行失敗的場景
 pending狀態可轉為fulfilled或rejected，當狀態發生轉喚，promise.then綁定的方法就會被調用。
 ![](https://mdn.mozillademos.org/files/8633/promises.png)
 
+Promise.prototype.then和Promise.prototype.catch方法返回promises，所以可以被鏈式調用。
 
 ###### Promise的屬性
 

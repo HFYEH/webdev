@@ -56,6 +56,12 @@ try {
 2. 只有在發生網路錯誤導致請求不能完成才會拋出例外，404, 400, 500則否
 
 
+### Promise
+
+Fetch API是基於Promise標準庫來做異步請求的。一個Promise對象代表一個還未完成，但預期將來會完成的操作。
+
+`new Promise(function(resolve, reject){...});`
+
 
 ### 參考資料：
 

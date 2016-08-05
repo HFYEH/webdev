@@ -28,6 +28,13 @@ fetch(url).then(function(response){
 }).catch(function(e) {
   console.log("Oops, error");
  });
+```
+
+使用ES6箭頭函數
+```
+fetch(url).then(response => response.json())
+  .then(data => console.log(data))
+  .catch(e => console.log("Oops, error", e))
 
 ```
 

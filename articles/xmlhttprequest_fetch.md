@@ -75,8 +75,8 @@ reject: 處理執行失敗的場景
 ###### Promise的狀態
 
 1. pending: 初始狀態
-2. fulfilled: 成功的操作
-3. rejected: 失敗的操作
+2. fulfilled: 成功的操作(settled)
+3. rejected: 失敗的操作(settled)
 
 pending狀態可轉為fulfilled或rejected，當狀態發生轉喚，promise.then綁定的方法就會被調用。
 ![](https://mdn.mozillademos.org/files/8633/promises.png)

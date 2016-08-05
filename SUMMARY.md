@@ -41,6 +41,7 @@
     * [BFC, Collapsing margins](articles/bfc_collapsing_margins.md)
     * [讀ECMAScript作用域模型](articles/ecmascript_scope.md)
     * [Javascript: The Good Parts 閱讀筆計](javascript-the-good-parts.md)
+    * [Promise & Fetch](articles/promise_fetch.md)
 * [Database](database.md)
     * [postgresql on ubuntu](articles/postgresql-on-ubuntu.md)
     * [N+1 query, sql重新包裝利用](articles/n-1-query.md)

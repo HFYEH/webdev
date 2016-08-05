@@ -51,6 +51,11 @@ try {
 ```
 作者預測async/await這類新異步語法出現，第三方的Promise會逐漸被標準Promise取代，使用polyfill是比較明智的做法。
 
+一些重點是：
+1. fetch預設不帶cookiie
+2. 只有在發生網路錯誤導致請求不能完成才會拋出例外
+
+
 
 ### 參考資料：
 

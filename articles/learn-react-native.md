@@ -6,8 +6,7 @@
 
 [SUBLIME TEXT 3搭建REACT.JS开发环境](http://hao.jser.com/archive/8322/)
 
-
-(http://winwu.github.io/react-native-note/2016/05/02/fetch-exampe/)
+[第七卷 - Fetch 簡介以及 React Native 之 Fetch 的練習](http://winwu.github.io/react-native-note/2016/05/02/fetch-exampe/)
 
 # Issues:
 

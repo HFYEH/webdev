@@ -6,5 +6,6 @@ JavaScript發出異步請求（AJAX）過去普遍仰賴XMLHttpRequest，然而X
 
 
 [fetch介紹](https://segmentfault.com/a/1190000003810652)
+
 [This API is So Fetching 譯文](http://www.w3ctech.com/topic/854)
 

@@ -49,7 +49,7 @@ try {
 }
 // 注：这段代码如果想运行，外面需要包一个 async function
 ```
-
+作者預測async/await這類新異步語法出現，第三方的Promise會逐漸被標準Promise取代，使用polyfill是比較明智的做法。
 
 
 ### 參考資料：

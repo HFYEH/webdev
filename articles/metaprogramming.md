@@ -65,6 +65,10 @@ private method只能用隱含的方式呼叫的method（無reciever）
 
 # Dynamic Method
 
+所有的method都是procedure
+
+所有的method name都是symbol
+
 
 
 # Ghost Method

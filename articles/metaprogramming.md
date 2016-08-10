@@ -82,7 +82,15 @@ real example
 a.responde_to?(:say_hi)會找不到
 因此還要覆寫responde_to_missing?給repond_to?
 
-Ghost method優先權最低
+Ghost method優先權最低，如果要用到ghost method不會被同名覆蓋，可用
+remove_method, undef_method
+
+或者可用blank state
+
+擁有最少method的物件稱為blank state，可以繼承BasicObject（要幹這件事時先把檔案保留下來）
+
+
+
 
 
 

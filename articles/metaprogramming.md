@@ -28,6 +28,25 @@ Test是Class的一個實例,Test.new會產生新的Test實例
 
 
 
+======================
+
+```
+class A
+  def ss
+  end
+end
+
+a = A.new
+a.ss  (reciever.method)
+```
+
+private method只能用隱含的方式呼叫的method（無reciever）
+
+但是send可以呼叫private method
+
+send(:method_name)
+
+
 
 
 

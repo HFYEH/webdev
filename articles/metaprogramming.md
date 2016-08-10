@@ -79,5 +79,6 @@ real example
 
 印出會找不到method
 
-
+a.responde_to?(:say_hi)會找不到
+因此還要覆寫responde_to_missing?給repond_to?
 

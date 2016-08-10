@@ -69,10 +69,15 @@ private method只能用隱含的方式呼叫的method（無reciever）
 
 所有的method name都是symbol
 
+Module#define_method
+real example
 
+印出method都找得到
 
 # Ghost Method
+改寫BasicObject#method_missing?
 
+印出找不到method
 
 
 

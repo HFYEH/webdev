@@ -29,7 +29,7 @@ Test是Class的一個實例,Test.new會產生新的Test實例
 
 
 ======================
-
+# Dynamic Dispatch
 ```
 class A
   def ss
@@ -37,15 +37,37 @@ class A
 end
 
 a = A.new
-a.ss  (reciever.method)
+a.ss  (reciever.method，所以叫作send)
+```
+
+```
+class B
+  def public_m
+    private_m
+  end
+
+  private
+  def private_m
+    "lala
+  end
+end
+
+b = B.new
+b.public_m
+b.private_m (fail)
+b.send(:private_m)
 ```
 
 private method只能用隱含的方式呼叫的method（無reciever）
 
 但是send可以呼叫private method
 
-send(:method_name)
 
+# Dynamic Method
+
+
+
+# Ghost Method
 
 
 

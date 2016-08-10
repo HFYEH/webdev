@@ -82,3 +82,6 @@ real example
 a.responde_to?(:say_hi)會找不到
 因此還要覆寫responde_to_missing?給repond_to?
 
+
+
+

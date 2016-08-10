@@ -77,7 +77,7 @@ real example
 # Ghost Method
 改寫BasicObject#method_missing?
 
-印出找不到method
+印出會找不到method
 
 
 

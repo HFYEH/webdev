@@ -89,6 +89,8 @@ remove_method, undef_method
 
 擁有最少method的物件稱為blank state，可以繼承BasicObject（要幹這件事時先把檔案保留下來）
 
+可以用alias
+
 
 
 

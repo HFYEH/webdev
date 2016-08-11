@@ -6,17 +6,19 @@
 
 使用React Native做APP時，一個component中，如果資料是不變的且不被其他component取用，應該放在`props`，而如果如果資料是會變的但不被其他component取用，則應該放在`state`，此外其他情況，應該放在store。
 
-![](http://i.imgur.com/BLmJc0l.png)
 
 ###### MVC的問題
 
-Model和View之間是雙向且多對多關係，數據流向複雜，更動或維護不易。
+見下圖，Model和View之間是雙向且多對多關係，數據流向複雜，更動或維護不易。
 
-![](http://i.imgur.com/qN7gRWa.png)
+![](http://i.imgur.com/BLmJc0l.png)
+
 
 ###### Flux
 
 數據是單向流動的，跟view有關的數據都在store裡，store裡有很多小store。
+
+![](http://i.imgur.com/qN7gRWa.png)
 
 使用者觸發action creator，action creator可能會跟伺服器溝通而產生新的action，此actoin會流入dispatcher，dispatcher會通知store，****store會根據action的條件決定是否要更新****，如果store有更新，view就會接到更新並更新。每個action都有一個type屬性，dispatcher會把此action派遣到所有的store裡面，無論有多少store都會收到此action，由store自行決定是否要更新state。
 

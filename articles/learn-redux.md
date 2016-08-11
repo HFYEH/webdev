@@ -110,14 +110,9 @@ class App extends Component {
 }
 ```
 
-使用者按下後，會觸發store的dispatch方法，該方法的參數是actionCreator，會回傳action對象。
+使用者按下後，會觸發store的dispatch方法，該方法的參數是action對象，action對象由actionCreator產生，內容包含action type和payload。dispatch會將此action配發到store。看起來就像是使用者按下後，產生了一個action對象，此對象會配發給store。但是store接收到action後，還不確定會不會發生變化，要經過reducer之後才能決定。
 
-dispatch應該是將後面的actionCreator配發到reducer中。
-
-使用者的某個動作會發起一個actionCreator，actionCreator會回傳state對象。
-
-
-但是在此流程中，我們尚未建立store。所以應該先在global處建立store，建立時，要把reducer放進去，表示一個store綁定一個reducer。
+在此流程中，我們尚未建立store。所以應該先在global處建立store，建立時，要把reducer放進去，表示一個store綁定一個reducer。
 
 ```
 import { createStore } from 'redux';
@@ -132,26 +127,28 @@ class App extends Component {
 
 reducer會接收一個state和action，最後回傳新的state給store，讓store決定state是否有變化。所以store是要帶入reducer作為參數的。
 
-步驟二：之後就可以在function裡訂閱store的變化
+先前說過，store變化會使component更新。要更新的component不一定是剛剛的component，可以是其他的component，但是要如何讓component知道store的變化呢？這時我們就要在須要監聽store變化的component建立subscribe。
+
 ```
 class App extends Component { constructor(props){ 
 ...
   componentDidMount(){
-    // 2. subscribe store
+    // subscribe store
     this.unsubscribeStore = store.subscribe(() =>{...});
   }
 ...
 }
 ```
 
-步驟三：定義store如果發生變化後要做什麽事
+取得store的變化後，就要定義store發生變化後要做的事情
+
 ```
 class App extends Component { constructor(props){
 ...
   componentDidMount(){
-    // 2. subscribe store
+    // subscribe store
     this.unsubscribeStore = store.subscribe(() =>{
-      // 3. getState
+      // getState
       this.setState({todos: store.getState()});
     });
   }

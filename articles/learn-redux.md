@@ -65,6 +65,7 @@ ES5中的Array.prototype.reduce\(\)
 ```
 import { createStore } from 'redux';
 ...
+// 1. Define store
 let store = createStore(my_reducer)
 ...
 class App extends Component {
@@ -72,10 +73,19 @@ class App extends Component {
 }
 ```
 
-之後就可以在function裡訂閱store的變化。
+步驟二：之後就可以在function裡訂閱store的變化。
 
 
+```
+import { createStore } from 'redux';
 
+class App extends Component { constructor(props){ 
+
+componentDidMount(){
+  //2. subscribe store
+  this.unsubscribeStore = store.subscribe(() =>{ //3. getState this.setState({todos: store.getState()}); });
+}
+```
 
 
 參考資料：

@@ -1,10 +1,46 @@
 # 學習Redux筆記
 
-使用React Native做APP時，一個Component中，如果資料是不變的且不被其他Component取用，應該放在props，而如果如果資料是會變的，且
+本文整理自下方的參考資料，原作者為Unbug。欲知詳細內容，請直接讀原作。
+
+### Flux 基礎介紹
+
+使用React Native做APP時，一個component中，如果資料是不變的且不被其他component取用，應該放在`props`，而如果如果資料是會變的但不被其他component取用，則應該放在`state`，此外其他情況，應該放在store。
+
+![](http://i.imgur.com/BLmJc0l.png)
+######MVC的問題
+
+Model和View之間是雙向且多對多關係，數據流向複雜，更動或維護不易。
+
+![](http://i.imgur.com/qN7gRWa.png)
+######Flux
+
+數據是單向流動的，跟view有關的數據都在store裡，store裡有很多小store。
+
+使用者觸發action creator，action creator可能會跟伺服器溝通而產生新的action，此actoin會流入dispatcher，dispatcher會通知store，****store會根據action的條件決定是否要更新****，如果store有更新，view就會接到更新並更新。每個action都有一個type屬性，dispatcher會把此action派遣到所有的store裡面，無論有多少store都會收到此action，由store自行決定是否要更新state。
+
+######結論：
+
+1. components間共用的數據存在store裡。
+2. 使用者發起一個action，最後會被派發到store裡。
+3. store會決定是否更新state（數據），如果更新的話，view也會跟著更新。
+
+### Redux 介紹
+
+Redux有三部份協同完成，action，reducer和store。
+
+######Action
+
+1. type: 靜態對象，值不可變且唯一。
+2. actionCreator: 為一function，function會回傳一個action對象，裡面必定帶有type屬性。
+3. action: 一個JavaScript對象，裡面必定帶有type屬性。就是上面定義的type。後面可選的是帶入一些負載數據。(payload)
+
+######Reducers
 
 
 
-Reference:
+
+參考資料：
+
 作者為[Unbug Lee](https://github.com/unbug)
 
 [Gitbook](https://unbug.gitbooks.io/react-native-training/content/4_architecture.html)

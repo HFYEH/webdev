@@ -68,7 +68,7 @@ import { createStore } from 'redux';
 let store = createStore(my_reducer)
 ...
 class App extends Component {
-
+...
 }
 ```
 

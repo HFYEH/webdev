@@ -91,7 +91,7 @@ function todoReducer(state = [], action) {
 ...
 class App extends Component {
 ...
-  handleAddTodo = () {
+  handleAddTodo() {
     // dispatching actions
     store.dispatch( addTodoAction('New todo') );
   }

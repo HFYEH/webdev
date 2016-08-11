@@ -36,7 +36,7 @@ Redux有三部份協同完成，action，reducer和store。
 
 ######Reducers
 
-
+(state, action) => newState
 
 
 參考資料：

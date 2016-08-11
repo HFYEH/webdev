@@ -20,7 +20,7 @@
 
 ![](http://i.imgur.com/qN7gRWa.png)
 
-使用者觸發action creator，action creator可能會跟伺服器溝通而產生新的action，此actoin會流入dispatcher，dispatcher會通知store，****store會根據action的條件決定是否要更新****，如果store有更新，view就會接到更新並更新。每個action都有一個type屬性，dispatcher會把此action派遣到所有的store裡面，無論有多少store都會收到此action，由store自行決定是否要更新state。
+使用者觸發action creator，action creator可能會跟伺服器溝通而產生新的action，此action會流入dispatcher，dispatcher會通知store，****store會根據action的條件決定是否要更新****，如果store有更新，view就會接到更新並更新。每個action都有一個type屬性，dispatcher會把此action派遣到所有的store裡面，無論有多少store都會收到此action，由store自行決定是否要更新state。
 
 ###### 結論：
 

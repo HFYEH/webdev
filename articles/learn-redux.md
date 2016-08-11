@@ -172,9 +172,6 @@ class App extends Component { constructor(props){
 
 ![](http://i.imgur.com/9JgAhDt.png)
 
-流程解釋：
-
-
 
 ![](http://i.imgur.com/i5F2ZN0.png)
 

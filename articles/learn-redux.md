@@ -74,18 +74,35 @@ class App extends Component {
 ```
 
 步驟二：之後就可以在function裡訂閱store的變化。
-
-
 ```
-import { createStore } from 'redux';
 
 class App extends Component { constructor(props){ 
-
-componentDidMount(){
-  //2. subscribe store
-  this.unsubscribeStore = store.subscribe(() =>{...});
+...
+  componentDidMount(){
+    // 2. subscribe store
+    this.unsubscribeStore = store.subscribe(() =>{...});
+  }
+...
 }
 ```
+
+步驟三：定義store變化後要做什麽事
+```
+class App extends Component { constructor(props){
+...
+  componentDidMount(){
+    // 2. subscribe store
+    this.unsubscribeStore = store.subscribe(() =>{
+      // 3. getState
+      this.setState({todos: store.getState()});
+    });
+  }
+...
+}
+```
+
+
+
 
 
 參考資料：

@@ -91,6 +91,12 @@ remove_method, undef_method
 
 可以用alias，方法不會消失，只會找不到，可以用alias呼叫
 
+ghost method覆寫時要小心，不要沒有寫到該method，會一直挖method_missing，到too_deep，method應該要寫在外部，也可以避免挖太深的問題
+
+ghost method用在串api（第三方有修改時本地不用改），會把所有找不到的方法都丟進去，而dynamic method都是定義已知但相近的method
+
+ghost是比較hack的做法，盡可能用dynamic method
+
 
 
 

@@ -50,6 +50,7 @@
     * [VirtualBox共享資料夾](articles/2015-03-22-vb-shared.md)
 * [App](android.md)
     * [學習 React Native](articles/learn-react-native.md)
+    * [學習Redux](articles/learn-redux.md)
 * [Arduino & Raspberry Pi 與讀書會](articles/arduino_rpi.md)
     * [Raspberry Pi 使用ssh登入](articles/rpi.md)
     * [Git 會前準備](articles/prior-to-git-ready.md)

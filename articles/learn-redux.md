@@ -86,15 +86,14 @@ function todoReducer(state = [], action) {
 }
 ```
 
-步驟零：
-
+流程一：使用者按下某個component，會觸發store的dispatch方法通知store
 ```
 ...
 class App extends Component {
 ...
   handleAddTodo = () {
     // 1. dispatching actions
-    store.dispatch( addTodoAction('New todo' )
+    store.dispatch( addTodoAction('New todo') );
   }
 ...
   render() {

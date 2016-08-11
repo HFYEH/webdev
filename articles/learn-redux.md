@@ -6,5 +6,7 @@
 
 Reference:
 作者為[Unbug Lee](https://github.com/unbug)
+
 [Gitbook](https://unbug.gitbooks.io/react-native-training/content/4_architecture.html)
+
 [視訊](https://www.youtube.com/watch?v=JlYwmoJyM34&list=PLC_rYRxEnwQGLQqrHR0aho33U6DCeJamC&index=4)

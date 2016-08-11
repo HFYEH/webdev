@@ -86,13 +86,14 @@ function todoReducer(state = [], action) {
 }
 ```
 
-流程一：使用者按下某個component，會觸發store的dispatch方法通知store
+我這邊採用與原教材不同的流程來寫。如果看不懂，還是以原教材為準。首先，我們希望使用者按下某個component後產生store變化並更新component，所以先寫component的部份。
+
 ```
 ...
 class App extends Component {
 ...
   handleAddTodo = () {
-    // 1. dispatching actions
+    // dispatching actions
     store.dispatch( addTodoAction('New todo') );
   }
 ...
@@ -109,14 +110,19 @@ class App extends Component {
 }
 ```
 
+使用者按下後，會觸發store的dispatch方法，該方法的參數是actionCreator，會回傳action對象。
+
+dispatch應該是將後面的actionCreator配發到reducer中。
+
 使用者的某個動作會發起一個actionCreator，actionCreator會回傳state對象。
 
-步驟一：在global處建立store，建立時，要把reducer放進去
+
+但是在此流程中，我們尚未建立store。所以應該先在global處建立store，建立時，要把reducer放進去，表示一個store綁定一個reducer。
 
 ```
 import { createStore } from 'redux';
 ...
-// 1. Define store
+// Define store
 let store = createStore(todoReducer)
 ...
 class App extends Component {

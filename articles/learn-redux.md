@@ -83,7 +83,7 @@ class App extends Component { constructor(props){
 
 componentDidMount(){
   //2. subscribe store
-  this.unsubscribeStore = store.subscribe(() =>{ //3. getState this.setState({todos: store.getState()}); });
+  this.unsubscribeStore = store.subscribe(() =>{...});
 }
 ```
 

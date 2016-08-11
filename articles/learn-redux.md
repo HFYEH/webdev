@@ -58,6 +58,25 @@ ES5中的Array.prototype.reduce\(\)
 
 ######Store
 
+整個app的所有（須要共用的）state都定義在store。確實了解前面兩個部份後，我們才能開始用redux。
+
+步驟一：在global處建立store，建立時，要把reducer放進去
+
+```
+import { createStore } from 'redux';
+...
+let store = createStore(my_reducer)
+...
+class App extends Component {
+
+}
+```
+
+之後就可以在function裡訂閱store的變化。
+
+
+
+
 
 參考資料：
 

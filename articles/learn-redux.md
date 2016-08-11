@@ -73,7 +73,7 @@ class App extends Component {
 }
 ```
 
-步驟二：之後就可以在function裡訂閱store的變化。
+步驟二：之後就可以在function裡訂閱store的變化
 ```
 
 class App extends Component { constructor(props){ 
@@ -86,7 +86,7 @@ class App extends Component { constructor(props){
 }
 ```
 
-步驟三：定義store變化後要做什麽事
+步驟三：定義store如果發生變化後要做什麽事
 ```
 class App extends Component { constructor(props){
 ...
@@ -100,8 +100,18 @@ class App extends Component { constructor(props){
 ...
 }
 ```
-
-
+步驟四：用dispatch通知store，每個store都有dispatch方法可以叫store更變
+```
+class App extends Component { constructor(props){
+...
+  handleAddTodo = () => {
+    // 4. dispatching actions
+    store.dispatch(action_creator(...));
+  }
+...
+}
+```
+store.dispatch的參數是action對象。
 
 
 

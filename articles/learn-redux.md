@@ -62,22 +62,48 @@ ES5中的Array.prototype.reduce\(\)
 
 整個app的所有（須要共用的）state都定義在store。確實了解前面兩個部份後，我們才能開始用redux。
 
+步驟零：建立action creator 和 reducer
+
+```
+// action creator
+const ADD_TODO = 'ADD_TODO';
+function addTodoAction(todo) {
+  return {type: ADD_TODO, todu}
+}
+
+// reducer
+function todoReducer(state = [], action) {
+  switch (action.type) {
+    case ADD_TODO:
+      return [
+        {
+          title: action.title,
+        },
+        ...state
+      ]
+    default:
+      return state
+  }
+}
+```
+
 步驟一：在global處建立store，建立時，要把reducer放進去
 
 ```
 import { createStore } from 'redux';
 ...
 // 1. Define store
-let store = createStore(my_reducer)
+let store = createStore(todoReducer)
 ...
 class App extends Component {
 ...
 }
 ```
 
+記得，reducer會接收一個state和action，最後回傳新的state。
+
 步驟二：之後就可以在function裡訂閱store的變化
 ```
-
 class App extends Component { constructor(props){ 
 ...
   componentDidMount(){
@@ -108,7 +134,7 @@ class App extends Component { constructor(props){
 ...
   handleAddTodo = () => {
     // 4. dispatching actions
-    store.dispatch(action_creator(...));
+    store.dispatch(addTodoAction('New todo'));
   }
 ...
 }
@@ -116,6 +142,25 @@ class App extends Component { constructor(props){
 store.dispatch的參數是action對象。
 
 
+步驟五：取消subscribe
+```
+class App extends Component { constructor(props){
+...
+  componentWillUnmount(){
+    // 5. unsubscirbe store
+    this.unsubsribeStore();
+  }
+...
+}
+```
+
+
+
+
+![](http://i.imgur.com/i5F2ZN0.png)
+
+
+![](http://i.imgur.com/vHkZG1X.png)
 
 參考資料：
 

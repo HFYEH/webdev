@@ -48,9 +48,15 @@ ES5中的Array.prototype.reduce\(\)
 
 參數是一個callback函數，reducer會由左至右為arr中的每個元素呼叫一次該callback函數，並將函數的回傳值當作下一次呼叫callback函數的參數傳入。
 
-callback傳入值為previouseValue, currentValue, index, array
 
-(state, action) = newState
+
+
+****callback傳入值為previouseValue, currentValue, index, array****
+
+
+
+
+\(state, action\) = newState
 
 參考資料：
 

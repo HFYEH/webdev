@@ -6,13 +6,11 @@
 
 使用React Native做APP時，一個component中，如果資料是不變的且不被其他component取用，應該放在`props`，而如果如果資料是會變的但不被其他component取用，則應該放在`state`，此外其他情況，應該放在store。
 
-
 ###### MVC的問題
 
 見下圖，Model和View之間是雙向且多對多關係，數據流向複雜，更動或維護不易。
 
 ![](http://i.imgur.com/BLmJc0l.png)
-
 
 ###### Flux
 
@@ -40,7 +38,7 @@ Redux有三部份協同完成，action，reducer和store。
 
 ###### Reducers
 
-其實就是Ruby的#inject，如果知道#inject就可以跳過了~~而Ruby本身也有#reduce就是了。（在ruby中的#reducer等於#inject + block）
+其實就是Ruby的\#inject，如果知道\#inject就可以跳過了~~而Ruby本身也有\#reduce就是了。（在ruby中的\#reducer等於\#inject + block）
 
 參考[Array.reduce\(\) 累計值處理](http://www.victsao.com/blog/81-javascript/184-javascript-arr-reduce)
 
@@ -58,16 +56,17 @@ ES5中的Array.prototype.reduce\(\)
 
 ****reducer必須回傳新的state對象，不可以修改原本的state。****
 
-######Store
+###### Store
 
 整個app的所有（須要共用的）state都定義在store。確實了解前面兩個部份後，我們才能開始用redux。
 
 假定我們已經有建立了action creator 和 reducer
+
 ```
 // action creator
 const ADD_TODO = 'ADD_TODO';
 function addTodoAction(todo) {
-  return {type: ADD_TODO, todu}
+  return {type: ADD_TODO, todo}
 }
 
 // reducer
@@ -157,6 +156,7 @@ class App extends Component { constructor(props){
 ```
 
 如果該component被unmounted，須要unsubscribe
+
 ```
 class App extends Component { constructor(props){
 ...
@@ -168,24 +168,15 @@ class App extends Component { constructor(props){
 }
 ```
 
-
 ![](http://i.imgur.com/9JgAhDt.png)
-
 
 ![](http://i.imgur.com/i5F2ZN0.png)
 
-
 ![](http://i.imgur.com/vHkZG1X.png)
-
 
 # react-redux
 
 在單純用redux時，要為每個component subscribe和unsubscribe store，過程太繁鎖，react-redux這個獨立的套件可以解決此問題。（react, redux, react-redux彼此都是完全獨立的）
-
-
-
-
-
 
 參考資料：
 

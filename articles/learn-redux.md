@@ -155,31 +155,21 @@ class App extends Component { constructor(props){
 ...
 }
 ```
-步驟四：用dispatch通知store，每個store都有dispatch方法可以叫store更變
-```
-class App extends Component { constructor(props){
-...
-  handleAddTodo = () => {
-    // 4. dispatching actions
-    store.dispatch(addTodoAction('New todo'));
-  }
-...
-}
-```
-store.dispatch的參數是action對象。
 
-
-步驟五：取消subscribe
+如果該component被unmounted，須要unsubscribe
 ```
 class App extends Component { constructor(props){
 ...
   componentWillUnmount(){
-    // 5. unsubscirbe store
+    // unsubscirbe store
     this.unsubsribeStore();
   }
 ...
 }
 ```
+
+
+
 ![](http://i.imgur.com/9JgAhDt.png)
 
 流程解釋：

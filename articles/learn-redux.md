@@ -56,7 +56,7 @@ ES5中的Array.prototype.reduce\(\)
 
 ****reducer必須回傳新的state對象，不可以修改原本的state。****
 
-##Store
+######Store
 
 
 參考資料：

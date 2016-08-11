@@ -50,9 +50,12 @@ ES5中的Array.prototype.reduce\(\)
 
 ****callback傳入值為previouseValue, currentValue, index, array，一般傳入前兩個即可****
 
-在Redux中的reducer取其原義和作用，帶入的參數為初始的state和
+在Redux中的reducer取其原義和作用，帶入的參數為初始的state和action，並回傳一個新的state
 
-(state, action) = newState
+`(state, action) = newState`
+
+
+
 
 參考資料：
 

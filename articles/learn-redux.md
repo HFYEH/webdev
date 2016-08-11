@@ -169,7 +169,6 @@ class App extends Component { constructor(props){
 ```
 
 
-
 ![](http://i.imgur.com/9JgAhDt.png)
 
 
@@ -177,6 +176,14 @@ class App extends Component { constructor(props){
 
 
 ![](http://i.imgur.com/vHkZG1X.png)
+
+
+# react-redux
+
+在單純用redux時，要為每個component subscribe和unsubscribe store，過程太繁鎖，react-redux這個獨立的套件可以解決此問題。（react, redux, react-redux彼此都是完全獨立的）
+
+
+
 
 參考資料：
 

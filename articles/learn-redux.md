@@ -38,7 +38,7 @@ Redux有三部份協同完成，action，reducer和store。
 
 ###### Reducers
 
-其實就是Ruby的inject，如果知道eject就可以跳過了~~而Ruby本身也有#reduce就是了。
+其實就是Ruby的inject，如果知道eject就可以跳過了~~而Ruby本身也有#reduce就是了（在ruby中的#reducer等於#inject + block）
 
 參考[Array.reduce\(\) 累計值處理](http://www.victsao.com/blog/81-javascript/184-javascript-arr-reduce)
 
@@ -50,10 +50,9 @@ ES5中的Array.prototype.reduce\(\)
 
 ****callback傳入值為previouseValue, currentValue, index, array，一般傳入前兩個即可****
 
+在Redux中的reducer取其原義和作用，帶入的參數為初始的state和
 
-
-
-\(state, action\) = newState
+(state, action) = newState
 
 參考資料：
 

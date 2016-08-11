@@ -62,8 +62,7 @@ ES5中的Array.prototype.reduce\(\)
 
 整個app的所有（須要共用的）state都定義在store。確實了解前面兩個部份後，我們才能開始用redux。
 
-步驟零：建立action creator 和 reducer
-
+假定我們已經有建立了action creator 和 reducer
 ```
 // action creator
 const ADD_TODO = 'ADD_TODO';
@@ -87,6 +86,32 @@ function todoReducer(state = [], action) {
 }
 ```
 
+步驟零：
+
+```
+...
+class App extends Component {
+...
+  handleAddTodo = () {
+    // 1. dispatching actions
+    store.dispatch( addTodoAction('New todo' )
+  }
+...
+  render() {
+    return() {
+      <View>
+        <TouchableHighlight onPress={this.handleAddTodo}>
+          <Text>Add Todo</Text>
+        </TouchableHighlight>
+      </View>
+    }
+  }
+...
+}
+```
+
+使用者的某個動作會發起一個actionCreator，actionCreator會回傳state對象。
+
 步驟一：在global處建立store，建立時，要把reducer放進去
 
 ```
@@ -100,7 +125,7 @@ class App extends Component {
 }
 ```
 
-記得，reducer會接收一個state和action，最後回傳新的state。
+reducer會接收一個state和action，最後回傳新的state給store，讓store決定state是否有變化。所以store是要帶入reducer作為參數的。
 
 步驟二：之後就可以在function裡訂閱store的變化
 ```
@@ -153,7 +178,9 @@ class App extends Component { constructor(props){
 ...
 }
 ```
+![](http://i.imgur.com/9JgAhDt.png)
 
+流程解釋：
 
 
 

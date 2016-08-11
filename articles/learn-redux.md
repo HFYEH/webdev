@@ -38,7 +38,7 @@ Redux有三部份協同完成，action，reducer和store。
 
 ###### Reducers
 
-其實就是ruby的eject，如果知道eject就可以跳過了~~
+其實就是Ruby的eject，如果知道eject就可以跳過了~~而Ruby本身也有#reduce就是了。
 
 參考[Array.reduce\(\) 累計值處理](http://www.victsao.com/blog/81-javascript/184-javascript-arr-reduce)
 

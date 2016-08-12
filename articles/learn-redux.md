@@ -94,7 +94,8 @@ function textReducer(state = [], action) {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { texts: [] }
+
+    this.state = { texts: [{text: "aa"}] }
   }
 ...
   handleAddText() {
@@ -104,7 +105,7 @@ class App extends Component {
 
   renderTexts() {
     return this.state.texts.map((t) => {
-        return <Text>{t.text}</Text>
+        return (<View><Text>{t.text}</Text></View>)
       }
     )
   }
@@ -113,7 +114,9 @@ class App extends Component {
     return() {
       <View>
         <TouchableHighlight onPress={this.handleAddText}>
-          this.renderTexts();
+          <View>
+            {this.renderTexts();}
+          </View>
         </TouchableHighlight>
       </View>
     }

@@ -32,6 +32,7 @@
     * [capistrano一個專案一台機器兩個branch部暑成兩個app](articles/a-project-a-machine-two-summer-branch-into-two-app.md)
     * [理解 Rails delegate](articles/understanding-rails-delegate.md)
     * [Websocket 資料](articles/websocket-data.md)
+    * [Metaprogramming Ruby 第一章筆記.md](articles/metaprogramming_ch1.md)
 * [Front-End](front-end.md)
     * [Railsfun HTML & CSS & RWD](articles/railsfun-html-css-rwd.md)
     * [jQuery memo](articles/jquery-memo.md)

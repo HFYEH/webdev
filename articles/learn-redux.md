@@ -4,6 +4,9 @@
 
 <script src="https://gist.github.com/HFYEH/df26ae04aa44260d355a0f631525a1c9.js"></script>
 
+{% gist id="SamyPesse/6ceb8cb8d531ffab75f0" %}{% endgist %}
+
+
 ### Flux
 
 使用React Native做APP時，一個component中，如果資料是不變的且不被其他component取用，應該放在`props`，而如果如果資料是會變的但不被其他component取用，則應該放在`state`，此外其他情況，應該放在store。

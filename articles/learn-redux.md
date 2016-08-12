@@ -50,10 +50,7 @@ Redux有三部份協同完成，action，reducer和store。
 ****reducer必須回傳新的state對象，不可以修改原本的state。****
 
 
-參考[Array.reduce\(\) 累計值處理](http://www.victsao.com/blog/81-javascript/184-javascript-arr-reduce)
-
-和
-
+參考[Array.reduce\(\) 累計值處理](http://www.victsao.com/blog/81-javascript/184-javascript-arr-reduce)和[我的整理](https://sharefunyeh.gitbooks.io/webdev/content/articles/reduce.html)
 ###### Store
 
 整個app的所有（須要共用的）state都定義在store。確實了解前面兩個部份後，我們才能開始用redux。

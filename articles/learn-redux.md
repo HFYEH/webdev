@@ -75,7 +75,7 @@ function textReducer(state = [], action) {
     case ADD_TEXT:
       return [
         {
-          title: action.text,
+          text: action.text,
         },
         ...state
       ]
@@ -99,12 +99,19 @@ class App extends Component {
     // dispatching actions
     store.dispatch( addTextAction('Say hello~') );
   }
-...
+
+  renderTexts() {
+    return this.state.texts.map((t) => {
+        return <Text>{t.text}</Text>
+      }
+    )
+  }
+
   render() {
     return() {
       <View>
         <TouchableHighlight onPress={this.handleAddText}>
-          <Text>{this.state.text}</Text>
+          this.renderTexts();
         </TouchableHighlight>
       </View>
     }

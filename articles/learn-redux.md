@@ -193,9 +193,6 @@ class App extends Component { constructor(props){
 
 ![](http://i.imgur.com/9JgAhDt.png)
 
-![](http://i.imgur.com/i5F2ZN0.png)
-
-![](http://i.imgur.com/vHkZG1X.png)
 
 # react-redux
 

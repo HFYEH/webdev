@@ -209,3 +209,4 @@ class App extends Component { constructor(props){
 
 [視訊](https://www.youtube.com/watch?v=JlYwmoJyM34&list=PLC_rYRxEnwQGLQqrHR0aho33U6DCeJamC&index=4)
 
+另外[這篇](https://github.com/berwin/Blog/issues/4)從另一個角度切入，也寫得很不錯。

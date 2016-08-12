@@ -2,9 +2,6 @@
 
 本文整理自下方的參考資料，原作者為Unbug。欲知詳細內容，請直接讀原作。
 
-<script src="https://gist.github.com/HFYEH/df26ae04aa44260d355a0f631525a1c9.js"></script>
-
-
 
 
 ### Flux
@@ -183,6 +180,10 @@ class App extends Component { constructor(props){
 ...
 }
 ```
+完整版，
+
+<script src="https://gist.github.com/HFYEH/df26ae04aa44260d355a0f631525a1c9.js"></script>
+
 
 ![](http://i.imgur.com/9JgAhDt.png)
 

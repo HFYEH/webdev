@@ -210,4 +210,4 @@ class App extends Component { constructor(props){
 
 [視訊](https://www.youtube.com/watch?v=JlYwmoJyM34&list=PLC_rYRxEnwQGLQqrHR0aho33U6DCeJamC&index=4)
 
-另外[這篇](https://github.com/berwin/Blog/issues/4)和[這篇](https://github.com/matthew-sun/blog/issues/18)從另一個角度切入，也寫得很不錯。（莫非高手都用Github issue寫blog？）
+另外[這篇](https://github.com/berwin/Blog/issues/4)從另一個角度切入，也寫得很不錯。（莫非高手都用Github issue寫blog？）

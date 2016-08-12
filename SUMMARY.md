@@ -49,6 +49,7 @@
 * [App](android.md)
     * [學習 React Native](articles/learn-react-native.md)
     * [學習Redux](articles/learn-redux.md)
+    * [Reduce函數](articles/reduce.md)
 * [Arduino & Raspberry Pi 與讀書會](arduino-rpi.md)
     * [Raspberry Pi 使用ssh登入](articles/rpi.md)
     * [Git 會前準備](articles/prior-to-git-ready.md)

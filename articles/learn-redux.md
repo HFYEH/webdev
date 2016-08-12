@@ -24,7 +24,7 @@
 ###### 結論：
 
 1. components間共用的數據存在store裡。
-2. 使用者發起一個action，最後會被派發到store裡。
+2. 使用者發起一個actionCreator，最後透過dispatcher會被派發到store裡。
 3. store會決定是否更新state（數據），如果更新的話，view也會跟著更新。
 
 ### Redux
@@ -33,29 +33,29 @@ Redux有三部份協同完成，action，reducer和store。
 
 ###### Action
 
+事件的起點，使用者的動作觸發一個actionCreator，顧名思義，actionCreator會產生一個action。
+
 1. type: 靜態對象，值不可變且唯一。
 2. actionCreator: 為一function，function會回傳一個action對象，裡面必定帶有type屬性。
 3. action: 一個JavaScript對象，裡面必定帶有type屬性。就是上面定義的type。後面可選的是帶入一些負載數據。\(payload\)
 
 ###### Reducers
 
-其實就是Ruby的\#inject，如果知道\#inject就可以跳過了~~而Ruby本身也有\#reduce就是了。（在ruby中的\#reducer等於\#inject + block）
-
-參考[Array.reduce\(\) 累計值處理](http://www.victsao.com/blog/81-javascript/184-javascript-arr-reduce)
-
-ES5中的Array.prototype.reduce\(\)
-
-`arr.reduce( callback [, initialValue])`
-
-參數是一個callback函數，reducer會由左至右為arr中的每個元素呼叫一次該callback函數，並將函數的回傳值當作下一次呼叫callback函數的參數傳入。直到最後一個代完後回傳值，原本的對象不會改變。
-
-****callback傳入值為previouseValue, currentValue, index, array，一般傳入前兩個即可****
-
-在Redux中的reducer取其原義和作用，帶入的參數為初始的state和action，並回傳一個新的state
+一般來說，Reducer要代入一個初始值和一個callback，並回傳一個更新後的值。
 
 `(state, action) = newState`
 
+在React Native，我們須要自建reducer。初始值就是本來的state，而callback則改為action，我們再從reducer中依action.type判斷應該回傳怎樣的newState。這個reducer總是綁定一個store（後述），當發出store.dispatch(actionCreator())通知store更新時，actionCreator產生一個action，給store，store會自動帶進舊的state給reducer並取回newState，再比對是否更新。整個過程，我們都不會顯示的使用reducer，因為我們已經綁定給store了，store自己會去做，我們只要把reducer寫好就好了。
+
 ****reducer必須回傳新的state對象，不可以修改原本的state。****
+
+
+參考[Array.reduce\(\) 累計值處理](http://www.victsao.com/blog/81-javascript/184-javascript-arr-reduce)
+
+
+
+
+
 
 ###### Store
 

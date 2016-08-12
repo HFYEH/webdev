@@ -198,6 +198,10 @@ class App extends Component { constructor(props){
 
 在單純用redux時，要為每個component subscribe和unsubscribe store，過程太繁鎖，react-redux這個獨立的套件可以解決此問題。（react, redux, react-redux彼此都是完全獨立的）
 
+
+
+
+
 參考資料：
 
 作者為[Unbug Lee](https://github.com/unbug)

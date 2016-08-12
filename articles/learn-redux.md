@@ -52,10 +52,7 @@ Redux有三部份協同完成，action，reducer和store。
 
 參考[Array.reduce\(\) 累計值處理](http://www.victsao.com/blog/81-javascript/184-javascript-arr-reduce)
 
-
-
-
-
+和
 
 ###### Store
 

@@ -1,3 +1,5 @@
+# JavaScript 中的 Array.prototype.reduce()
+
 其實就是Ruby的\#inject，如果知道\#inject就可以跳過了~~而Ruby本身也有\#reduce就是了。（在ruby中的\#reducer等於\#inject + block）
 
 ES5中的Array.prototype.reduce\(\)

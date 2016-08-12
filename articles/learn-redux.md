@@ -92,7 +92,7 @@ function textReducer(state = [], action) {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { text: "Initial text" }
+    this.state = { texts: [] }
   }
 ...
   handleAddText() {

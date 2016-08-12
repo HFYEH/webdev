@@ -64,18 +64,18 @@ ES5中的Array.prototype.reduce\(\)
 
 ```
 // action creator
-const ADD_TODO = 'ADD_TODO';
-function addTodoAction(todo) {
-  return {type: ADD_TODO, todo}
+const ADD_TEXT = 'ADD_TEXT';
+function addTextAction(text) {
+  return {type: ADD_TEXT, text}
 }
 
 // reducer
-function todoReducer(state = [], action) {
+function textReducer(state = [], action) {
   switch (action.type) {
-    case ADD_TODO:
+    case ADD_TEXT:
       return [
         {
-          title: action.title,
+          title: action.text,
         },
         ...state
       ]
@@ -90,17 +90,21 @@ function todoReducer(state = [], action) {
 ```
 ...
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { text: "Initial text" }
+  }
 ...
-  handleAddTodo() {
+  handleAddText() {
     // dispatching actions
-    store.dispatch( addTodoAction('New todo') );
+    store.dispatch( addTextAction('Say hello~') );
   }
 ...
   render() {
     return() {
       <View>
-        <TouchableHighlight onPress={this.handleAddTodo}>
-          <Text>Add Todo</Text>
+        <TouchableHighlight onPress={this.handleAddText}>
+          <Text>{this.state.text}</Text>
         </TouchableHighlight>
       </View>
     }
@@ -117,7 +121,7 @@ class App extends Component {
 import { createStore } from 'redux';
 ...
 // Define store
-let store = createStore(todoReducer)
+let store = createStore(textReducer)
 ...
 class App extends Component {
 ...
@@ -148,7 +152,7 @@ class App extends Component { constructor(props){
     // subscribe store
     this.unsubscribeStore = store.subscribe(() =>{
       // getState
-      this.setState({todos: store.getState()});
+      this.setState({text: store.getState()});
     });
   }
 ...

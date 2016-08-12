@@ -29,7 +29,7 @@
 
 ### Redux
 
-Redux有三部份協同完成，action，reducer和store。
+與Flux有點不同，Redux有三部份協同完成，action，reducer和store。
 
 ###### Action
 
@@ -54,6 +54,8 @@ Redux有三部份協同完成，action，reducer和store。
 ###### Store
 
 整個app的所有（須要共用的）state都定義在store。確實了解前面兩個部份後，我們才能開始用redux。
+
+###### Demo
 
 假定我們已經有建立了action creator 和 reducer
 

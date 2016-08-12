@@ -33,5 +33,25 @@ end
 A.new.foo => "rewrite foo"
 ```
 
+#####　實例變量
+
+class實例化之前不會有實例變量，唯有實例化之後，且執行到定義實例變量的地方時，實例變量才會真正被建立出來
+
+```
+class A
+  def initialize
+    @var_1 = 1
+  end
+
+  def gen_var_2
+    @var_2 = 1
+  end
+end
+
+a = A.new
+a.instance_variables => [:@var_1]
+a.gen_var_2
+a.instance_variables => [:@var_1, :@var_2]
+```
 
 

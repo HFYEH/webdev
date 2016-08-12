@@ -49,7 +49,7 @@ Redux有三部份協同完成，action，reducer和store。
 
 在React Native，我們須要自建reducer，建為pure function，當Redux調用它時，初始值就是本來的state，而callback則改為action，我們再從reducer中依action.type判斷應該回傳怎樣的newState。這個reducer總是綁定一個store（後述），當發出store.dispatch(actionCreator())通知store更新時，actionCreator產生一個action，給store，store會自動帶進舊的state給reducer並取回newState，再比對是否更新。整個過程，我們都不會顯示的使用reducer，因為我們已經綁定給store了，store自己會去做，我們只要把reducer寫好就好了。
 
-****reducer必須回傳新的state對象，不可以修改原本的state。新對象可與原本相同，但一定是一個新的對象。而如果沒有舊的state，就回傳initialState****
+****reducer必須回傳新的state對象，不可以修改原本的state。新對象可與原本相同，但一定是一個新的對象。而如果沒有舊的state，就回傳initialState。****
 
 
 參考[Array.reduce\(\) 累計值處理](http://www.victsao.com/blog/81-javascript/184-javascript-arr-reduce)和[我的整理](https://sharefunyeh.gitbooks.io/webdev/content/articles/reduce.html)

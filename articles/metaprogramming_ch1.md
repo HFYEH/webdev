@@ -54,4 +54,9 @@ a.gen_var_2
 a.instance_variables => [:@var_1, :@var_2]
 ```
 
+##### 方法
+
+可以用`Object#methods`查詢對象的方法。然而，對象其實僅包含它的實例變量和對象的唯一標識符（可透過`Object#object_id`查詢），方法因為會被所有實例共用，因此存放在class中。
+
+
 

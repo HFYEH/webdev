@@ -29,7 +29,9 @@
 
 ### Redux
 
-與Flux有點不同，Redux有三部份協同完成，action，reducer和store。
+Redux與Flux相比，相同的地方是更新的邏輯都被集中在特定的一層（Flux用store，而Redux用reducer），而且都接收action作為對變動的描述。不同處在於，****Redux沒有Dispatcher的概念****，因為它依靠pure function (reducer)而不是依事件去配發的。
+
+Redux有三部份協同完成，action，reducer和store。
 
 ###### Action
 
@@ -55,9 +57,15 @@
 
 整個app的所有（須要共用的）state都定義在store。確實了解前面兩個部份後，我們才能開始用redux。
 
+store有一些方法可用：
+
+1. getState()可以得到state
+2. dispatch(action)可以更新state
+3. subscribe(listener)可以給component註冊listener
+
 ###### Demo
 
-假定我們已經有建立了action creator 和 reducer
+假定我們已經有建立了　action creator 和 reducer
 
 ```
 // action creator

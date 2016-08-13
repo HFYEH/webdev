@@ -202,11 +202,17 @@ git clone ssh://imroot@127.0.0.1:/var/git/project.git/ #外部連線
 `git log --since=1.day(hour/month).ago`    只顯示一天\(小時\/月\)以內的所有 commit
 
 ## git tag \(用於釋出版本\)
+使用時機：每次推向production時使用（除非是用CI）
 
 `git tag`    檢視所有 tags
-`git checkout v0.0.1`    切換到具有'v0.0.1'的特定 commit
-`git tag -a v0.0.3 -m "version 0.0.3"`
-`git push --tags`    為遠端 Repo 加上 tag
+
+`git tag -a v0.0.3 -m "version 0.0.3"`  加上tag
+
+`git push --tags`    將本地的所有tag推到為遠端 Repo
+
+`git checkout v0.0.1` 切換到具有'v0.0.1'的特定 commit
+
+
 
 ## 合併分支至 master \(fast-forward merge\)
 
@@ -335,3 +341,18 @@ tutorial.mp4    # file
 `git rm --cached development.log`
 之後再加入.gitignore
 
+
+## Github
+```
+// Update your fork
+
+// 1. Add remote for upstream
+git remote add upstream <path_to_repo>
+// 2. Fetch changes
+git fetch upstream
+// 3. Merge them into master
+git merge upstream/master master
+// 4. Push to your remote
+git push origin master
+
+```

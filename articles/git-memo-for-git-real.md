@@ -43,7 +43,6 @@ git diff HEAD^    #比較未 staging 與 Repo中倒數第二個 commit
 ```
 
 想看先前的版本間差異
-
 ```
 git log --oneline    #先顯示 log,方便後續操作
 git diff SHA1..SHA2
@@ -51,7 +50,6 @@ git diff --since=1.week.ago --until=1.minute.ago
 ```
 
 ## git reset \(已經 git push後嚴禁使用\)
-
 ```
 git reset HEAD filename #從 staging area 狀態回到 unstaging 或 untracked \(檔案內容並不會改變\)
 git reset HEAD --soft HEAD^   # 把最後一次 commit 的檔案回復到 staging 並取消最後一次 commit
@@ -71,54 +69,57 @@ git checkout v0.0.1    切換到具有'v0.0.1'的特定 commit
 ```
 
 ## git remote
+```
+git remote add <name> <address>   # 加入遠端 Repo
+git remote -v`   # 檢視所有遠端 Repo
+git remote rm <name>   # 刪除遠端 Repo
+heroku create   # 創建新的遠端 Repo 於 Heroku 上並且在本地加入遠端 Repo
 
-`git remote add <name> <address>`    加入遠端 Repo
+git remote show origin # 做下列三件事
 
-`git remote -v`    檢視所有遠端 Repo
-
-`git remote rm <name>`    刪除遠端 Repo
-
-`heroku create`    創建新的遠端 Repo 於 Heroku 上並且在本地加入遠端 Repo
-
-`git remote show origin`
-
-1. 顯示所有 remote branch 及追蹤狀態
-2. 顯示所有 local 及它們與 remote branch 的關係\(使用git pull會發生的事\)
-3. 顯示所有 local 及它們與 remote branch 的關係\(使用git push會發生的事\)
+# 1. 顯示所有 remote branch 及追蹤狀態
+# 2. 顯示所有 local 及它們與 remote branch 的關係\(使用git pull會發生的事\)
+# 3. 顯示所有 local 及它們與 remote branch 的關係\(使用git push會發生的事\)
+```
 
 ## git push
+```
+git push -u name branch   # 上傳遠端 Repo 並且儲存此次設定
+git push origin :branch_name   # 刪除遠端分支
+git push --tag   # 為遠端 Repo 加上 tag
+```
 
-`git push -u name branch`    上傳遠端 Repo 並且儲存此次設定
+###### 情境：如果遠端 Repo 與本機的 commit 不同,且不同處非同一個文件
 
-`git push origin :branch_name`    刪除遠端分支
+以merge操作
+```
+git pull
+# 會做兩件事
+# 1. 同步遠端 Repo 至本機(git fetch)
+# 2. 合併 origin/master (git merge origin/master)
 
-`git push --tags`    為遠端 Repo 加上 tag
+# 此時 master 多一個 commit
+# 加上新的commit後， origin/master 還不知道這個新的 commit
+`git push`   # origin/master 與 master 指到相同位置,並且上傳至遠端 Repo
+```
 
-### 如果遠端 Repo 與本機的 commit 不同,且不同處非同一個文件
+以rebase操作
+```
+git pull --rebase
 
-`git pull`
+# 1. 同步遠端 Repo 至本機(git fetch)
+# 2. rebase origin/master (git rebase origin/master)
+git push
+```
 
-1. 同步遠端 Repo 至本機\(git fetch\)
-2. 合併 origin\/master \(git merge origin\/master\)
-  \(此時 master 多一個 commit,但 origin\/master 不知道這個新的 commit\)
-
-`git push`    origin\/master 與 master 到相同位置,並且上傳至遠端 Repo
-
-或想以rebase操作
-`git pull --rebase`
-
-1. 同步遠端 Repo 至本機\(git fetch\)
-2. rebase origin\/master \(git rebase origin\/master\)
-
-`git push`
-
-##### 如果遠端 Repo 與本機的 commit 不同,且不同處是同一個文件
-
-`git pull`    在合併時會出錯
-`git status`    該文件會顯示 both modified
-\(修改該文件...\)
-`git commit -a`
-`git push`
+###### 情境：如果遠端 Repo 與本機的 commit 不同,且不同處是同一個文件
+```
+git pull`   # 在合併時會出錯
+git status`   # 該文件會顯示 both modified
+# 修改該文件...
+git commit -a
+git push
+```
 
 ## git rebase
 

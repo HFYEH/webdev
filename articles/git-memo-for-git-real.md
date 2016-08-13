@@ -248,7 +248,7 @@ git stash -h                  # 可以查到所有功能
 git stash list                # 顯示所有 stash,從最新到最舊
 git stash show                # 顯示最新的 stash 其中的變更內容
 git stash apply stash@{1}     # 回復最新的 stash
-git stash drop                # apply 後 stash 依然存在,使用此指令刪除此 stash
+git stash drop                # apply 後 stash 依然存在,使用此指令刪除最上層的 stash
 git stash clear               # 清除所有 stash
 
 # shortcut (常用）

@@ -302,8 +302,10 @@ git rm --cached development.log
 ```
 # 要把別的branch的特定commit複製一份到當前branch，複製過來的commit有不同的SHA
 git cherry-pick 54ea45
-# 如果要加入不同的commit message
-
+# 要寫入不同的commit message
+git cherry-pick --edit 54ea45
+# 要把複數commit拉到暫存區並且不要commit
+git cherry-pick --no-commit 53131s 41235e
 ```
 
 ## Github

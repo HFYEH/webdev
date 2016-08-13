@@ -9,7 +9,7 @@ git config --global merge.tool opendiffgit config --global core.autocrlf input #
 git config --global core.autocrlf true # 進入當前目錄時會換成window的CR/LF，進到commit時會自動換成LF，window用
 git config --global core.autocrlf false # window only project
 
-git config --list  // 檢視所有設定
+git config --list  # 檢視所有設定
 git config --global alias.co checkout
 git config --global alias.br branch
 git config --global alias.ci commit
@@ -19,6 +19,7 @@ git config --global alias.last 'log -1 HEAD'
 git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-commit --all"
 git config --global alias.mylog "log --pretty=format:'%h %s [%an]' --graph"
 git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-commit --all"
+git config --global alias.pushall "push --recurse-submodules=on-demand"    # 在parent repo push 時可以 push 所有submodule
 
 // --global是此user，存在~/.gitconfig
 // --local是此repo，存在repo的.git/config
@@ -329,6 +330,13 @@ git push                    # 將submodule推上remote repo
 cd ..
 git add sub_m
 git commit -m "Update something in sub_m"
+git push
+
+# clone專案中有用submodule（剛抓下來submodule folder會是空的）
+git submodule init          # 讀.gitsubmodule並寫入資訊到.git/config
+git submodule update        # clone submodules
+# 之後如果submodule有變化，跑 git submodule update 也會更新
+
 ```
 
 

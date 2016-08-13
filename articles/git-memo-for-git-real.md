@@ -156,9 +156,10 @@ git merge branch_name
 當使用`git rebase`時，會找到當前branch的origin/branch，origin/branch和local branch有各自的更新，但是當前branch的base就是在上一次`git push`的地方。所以會把push後的local commit先移到暫存區，再跑所有的origin/branch的commit，最後再把暫存區的commit回來。
 
 ## Interactive rebase
+在同一個分支裡跑 rebase 是在更改 commit 順序
 ```
-# 在同一個分支裡跑 rebase 是在更改 commit 順序
-git rebase -i HEAD^   # 因為 HEAD^ 之後只有一個commit,故只會有一個 commit 出現
+# rebase 到 HEAD^
+git rebase -i HEAD^   # 因為 HEAD^ 之後只有一個commit,故只會有一個 commit 出現，所以其實不會改變順序
 git rebase -i HEAD~3    重跑最後三個 commit,會跑出 editor,編輯完後再執行該 editor
 ```
 

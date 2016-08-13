@@ -5,8 +5,8 @@ git config --global user.name "Username"
 git config --global user.email "email"
 git config --global color.ui true
 git config --global core.autocrlf input
-# git config --global core.editor vim
-# git config --global merge.tool opendiff
+git config --global core.editor vim
+git config --global merge.tool opendiff
 
 git config --list  // 檢視所有設定
 git config --global alias.co checkout
@@ -23,38 +23,32 @@ git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-
 ```
 
 ## 裸裝與平裝的分別
-
-
-    git init project` #單人使用(平裝)
-
-    git init --bare project.git` #多人使用(裸裝)
-
+```
+git init project #單人使用(平裝)
+git init --bare project.git #多人使用(裸裝)
+```
 
 ## clone剛剛開好的裸裝repo
 
 ```
-
 git clone /var/git/project.git/ #內部連線
-
 git clone ssh://imroot@127.0.0.1:/var/git/project.git/ #外部連線
-
 ```
 
 ## git diff
-
-`git diff`    比較未 staging 與所在 branch 中最後一個 commit,等同 `git diff HEAD`
-
-`git diff --cached`    比較 staging area 跟 Repo
-
-`git diff HEAD^`    比較未 staging 與 Repo中倒數第二個 commit
+```
+git diff    #比較未 staging 與所在 branch 中最後一個 commit,等同 git diff HEAD
+git diff --cached    #比較 staging area 跟 Repo
+git diff HEAD^    #比較未 staging 與 Repo中倒數第二個 commit
+```
 
 想看先前的版本間差異
 
-`git log --oneline`    先顯示 log,方便後續操作
-
-`git diff SHA1..SHA2`
-
-`git diff --since=1.week.ago --until=1.minute.ago`
+```
+git log --oneline    #先顯示 log,方便後續操作
+git diff SHA1..SHA2
+git diff --since=1.week.ago --until=1.minute.ago
+```
 
 ## git reset \(已經 git push後嚴禁使用\)
 
@@ -68,13 +62,12 @@ git clone ssh://imroot@127.0.0.1:/var/git/project.git/ #外部連線
 
 ## git checkout
 
-`git checkout .`    Recover all to repo version
-
-`git checkout -- filename`    回復為repo中的版本
-
-`git checkout branch_name`    切換到 branch\_name 分支
-
-`git checkout v0.0.1`    切換到具有'v0.0.1'的特定 commit
+```
+git checkout .    #Recover all to repo version
+git checkout -- filename    回復為repo中的版本
+git checkout branch_name    切換到 branch\_name 分支
+git checkout v0.0.1    切換到具有'v0.0.1'的特定 commit
+```
 
 ## git remote
 
@@ -118,7 +111,7 @@ git clone ssh://imroot@127.0.0.1:/var/git/project.git/ #外部連線
 
 `git push`
 
-### 如果遠端 Repo 與本機的 commit 不同,且不同處是同一個文件
+##### 如果遠端 Repo 與本機的 commit 不同,且不同處是同一個文件
 
 `git pull`    在合併時會出錯
 `git status`    該文件會顯示 both modified
@@ -128,7 +121,7 @@ git clone ssh://imroot@127.0.0.1:/var/git/project.git/ #外部連線
 
 ## git rebase
 
-### 當想要合併遠端 Repo 但是產生衝突時除了用 merge 外,還可以用 rebase \(無衝突情況\)
+###### 當想要合併遠端 Repo 但是產生衝突時除了用 merge 外,還可以用 rebase \(無衝突情況\)
 
 `git fetch`    把遠端 Repo 與更新到本地
 

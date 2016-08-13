@@ -363,4 +363,8 @@ git push origin master
 
 ```
 git commit -m "This message will show up at issue #1"
+git commit -m "Fixes #1"
+git commit -m "closes #1"
+git commit -m "resolves #1"
+// 上述三個，當commit被merge回master時，會關閉issue
 ```

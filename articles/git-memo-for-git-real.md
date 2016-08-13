@@ -17,7 +17,6 @@ git config --global alias.unstage 'reset HEAD --'
 git config --global alias.last 'log -1 HEAD'
 git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-commit --all"
 
-
 // --global是此user，存在~/.gitconfig
 // --local是此repo，存在repo的.git/config
 // --system是所有user

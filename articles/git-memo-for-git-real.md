@@ -89,6 +89,8 @@ git push origin :branch_name   # 刪除遠端分支
 git push --tag   # 為遠端 Repo 加上 tag
 ```
 
+## git pull
+
 ###### 情境：如果遠端 Repo 與本機的 commit 不同,且不同處非同一個文件
 
 以merge操作
@@ -120,8 +122,6 @@ git status`   # 該文件會顯示 both modified
 git commit -a
 git push
 ```
-
-## git rebase
 
 ###### 情境：合併遠端 Repo 但是產生衝突時除了用 merge 外,還可以用 rebase \(無衝突情況\)
 
@@ -308,23 +308,22 @@ shortcut
 `git stash pop` = `git stash apply; git stash drop;`
 
 ## 遠端 branch 被砍掉
-
-自己的分支變成 local branch
-`git push`    無遠端可 push
-
-`git remote show origin`    可以看到被砍掉的 branch 狀態為 stale
-
-`git remote prune origin`    清理被刪除的遠端分支
+```
+# 自己的分支變成 local branch
+git push   # 無遠端可 push
+git remote show origin   # 可以看到被砍掉的 branch 狀態為 stale
+git remote prune origin   # 清理被刪除的遠端分支
+```
 
 ## 在 Heroku 部署 local 分支
+```
+# Heroku 只會部署 master
+<commit position>:<remote branch>
 
-Heroku 只會部署 master
-`<commit position>:<remote branch>`
-
-`git push heroku-staging local_branch:master`    把 local 分支部署到 Heroku master
+git push heroku-staging local_branch:master   # 把 local 分支部署到 Heroku master
+```
 
 ## exclude \(專屬自己的資料夾,不給別人看的\)
-
 ```
 .git/info/exclude
 experiments/    # exclude folder
@@ -332,39 +331,37 @@ tutorial.mp4    # file
 *.mp4                    # all file ended with .mp4
 ```
 
-## ignore \(所有repo中都有的,要故意忽略的\)
-
+## .gitignore \(所有repo中都有的,要故意忽略的\)
 ```
 *.log
 ```
 
-## 停止追蹤但不刪除
+###### 情境：要將本來在repo的檔案停止追蹤但不刪除
 
-`git rm --cached development.log`
-之後再加入.gitignore
-
+```
+git rm --cached development.log
+# 之後再加入.gitignore
+```
 
 ## Github
 ```
-// Update your fork
+# Update your fork
 
-// 1. Add remote for upstream
+# 1. Add remote for upstream
 git remote add upstream <path_to_repo>
-// 2. Fetch changes
+# 2. Fetch changes
 git fetch upstream
-// 3. Merge them into master
+# 3. Merge them into master
 git merge upstream/master master
-// 4. Push to your remote
+# 4. Push to your remote
 git push origin master
-
 ```
 
 ## Issue
-
 ```
 git commit -m "This message will show up at issue #1"
 git commit -m "Fixes #1"
 git commit -m "closes #1"
 git commit -m "resolves #1"
-// 上述三個，當commit被merge回master時，會關閉issue
+# 上述三個，當commit被merge回master時，會關閉issue
 ```

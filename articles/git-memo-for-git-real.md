@@ -128,22 +128,13 @@ git push
 
 ```
 git fetch
-git rebase
+git rebase   # 預設會去rebase origin/branch_name
 
 # 碰到衝突有三種處置方法
 # 1. 解決衝突後 `git rebase --continue`
 # 2. 跳過 master 上的這個 commit `git rebase --skip`
 # 3. 回復到使用 rebase 前的狀態 `git rebase --abort`
 ```
-
-# 1. 移動所有 master 的更變到暫存資料夾,這些更變是相對 origin/master 而言
-
-# 2. 跑所有 origin/master 的 commit
-
-# 3. 跑所有在暫存資料夾中的 commit, 一次一個
-
-
-
 
 ### Local branch rebase \(無衝突情況\)
 ```

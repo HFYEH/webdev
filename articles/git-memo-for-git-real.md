@@ -222,27 +222,37 @@ git push                      # 會自動儲存到遠端 Repo 的該 branch
 # 其他人只要 git pull 就可以同步了
 ```
 
+## 追蹤遠端 branch
+如果是別人開的遠端分支要我們加入
+```
+# 兩者同樣功效，都是新建一個branch，追蹤遠端分支，並切換過去
+git checkout -b branch_name origin/branch_name
+git checkout --track origin/branch_name
+```
+
 ## stashing
-
 正在分支編寫,臨時要去 master 救火
+```
+git stash save "message"   # 把目前還沒有 commit 的文件存到暫存區並且將工作目錄復原到最後一次 commit
 
-`git stash save "message"`    把目前還沒有 commit 的文件存到暫存區並且回到最後一次 commit
+# 救火完成後...
+git checkout branch_name      # 切回剛剛寫到一半的分支
+git stash apply               # 回到 stash 前的未 commit 狀態
 
-救火完成後...
+# 進階stash
+git stash save --keep-index   # 只把 staging 的檔案 stash
+git stash save --include-untracked    上述指令只考慮 tracked file,如要把 untracked file 也 stash 要用這個
 
-`git checkout branch_name`    切回剛剛寫到一半的分支
-`git stash apply`    回到 stash 前的未 commit 狀態
 
-`git stash save --keep-index`    只把 staging 的檔案 stash,其餘則否
-`git stash save --include-untracked`    上述指令只考慮 tracked file,如要把 untracked file 也 stash 要用這個
+git stash -h                  # 可以查到所有功能
+# 每次跑 stash 都會把 stash 存到 stash stack 中
+git stash list                # 顯示所有 stash,從最新到最舊
+git stash show                # 顯示最新的 stash 其中的變更內容
+git stash apply stash@{1}     # 回復最新的 stash
+git stash drop                # apply 後 stash 依然存在,使用此指令刪除此 stash
+git stash clear               # 清除所有 stash
+```
 
-> Quotation
-> 每次跑 stash 都會把 stash 存到 stash stack 中
-> `git stash list`    顯示所有 stash,從最新到最舊
-> `git stash show`    顯示最新的 stash 其中的變更內容
-> `git stash apply stash@{1}`    回復最新的 stash
-> `git stash drop`    apply 後 stash 依然存在,使用此指令刪除此 stash
-> `git stash clear`    清除所有 stash
 
 shortcut
 

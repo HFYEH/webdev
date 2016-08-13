@@ -123,25 +123,28 @@ git push
 
 ## git rebase
 
-###### 當想要合併遠端 Repo 但是產生衝突時除了用 merge 外,還可以用 rebase \(無衝突情況\)
+###### 情境：合併遠端 Repo 但是產生衝突時除了用 merge 外,還可以用 rebase \(無衝突情況\)
 
-`git fetch`    把遠端 Repo 與更新到本地
+```
+git fetch   # 把遠端 Repo 與更新到本地
+git rebase
 
-`git rebase`
+# 1. 移動所有 master 的更變到暫存資料夾,這些更變是相對 origin/master 而言
+# 2. 跑所有 origin/master 的 commit
+# 3. 跑所有在暫存資料夾中的 commit, 一次一個
+```
 
-1. 移動所有 master 的更變到暫存資料夾,這些更變是相對 origin\/master 而言
-2. 跑所有 origin\/master 的 commit, 3. 跑所有在暫存資料夾中的 commit, 一次一個
+###### 情境：合併遠端 Repo 但是產生衝突時除了用 merge 外,還可以用 rebase \(有衝突情況\)
 
-### 當想要合併遠端 Repo 但是產生衝突時除了用 merge 外,還可以用 rebase \(有衝突情況\)
+```
+git fetch
+git rebase
 
-`git fetch`
-
-`git rebase`
-
-碰到衝突有三種處置方法
-1. 解決衝突後 `git rebase --continue`
-2. 跳過 master 上的這個 commit `git rebase --skip`
-3. 回復到使用 rebase 前的狀態 `git rebase --abort`
+# 碰到衝突有三種處置方法
+# 1. 解決衝突後 `git rebase --continue`
+# 2. 跳過 master 上的這個 commit `git rebase --skip`
+# 3. 回復到使用 rebase 前的狀態 `git rebase --abort`
+```
 
 ### Local branch rebase \(無衝突情況\)
 

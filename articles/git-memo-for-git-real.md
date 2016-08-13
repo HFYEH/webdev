@@ -64,7 +64,7 @@ git clone ssh://imroot@127.0.0.1:/var/git/project.git/ #外部連線
 
 若只是忘記加入某檔案可以使用`git add filename`和`git commit --amend -m "message"`加入並 commit
 
-`git reset --hard HEAD^`    返回上一個 commit 並且回復檔案內容
+`git reset --hard HEAD^`    取消最後一個 commit 並且將專案目錄回覆到上一個 commit 的樣子
 
 ## git checkout
 
@@ -161,7 +161,7 @@ git clone ssh://imroot@127.0.0.1:/var/git/project.git/ #外部連線
 > Rebase 真正含義
 > Rebase 時,先把自己的 commit 移到暫存資料夾,再把HEAD指向要被 rebase 的目標,再將原本自己的 commit 一一 commit 回來
 
-## Interactive rebse
+## Interactive rebase
 
 在同一個分支裡跑 rebase 是在更改 commit 順序
 
@@ -171,7 +171,11 @@ git clone ssh://imroot@127.0.0.1:/var/git/project.git/ #外部連線
 
 ## git branch
 
-`git branch` 列出目前有多少 branch \(分支\)
+`git branch` 列出目前的local branch
+
+`git branch -r` 列出目前的remote branch
+
+`git branch -a` 列出目前的local branch 和remote branch
 
 `git branch branch_name`    建立一個分支 branch\_name
 

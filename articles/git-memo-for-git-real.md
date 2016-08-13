@@ -187,8 +187,6 @@ git clone ssh://imroot@127.0.0.1:/var/git/project.git/ #外部連線
 
 `git branch -D branch_name`    強制刪除 branch\_name 分支\(有 commit 但未 merge 時用\)
 
-`git branch -r`    檢視所有遠端分支
-
 ## git log
 
 `git config --global color.ui true`    設定顏色

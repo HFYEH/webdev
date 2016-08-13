@@ -304,8 +304,12 @@ git rm --cached development.log
 git cherry-pick 54ea45
 # 要寫入不同的commit message
 git cherry-pick --edit 54ea45
-# 要把複數commit拉到暫存區並且不要commit
+# 要把複數commit拉到staging area並且不要commit
 git cherry-pick --no-commit 53131s 41235e
+# 把原commit的SHA加進commit message中
+git cherry-pick -x 54ea45
+# 把當前的user資訊加進commit message
+git cherry-pick --signoff 54ea45
 ```
 
 ## Github

@@ -116,27 +116,15 @@ git pull --rebase
 git push
 ```
 
-###### 情境：如果遠端 Repo 與本機的 commit 不同,且不同處是同一個文件
+###### 情境：merge發生conflict
 ```
-git pull`   # 在合併時會出錯
-git status`   # 該文件會顯示 both modified
+git pull     # 在合併時會出錯
+git status   # 該文件會顯示 both modified
 # 修改該文件...
 git commit -a
 git push
 ```
-
-###### 情境：合併遠端 Repo 但是產生衝突時除了用 merge 外,還可以用 rebase \(無衝突情況\)
-
-```
-git fetch   # 把遠端 Repo 與更新到本地
-git rebase
-
-# 1. 移動所有 master 的更變到暫存資料夾,這些更變是相對 origin/master 而言
-# 2. 跑所有 origin/master 的 commit
-# 3. 跑所有在暫存資料夾中的 commit, 一次一個
-```
-
-###### 情境：合併遠端 Repo 但是產生衝突時除了用 merge 外,還可以用 rebase \(有衝突情況\)
+###### 情境：rebase發生conflict
 
 ```
 git fetch
@@ -147,6 +135,15 @@ git rebase
 # 2. 跳過 master 上的這個 commit `git rebase --skip`
 # 3. 回復到使用 rebase 前的狀態 `git rebase --abort`
 ```
+
+# 1. 移動所有 master 的更變到暫存資料夾,這些更變是相對 origin/master 而言
+
+# 2. 跑所有 origin/master 的 commit
+
+# 3. 跑所有在暫存資料夾中的 commit, 一次一個
+
+
+
 
 ### Local branch rebase \(無衝突情況\)
 ```
@@ -166,7 +163,6 @@ git rebase -i HEAD~3    重跑最後三個 commit,會跑出 editor,編輯完後�
 ```
 
 ## git branch
-
 ```
 git branch                  # 列出目前的local branch
 git branch -r               # 列出目前的remote branch

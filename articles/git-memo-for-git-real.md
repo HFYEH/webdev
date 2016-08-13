@@ -4,8 +4,10 @@
 git config --global user.name "Username"
 git config --global user.email "email"
 git config --global color.ui true
-# git config --global core.editor emacs
+git config --global core.autocrlf input
+# git config --global core.editor vim
 # git config --global merge.tool opendiff
+
 git config --list  // 檢視所有設定
 git config --global alias.co checkout
 git config --global alias.br branch
@@ -14,9 +16,10 @@ git config --global alias.st status
 git config --global alias.unstage 'reset HEAD --'
 git config --global alias.last 'log -1 HEAD'
 git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-commit --all"
-git config --global core.autocrlf false
-// --global是此user
-// --local是此repo
+
+
+// --global是此user，存在~/.gitconfig
+// --local是此repo，存在repo的.git/config
 // --system是所有user
 ```
 

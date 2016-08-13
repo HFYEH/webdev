@@ -258,8 +258,6 @@ git stash drop                # git stash drop stash@{0}
 git stash pop                 # git stash apply; git stash drop;
 ```
 
-
-
 ## 清理遠端branch和本地的origin
 ```
 git push origin :branch_name # 刪除遠端分支

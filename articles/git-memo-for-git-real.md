@@ -204,6 +204,8 @@ git clone ssh://imroot@127.0.0.1:/var/git/project.git/ #外部連線
 ## git tag \(用於釋出版本\)
 使用時機：每次推向production時使用（除非是用CI）
 
+Release tags
+
 `git tag`    檢視所有 tags
 
 `git tag -a v0.0.3 -m "version 0.0.3"`  加上tag
@@ -355,4 +357,10 @@ git merge upstream/master master
 // 4. Push to your remote
 git push origin master
 
+```
+
+## Issue
+
+```
+git commit -m "This message will show up at issue #1"
 ```

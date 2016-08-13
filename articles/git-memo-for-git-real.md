@@ -307,7 +307,7 @@ shortcut
 
 `git stash pop` = `git stash apply; git stash drop;`
 
-## 清理遠端 branch 被砍掉
+## 清理遠端branch和本地的origin
 ```
 git push origin :branch_name # 刪除遠端分支
 git remote show origin   # 可以看到被砍掉的 branch 狀態為 stale，此時local branch還在，但是origin裡的branch失去追蹤的branch了

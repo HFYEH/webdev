@@ -298,7 +298,13 @@ git rm --cached development.log
 1. 違反著作權
 2. 大檔案移除
 
+## cherry-pick
+```
+# 要把別的branch的特定commit複製一份到當前branch，複製過來的commit有不同的SHA
+git cherry-pick 54ea45
+# 如果要加入不同的commit message
 
+```
 
 ## Github
 ```

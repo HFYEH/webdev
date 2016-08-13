@@ -201,59 +201,26 @@ git push --tags                       # 將本地的所有tag推到為遠端 Rep
 git checkout v0.0.1                   # 切換到具有'v0.0.1'的特定 commit
 ```
 
-## 合併分支至 master \(fast-forward merge\)
+## git blame
 
-master 分支沒有新的 commit 的狀況
-
-`git checkout master`
-
-`git merge branch_name`
-
-# git blame
-
-`git blame filename --date short`    關於此檔案的所有 commit 紀錄\(包含作者,日期,更動的行及其內容\)
-
-
-## 修復 master上的 bug 工作流程,再合併分支 \(recursive merge\)
-
-master 分支有新的 commit 的狀況
-
-`git pull`
-
-`git branch -b branch_name`    開新分支
-
-\(editing...\)
-
-\(master 發生狀況...\)
-
-\(將現有工作 commit 在該分支\)
-
-`git checkout master`    切換回 master
-
-`git pull`    確保目前版本為最新
-
-\(修復 bug 並 commit 在 master\)
-
-\(現在要合併...\)
-
-`git merge branch_name`
-
-\(跳出VI,產生新的 commit\)
+```
+git blame filename --date short  # 關於此檔案的所有 commit 紀錄\(包含作者,日期,更動的行及其內容\)
+```
 
 ## 建立遠端 branch
+滿足條件
 
 1. 須要別人協作自己的 branch
 2. 存在超過一天的分支,想儲存在遠端 Repo
 
-`git checkout -b branch_name`    建立並切換分支
-
-`git push origin branch_name`    連結近端 branch 到遠端 branch 並追蹤
-\(修改...\)
-
-`git commit -am "message"`
-
-`git push`    會自動儲存到遠端 Repo 的該 branch
-其他人只要`git pull`就可以同步了
+```
+git checkout -b branch_name   # 建立並切換分支
+git push origin branch_name   # 連結近端 branch 到遠端 branch 並追蹤
+# 修改...
+git commit -am "message"
+git push                      # 會自動儲存到遠端 Repo 的該 branch
+# 其他人只要 git pull 就可以同步了
+```
 
 ## stashing
 

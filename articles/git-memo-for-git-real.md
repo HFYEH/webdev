@@ -6,7 +6,7 @@ git config --global user.email "email"
 git config --global color.ui true
 # git config --global core.editor emacs
 # git config --global merge.tool opendiff
-git config --list
+git config --list  // 檢視所有設定
 git config --global alias.co checkout
 git config --global alias.br branch
 git config --global alias.ci commit
@@ -15,19 +15,20 @@ git config --global alias.unstage 'reset HEAD --'
 git config --global alias.last 'log -1 HEAD'
 git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-commit --all"
 git config --global core.autocrlf false
+// --global是此user
+// --local是此repo
+// --system是所有user
 ```
 
-##裸裝與平裝的分別
+## 裸裝與平裝的分別
 
-```
 
-git init project` #單人使用(平裝)
+    git init project` #單人使用(平裝)
 
-git init --bare project.git` #多人使用(裸裝)
+    git init --bare project.git` #多人使用(裸裝)
 
-```
 
-##clone剛剛開好的裸裝repo
+## clone剛剛開好的裸裝repo
 
 ```
 
@@ -36,7 +37,6 @@ git clone /var/git/project.git/ #內部連線
 git clone ssh://imroot@127.0.0.1:/var/git/project.git/ #外部連線
 
 ```
-
 
 ## git diff
 

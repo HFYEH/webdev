@@ -161,6 +161,7 @@ git merge branch_name
 # rebase 到 HEAD^
 git rebase -i HEAD^   # 因為 HEAD^ 之後只有一個commit,故只會有一個 commit 出現，所以其實不會改變順序
 git rebase -i HEAD~3    重跑最後三個 commit,會跑出 editor,編輯完後再執行該 editor
+# 之後會進editor，編輯順序，不過要注意，最上面是最先會被commit的，儲存後就會rebase了，進入editor後可看說明更改順序和commnet，合併，拆解
 ```
 
 ## git branch

@@ -137,14 +137,23 @@ git rebase   # 預設會去rebase origin/branch_name
 ```
 
 ### Local branch rebase \(無衝突情況\)
+Rebase 真正含義
+
+首先，當前的 branch 是從某個 commit 分出來的，那個 commit 就是此 branch 的 base。
+
+Rebase 時,先把當前 branch 的最後一個 commit 到 base commit 的所有 commit 移到暫存資料區，再把HEAD指向要被 rebase 的目標（也就是跑了所有的新的base的commit）,再將暫存區中的 commit 一一 commit 回來
+
+假定現在要從某branch做rebase master
 ```
-git checkout branch_name
-git rebase master   # 先在 branch 上跑 master 的 commit, 再跑 branch 上的 commit
+git checkout branch_name        # 切到該branch
+git rebase master               # 先在本 branch 上跑 master 的 commit, 再跑 branch 上的 commit
 git checkout master
 git merge branch_name
 ```
-Rebase 真正含義
-> Rebase 時,先把自己的 commit 移到暫存資料夾,再把HEAD指向要被 rebase 的目標,再將原本自己的 commit 一一 commit 回來
+
+有了這層認識後，`git pull --rebase`就不難理解了。
+
+當使用`git rebase`時，會找到當前branch的origin/branch，origin/branch和local branch有各自的更新，但是當前branch的base就是在上一次`git push`的地方。所以會把push後的local commit先移到暫存區，再跑所有的origin/branch的commit，最後再把暫存區的commit回來。
 
 ## Interactive rebase
 ```

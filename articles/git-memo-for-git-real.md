@@ -16,6 +16,8 @@ git config --global alias.st status
 git config --global alias.unstage 'reset HEAD --'
 git config --global alias.last 'log -1 HEAD'
 git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-commit --all"
+git config --global alias.mylog "log --pretty=format:'%h %s [%an]' --graph"
+git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-commit --all"
 
 // --global是此user，存在~/.gitconfig
 // --local是此repo，存在repo的.git/config
@@ -228,11 +230,6 @@ master 分支沒有新的 commit 的狀況
 
 `git blame filename --date short`    關於此檔案的所有 commit 紀錄\(包含作者,日期,更動的行及其內容\)
 
-## Aliases
-
-`git config --global alias.mylog "log --pretty=format:'%h %s [%an]' --graph"`
-
-`git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-commit --all"`
 
 ## 修復 master上的 bug 工作流程,再合併分支 \(recursive merge\)
 

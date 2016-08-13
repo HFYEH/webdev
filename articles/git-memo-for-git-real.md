@@ -110,7 +110,7 @@ git pull
 以rebase操作
 ```
 git pull --rebase
-
+# 會做兩件事
 # 1. 同步遠端 Repo 至本機(git fetch)
 # 2. rebase origin/master (git rebase origin/master)
 git push

@@ -250,18 +250,15 @@ git stash show                # 顯示最新的 stash 其中的變更內容
 git stash apply stash@{1}     # 回復最新的 stash
 git stash drop                # apply 後 stash 依然存在,使用此指令刪除此 stash
 git stash clear               # 清除所有 stash
+
+# shortcut
+git stash                     # git stash save
+git stash apply               # git stash apply stash@{0}
+git stash drop                # git stash drop stash@{0}
+git stash pop                 # git stash apply; git stash drop;
 ```
 
 
-shortcut
-
-`git stash` = `git stash save`
-
-`git stash apply` = `git stash apply stash@{0}`
-
-`git stash drop` = `git stash drop stash@{0}`
-
-`git stash pop` = `git stash apply; git stash drop;`
 
 ## 清理遠端branch和本地的origin
 ```

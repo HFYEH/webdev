@@ -312,6 +312,26 @@ git cherry-pick -x 54ea45
 git cherry-pick --signoff 54ea45
 ```
 
+## git modules
+A git repo inside a git repo
+```
+# 將某個repo抓下來當成submodule，資訊會寫在.gitmodules
+git submodule add git@example.com:sub_m.git
+git commit -m "Add sub_m submodule"
+
+# 要修改submodule
+cd sub_m                    # 先進入該 submodule
+git checkout master         # Submodule抓下來後並不會切到特定的branch，要自行指定
+# 修改...
+git commit -am "made changes..."
+git push                    # 將submodule推上remote repo
+# 因為parent repo會指向先前的submodule未更動前的commit，所以要回到parent repo再更新
+cd ..
+git add sub_m
+git commit -m "Update something in sub_m"
+```
+
+
 ## Github
 ```
 # Update your fork

@@ -4,9 +4,10 @@
 git config --global user.name "Username"
 git config --global user.email "email"
 git config --global color.ui true
-git config --global core.autocrlf input
 git config --global core.editor vim
-git config --global merge.tool opendiff
+git config --global merge.tool opendiffgit config --global core.autocrlf input # Fix windows line endings that get introduced，把CR/LF全部換成LF，linux用
+git config --global core.autocrlf true # 進入當前目錄時會換成window的CR/LF，進到commit時會自動換成LF，window用
+git config --global core.autocrlf false # window only project
 
 git config --list  // 檢視所有設定
 git config --global alias.co checkout
@@ -290,6 +291,14 @@ tutorial.mp4    # file
 git rm --cached development.log
 # 之後再加入.gitignore
 ```
+
+## git purge
+有檔案要從所有歷史中完全移除的情況
+
+1. 違反著作權
+2. 大檔案移除
+
+
 
 ## Github
 ```

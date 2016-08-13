@@ -336,7 +336,7 @@ git push
 git submodule init          # 讀.gitsubmodule並寫入資訊到.git/config
 git submodule update        # clone submodules
 # 之後如果submodule有變化，跑 git submodule update 也會更新
-# 但須注意，每次跑submodule update，都會把submodule變成headless，所以要再checkout master
+# 但須注意，每次跑submodule update，都會把submodule變成headless，所以要再checkout master，特別注意這點！
 
 ```
 

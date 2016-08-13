@@ -52,16 +52,17 @@ git diff --since=1.week.ago --until=1.minute.ago
 
 ## git reset \(已經 git push後嚴禁使用\)
 
-`git reset HEAD filename` 從 staging area 狀態回到 unstaging 或 untracked \(檔案內容並不會改變\)
+```
+git reset HEAD filename #從 staging area 狀態回到 unstaging 或 untracked \(檔案內容並不會改變\)
+git reset HEAD --soft HEAD^   # 把最後一次 commit 的檔案回復到 staging 並取消最後一次 commit
 
-`git reset HEAD --soft HEAD^`    把最後一次 commit 的檔案回復到 staging 並取消最後一次 commit
+# 若只是忘記加入某檔案可以使用
+git add filename
+git commit --amend -m "message"
 
-若只是忘記加入某檔案可以使用`git add filename`和`git commit --amend -m "message"`加入並 commit
-
-`git reset --hard HEAD^`    取消最後一個 commit 並且將專案目錄回覆到上一個 commit 的樣子
-
+git reset --hard HEAD^    # 取消最後一個 commit 並且將專案目錄回覆到上一個 commit 的樣子
+```
 ## git checkout
-
 ```
 git checkout .    #Recover all to repo version
 git checkout -- filename    回復為repo中的版本

@@ -141,7 +141,7 @@ Rebase 真正含義
 
 首先，當前的 branch 是從某個 commit 分出來的，那個 commit 就是此 branch 的 base。
 
-Rebase 時,先把當前 branch 的最後一個 commit 到 base commit 的所有 commit 移到暫存資料區，再把HEAD指向要被 rebase 的目標（也就是跑了所有的新的base的commit）,再將暫存區中的 commit 一一 commit 回來
+Rebase 時,先把當前 branch 的最後一個 commit 到 base commit 之後的所有 commit 移到暫存資料區，再把HEAD指向要被 rebase 的目標（也就是跑了所有的新的base的commit）,再將暫存區中的 commit 一一 commit 回來
 
 假定現在要從某branch做rebase master
 ```

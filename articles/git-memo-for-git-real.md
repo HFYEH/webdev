@@ -307,12 +307,11 @@ shortcut
 
 `git stash pop` = `git stash apply; git stash drop;`
 
-## 遠端 branch 被砍掉
+## 清理遠端 branch 被砍掉
 ```
-# 自己的分支變成 local branch
-git push   # 無遠端可 push
-git remote show origin   # 可以看到被砍掉的 branch 狀態為 stale
-git remote prune origin   # 清理被刪除的遠端分支
+git push origin :branch_name # 刪除遠端分支
+git remote show origin   # 可以看到被砍掉的 branch 狀態為 stale，此時local branch還在，但是origin裡的branch失去追蹤的branch了
+git remote prune origin   # 清理origin中被沒有追蹤的分支
 ```
 
 ## 在 Heroku 部署 local 分支

@@ -149,74 +149,57 @@ git rebase
 ```
 
 ### Local branch rebase \(無衝突情況\)
-
-`git checkout branch_name`
-
-`git rebase master`    先在 branch 上跑 master 的 commit, 再跑 branch 上的 commit
-
-`git checkout master`
-
-`git merge branch_name`
-
-> Rebase 真正含義
+```
+git checkout branch_name
+git rebase master   # 先在 branch 上跑 master 的 commit, 再跑 branch 上的 commit
+git checkout master
+git merge branch_name
+```
+Rebase 真正含義
 > Rebase 時,先把自己的 commit 移到暫存資料夾,再把HEAD指向要被 rebase 的目標,再將原本自己的 commit 一一 commit 回來
 
 ## Interactive rebase
-
-在同一個分支裡跑 rebase 是在更改 commit 順序
-
-`git rebase -i HEAD^`    因為 HEAD^ 之後只有一個commit,故只會有一個 commit 出現
-
-`git rebase -i HEAD~3`    重跑最後三個 commit,會跑出 editor,編輯完後再執行該 editor
+```
+# 在同一個分支裡跑 rebase 是在更改 commit 順序
+git rebase -i HEAD^   # 因為 HEAD^ 之後只有一個commit,故只會有一個 commit 出現
+git rebase -i HEAD~3    重跑最後三個 commit,會跑出 editor,編輯完後再執行該 editor
+```
 
 ## git branch
 
-`git branch` 列出目前的local branch
+```
+git branch                  # 列出目前的local branch
+git branch -r               # 列出目前的remote branch
+git branch -a               # 列出目前的local branch 和remote branch
 
-`git branch -r` 列出目前的remote branch
+git branch branch_name      # 建立一個分支 branch\_name
+git checkout branch_name    # 切換到 branch\_name 分支
+git checkout -b branch_name # 建立分支並切換到該分支 (常用）
 
-`git branch -a` 列出目前的local branch 和remote branch
+git branch -d branch_name   # 刪除 branch\_name 分支
 
-`git branch branch_name`    建立一個分支 branch\_name
-
-`git checkout branch_name`    切換到 branch\_name 分支
-
-`git checkout -b branch_name`    建立分支並切換到該分支
-
-`git branch -d branch_name`    刪除 branch\_name 分支
-
-`git branch -D branch_name`    強制刪除 branch\_name 分支\(有 commit 但未 merge 時用\)
+git branch -D branch_name   # 強制刪除 branch\_name 分支\(有 commit 但未 merge 時用\)
+```
 
 ## git log
-
-`git config --global color.ui true`    設定顏色
-
-`git log --pretty=oneline`    一個 commit 只顯示一行
-
-`git log --oneline -p` 將所有 log 和修改過的檔案內容列出
-
-`git log --oneline --stat --summary`    查每個版本間的更動檔案和行數
-
-`git log --oneline --graph`    圖形化
-
-`git log --until=1.minute.ago`    只顯示一分鐘前的所有 commit
-
-`git log --since=1.day(hour/month).ago`    只顯示一天\(小時\/月\)以內的所有 commit
+我比較常用GUI或是一開始設定的alias看log
+```
+git log --pretty=oneline   # 一個 commit 只顯示一行
+git log --oneline -p`       # 將所有 log 和修改過的檔案內容列出
+git log --oneline --stat --summary  #  查每個版本間的更動檔案和行數
+git log --oneline --graph   # 圖形化
+git log --until=1.minute.ago   # 只顯示一分鐘前的所有 commit
+`git log --since=1.day(hour/month).ago   # 只顯示一天\(小時\/月\)以內的所有 commit
+```
 
 ## git tag \(用於釋出版本\)
 使用時機：每次推向production時使用（除非是用CI）
-
-Release tags
-
-`git tag`    檢視所有 tags
-
-`git tag -a v0.0.3 -m "version 0.0.3"`  加上tag
-
-`git push --tags`    將本地的所有tag推到為遠端 Repo
-
-`git checkout v0.0.1` 切換到具有'v0.0.1'的特定 commit
-
-
+```
+git tag                               # 檢視所有 tags
+git tag -a v0.0.3 -m "version 0.0.3"  # 加上tag
+git push --tags                       # 將本地的所有tag推到為遠端 Repo
+git checkout v0.0.1                   # 切換到具有'v0.0.1'的特定 commit
+```
 
 ## 合併分支至 master \(fast-forward merge\)
 
@@ -272,7 +255,7 @@ master 分支有新的 commit 的狀況
 `git push`    會自動儲存到遠端 Repo 的該 branch
 其他人只要`git pull`就可以同步了
 
-## Stashing
+## stashing
 
 正在分支編寫,臨時要去 master 救火
 

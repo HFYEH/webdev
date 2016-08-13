@@ -243,7 +243,6 @@ git stash apply               # 回到 stash 前的未 commit 狀態
 git stash save --keep-index   # 只把 staging 的檔案 stash
 git stash save --include-untracked    上述指令只考慮 tracked file,如要把 untracked file 也 stash 要用這個
 
-
 git stash -h                  # 可以查到所有功能
 # 每次跑 stash 都會把 stash 存到 stash stack 中
 git stash list                # 顯示所有 stash,從最新到最舊

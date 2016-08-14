@@ -12,7 +12,7 @@
 
 ## 參考資料
 
-###### 後端實作
+###### 後端 Websocket Server 實作
 
 [Ruby & Websocket & websocket-js 支援與詳解 by JC](http://jokercatz.blogspot.tw/2013/04/ruby-websocket.html)
 
@@ -22,7 +22,11 @@
 
 [使用純Ruby打造一個簡單的Websocket server](http://blog.liveneeq.com/tech/2015/12/16/simple-websocket-server-in-ruby.html)
 
+###### 後端送後端
+
 [大兜的Demo - Ruby SSE Server](http://tonytonyjan.net/2015/11/05/concurrent-ruby/)
+
+[Chat Example App Using Server-Sent Events](https://robots.thoughtbot.com/chat-example-app-using-server-sent-events)
 
 
 ###### Ruby Gems
@@ -56,6 +60,6 @@ http://www.plezi.io/
 
 [Building a simple websockets server from scratch in Ruby](http://blog.honeybadger.io/building-a-simple-websockets-server-from-scratch-in-ruby/)
 
-[Chat Example App Using Server-Sent Events](https://robots.thoughtbot.com/chat-example-app-using-server-sent-events)
+
 
 [websocket之实现简易聊天室(四)](https://www.rails365.net/articles/websocket-zhi-shi-xian-jian-yi-liao-tian-shi-si)

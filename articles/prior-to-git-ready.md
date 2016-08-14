@@ -78,4 +78,4 @@ Public Key - id_rsa.pub 公鑰
 ## 下次開會就預設大家都做完上述工作了喔
 雖然有時也會用圖形介面，但我最常用的還是command line，下次會講最重要的幾個指令，和git work flow，內容會選自下面這篇，不講太多，把握重要觀念，須要用到再查即可。
 
-[Git指令](http://sharefun.logdown.com/posts/276649-git-memo-for-git-real)
+[Git指令](/articles/git-memo-for-git-real.md)

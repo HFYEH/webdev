@@ -10,7 +10,7 @@
     * [aws note](articles/aws-note.md)
 * [Ruby & Rails](rails.md)
     * [RSpec資料](articles/rspec.md)
-    * [CSRF and CORS](articles/2016-04-28-csrf-and-cors.md)
+    * [CSRF and CORS](articles/csrf-and-cors.md)
     * [Gemfile](articles/gemfile.md)
     * [Railsfun Ruby 介紹](articles/railsfun-ruby.md)
     * [Railsfun Rails 介紹](articles/railsfun-rails.md)

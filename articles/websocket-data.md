@@ -1,12 +1,12 @@
-Websocket server的實作極多，本篇目標是想以 faye-websocket 這個 gem 做一個純websocket service。玩熟之後可能還會玩玩看 em-websocket 和 plezi。那麽，開始吧！
-
 從Wikipedia的定義
 > WebSocket是HTML5開始提供的一種在單個 TCP 連線上進行全雙工通訊的協定。WebSocket通訊協定於2011年被IETF定為標準RFC 6455，WebSocketAPI被W3C定為標準。
 >
 > 在WebSocket API中，瀏覽器和伺服器只需要做一個交握的動作，然後，瀏覽器和伺服器之間就形成了一條快速通道。兩者之間就直接可以資料互相傳送。
 
 不過有另外兩個資料寫得比較好
+
 [知乎原理介紹](https://www.zhihu.com/question/20215561)
+
 [Railsfun JC 大解釋](http://railsfun.tw/t/rails-websocket/498/3)
 
 

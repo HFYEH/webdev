@@ -22,7 +22,7 @@
 
 [使用純Ruby打造一個簡單的Websocket server](http://blog.liveneeq.com/tech/2015/12/16/simple-websocket-server-in-ruby.html)
 
-###### 後端送後端
+###### Server-Sent Events
 
 [大兜的Demo - Ruby SSE Server](http://tonytonyjan.net/2015/11/05/concurrent-ruby/)
 

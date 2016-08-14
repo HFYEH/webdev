@@ -44,7 +44,6 @@
 
 [Chat Example App Using Server-Sent Events](https://robots.thoughtbot.com/chat-example-app-using-server-sent-events)
 
-
 ###### Ruby Gems
 
 https://github.com/faye/faye-websocket-ruby

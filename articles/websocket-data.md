@@ -17,7 +17,6 @@
 
 [極客技術網](https://www.rails365.net/articles/websocket-xu-lie-wen-zhang-mu-lu)
 
-
 ###### 前端實作
 
 [菜鳥教程 - 用HTML5標準發Websocket](http://www.runoob.com/html/html5-websocket.html)

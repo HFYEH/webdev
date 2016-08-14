@@ -231,8 +231,11 @@ end
 打rake grape:routes就可以看到目前的api routes。要注意，因為這邊只進去module裡看，所以寫在routes.rb裡的prefix不會被讀到，所以...自己心裡有底就好，我打的api是在`/api/v1/`而不是在`/`。
 
 最後，因為打API有很多時候是要給別的網站串的，所以我們須要開放跨來源資源共享（CORS），詳見高手文章：
+
 http://blog.toright.com/posts/3205/%E5%AF%A6%E4%BD%9C-cross-origin-resource-sharing-cros-%E8%A7%A3%E6%B1%BA-ajax-%E7%99%BC%E9%80%81%E8%B7%A8%E7%B6%B2%E5%9F%9F%E5%AD%98%E5%8F%96-request.html
+
 https://developer.mozilla.org/zh-TW/docs/HTTP/Access_control_CORS
 
 Rack based的app server可以用這邊提供的方法解掉。
+
 https://github.com/cyu/rack-cors

@@ -8,7 +8,3 @@
 
 [第七卷 - Fetch 簡介以及 React Native 之 Fetch 的練習](http://winwu.github.io/react-native-note/2016/05/02/fetch-exampe/)
 
-# Issues:
-
-Issues: 練習fetch時碰到一個問題，如果在一個頁面裡出現兩個ListView，fetch不知是不會執行還是執行後沒有更新，不會顯示結果，原因不明。
-

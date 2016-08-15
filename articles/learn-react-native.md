@@ -16,9 +16,9 @@
 
 [react-native组件生命周期在navigator上的表现续](http://www.lynull.com/2016/03/22/react-native-navigator-lifecycle-2/)
 
-浅析react-native的Navigator组件
+
+[浅析react-native的Navigator组件01之最简实例](http://www.lynull.com/2016/03/26/navigator-simplest-01/)
 
 
-
-http://www.lynull.com/2016/03/22/react-native-navigator-lifecycle-2/
+[浅析react-native的Navigator组件02之最简实例](http://www.lynull.com/2016/03/27/navigator-passdata-02/)
 

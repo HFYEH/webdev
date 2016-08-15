@@ -8,3 +8,20 @@
 
 [第七卷 - Fetch 簡介以及 React Native 之 Fetch 的練習](http://winwu.github.io/react-native-note/2016/05/02/fetch-exampe/)
 
+
+
+## Navigator
+
+route
+routeStack
+
+參考資料：
+
+[react-native组件生命周期在navigator上的表现](http://www.lynull.com/2016/03/13/react-native-navigator-lifecycle/)
+
+浅析react-native的Navigator组件
+
+
+
+http://www.lynull.com/2016/03/22/react-native-navigator-lifecycle-2/
+

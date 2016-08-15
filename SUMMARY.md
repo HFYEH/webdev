@@ -33,7 +33,7 @@
     * [Websocket 資料](articles/websocket-data.md)
     * [Metaprogramming Ruby 第一章筆記.md](articles/metaprogramming_ch1.md)
 * [JavaScript](android.md)
-    * [學習 React Native](articles/learn-react-native.md)
+    * [React Native 學習資源](articles/learn-react-native.md)
     * [學習Redux](articles/learn-redux.md)
     * [XMLHttpRequest & Fetch](articles/xmlhttprequest_fetch.md)
     * [Javascript: The Good Parts 閱讀筆計](articles/javascript-the-good-parts.md)

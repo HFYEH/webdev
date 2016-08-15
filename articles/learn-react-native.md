@@ -19,6 +19,7 @@
 
 [浅析react-native的Navigator组件01之最简实例](http://www.lynull.com/2016/03/26/navigator-simplest-01/)
 
+[浅析react-native的Navigator组件02之数据传送](http://www.lynull.com/2016/03/27/navigator-passdata-02/)
 
-[浅析react-native的Navigator组件02之最简实例](http://www.lynull.com/2016/03/27/navigator-passdata-02/)
-
+[浅析react-native的Navigator组件03之动画切换]
+(http://www.lynull.com/2016/03/28/%E7%BB%86%E8%AF%B4react-native%E7%9A%84navigator%E7%BB%84%E4%BB%B603%E4%B9%8B%E5%8A%A8%E7%94%BB%E5%88%87%E6%8D%A2/)

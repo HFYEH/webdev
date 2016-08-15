@@ -1,3 +1,8 @@
+
+[React Native 从入门到原理](http://www.jianshu.com/p/978c4bd3a759)
+
+
+
 [第七卷 - Fetch 簡介以及 React Native 之 Fetch 的練習](http://winwu.github.io/react-native-note/2016/05/02/fetch-exampe/)
 
 

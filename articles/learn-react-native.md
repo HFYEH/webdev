@@ -14,7 +14,7 @@
 
 [react-native组件生命周期在navigator上的表现](http://www.lynull.com/2016/03/13/react-native-navigator-lifecycle/)
 
-[react-native组件生命周期在navigator上的表现续]（http://www.lynull.com/2016/03/22/react-native-navigator-lifecycle-2/）
+[react-native组件生命周期在navigator上的表现续](http://www.lynull.com/2016/03/22/react-native-navigator-lifecycle-2/)
 
 浅析react-native的Navigator组件
 

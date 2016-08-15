@@ -10,12 +10,7 @@
 
 
 
-## Navigator
-
-route
-routeStack
-
-參考資料：
+## 理解Navigator
 
 [react-native组件生命周期在navigator上的表现](http://www.lynull.com/2016/03/13/react-native-navigator-lifecycle/)
 

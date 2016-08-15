@@ -10,7 +10,7 @@
 
 
 
-## 理解Navigator
+## 理解 Navigator
 
 [react-native组件生命周期在navigator上的表现](http://www.lynull.com/2016/03/13/react-native-navigator-lifecycle/)
 

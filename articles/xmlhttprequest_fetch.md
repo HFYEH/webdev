@@ -116,5 +116,4 @@ async/await的例子說明
 
 阮一峰的《深入掌握 ECMAScript 6 异步编程》系列，超好懂！
 
-[Generator 函数的含义与用法]
-(http://www.ruanyifeng.com/blog/2015/04/generator.html)
+[Generator 函数的含义与用法](http://www.ruanyifeng.com/blog/2015/04/generator.html)

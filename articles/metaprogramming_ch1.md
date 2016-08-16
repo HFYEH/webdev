@@ -60,6 +60,22 @@ a.instance_variables => [:@var_1, :@var_2]
 
 可以用`object#methods`查詢對象的方法。然而，對象其實僅包含它的***實例變量（object.instance_variables）***和***對自身class的引用（object.class）***和***對象的唯一標識符***（可透過`object.object_id`查詢），因為方法會被所有實例共用，因此存放在class中。
 
-###### class本身也是對象
+###### class C本身也是對象
 
+Ruby 中所有東西都是對象，任何的 class C 都是 Class 這個類的實例。
+```
+String.class => Class
+Object.class => Class
+Class.class => Class
+```
+
+因此任意的 class A 的類方法都是 Class 這個類的的實例方法。
+```
+Object.methods(false) == Class.instance_methods(false) # false表示不列出繼承來的方法
+=> true
+```
+
+BasicObject 是所有類的祖先，Class則繼承於Module。
+
+魔法師的手杖的[一張圖](http://sibevin.github.io/images/post/20160410155612-mr2-ch2-object-model.png)說盡所有事。
 

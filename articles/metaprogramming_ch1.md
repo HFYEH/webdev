@@ -1,4 +1,4 @@
-# Metaprogramming Ruby 第一章筆記
+# Metaprogramming Ruby 第一章對象模型
 
 ###### Open class
 
@@ -83,6 +83,6 @@ class 的名字是常量。object 是變量。
 
 ###### 常量
 
-在Java和C#中，類和對象有很大的差別，類的功能也比對象有限。
+在Java和C#中，任意的class也是Class的實例，但類和對象有很大的差別，類的功能也比對象有限。不能在運行時創建一個類，或修改類方法。對Java和C#，Class實例比較像是描述符，而非真正的類。
 
 

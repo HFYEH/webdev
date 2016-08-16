@@ -56,11 +56,17 @@ a.gen_var_2
 a.instance_variables => [:@var_1, :@var_2]
 ```
 
-###### 對象的本質
+###### object 的本質
 
-可以用`object#methods`查詢對象的方法。然而，對象其實僅包含它的***實例變量（object.instance_variables）***和***對自身class的引用（object.class）***和***對象的唯一標識符***（可透過`object.object_id`查詢），因為方法會被所有實例共用，因此存放在class中。
+對象的本質是***實例變量（object.instance_variables）***、***對自身class的引用（object.class）***、***對象的唯一標識符（`object.object_id`）***。
+
+因為方法會被所有實例共用，因此不存在對象中，而在class中。透過對類的引用來取得。可以用`#methods`查詢對象的方法。
+
+類裡面有類方法和實例方法。這些方法不存在對象中，而在對象的class中。
 
 ###### class 的本質
+
+***class的本質是Class的實例（SomeClass.class）***、***一組實例方法（SomeClass.instance_methods）***、***和對超類的引用（SomeClass.superclass）***。
 
 Ruby 中所有東西都是對象，任何的 class C 都是 Class 這個類的實例。
 ```

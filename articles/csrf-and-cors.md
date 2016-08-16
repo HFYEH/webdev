@@ -1,9 +1,15 @@
+
+[跨域资源共享 CORS 详解](http://www.ruanyifeng.com/blog/2016/04/cors.html)
+
+
 https://segmentfault.com/q/1010000000713614
+
 https://www.ibm.com/developerworks/cn/web/1102_niugang_csrf/
+
 https://developer.mozilla.org/zh-TW/docs/HTTP/Access_control_CORS
 
-
 https://github.com/pillarjs/understanding-csrf
+
 https://ihower.tw/rails4/security.html
 
 

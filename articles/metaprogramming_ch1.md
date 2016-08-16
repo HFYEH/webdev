@@ -79,6 +79,6 @@ BasicObject 是所有類的祖先，Class則繼承於Module，Module提供了new
 
 魔法師的手杖的[一張圖](http://sibevin.github.io/images/post/20160410155612-mr2-ch2-object-model.png)說盡所有事。
 
-
+class 的名字是常量。object 是變量。
 
 

@@ -83,9 +83,27 @@ class 的名字是常量。object 是變量。
 
 ###### 常量
 
-在Java和C#中，任意的class也是Class的實例，但類和對象有很大的差別，類的功能也比對象有限。不能在運行時創建一個類，或修改類方法。對Java和C#，Class實例比較像是描述符，而非真正的類。
+大寫開頭的即是常量。在Java和C#中，任意的class也是Class的實例，但類和對象有很大的差別，類的功能也比對象有限。不能在運行時創建一個類，或修改類方法。對Java和C#，Class實例比較像是描述符，而非真正的類。
 
-常量（如Module和Class）像是文件系統，可以提供樹狀結構。
+常量（如Module和Class）像是文件系統，可以提供樹狀結構。下面同一縮排表示同一層資料夾。
+
+```ruby
+module M
+  class C
+    X = "Constant"    # M::C::X
+    ::M::X    # 雙冒號表示根路徑，相當於在外層呼叫M::X
+  end
+
+  X = "M constant"    # M::X
+  C::X    # C中的X
+end
+
+Module.constants    # 回傳所有頂級常量，包含class名
+Module.nesting      # 獲得當前常量的路徑
+```
+
+
+
 
 
 

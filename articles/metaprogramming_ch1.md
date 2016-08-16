@@ -60,6 +60,6 @@ a.instance_variables => [:@var_1, :@var_2]
 
 可以用`object#methods`查詢對象的方法。然而，對象其實僅包含它的***實例變量（object.instance_variables）***和***對自身class的引用（object.class）***和***對象的唯一標識符***（可透過`object.object_id`查詢），因為方法會被所有實例共用，因此存放在class中。
 
-
+###### class本身也是對象
 
 

@@ -68,7 +68,7 @@ a.instance_variables => [:@var_1, :@var_2]
 
 ***class的本質是Class的實例（SomeClass.class）***、***一組實例方法（SomeClass.instance_methods）***、***和對超類的引用（SomeClass.superclass）***。
 
-> 換言之，所有的類方法，都是class Class的實例方法。（？）這個推論還不是很確定。
+換言之，所有的類方法，都是class Class的實例方法。
 
 Ruby 中所有東西都是對象，任何的 class C 都是 Class 這個類的實例。
 ```

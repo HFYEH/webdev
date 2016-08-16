@@ -102,6 +102,26 @@ Module.constants    # 回傳所有頂級常量，包含class名
 Module.nesting      # 獲得當前常量的路徑
 ```
 
+###### require & load
+
+`load('xxx.rb')`可執行xxx.rb的內容，預設情況會將執行後的常量和變量都留下來，汙染當前的命名空間，若要避免被汙染，可以用
+
+`load('xxx.rb', true);`
+
+如此會將xxx.rb的內容全部用一個匿名Module包住，執行完成後，會被銷毀。
+
+`require('./xxx')`是用來導入類庫的，而這些類名是你導入時就希望得到的，所以通常你不會須要銷毀它。
+
+兩者還有一些差異
+
+* require可以不加副檔名，load一定要加
+* require要指定相對路徑（例中為./），load則不一定
+* require若載入相同檔案兩次，只會載入並執行第一次，load則是每次載入都會執行。
+
+
+
+
+
 
 
 

@@ -69,16 +69,20 @@ Object.class => Class
 Class.class => Class
 ```
 
-因此任意的 class A 的類方法都是 Class 這個類的的實例方法。
+因此任意的 class A 的類方法都是 Class 這個類的的實例方法，大推。
 ```
 Object.methods(false) == Class.instance_methods(false) # false表示不列出繼承來的方法
 => true
 ```
 
-BasicObject 是所有類的祖先，Class則繼承於Module，Module提供了new(), allocat(), superclass()給Class使用。
+BasicObject 是所有類的祖先，Class則繼承於Module，Module提供了new(), allocat(), superclass()等實例方法給Class使用。
 
 魔法師的手杖的[一張圖](http://sibevin.github.io/images/post/20160410155612-mr2-ch2-object-model.png)說盡所有事。
 
 class 的名字是常量。object 是變量。
+
+###### 常量
+
+在Java和C#中，類和對象有很大的差別，類的功能也比對象有限。
 
 

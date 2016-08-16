@@ -111,5 +111,4 @@ async/await的例子說明
 
 [Fetch API](https://segmentfault.com/a/1190000006039533)
 
-
-[告別 JavaScript 的 Promise！迎接 Async/Await 的到來](http://jigsawye.com/2016/04/18/understanding-javascript-async-await/)
+[传统 Ajax 已死，Fetch 永生](https://github.com/camsong/blog/issues/2)

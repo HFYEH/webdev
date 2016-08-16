@@ -1,10 +1,3 @@
----
-layout: post
-title: 'Grape 初體驗（於rails）'
-date: 2016-04-29 06:19
-comments: true
-categories: 
----
 第一次使用grape。看了JC大的[Ruby / Sinatra / Rails : Grape & Swagger](http://jokercatz.blogspot.tw/2015/05/ruby-sinatra-rails-grape-swagger.html)和[大亂鬥的日常：Rails Grape Swagger](https://www.youtube.com/watch?v=aJoD-d51_38)，搭配超複雜的github文檔，整理成這篇文章。
 
 Grape是一個使用Ruby做的Restful API framework，可以單獨跑Rack或是與現有的app搭配一起使用。使用Grape創建的API，會在middleware層就打掉，不會有log，也比較快速。
@@ -28,7 +21,9 @@ config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
 mount GeneralApi::ApiV1 => '/api/v1'
 ```
 mount關鍵字是告訴rails app說我們有另一個app在跑，在此例中，我們的app是一個API Rack app。
+
 它會先跑middleware，如果沒找到path才會到Rails端，所以應該把api的routes都寫到routes的上方。
+
 而這樣的寫法，等一下就會開一個去找GeneralApi::API這個class。GeneralApi這個module，裡面有一個class叫ApiV1。
 
 這樣表示把`GeneralApi::ApiV1`掛在`/api/v1`下。雖然grape有支援版本號，可以在同一個class內打不同版本的api，但是如果所有的版本都打在同一個class裡，裡面的hepler一改動，會影響到其他版本，所以JC建議把不同的版本寫成不同的class。像這樣：
@@ -236,8 +231,11 @@ end
 打rake grape:routes就可以看到目前的api routes。要注意，因為這邊只進去module裡看，所以寫在routes.rb裡的prefix不會被讀到，所以...自己心裡有底就好，我打的api是在`/api/v1/`而不是在`/`。
 
 最後，因為打API有很多時候是要給別的網站串的，所以我們須要開放跨來源資源共享（CORS），詳見高手文章：
+
 http://blog.toright.com/posts/3205/%E5%AF%A6%E4%BD%9C-cross-origin-resource-sharing-cros-%E8%A7%A3%E6%B1%BA-ajax-%E7%99%BC%E9%80%81%E8%B7%A8%E7%B6%B2%E5%9F%9F%E5%AD%98%E5%8F%96-request.html
+
 https://developer.mozilla.org/zh-TW/docs/HTTP/Access_control_CORS
 
 Rack based的app server可以用這邊提供的方法解掉。
+
 https://github.com/cyu/rack-cors

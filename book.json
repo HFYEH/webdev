@@ -1,8 +1,5 @@
 {
   "plugins": [
-    "-disqus",
-    "-mermaid",
-    "collapsible-menu",
-    "youtube"
+    "-mermaid"
   ]
 }

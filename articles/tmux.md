@@ -1,14 +1,10 @@
-[Using zsh and vim to Improve Terminal Visibility](http://mayurrokade.com/blog/using-zsh-and-vim-to-improve-terminal-visibility/)
-
-
 
 # zsh
 
+[Using zsh and vim to Improve Terminal Visibility](http://mayurrokade.com/blog/using-zsh-and-vim-to-improve-terminal-visibility/)
 
 
 # vim
-
-
 
 # tmux
 
@@ -28,6 +24,7 @@ tmux attach 進入上次的session
 tmux attach -t session_count 選擇session編號進入
 tmux kill-session -t session_count 依編號刪除session
 
+****
 Session
 d 脫離目前session；暫時回到Shell界面，输入tmux attach能够重新进入之前的会话
 D 選擇要脫離的session；若同時有多個sessions時使用
@@ -37,7 +34,6 @@ s 切換session
 ****
 多視窗操作
 c：建立新的視窗；
-d：卸載目前的 client；
 l：與先前選擇的視窗間切換；
 n：移動到下個視窗；
 p：移動到上個視窗；
@@ -47,7 +43,7 @@ o：切換到下個區塊；
 w：列出目前 clinet 的視窗，用數字鍵選視窗
 1：跳到指定的數字視窗
 
-
+****
 單一視窗多區塊之操作
 %：當前區塊垂直切割成兩區塊；
 "：當前區塊水平切割成兩區塊
@@ -69,24 +65,22 @@ alt 5 四個視窗各 1/4
 ```
 
 Cheet sheet
-https://gist.github.com/andreyvit/2921703
+[https:\/\/gist.github.com\/andreyvit\/2921703](https://gist.github.com/andreyvit/2921703)
 
+[http:\/\/blog.chh.tw\/posts\/tmux-terminal-multiplexer\/](http://blog.chh.tw/posts/tmux-terminal-multiplexer/)
+[http:\/\/blog.lyhdev.com\/2013\/01\/tmux-tmuxifier-console-screen.html](http://blog.lyhdev.com/2013/01/tmux-tmuxifier-console-screen.html)
 
-http://blog.chh.tw/posts/tmux-terminal-multiplexer/
-http://blog.lyhdev.com/2013/01/tmux-tmuxifier-console-screen.html
+[http:\/\/blog.csdn.net\/gatieme\/article\/details\/49301037](http://blog.csdn.net/gatieme/article/details/49301037)
 
-http://blog.csdn.net/gatieme/article/details/49301037
+[https:\/\/linux.cn\/article-3952-1.html](https://linux.cn/article-3952-1.html)
 
-https://linux.cn/article-3952-1.html
-
-http://www.maxincai.com/post/tmux/
-
+[http:\/\/www.maxincai.com\/post\/tmux\/](http://www.maxincai.com/post/tmux/)
 
 以後再玩config
-https://github.com/gpakosz/.tmux
-
+[https:\/\/github.com\/gpakosz\/.tmux](https://github.com/gpakosz/.tmux)
 
 使用tmuxifier
+
 ```
 新建
 tmuxifier new-window project_name
@@ -98,5 +92,4 @@ tmuxifier load-window project_name
 
 
 ```
-
 

@@ -1,10 +1,3 @@
----
-layout: post
-title: 'Grape + Swagger'
-date: 2016-04-30 07:30
-comments: true
-categories: 
----
 先看demo
 http://petstore.swagger.io/
 

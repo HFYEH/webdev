@@ -1,10 +1,3 @@
----
-layout: post
-title: 'Process / Thread 和 App Server 的種類'
-date: 2016-06-29 03:30
-comments: true
-categories: 
----
 # Web server and Application server 介紹
 
 # Process / Thread 說明

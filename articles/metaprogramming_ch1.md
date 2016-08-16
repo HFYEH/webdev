@@ -1,6 +1,6 @@
 # Metaprogramming Ruby 第一章筆記
 
-##### Open class
+###### Open class
 
 Ruby在執行階段可以存取class內部資訊。亦即class是可以被打開的，而且是包函標準庫的所有class。
 
@@ -15,7 +15,9 @@ end
 
 class關鍵字比較像是作用域操作符，其任務是把你帶到class的上下文中，讓你可以在裡面定義方法。
 
-##### 打開class可以創建新的方法，但如果方法名已經存在，就會覆寫掉原本的方法，(Monkeypatch)在處理標準庫時要注意
+###### Monkeypatch
+
+打開class可以創建新的方法，但如果方法名已經存在，就會覆寫掉原本的方法，(Monkeypatch)在處理標準庫時要注意
 
 ```
 class A
@@ -33,9 +35,9 @@ end
 A.new.foo => "rewrite foo"
 ```
 
-##### 實例變量
+###### 實例變量在顯式賦值後才會出現
 
-class實例化之前不會有實例變量，唯有實例化之後，且執行到定義實例變量的地方時，實例變量才會真正被建立出來，注意，實例變量初始化時不可不賦值。
+class 實例化之前不會有實例變量，唯有實例化之後，且執行到定義實例變量的地方時，實例變量才會真正被建立出來，注意，實例變量初始化時不可不賦值。
 
 ```
 class A
@@ -54,9 +56,9 @@ a.gen_var_2
 a.instance_variables => [:@var_1, :@var_2]
 ```
 
-##### 方法
+###### 對象的本質
 
-可以用`Object#methods`查詢對象的方法。然而，對象其實僅包含它的實例變量和對象的唯一標識符（可透過`Object#object_id`查詢），方法因為會被所有實例共用，因此存放在class中。
+可以用`object#methods`查詢對象的方法。然而，對象其實僅包含它的***實例變量（object.instance_variables）***和***對自身class的引用（object.class）***和***對象的唯一標識符***（可透過`object.object_id`查詢），因為方法會被所有實例共用，因此存放在class中。
 
 
 

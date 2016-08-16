@@ -62,3 +62,4 @@ a.instance_variables => [:@var_1, :@var_2]
 
 
 
+

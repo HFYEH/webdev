@@ -162,11 +162,7 @@ C.new.method_a #=> "method_a in M"
 
 module被封裝進class，這樣的include class，`superclass()`不會察覺。
 
-
-
-
-
-
+一樣大推魔法師的手杖做的[方法查找](http://sibevin.github.io/images/post/20160511181400-mr2-ch2-method-lookup.png)圖示，一圖勝過千言萬語。
 
 ###### self
 

@@ -34,7 +34,7 @@ class A
   end
 end
 
-A.new.foo => "rewrite foo"
+A.new.foo #=> "rewrite foo"
 ```
 
 ###### 實例變量在顯式賦值後才會出現
@@ -53,9 +53,9 @@ class A
 end
 
 a = A.new
-a.instance_variables => [:@var_1]
+a.instance_variables #=> [:@var_1]
 a.gen_var_2
-a.instance_variables => [:@var_1, :@var_2]
+a.instance_variables #=> [:@var_1, :@var_2]
 ```
 
 ###### object 的本質
@@ -74,15 +74,15 @@ a.instance_variables => [:@var_1, :@var_2]
 
 Ruby 中所有東西都是對象，任何的 class C 都是 Class 這個類的實例。
 ```
-String.class => Class
-Object.class => Class
-Class.class => Class
+String.class #=> Class
+Object.class #=> Class
+Class.class #=> Class
 ```
 
 因此任意的 class A 的類方法都是 Class 這個類的的實例方法，大推。
 ```
 Object.methods(false) == Class.instance_methods(false) # false表示不列出繼承來的方法
-=> true
+#=> true
 ```
 
 BasicObject 是所有類的祖先，Class則繼承於Module，Module提供了new(), allocat(), superclass()等實例方法給Class使用。
@@ -128,13 +128,51 @@ Module.nesting      # 獲得當前常量的路徑
 * require要指定相對路徑（例中為./），load則不一定
 * require若載入相同檔案兩次，只會載入並執行第一次，load則是每次載入都會執行。
 
-###### self
+###### 方法查找
 
 執行一個方法時，Ruby會做兩件事：
 
 1. 找到這個方法，稱為***方法查找***。
 2. 執行該方法。需要***self***。
 
+receiver是調用方法所在的對象。ancestor則是一個包含class和module的繼承樹。當執行一個方法時，Ruby會先在receiver中找該方法，然後一層一層往ancestor鏈上游找去，直到找到或拋出例外為止。
+
+```
+class A
+end
+
+A.ancestors  # [A, Object, Kernel, BasicObject] 查詢 A 的 ancestors
+```
+
+其中，Kernel或是其他自定義的module，當被include進其他class的時候，會創建一個封裝該module的匿名class，並插入到ancestors中，位置在被插入的class的上方。舉例
+
+```
+module M
+  def method_a
+    "method_a in M"
+  end
+end
+
+class C
+  include M
+end
+
+C.new.method_a #=> "method_a in M"
+```
+
+
+
+
+
+
+
+
+###### self
+
+執行一個方法時，Ruby會做兩件事：
+
+1. 找到這個方法，稱為***方法查找***。
+2. 執行該方法。需要***self***。
 
 self是特殊的變量，保存的是當前的object。object調用method或實例變數都會使用self作為receiver。
 
@@ -155,13 +193,6 @@ end
 
 
 
-
-###### 方法查找
-
-執行一個方法時，Ruby會做兩件事：
-
-1. 找到這個方法，稱為***方法查找***。
-2. 執行該方法。需要***self***。
 
 
 

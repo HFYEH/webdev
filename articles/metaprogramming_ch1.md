@@ -112,26 +112,6 @@ Module.constants    # 回傳所有頂級常量，包含class名
 Module.nesting      # 獲得當前常量的路徑
 ```
 
-
-###### self
-
-self是特殊的變量，保存的是當前的object。object調用method或實例變數都會使用self作為receiver。
-
-只有兩個方法可以修改self的值,一是`.`，一是`class`關鍵字。
-
-而這樣的程式碼，其實是在做三件事：
-```
-class Test
-  doing something...
-end
-```
-
-1. 定義常量Test
-2. 生成新的Class類實例並賦值給Test常量
-3. 把self的值換成這個新產生的實例
-4. 接下來一直執行到end為止
-
-
 ###### require & load
 
 `load('xxx.rb')`可執行xxx.rb的內容，預設情況會將執行後的常量和變量都留下來，汙染當前的命名空間，若要避免被汙染，可以用
@@ -147,6 +127,30 @@ end
 * require可以不加副檔名，load一定要加
 * require要指定相對路徑（例中為./），load則不一定
 * require若載入相同檔案兩次，只會載入並執行第一次，load則是每次載入都會執行。
+
+###### self
+
+self是特殊的變量，保存的是當前的object。object調用method或實例變數都會使用self作為receiver。
+
+只有兩種方式可以修改self的值,一是`.`，一是`class`關鍵字。
+
+而這樣的程式碼，其實是在做三件事：
+
+```
+class Test
+ doing something...
+end
+```
+
+1. 定義常量Test
+2. 生成新的Class類實例並賦值給Test常量
+3. 把self的值換成這個新產生的實例
+4. 接下來一直執行到end為止
+
+
+
+
+
 
 
 

@@ -79,7 +79,7 @@ Cheet sheet
 以後再玩config
 [https:\/\/github.com\/gpakosz\/.tmux](https://github.com/gpakosz/.tmux)
 
-使用tmuxifier
+###### 使用tmuxifier
 
 ```
 新建

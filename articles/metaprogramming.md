@@ -17,11 +17,6 @@ end
 3. 把self的值換成上一步產生的實例
   接下來一直執行到end
 
-Class本身是一實例,如果用Class.new這個實例方法會產生新的Class實例,使用class關鍵字也是做一樣的事
-Class的superclass如Object, BasicObject都是Class的實例\(有點怪\)
-Test是Class的一個實例,Test.new會產生新的Test實例
-
-[http:\/\/sibevin.github.io\/tags?t=mp](http://sibevin.github.io/tags?t=mp)
 
 國外Metagramming教學網站
 [Metaprogramming in Ruby](http://ruby-metaprogramming.rubylearning.com/)

@@ -160,6 +160,7 @@ end
 C.new.method_a #=> "method_a in M"
 ```
 
+module被封裝進class，這樣的include class，`superclass()`不會察覺。
 
 
 

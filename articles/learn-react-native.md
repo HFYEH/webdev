@@ -8,6 +8,8 @@
 
 [React Native通信机制详解](http://blog.cnbang.net/tech/2698/)
 
+[React Native 调研报告](http://blog.csdn.net/lihuiqwertyuiop/article/details/45241909)
+
 
 ## 理解 Navigator 的好文章
 

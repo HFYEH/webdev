@@ -1,6 +1,6 @@
 # Metaprogramming Ruby 第一章對象模型
 
-此為Metaprogramming Ruby第一版的筆記，記錄於此作為複習之用。
+此系列為Metaprogramming Ruby第一版的筆記，記錄於此作為複習之用。
 
 ###### Open class
 

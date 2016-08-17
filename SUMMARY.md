@@ -21,7 +21,6 @@
     * [使用 Live Reload](articles/guard-livereload.md)
     * [Metaprogramming - 解釋find\_by\_xxx](articles/metagramming-find-by-method.md)
     * [Metaprogramming - Coursera 課程](articles/coursera-metaprogramming.md)
-    * [Metaprogramming](articles/metaprogramming.md)
     * [Railsfun 購物車教學](articles/railsfun-2-5-class.md)
     * [ActiveRecord Coursera 課程](articles/coursera-active-record-and-action-pack-active-record.md)
     * [ActionPack Coursera Course](articles/coursera-active-record-and-action-pack-expressing-database-relationships.md)

@@ -30,7 +30,7 @@
     * [理解 Rails delegate](articles/understanding-rails-delegate.md)
     * [Websocket 資料](articles/websocket-data.md)
     * [Metaprogramming Ruby 第一章第一章對象模型.md](articles/metaprogramming_ch1.md)
-    * [Metapromgramming Ruby 第二章方法](articles/metaprogramming_ch2.md)
+    * [Metaprogramming Ruby 第二章方法](articles/metaprogramming_ch2.md)
 * [JavaScript](android.md)
     * [React Native 學習資源](articles/learn-react-native.md)
     * [學習Redux](articles/learn-redux.md)

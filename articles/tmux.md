@@ -91,7 +91,7 @@ tmuxifier edit-window project_name
 # 進入tmux後，可以讀此設定
 tmuxifier load-window project_name
 
-
+# 預設會存放在~/.tmuxifier/layouts下
 
 ```
 

@@ -6,6 +6,8 @@
 [第七卷 - Fetch 簡介以及 React Native 之 Fetch 的練習](http://winwu.github.io/react-native-note/2016/05/02/fetch-exampe/)
 
 
+[React Native通信机制详解](http://blog.cnbang.net/tech/2698/)
+
 
 ## 理解 Navigator 的好文章
 

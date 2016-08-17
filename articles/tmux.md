@@ -84,7 +84,7 @@ Cheet sheet
 ###### 使用tmuxifier
 
 ```
-# 在tmux中...
+# 在tmux window中...
 
 # 新建
 tmuxifier new-window project_name

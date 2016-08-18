@@ -170,7 +170,7 @@ C.ancestors #=> [C, M, PP:ObjectMixin, Kernel, BasicObject]
 D.ancestors #=> [M, D, PP:ObjectMixin, Kernel, BasicObject]
 ```
 
-使用prepend則相反，在ancestors中會放在被插入的class下方。
+與`include`相反，使用`prepend`時，module會放在被插入的class下方。
 
 module被封裝進一個匿名的class，這樣的include class，`superclass()`不會察覺。
 

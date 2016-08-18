@@ -7,6 +7,7 @@ class C
   def say_ruby
     "Ruby"
   end
+
   def say_python
     "Python"
   end
@@ -18,7 +19,32 @@ c.say_ruby  # 顯示指定receiver
 c.send("say_ruby")  # 方法名只要送入字串或symbol即可，send方法把「選擇用哪個實例方法」的時間點延到執行時才決定。
 ```
 
-# ==================
+###### Dynamic method
+
+```
+
+class C
+  ['ruby', 'python'].each do |lan|
+    define_method "say_#{lan}" do
+      "#{lan}"
+    end
+  end
+end
+
+c = C.new
+c.say_ruby # 顯示指定receiver
+c.say_python
+```
+
+
+
+
+
+
+
+
+
+# =====================
 
 
 ```

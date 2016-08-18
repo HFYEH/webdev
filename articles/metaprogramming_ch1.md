@@ -174,6 +174,22 @@ D.ancestors #=> [M, D, PP:ObjectMixin, Kernel, BasicObject]
 
 與`include`相反，使用`prepend`時，module會放在被插入的class下方。
 
+規則很容易理解，include的modules會照include的順序放在class的最上方（會被class內部定義蓋過），而prepend的modules會照prepend的順序放在class的最下方。
+
+```
+module M1; end
+module M2; end
+module M3; end
+module M4; end
+class C
+  include M1
+  prepend M3
+  include M2
+  prepend M4
+end
+C.ancestors #=> [M4, M3, C, M2, M1, Object, PP::ObjectMixin, Kernel, BasicObject]
+```
+
 module被封裝進一個匿名的class，這樣的include class，`superclass()`不會察覺。
 
 另外值得一提的是，Kernel常被用來封裝使用者自定義的方法。建議把方法都包在這裡。如果包在Object裡，很可能會汙染Object原有的方法。如果包在Kernel module，同名方法會被Object蓋過去。

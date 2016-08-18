@@ -200,9 +200,14 @@ end
 ```
 
 1. 定義常量Test
-2. 生成新的Class類實例並賦值給Test常量
+2. 生成新的Class實例並賦值給Test常量
 3. 把self的值換成這個新產生的實例
 4. 接下來一直執行到end為止
 
+既然所有東西都是對象，而調用對象方法時self就會成為那個object，那我們在irb中還沒有調用任何方法前，self是什麽呢？
 
+```
+self #=> main
+self.class #=> Object
+```
 

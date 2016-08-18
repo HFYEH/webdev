@@ -134,8 +134,8 @@ Module.nesting      # 獲得當前常量的路徑
 
 執行一個方法時，Ruby會做兩件事：
 
-1. 找到這個方法，稱為***方法查找***。
-2. 執行該方法。需要***self***。
+1. 從ancestors找到這個方法，稱為***方法查找***。
+2. 將***self***作為receiver並執行該方法。
 
 receiver是調用方法所在的對象。ancestor則是一個包含class和module的繼承樹。當執行一個方法時，Ruby會先在receiver中找該方法，然後一層一層往ancestor鏈上游找去，直到找到或拋出例外為止。
 
@@ -184,8 +184,8 @@ module被封裝進一個匿名的class，這樣的include class，`superclass()`
 
 執行一個方法時，Ruby會做兩件事：
 
-1. 找到這個方法，稱為***方法查找***。
-2. 執行該方法。需要***self***。
+1. 從ancestors找到這個方法，稱為***方法查找***。
+2. 將***self***作為receiver並執行該方法。
 
 self是特殊的變量，保存的是當前的object。object調用method或實例變數都會使用self作為receiver。
 

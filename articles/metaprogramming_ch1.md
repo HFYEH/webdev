@@ -60,7 +60,7 @@ a.instance_variables #=> [:@var_1, :@var_2]
 
 ###### object 的本質
 
-對象的本質是***實例變量（object.instance_variables）***、***對自身class的引用（object.class）***、***對象的唯一標識符（`object.object_id`）***。
+對象的本質是***實例變量（object.instance_variables）***、***對自身class的引用（object.class）***、***對象的唯一標識符（object.object_id）***。
 
 因為方法會被所有實例共用，因此不存在對象中，而在class中。透過對類的引用來取得。可以用`#methods`查詢對象的方法。
 

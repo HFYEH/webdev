@@ -187,6 +187,7 @@ class C
   include M2
   prepend M4
 end
+
 C.ancestors #=> [M4, M3, C, M2, M1, Object, PP::ObjectMixin, Kernel, BasicObject]
 ```
 

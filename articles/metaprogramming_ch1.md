@@ -157,10 +157,22 @@ class C
   include M
 end
 
+class D
+  prepend M
+  def method_a
+    "method_a in D"
+  end
+end
+
 C.new.method_a #=> "method_a in M"
+D.new.method_a #=> "method_a in M"
+C.ancestors #=> [C, M, PP:ObjectMixin, Kernel, BasicObject]
+D.ancestors #=> [M, D, PP:ObjectMixin, Kernel, BasicObject]
 ```
 
-module被封裝進class，這樣的include class，`superclass()`不會察覺。
+使用prepend則相反，在ancestors中會放在被插入的class下方。
+
+module被封裝進一個匿名的class，這樣的include class，`superclass()`不會察覺。
 
 另外值得一提的是，Kernel常被用來封裝使用者自定義的方法。建議把方法都包在這裡。如果包在Object裡，很可能會汙染Object原有的方法。如果包在Kernel module，同名方法會被Object蓋過去。
 

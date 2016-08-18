@@ -1,4 +1,4 @@
-# Metapromgramming Ruby 第二章方法
+# Metapromgramming Ruby 方法
 
 ###### Dynamic Dispatch
 

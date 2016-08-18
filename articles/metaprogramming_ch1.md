@@ -37,6 +37,8 @@ end
 A.new.foo #=> "rewrite foo"
 ```
 
+Refinemenet會讓MonkeyPatch更有彈性，詳見[魔法師的手杖](http://sibevin.github.io/posts/2016-05-02-163010-refinement-in-ruby)。
+
 ###### 實例變量在顯式賦值後才會出現
 
 class 實例化之前不會有實例變量，唯有實例化之後，且執行到定義實例變量的地方時，實例變量才會真正被建立出來，注意，實例變量初始化時不可不賦值。

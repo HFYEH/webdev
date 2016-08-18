@@ -215,11 +215,14 @@ self通常是接收到最後一個方法調用的對象來充當，但是在clas
 
 ###### private
 
-了解self，就能了解private。
+了解self，就能了解private方法。
 
-private方法不能被顯式的指定receiver來調用。也就是說，調用private方法，只能調用於隱含的receiver(self)。
+private方法由兩條規則控制：
 
-private方法由兩條規則控製
+1. 如果調用方法的receiver不是自己，就要明確指定receiver。
+2. private方法只能被隱式的調用，不能顯式的指定receiver。
+
+綜合兩個規則，private方法只能在自身中調用private方法。
 
 ```
 class C

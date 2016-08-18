@@ -2,8 +2,6 @@
 
 ###### Dynamic Dispatch
 
-
-
 ```
 class A
   def ss

@@ -242,3 +242,18 @@ C.new.public_method_1 #=> NoMethodError
 C.new.public_method_2 #=> nil
 ```
 
+可以使用superclass的private方法，因為無須顯式的指定receiver。
+```
+class C
+  private
+  def private_method; end
+end
+
+class D < C
+  def private_method
+    super
+  end
+end
+
+D.new.private_method #=> nil
+```

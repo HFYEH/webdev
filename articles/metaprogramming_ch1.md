@@ -112,6 +112,8 @@ Module.constants    # 回傳所有頂級常量，包含class名
 Module.nesting      # 獲得當前常量的路徑
 ```
 
+一個module基本上就是一組實例方法，而class則是增加若干新方法的module，繼承於module。兩者的差異處，在於使用module主要是***提供命名空間***（如上例）和希望將來***被include進某個class中***，而class則是將來希望能被實例化或是被繼承。
+
 ###### require & load
 
 `load('xxx.rb')`可執行xxx.rb的內容，預設情況會將執行後的常量和變量都留下來，汙染當前的命名空間，若要避免被汙染，可以用

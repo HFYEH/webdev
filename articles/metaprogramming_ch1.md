@@ -204,10 +204,14 @@ end
 3. 把self的值換成這個新產生的實例
 4. 接下來一直執行到end為止
 
-既然所有東西都是對象，而調用對象方法時self就會成為那個object，那我們在irb中還沒有調用任何方法前，self是什麽呢？
+既然所有東西都是對象，而調用對象方法時self就會成為那個object，那我們在irb中還沒有調用任何方法前，self是什麽呢？self是一個叫作main的Object實例。這個對象有時被稱為頂級上下文top level context，是謂棧頂。
 
 ```
 self #=> main
 self.class #=> Object
 ```
+
+self通常是接收到最後一個方法調用的對象來充當，但是在class和module定義中，方法定義之外，self由該class或module充當。
+
+
 

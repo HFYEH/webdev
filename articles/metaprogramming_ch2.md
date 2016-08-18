@@ -4,13 +4,19 @@
 
 ```
 class A
-  def ss
+  def say_ruby
+    "Ruby"
   end
 end
 
 a = A.new
-a.ss (reciever.method，所以叫作send)
+a.say_ruby  # 顯示指定receiver
+
+a.send("say_ruby")  # 方法名只要送入字串或symbol即可，send方法把「選擇用哪個實例方法」的時間點延到執行時才決定。
 ```
+
+# ==================
+
 
 ```
 class B

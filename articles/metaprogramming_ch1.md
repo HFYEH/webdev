@@ -37,7 +37,41 @@ end
 A.new.foo #=> "rewrite foo"
 ```
 
-Refinemenet會讓MonkeyPatch更有彈性，詳見[魔法師的手杖](http://sibevin.github.io/posts/2016-05-02-163010-refinement-in-ruby)。
+class被reopen以後，所有的方法會同時被改寫，我們也無法調用到改寫前的方法，refinement可以解決此問題。
+
+```
+class C
+  def say_hi
+    "before reopen"
+  end
+end
+
+module SayHiRefinement
+  refine C do    # 要使用refinement，只要定義時包上refine就可以了
+    def say_hi
+      "after reopen"
+    end
+  end
+end
+
+c = C.new
+c.say_hi #=> "before reopen"
+
+module A
+  using SayHiRefinement
+  c_in_a = C.new
+  p c_in_b.say_hi
+end
+#=> "after reopen"
+
+module B
+  c_in_b = C.new
+  p c_in_b.say_hi
+end
+#=> "before reopen"
+```
+
+詳見[魔法師的手杖](http://sibevin.github.io/posts/2016-05-02-163010-refinement-in-ruby)。
 
 ###### 實例變量在顯式賦值後才會出現
 

@@ -132,7 +132,7 @@ Module.nesting      # 獲得當前常量的路徑
 
 ###### 方法查找
 
-執行一個方法時，Ruby會做兩件事：
+執行一個方法時，Ruby會做兩件事（沒有例外）：
 
 1. 從ancestors找到這個方法，稱為***方法查找***。
 2. 將***self***作為receiver並執行該方法。
@@ -182,7 +182,7 @@ module被封裝進一個匿名的class，這樣的include class，`superclass()`
 
 ###### self
 
-執行一個方法時，Ruby會做兩件事：
+執行一個方法時，Ruby會做兩件事（沒有例外）：
 
 1. 從ancestors找到這個方法，稱為***方法查找***。
 2. 將***self***作為receiver並執行該方法。
@@ -213,5 +213,29 @@ self.class #=> Object
 
 self通常是接收到最後一個方法調用的對象來充當，但是在class和module定義中，方法定義之外，self由該class或module充當。
 
+###### private
 
+了解self，就能了解private。
+
+private方法不能被顯式的指定receiver來調用。也就是說，調用private方法，只能調用於隱含的receiver(self)。
+
+private方法由兩條規則控製
+
+```
+class C
+  def public_method_1
+    self.private_method
+  end
+
+  def public_method_2
+    private_method
+  end
+
+  private
+  def private_method; end
+end
+
+C.new.public_method_1 #=> NoMethodError
+C.new.public_method_2 #=> nil
+```
 

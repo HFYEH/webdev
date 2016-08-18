@@ -81,6 +81,19 @@ ghost是比較hack的做法，盡可能用dynamic method
 
 
 
+國外Metagramming教學網站
+
+
+
+[Metaprogramming in Ruby](http://ruby-metaprogramming.rubylearning.com/)
+
+
+
+
+
+
+
+
 
 
 

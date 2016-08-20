@@ -134,8 +134,10 @@ git push
 ## git push
 
 ```
-git push -u origin <branch>  # 上傳遠端 Repo 並且儲存此次設定
-git push origin :<branch>    # 刪除遠端分支
+git push origin <branch>:<remote_branch>    # 對照git pull，冒號的意思就是從左邊送到右邊
+git push origin :<remote_branch>            # 因為把branch設為空，表示刪除遠端分支
+git push -u origin <branch>                 # 上傳當前分支到遠端 Repo，並將origin設為默認遠端
+
 git push --tag               # 為遠端 Repo 加上 tag
 ```
 

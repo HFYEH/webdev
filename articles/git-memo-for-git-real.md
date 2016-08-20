@@ -129,7 +129,7 @@ git push
 ###### 情境：rebase發生conflict
 
 ```
-git fetch    # 把所有遠端分支抓到本地，但不合併到local branch
+git fetch
 git rebase   # 預設會去rebase origin/branch_name
 
 # 碰到衝突有三種處置方法

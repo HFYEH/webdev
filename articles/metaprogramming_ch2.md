@@ -1,18 +1,51 @@
-# Metapromgramming Ruby 第二章方法
+# Metapromgramming Ruby 方法
 
 ###### Dynamic Dispatch
 
-
-
 ```
-class A
-  def ss
+class C
+  def say_ruby
+    "Ruby"
+  end
+
+  def say_python
+    "Python"
   end
 end
 
-a = A.new
-a.ss (reciever.method，所以叫作send)
+c = C.new
+c.say_ruby  # 顯示指定receiver
+
+c.send("say_ruby")  # 方法名只要送入字串或symbol即可，send方法把「選擇用哪個實例方法」的時間點延到執行時才決定。
 ```
+
+###### Dynamic method
+
+```
+
+class C
+  ['ruby', 'python'].each do |lan|
+    define_method "say_#{lan}" do
+      "#{lan}"
+    end
+  end
+end
+
+c = C.new
+c.say_ruby # 顯示指定receiver
+c.say_python
+```
+
+
+
+
+
+
+
+
+
+# =====================
+
 
 ```
 class B
@@ -73,6 +106,19 @@ ghost method用在串api（第三方有修改時本地不用改），會把所�
 ghost是比較hack的做法，盡可能用dynamic method
 
 
+
+
+
+
+
+
+
+
+國外Metagramming教學網站
+
+
+
+[Metaprogramming in Ruby](http://ruby-metaprogramming.rubylearning.com/)
 
 
 

@@ -1,4 +1,4 @@
-# Metaprogramming Ruby 第一章對象模型
+# Metaprogramming Ruby 對象模型
 
 此系列為Metaprogramming Ruby第一版的筆記，記錄於此作為複習之用。
 
@@ -37,6 +37,42 @@ end
 A.new.foo #=> "rewrite foo"
 ```
 
+class被reopen以後，所有的方法會同時被改寫，我們也無法調用到改寫前的方法，refinement可以解決此問題。
+
+```
+class C
+  def say_hi
+    "before reopen"
+  end
+end
+
+module SayHiRefinement
+  refine C do    # 要使用refinement，只要定義時包上refine就可以了
+    def say_hi
+      "after reopen"
+    end
+  end
+end
+
+c = C.new
+c.say_hi #=> "before reopen"
+
+module A
+  using SayHiRefinement
+  c_in_a = C.new
+  p c_in_b.say_hi
+end
+#=> "after reopen"
+
+module B
+  c_in_b = C.new
+  p c_in_b.say_hi
+end
+#=> "before reopen"
+```
+
+詳見[魔法師的手杖](http://sibevin.github.io/posts/2016-05-02-163010-refinement-in-ruby)。
+
 ###### 實例變量在顯式賦值後才會出現
 
 class 實例化之前不會有實例變量，唯有實例化之後，且執行到定義實例變量的地方時，實例變量才會真正被建立出來，注意，實例變量初始化時不可不賦值。
@@ -60,7 +96,7 @@ a.instance_variables #=> [:@var_1, :@var_2]
 
 ###### object 的本質
 
-對象的本質是***實例變量（object.instance_variables）***、***對自身class的引用（object.class）***、***對象的唯一標識符（`object.object_id`）***。
+對象的本質是***實例變量（object.instance_variables）***、***對自身class的引用（object.class）***、***對象的唯一標識符（object.object_id）***。
 
 因為方法會被所有實例共用，因此不存在對象中，而在class中。透過對類的引用來取得。可以用`#methods`查詢對象的方法。
 
@@ -112,6 +148,8 @@ Module.constants    # 回傳所有頂級常量，包含class名
 Module.nesting      # 獲得當前常量的路徑
 ```
 
+一個module基本上就是一組實例方法，而class則是增加若干新方法的module，繼承於module。兩者的差異處，在於使用module主要是***提供命名空間***（如上例）和希望將來***被include進某個class中***，而class則是將來希望能被實例化或是被繼承。
+
 ###### require & load
 
 `load('xxx.rb')`可執行xxx.rb的內容，預設情況會將執行後的常量和變量都留下來，汙染當前的命名空間，若要避免被汙染，可以用
@@ -130,10 +168,10 @@ Module.nesting      # 獲得當前常量的路徑
 
 ###### 方法查找
 
-執行一個方法時，Ruby會做兩件事：
+執行一個方法時，Ruby會做兩件事（沒有例外）：
 
-1. 找到這個方法，稱為***方法查找***。
-2. 執行該方法。需要***self***。
+1. 從ancestors找到這個方法，稱為***方法查找***。
+2. 將***self***作為receiver並執行該方法。
 
 receiver是調用方法所在的對象。ancestor則是一個包含class和module的繼承樹。當執行一個方法時，Ruby會先在receiver中找該方法，然後一層一層往ancestor鏈上游找去，直到找到或拋出例外為止。
 
@@ -157,10 +195,39 @@ class C
   include M
 end
 
+class D
+  prepend M
+  def method_a
+    "method_a in D"
+  end
+end
+
 C.new.method_a #=> "method_a in M"
+D.new.method_a #=> "method_a in M"
+C.ancestors #=> [C, M, PP:ObjectMixin, Kernel, BasicObject]
+D.ancestors #=> [M, D, PP:ObjectMixin, Kernel, BasicObject]
 ```
 
-module被封裝進class，這樣的include class，`superclass()`不會察覺。
+與`include`相反，使用`prepend`時，module會放在被插入的class下方。
+
+規則很容易理解，include的modules會照include的順序放在class的最上方（會被class內部定義蓋過），而prepend的modules會照prepend的順序放在class的最下方。
+
+```
+module M1; end
+module M2; end
+module M3; end
+module M4; end
+class C
+  include M1
+  prepend M3
+  include M2
+  prepend M4
+end
+
+C.ancestors #=> [M4, M3, C, M2, M1, Object, PP::ObjectMixin, Kernel, BasicObject]
+```
+
+module被封裝進一個匿名的class，這樣的include class，`superclass()`不會察覺。
 
 另外值得一提的是，Kernel常被用來封裝使用者自定義的方法。建議把方法都包在這裡。如果包在Object裡，很可能會汙染Object原有的方法。如果包在Kernel module，同名方法會被Object蓋過去。
 
@@ -168,10 +235,10 @@ module被封裝進class，這樣的include class，`superclass()`不會察覺。
 
 ###### self
 
-執行一個方法時，Ruby會做兩件事：
+執行一個方法時，Ruby會做兩件事（沒有例外）：
 
-1. 找到這個方法，稱為***方法查找***。
-2. 執行該方法。需要***self***。
+1. 從ancestors找到這個方法，稱為***方法查找***。
+2. 將***self***作為receiver並執行該方法。
 
 self是特殊的變量，保存的是當前的object。object調用method或實例變數都會使用self作為receiver。
 
@@ -186,30 +253,63 @@ end
 ```
 
 1. 定義常量Test
-2. 生成新的Class類實例並賦值給Test常量
+2. 生成新的Class實例並賦值給Test常量
 3. 把self的值換成這個新產生的實例
 4. 接下來一直執行到end為止
 
+既然所有東西都是對象，而調用對象方法時self就會成為那個object，那我們在irb中還沒有調用任何方法前，self是什麽呢？self是一個叫作main的Object實例。這個對象有時被稱為頂級上下文top level context，是謂棧頂。
 
+```
+self #=> main
+self.class #=> Object
+```
 
+self通常是接收到最後一個方法調用的對象來充當，但是在class和module定義中，方法定義之外，self由該class或module充當。
 
+###### private
 
+了解self，就能了解private方法。
 
+private方法由兩條規則控制：
 
+1. 如果調用方法的receiver不是自己，就要明確指定receiver。
+2. private方法只能被隱式的調用，不能顯式的指定receiver。
 
+綜合兩個規則，private方法只能在自身中調用private方法。
 
+```
+class C
+  def public_method_1
+    self.private_method
+  end
 
+  def public_method_2
+    private_method
+  end
 
-===============================
+  private
+  def private_method; end
+end
 
+C.new.public_method_1 #=> NoMethodError
+C.new.public_method_2 #=> nil
+```
 
+可以使用superclass的private方法，因為無須顯式的指定receiver。
+```
+class C
+  private
+  def private_method; end
+end
 
+class D < C
+  def private_method
+    super
+  end
+end
 
-國外Metagramming教學網站
-
-[Metaprogramming in Ruby](http://ruby-metaprogramming.rubylearning.com/)
-
-
+D.new.private_method #=> nil
+```
 
 
 

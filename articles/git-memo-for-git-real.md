@@ -31,12 +31,11 @@ git config --global alias.pushall "push --recurse-submodules=on-demand"    # 在
 git init project #單人使用(平裝)
 git init --bare project.git #多人使用(裸裝)
 ```
-
-## clone剛剛開好的裸裝repo
-
+## glt clone
 ```
-git clone /var/git/project.git/ #內部連線
-git clone ssh://imroot@127.0.0.1:/var/git/project.git/ #外部連線
+git clone /var/git/project.git/                                # 複製本機的repository
+git clone ssh://imroot@127.0.0.1:/var/git/project.git/         # 複製外部的repository
+git clone -o origin ssh://imroot@127.0.0.1:/var/git/project.git/  # 為遠端repo取名(預設為origin）
 ```
 
 ## git diff
@@ -66,32 +65,40 @@ git reset --hard HEAD^    # 取消最後一個 commit 並且將專案目錄回�
 ```
 ## git checkout
 ```
-git checkout .    #Recover all to repo version
-git checkout -- filename    回復為repo中的版本
-git checkout branch_name    切換到 branch\_name 分支
-git checkout v0.0.1    切換到具有'v0.0.1'的特定 commit
+git checkout .               # Recover all to repo version
+git checkout -- filename     # 回復為repo中的版本
+git checkout <branch>        # 切換到 branch 分支
+git checkout v0.0.1          # 切換到具有'v0.0.1'的特定 commit
+git checkout -b <branch>     # 建立分支並切換到該分支 (常用）
+
+# 處理遠端 branch
+git checkout -b branch_name origin/<branch>    # 在origin/branch的基礎上創建一個新分支並切換過去
+git checkout --track origin/<branch>           # 功能同上，小孩子不要學，學了也會忘
+
+git branch --set-upstream master origin/next   # 把本地的master追蹤到origin/next
 ```
 
 ## git remote
 ```
-git remote add <name> <address>   # 加入遠端 Repo
-git remote -v`   # 檢視所有遠端 Repo
-git remote rm <name>   # 刪除遠端 Repo
-heroku create   # 創建新的遠端 Repo 於 Heroku 上並且在本地加入遠端 Repo
+git remote                            # 列出所有遠端repo (-v可看網址）
+git remote add <name> <address>       # 新增一個遠端 Repo
+git remote rm <name>                  # 刪除遠端 Repo
+heroku create                         # 創建新的遠端 Repo 於 Heroku 上並且在本地加入遠端 Repo
 
-git remote show origin # 做下列三件事
+git remote show origin                # 做下列三件事
 
-# 1. 顯示所有 remote branch 及追蹤狀態
+# 1. 顯示所有 origin 中的 remote branch 及追蹤狀態
 # 2. 顯示所有 local 及它們與 remote branch 的關係\(使用git pull會發生的事\)
 # 3. 顯示所有 local 及它們與 remote branch 的關係\(使用git push會發生的事\)
 ```
 
-## git push
+## git fetch
+
 ```
-git push -u name branch   # 上傳遠端 Repo 並且儲存此次設定
-git push origin :branch_name   # 刪除遠端分支
-git push --tag   # 為遠端 Repo 加上 tag
+git fetch origin                  # 抓下遠端repo所有記錄
+git fetch origin <branch>         # 只抓特定分支，取回的分支，在本地命名為origin/<branch>
 ```
+
 
 ## git pull
 
@@ -99,10 +106,17 @@ git push --tag   # 為遠端 Repo 加上 tag
 
 以merge操作
 ```
+# 完整格式
+git pull origin <remote_branch>:<branch>    # 取回origin的remote_branch分支，與本地的branch合併
+
+git pull origin <remote_branch>             # 如果要與當前的branch合併，可以省略冒號後的<branch>
+git pull origin                             # 如果當前分支有追蹤某個遠端分支，可以省略遠端分支名
+git pull                                    # 如果當前分支只有唯一的追蹤分支，則連origin也可省略
+
 git pull
 # 會做兩件事
-# 1. 同步遠端 Repo 至本機(git fetch)
-# 2. 合併 origin/master (git merge origin/master)
+# 1. 同步遠端 Repo 所有內容至本機(git fetch)
+# 2. 合併 origin/branch 至當前分支(git merge origin/master)
 
 # 此時 master 多一個 commit
 # 加上新的commit後， origin/master 還不知道這個新的 commit
@@ -117,6 +131,15 @@ git pull --rebase
 # 2. rebase origin/master (git rebase origin/master)
 git push
 ```
+
+## git push
+
+```
+git push -u origin <branch>  # 上傳遠端 Repo 並且儲存此次設定
+git push origin :<branch>    # 刪除遠端分支
+git push --tag               # 為遠端 Repo 加上 tag
+```
+
 
 ###### 情境：merge發生conflict
 ```
@@ -147,10 +170,10 @@ Rebase 時,先把當前 branch 的最後一個 commit 到 base commit 之後的�
 
 假定現在要從某branch做rebase master
 ```
-git checkout branch_name        # 切到該branch
+git checkout <branch>           # 切到該branch
 git rebase master               # 先在本 branch 上跑 master 的 commit, 再跑 branch 上的 commit
 git checkout master
-git merge branch_name
+git merge <branch>
 ```
 
 有了這層認識後，`git pull --rebase`就不難理解了。
@@ -171,25 +194,20 @@ git rebase -i HEAD~3    重跑最後三個 commit,會跑出 editor,編輯完後�
 git branch                  # 列出目前的local branch
 git branch -r               # 列出目前的remote branch
 git branch -a               # 列出目前的local branch 和remote branch
-
-git branch branch_name      # 建立一個分支 branch\_name
-git checkout branch_name    # 切換到 branch\_name 分支
-git checkout -b branch_name # 建立分支並切換到該分支 (常用）
-
-git branch -d branch_name   # 刪除 branch\_name 分支
-
-git branch -D branch_name   # 強制刪除 branch\_name 分支\(有 commit 但未 merge 時用\)
+git branch <branch>         # 建立一個分支 branch
+git branch -d <branch>      # 刪除 branch 分支
+git branch -D <branch>      # 強制刪除 branch 分支（有 commit 但未 merge 時用）
 ```
 
 ## git log
 我比較常用GUI或是一開始設定的alias看log
 ```
-git log --pretty=oneline   # 一個 commit 只顯示一行
-git log --oneline -p`       # 將所有 log 和修改過的檔案內容列出
-git log --oneline --stat --summary  #  查每個版本間的更動檔案和行數
-git log --oneline --graph   # 圖形化
-git log --until=1.minute.ago   # 只顯示一分鐘前的所有 commit
-`git log --since=1.day(hour/month).ago   # 只顯示一天\(小時\/月\)以內的所有 commit
+git log --pretty=oneline                # 一個 commit 只顯示一行
+git log --oneline -p`                   # 將所有 log 和修改過的檔案內容列出
+git log --oneline --stat --summary      #  查每個版本間的更動檔案和行數
+git log --oneline --graph               # 圖形化
+git log --until=1.minute.ago            # 只顯示一分鐘前的所有 commit
+git log --since=1.day(hour/month).ago   # 只顯示一天\(小時\/月\)以內的所有 commit
 ```
 
 ## git tag \(用於釋出版本\)
@@ -214,20 +232,12 @@ git blame filename --date short  # 關於此檔案的所有 commit 紀錄\(包�
 2. 存在超過一天的分支,想儲存在遠端 Repo
 
 ```
-git checkout -b branch_name   # 建立並切換分支
-git push origin branch_name   # 連結近端 branch 到遠端 branch 並追蹤
+git checkout -b <branch>   # 建立並切換分支
+git push origin <branch>   # 連結近端 branch 到遠端 branch 並追蹤
 # 修改...
 git commit -am "message"
 git push                      # 會自動儲存到遠端 Repo 的該 branch
 # 其他人只要 git pull 就可以同步了
-```
-
-## 追蹤遠端 branch
-如果是別人開的遠端分支要我們加入
-```
-# 兩者同樣功效，都是新建一個branch，追蹤遠端分支，並切換過去
-git checkout -b branch_name origin/branch_name
-git checkout --track origin/branch_name
 ```
 
 ## stashing
@@ -236,7 +246,7 @@ git checkout --track origin/branch_name
 git stash save "message"   # 把目前還沒有 commit 的文件存到暫存區並且將工作目錄復原到最後一次 commit
 
 # 救火完成後...
-git checkout branch_name      # 切回剛剛寫到一半的分支
+git checkout <branch>         # 切回剛剛寫到一半的分支
 git stash apply               # 回到 stash 前的未 commit 狀態
 
 # 進階stash

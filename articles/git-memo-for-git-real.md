@@ -113,14 +113,13 @@ git pull origin <remote_branch>             # 如果要與當前的branch合併�
 git pull origin                             # 如果當前分支有追蹤某個遠端分支，可以省略遠端分支名
 git pull                                    # 如果當前分支只有唯一的追蹤分支，則連origin也可省略
 
-git pull
-# 會做兩件事
+# git pull 會做兩件事
 # 1. 同步遠端 Repo 所有內容至本機(git fetch)
 # 2. 合併 origin/branch 至當前分支(git merge origin/master)
 
 # 此時 master 多一個 commit
 # 加上新的commit後， origin/master 還不知道這個新的 commit
-`git push`   # origin/master 與 master 指到相同位置,並且上傳至遠端 Repo
+`git push`                                 # origin/master 與 master 指到相同位置,並且上傳至遠端 Repo
 ```
 
 以rebase操作

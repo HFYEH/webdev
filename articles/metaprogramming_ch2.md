@@ -72,21 +72,30 @@ end
 
 o.jkjk(123,321)  #=> You are calling jkjk(123,321), but not this method, haha
 ```
-改寫BasicObject#method_missing?
 
-印出會找不到method
+```
+class User
+  def initialize(name, age, height)
+    @name = name
+    @age = age
+    @height = height
+  end
 
-a.responde_to?(:say_hi)會找不到
+  def method_missing(method, *args)
+#    return get_height
+  end
+
+end
+
+```
+
+改寫method_missing，並不會讓找不到的方法被#methods找到。
 
 因此還要覆寫responde_to_missing?給repond_to?
 
-Ghost method優先權最低，如果要用到ghost method不會被同名覆蓋，可用
+Ghost method優先權最低，如果希望用到ghost method不會被同名方法覆蓋，可用`remove_method`, `undef_method`，或者可用blank state。
 
-remove_method, undef_method
-
-或者可用blank state
-
-擁有最少method的物件稱為blank state，可以繼承BasicObject（要幹這件事時先把檔案保留下來）
+擁有最少method的物件稱為blank state，可以繼承BasicObject（要幹這件事時先把檔案保留下來）。
 
 可以用alias，方法不會消失，只會找不到，可以用alias呼叫
 
@@ -94,7 +103,7 @@ ghost method覆寫時要小心，不要沒有寫到該method，會一直挖metho
 
 ghost method用在串api（第三方有修改時本地不用改），會把所有找不到的方法都丟進去，而dynamic method都是定義已知但相近的method
 
-ghost是比較hack的做法，盡可能用dynamic method
+ghost是比較hack的做法，盡可能用dynamic method。
 
 
 

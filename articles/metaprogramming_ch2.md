@@ -73,7 +73,7 @@ end
 o.jkjk(123,321)  #=> You are calling jkjk(123,321), but not this method, haha
 ```
 
-再舉一例，並補充一些事。
+再舉一例，製作類似attr_reader的功能，並補充一些事。
 ```
 class User
   def initialize(name, age, height)
@@ -88,18 +88,15 @@ u.name                  #=>NoMethodError
 
 class User
   def method_missing(method_name)
-
     if self.instance_variables.include?("@#{method_name}".to_sym)
-puts "found mehtod"
-      puts @name
+      @name
     else
-puts "not found"
-
       super
     end
   end
 end
 
+u.name
 
 ```
 

@@ -73,6 +73,7 @@ end
 o.jkjk(123,321)  #=> You are calling jkjk(123,321), but not this method, haha
 ```
 
+再舉一例，並補充一些事。
 ```
 class User
   def initialize(name, age, height)
@@ -80,14 +81,14 @@ class User
     @age = age
     @height = height
   end
-
-  def method_missing(method, *args)
-
-#    return get_height
-
-  end
-
 end
+
+u = User.new("sharefun", 30, 165)
+u.name                  #=>NoMethodError
+
+class 
+
+
 ```
 
 改寫method_missing，並不會讓找不到的方法被#methods找到。

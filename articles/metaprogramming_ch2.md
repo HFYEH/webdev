@@ -90,7 +90,7 @@ class User
   def method_missing(method_name)
 
   puts "@#{method_name}".to_sym
-    if method_name.to_s =~ /^get_(.*)/ && self.instance_variables.include?("@#{$1})
+    if method_name.to_s =~ /^get_(.*)/ && self.instance_variables.include?("@#{$1}")
 puts $1
       self.name
     else

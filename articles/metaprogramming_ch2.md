@@ -86,7 +86,18 @@ end
 u = User.new("sharefun", 30, 165)
 u.name                  #=>NoMethodError
 
-class 
+class User
+  def method_missing(method_name)
+
+puts self.instance_variables
+puts "@#{method_name}".to_sym
+    if method_name.to_s =~ /^get_(.*)/ && self.instance_variables.include?("@#{$1})
+      self.name
+    else
+      super
+    end
+  end
+end
 
 
 ```

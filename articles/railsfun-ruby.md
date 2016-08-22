@@ -1,10 +1,3 @@
----
-layout: post
-title: 'RailsFun 1st class (Ruby 1)'
-date: 2015-03-04 11:06
-comments: true
-categories: [railsfun]
----
 # Ruby Doc
 
 core	不用裝,只要打開irb就有的

@@ -72,6 +72,9 @@ end
 
 o.jkjk(123,321)  #=> You are calling jkjk(123,321), but not this method, haha
 ```
+
+
+
 改寫BasicObject#method_missing?
 
 印出會找不到method

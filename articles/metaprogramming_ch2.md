@@ -82,7 +82,9 @@ class User
   end
 
   def method_missing(method, *args)
+
 #    return get_height
+
   end
 
 end

@@ -86,7 +86,6 @@ class User
   end
 
 end
-
 ```
 
 改寫method_missing，並不會讓找不到的方法被#methods找到。

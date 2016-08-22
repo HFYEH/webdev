@@ -89,9 +89,9 @@ u.name                  #=>NoMethodError
 class User
   def method_missing(method_name)
 
-    if self.instance_variables.include?("@#{method_name}")
+    if self.instance_variables.include?("@#{method_name}".to_sym)
 puts "found mehtod"
-      self.name
+      puts @name
     else
 puts "not found"
 

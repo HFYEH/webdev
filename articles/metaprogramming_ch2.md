@@ -34,6 +34,8 @@ c.send(:method_m1, param1, param2, ...)  # 方法名只要送入字串或symbol(
 
 ###### Dynamic method
 
+>所有的method都是procedure，所有的method name都是symbol
+
 可以發現剛剛public_m1, public_m2有許多相似處，可以動態的定義方法如下：
 ```
 class C
@@ -51,48 +53,11 @@ c.send(:public_m1) #=> "public_m1"
 c.send(:public_m1) #=> "public_m2"
 ```
 
+書中的範例更複雜一些，此處略過不提。
 
 
 
 
-
-
-
-
-# =====================
-
-
-```
-class B
-  def public_m
-  end
-  private
-  def private_m
-    "lala"
-  end
-end
-
-b = B.new
-b.public_m
-b.private_m (fail)
-b.send(:private_m)
-```
-
-private method只能用隱含的方式呼叫的method（無reciever）
-
-但是send可以呼叫private method
-
-###### Dynamic Method
-
-所有的method都是procedure
-
-所有的method name都是symbol
-
-Module#define_method
-
-real example
-
-印出method都找得到
 
 # Ghost Method
 

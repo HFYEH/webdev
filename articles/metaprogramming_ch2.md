@@ -75,28 +75,33 @@ o.jkjk(123,321)  #=> You are calling jkjk(123,321), but not this method, haha
 
 再舉一例，製作類似attr_reader的功能，並補充一些事。
 ```
-class User
-  def initialize(name, age, height)
-    @name = name
-    @age = age
-    @height = height
+class C
+  def method_x
+    "method_x"
   end
-end
-
-u = User.new("sharefun", 30, 165)
-u.name                  #=>NoMethodError
-
-class User
-  def method_missing(method_name)
-    if self.instance_variables.include?("@#{method_name}".to_sym)
-      @name
+  def method_missing(method, *args, &block)
+    if method.to_s =~ /^public_m(\d*)$/
+      return "public_m#{$1}".to_s
     else
       super
     end
   end
 end
 
-u.name
+# method_missing可以捕獲public_m0~public_m9
+c = C.new
+c.public_m0
+c.public_m1
+...
+
+# 但是無法被查詢到
+c.repond_to?(:method_x)    # true
+c.repond_to?(:method_5)    # false
+
+# respond_to? 會去呼叫 respond_to_missing?，而 respond_to_missing?預設就是用來處理ghost method，理論上如果你建立了ghost method，要記得一並覆寫 respond_to_missing?，讓它對ghost method可以回傳true。  --- 魔法師的手杖
+
+
+
 
 ```
 

@@ -4,36 +4,51 @@
 
 ```
 class C
-  def say_ruby
-    "Ruby"
+  def public_m1
+    "public_m1"
+  end
+  def public_m2
+    "public_m2
+  end
+  def call_private_m
+    private_m
   end
 
-  def say_python
-    "Python"
+  private
+  def private_m
+    "private"
   end
 end
 
 c = C.new
-c.say_ruby  # 顯示指定receiver
+c.public_m1         #=> "public_m1"
+c.public_m2         #=> "public_m2"
+c.private_m         #=> 無法顯示呼叫private method
+c.call_private_m    #=> "private" 只有class內可以使用private method
 
-c.send("say_ruby")  # 方法名只要送入字串或symbol即可，send方法把「選擇用哪個實例方法」的時間點延到執行時才決定。
+c.send(:public_m1)  #=> "public_m1"  使用send動態的呼叫方法
+c.send(:private_m)  #=> "private"    使用send也可以呼叫private method
+
+c.send(:method_m1, param1, param2, ...)  # 方法名只要送入字串或symbol(preferred)即可，send方法把「選擇用哪個實例方法」的時間點延到執行時才決定。
 ```
 
 ###### Dynamic method
 
+可以發現剛剛public_m1, public_m2有許多相似處，可以動態的定義方法如下：
 ```
-
 class C
-  ['ruby', 'python'].each do |lan|
-    define_method "say_#{lan}" do
-      "#{lan}"
+  ['public_m1', 'public_m2'].each do |m|
+    define_method "#{m}" do
+      "#{m}"
     end
   end
 end
 
-c = C.new
-c.say_ruby # 顯示指定receiver
-c.say_python
+C.instance_methods(false)    #=> [:public_m1, public_m2] 帶入false則不會顯示繼承來的方法
+
+# 以下方法仍可以正確呼叫
+c.send(:public_m1) #=> "public_m1"
+c.send(:public_m1) #=> "public_m2"
 ```
 
 

@@ -4,83 +4,74 @@
 
 ```
 class C
-  def say_ruby
-    "Ruby"
+  def public_m1
+    "public_m1"
+  end
+  def public_m2
+    "public_m2"
+  end
+  def call_private_m
+    private_m
   end
 
-  def say_python
-    "Python"
+  private
+  def private_m
+    "private"
   end
 end
 
 c = C.new
-c.say_ruby  # 顯示指定receiver
+c.public_m1         #=> "public_m1"
+c.public_m2         #=> "public_m2"
+c.private_m         #=> 無法顯示呼叫private method
+c.call_private_m    #=> "private" 只有class內可以使用private method
 
-c.send("say_ruby")  # 方法名只要送入字串或symbol即可，send方法把「選擇用哪個實例方法」的時間點延到執行時才決定。
+c.send(:public_m1)  #=> "public_m1"  使用send動態的呼叫方法
+c.send(:private_m)  #=> "private"    使用send也可以呼叫private method
+
+c.send(:method_m1, param1, param2, ...)  # 方法名只要送入字串或symbol(preferred)即可，send方法把「選擇用哪個實例方法」的時間點延到執行時才決定。
 ```
 
 ###### Dynamic method
 
-```
+>所有的method都是procedure，所有的method name都是symbol
 
+可以發現剛剛public_m1, public_m2有許多相似處，可以動態的定義方法如下：
+```
 class C
-  ['ruby', 'python'].each do |lan|
-    define_method "say_#{lan}" do
-      "#{lan}"
+  ['public_m1', 'public_m2'].each do |m|
+    define_method "#{m}" do
+      "#{m}"
     end
   end
 end
 
-c = C.new
-c.say_ruby # 顯示指定receiver
-c.say_python
+C.instance_methods(false)    #=> [:public_m1, public_m2] 帶入false則不會顯示繼承來的方法
+
+# 以下方法仍可以正確呼叫
+c.send(:public_m1) #=> "public_m1"
+c.send(:public_m1) #=> "public_m2"
 ```
 
+## Ghost Method
 
-
-
-
-
-
-
-
-# =====================
-
+當在ancestors中找不到方法，Ruby解釋器會在最初的receiver上調用method_missing()方法。因為method_missing是BasicObject的private instance method，所以一定會找到此方法。
 
 ```
-class B
-  def public_m
-  end
-  private
-  def private_m
-    "lala"
+class O
+end
+
+o = O.new
+o.hihi #=> NoMethodError: undefined method `hihi' for #<O:0x00000002765e60>
+
+class O
+  def method_missing(method, *args)
+    puts "You are calling #{method}(#{args.join(',')}), but not this method, haha"
   end
 end
 
-b = B.new
-b.public_m
-b.private_m (fail)
-b.send(:private_m)
+o.jkjk(123,321)  #=> You are calling jkjk(123,321), but not this method, haha
 ```
-
-private method只能用隱含的方式呼叫的method（無reciever）
-
-但是send可以呼叫private method
-
-###### Dynamic Method
-
-所有的method都是procedure
-
-所有的method name都是symbol
-
-Module#define_method
-
-real example
-
-印出method都找得到
-
-# Ghost Method
-
 改寫BasicObject#method_missing?
 
 印出會找不到method

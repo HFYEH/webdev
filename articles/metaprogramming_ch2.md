@@ -8,7 +8,7 @@ class C
     "public_m1"
   end
   def public_m2
-    "public_m2
+    "public_m2"
   end
   def call_private_m
     private_m
@@ -53,14 +53,25 @@ c.send(:public_m1) #=> "public_m1"
 c.send(:public_m1) #=> "public_m2"
 ```
 
-書中的範例更複雜一些，此處略過不提。
+## Ghost Method
 
+當在ancestors中找不到方法，Ruby解釋器會在最初的receiver上調用method_missing()方法。因為method_missing是BasicObject的private instance method，所以一定會找到此方法。
 
+```
+class O
+end
 
+o = O.new
+o.hihi #=> NoMethodError: undefined method `hihi' for #<O:0x00000002765e60>
 
+class O
+  def method_missing(method, *args)
+    puts "You are calling #{method}(#{args.join(',')}), but not this method, haha"
+  end
+end
 
-# Ghost Method
-
+o.jkjk(123,321)  #=> You are calling jkjk(123,321), but not this method, haha
+```
 改寫BasicObject#method_missing?
 
 印出會找不到method

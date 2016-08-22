@@ -76,8 +76,8 @@ o.jkjk(123,321)  #=> You are calling jkjk(123,321), but not this method, haha
 再舉一例，製作類似attr_reader的功能，並補充一些事。
 ```
 class C
-  def method_x
-    "method_x"
+  def public_mx
+    "public_mx"
   end
   def method_missing(method, *args, &block)
     if method.to_s =~ /^public_m(\d*)$/
@@ -88,26 +88,33 @@ class C
   end
 end
 
-# method_missing可以捕獲public_m0~public_m9
+# method_missing可以捕獲public_m後面接任意數字的方法呼叫
 c = C.new
 c.public_m0
 c.public_m1
 ...
 
 # 但是無法被查詢到
-c.repond_to?(:method_x)    # true
-c.repond_to?(:method_5)    # false
+c.respond_to?(:public_mx)    #=> true
+c.respond_to?(:public_m5)    #=> false
 
 # respond_to? 會去呼叫 respond_to_missing?，而 respond_to_missing?預設就是用來處理ghost method，理論上如果你建立了ghost method，要記得一並覆寫 respond_to_missing?，讓它對ghost method可以回傳true。  --- 魔法師的手杖
 
+class C
+  def respond_to_missing?(method, include_private = false)
+    if method =~ /^public_m(\d*)$/
+      return true
+    else
+      super
+    end
+  end
+end 
 
-
+c.respond_to?(:public_m5)    #=> true
 
 ```
 
 改寫method_missing，並不會讓找不到的方法被#methods找到。
-
-因此還要覆寫responde_to_missing?給repond_to?
 
 Ghost method優先權最低，如果希望用到ghost method不會被同名方法覆蓋，可用`remove_method`, `undef_method`，或者可用blank state。
 

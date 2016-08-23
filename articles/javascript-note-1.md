@@ -1,6 +1,7 @@
 # JavaScript: The Good Part
 
-這裡記錄一些從 JavaScript: The Good Part 的和阮一峰的JavaScript參考教程中得到的知識，做記憶補強和方便回憶之用。
+這裡記錄一些從阮一峰的[JavaScript參考教程](http://javascript.ruanyifeng.com/)和 JavaScript: The Good Part
+中得到的知識，做記憶補強和方便回憶之用。
 
 ## 數據類型
 

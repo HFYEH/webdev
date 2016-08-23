@@ -42,6 +42,12 @@ null和undefined的歷史有完整的說明。使用上，***null代表空的值
 * Infinity大於除了NaN以外的所有數值，-Inifinity小於除了NaN以外的所有數值
 * isFinite()對Infinity, -Infinity, NaN都會得到false
 
+數值相關的全局方法
+
+* `parseInt()`回傳字串轉成的***十進位整數***或NaN
+* `parseInt('0x10')`返回16，若字串第一位為非數字，則返回NaN
+* `parseInt('100', 2)`第二個參數代表第一個參數的進制，此例中，返回值為8
+
 
 # 第三章　對象
 

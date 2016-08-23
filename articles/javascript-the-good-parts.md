@@ -1,3 +1,7 @@
+# JavaScript: The Good Part
+
+這裡是一些閱讀JavaScript: The Good Part的筆記。內容穿插從阮一峰的JavaScript參考教程中得到的知識。
+
 # 第二章　語法
 
 typeof產生的值有'string', 'number', 'boolean', undefined', 'function', 'object'

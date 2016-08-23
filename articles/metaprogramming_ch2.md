@@ -112,11 +112,35 @@ c.respond_to?(:public_m5)  #=> true
 # 理論上你也可以覆寫methods方法，但是那會導致你可能產生好幾千個ghost method，這可能不是你想要的。
 ```
 
+書中舉Bug Hunt例子說明使用method_missing時要很小心，最好有限度的定義出自己想要捕獲的method，因為任何找不到的方法，又會再次回到method_missing，直到溢出棧為止。
+
+Ghost method優先權最低，如果希望用到ghost method不會被同名方法覆蓋，應該刪除那些繼承而來的方法。為了安全，應該在代理class中完成這件事，做成blank slate class。
+
+```
+class C
+  def to_s
+    "New to_s"
+  end
+end
+
+c = C.new
+
+class C
+  remove_method :to_s          # 僅移除自己的方法  
+end
+
+c.to_s                         #=> NoMethodError
+
+class C
+  undef_method :to_s # 移除所有的，包含繼承來的方法
+end
+
+```
 
 
+可用`remove_method`, `undef_method`。
 
-
-改寫method_missing，並不會讓找不到的方法被#methods找到。Ghost method優先權最低，如果希望用到ghost method不會被同名方法覆蓋，可用`remove_method`, `undef_method`，或者可用blank state。擁有最少method的物件稱為blank state，可以繼承BasicObject（要幹這件事時先把檔案保留下來）。可以用alias，方法不會消失，只會找不到，可以用alias呼叫ghost method
+或者可用blank state。擁有最少method的物件稱為blank slate，可以繼承BasicObject（要幹這件事時先把檔案保留下來）。可以用alias，方法不會消失，只會找不到，可以用alias呼叫ghost method
 
 覆寫時要小心，不要沒有寫到該method，會一直挖method_missing，到too_deep，method應該要寫在外部，也可以避免挖太深的問題
 

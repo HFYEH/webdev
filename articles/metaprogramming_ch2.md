@@ -108,7 +108,10 @@ class C
 end
 
 c.respond_to?(:public_m5)  #=> true
+
+# 理論上你也可以覆寫methods方法，但是那會導致你可能產生好幾千個ghost method，這可能不是你想要的。
 ```
+
 
 
 

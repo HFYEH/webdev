@@ -31,6 +31,7 @@
     * [Websocket 資料](articles/websocket-data.md)
     * [Metaprogramming Ruby 對象模型](articles/metaprogramming_ch1.md)
     * [Metaprogramming Ruby 方法](articles/metaprogramming_ch2.md)
+    * [Metaprogramming Ruby 代碼塊](articles/metaprogramming_ch3.md)
 * [JavaScript](android.md)
     * [讀ECMAScript作用域模型](articles/ecmascript_scope.md)
     * [React Native 學習資源](articles/learn-react-native.md)

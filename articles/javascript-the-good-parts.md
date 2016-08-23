@@ -11,8 +11,6 @@
 > JavaScript的數據類型共有六種（不包含ES6的symbol），即string, number, boolean, undefined, null, object。而其中object又分三種，普通的object, array 和 function。
 
 
-
-
 # 第三章　對象
 
 JavaScript的簡單類型有number, string, boolean, null, undefined，它們是****不可變的****。

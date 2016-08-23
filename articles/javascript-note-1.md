@@ -20,6 +20,18 @@ JavaScript的數據類型共有六種（不包含ES6的symbol），即string, nu
 
 如要區分array和object，可用`instanceof`。
 
+null和undefined的歷史有完整的說明。使用上，***null代表空的值，而undefined代表未定義***。
+
+下列六個值會被當成false
+
+1. undefined
+2. null
+3. false
+4. 0
+5. NaN
+6. "", ''
+
+
 
 # 第三章　對象
 

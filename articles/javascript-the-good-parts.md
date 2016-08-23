@@ -1,12 +1,16 @@
 # JavaScript: The Good Part
 
-這裡是一些閱讀JavaScript: The Good Part的筆記。內容穿插從阮一峰的JavaScript參考教程中得到的知識。
+這裡是一些閱讀JavaScript: The Good Part的筆記。內容穿插從阮一峰的JavaScript參考教程中得到的知識，將以引用的方式表現，如下：
+
+>此段引自JavaScript參考教程。
 
 # 第二章　語法
 
-typeof產生的值有'string', 'number', 'boolean', undefined', 'function', 'object'
+如果變量是Array或null，結果是`object`，這是錯的。
 
-如果變量是Array或null，結果是'object'，這是錯的。
+> JavaScript的數據類型共有六種（不包含ES6的symbol），即string, number, boolean, undefined, null, object。而其中object又分三種，普通的object, array 和 function。
+
+
 
 
 # 第三章　對象

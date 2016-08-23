@@ -2,7 +2,7 @@
 
 這裡記錄一些從 JavaScript: The Good Part 的和阮一峰的JavaScript參考教程中得到的知識，做記憶補強和方便回憶之用。
 
-# 數據類型
+###### 數據類型
 
 JavaScript的數據類型共有六種（不包含ES6的symbol），即string, number, boolean, undefined, null, object。前三種屬於原始的類型，但也可以用對象方式調用。
 

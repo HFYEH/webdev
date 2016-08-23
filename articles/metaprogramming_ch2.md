@@ -124,17 +124,19 @@ class C
 end
 
 c = C.new
+c.to_s                         # "New to_s"
 
 class C
   remove_method :to_s          # 僅移除自己的方法  
 end
 
-c.to_s                         #=> NoMethodError
+c.to_s                         #=> "#<C:0x00000002733848>"
 
 class C
   undef_method :to_s # 移除所有的，包含繼承來的方法
 end
 
+c.to_s                         #=> NoMethodError
 ```
 
 

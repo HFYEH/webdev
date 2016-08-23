@@ -116,6 +116,8 @@ c.respond_to?(:public_m5)  #=> true
 
 Ghost method優先權最低，如果希望用到ghost method不會被同名方法覆蓋，應該刪除那些繼承而來的方法。為了安全，應該在代理class中完成這件事，做成blank slate class。
 
+可以用`undef_method`和`remove_method`移除已定義的方法
+
 ```
 class C
   def to_s
@@ -137,6 +139,13 @@ class C
 end
 
 c.to_s                         #=> NoMethodError
+```
+
+或是直接繼承BasicObject，它是擁有最少實例方法的class對象。
+
+```
+class C < BasicObject
+end
 ```
 
 

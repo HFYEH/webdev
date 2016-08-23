@@ -49,6 +49,11 @@ null和undefined的歷史有完整的說明。使用上，***null代表空的值
 * `parseInt('100', 2)`第二個參數代表第一個參數的進制，此例中，返回值為8
 * `parseFloat`回傳字串的轉成的***浮點數***
 
+###### 字串
+
+
+
+
 # 第三章　對象
 
 JavaScript的簡單類型有number, string, boolean, null, undefined，它們是****不可變的****。

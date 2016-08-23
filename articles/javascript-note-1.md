@@ -2,7 +2,7 @@
 
 這裡記錄一些從 JavaScript: The Good Part 的和阮一峰的JavaScript參考教程中得到的知識，做記憶補強和方便回憶之用。
 
-###### 數據類型
+## 數據類型
 
 JavaScript的數據類型共有六種（不包含ES6的symbol），即string, number, boolean, undefined, null, object。前三種屬於原始的類型，但也可以用對象方式調用。
 
@@ -32,6 +32,16 @@ null和undefined的歷史有完整的說明。使用上，***null代表空的值
 6. "", ''
 
 `{}`和`[]`都是true，須注意。
+
+
+###### Number
+
+* `+0`和`-0`兩個是等價的，唯一差別是以其作為分母結果為`Infinity`和`-Infinity`
+* `NaN` 是一種number，代表一種特殊數值(0/0會得到NaN)，不等於包括自己在內的任何值，可以用isNaN(some_number)判斷是否為NaN，因為isNaN只對數值有效，裡面放數值外的東西會被轉型為NaN，須注意
+* 因為NaN是唯一不等於自己的東西，可以用some_var === some_var來判斷（最保險且直接）
+* Infinity大於除了NaN以外的所有數值，-Inifinity小於除了NaN以外的所有數值
+* isFinite()對Infinity, -Infinity, NaN都會得到false
+
 
 # 第三章　對象
 

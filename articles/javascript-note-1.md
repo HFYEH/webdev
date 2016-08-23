@@ -12,7 +12,6 @@ JavaScript的數據類型共有六種（不包含ES6的symbol），即string, nu
 
 利用`typeof`可能得到的結果有：
 
-
 1. 原始類型的"string", "number", "boolean"
 2. 函數類的"function"
 3. undefined 會返回 "undefined"   (typeof 可檢查沒有聲明的變量而不報錯）

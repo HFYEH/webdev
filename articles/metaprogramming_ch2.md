@@ -114,7 +114,7 @@ c.respond_to?(:public_m5)  #=> true
 
 書中舉Bug Hunt例子說明使用method_missing時要很小心，最好有限度的定義出自己想要捕獲的method，因為任何找不到的方法，又會再次回到method_missing，直到溢出棧為止。
 
-Ghost method優先權最低，如果希望用到ghost method不會被同名方法覆蓋，應該刪除那些繼承而來的方法。為了安全，應該在代理class中完成這件事，做成blank slate class。
+Ghost method優先權最低，如果希望用到ghost method不會被同名方法覆蓋，應該刪除那些繼承而來的方法。為了安全，應該在代理class中完成這件事。
 
 可以用`undef_method`和`remove_method`移除已定義的方法
 
@@ -141,15 +141,13 @@ end
 c.to_s                         #=> NoMethodError
 ```
 
-或是直接繼承BasicObject，它是擁有最少實例方法的class對象。
+或是直接繼承BasicObject，它是擁有最少實例方法的class對象，稱作blank slate class。
 
 ```
 class C < BasicObject
 end
 ```
 
-
-可用`remove_method`, `undef_method`。
 
 或者可用blank state。擁有最少method的物件稱為blank slate，可以繼承BasicObject（要幹這件事時先把檔案保留下來）。可以用alias，方法不會消失，只會找不到，可以用alias呼叫ghost method
 

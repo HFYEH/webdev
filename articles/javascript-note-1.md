@@ -53,6 +53,13 @@ null和undefined的歷史有完整的說明。使用上，***null代表空的值
 
 
 
+
+
+
+for in回取出原型的屬性，並且沒有固定的順序
+
+for只會取出自己的屬性，且有出現的順序
+
 # 第三章　對象
 
 JavaScript的簡單類型有number, string, boolean, null, undefined，它們是****不可變的****。

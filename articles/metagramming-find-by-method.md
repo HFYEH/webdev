@@ -1,10 +1,3 @@
----
-layout: post
-title: 'find_by_xxx'
-date: 2015-07-18 12:03
-comments: true
-categories: 
----
 不要用find_by_xxx
 只是在做字串的過水,效率很差,請直接寫sql
 ```

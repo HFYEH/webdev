@@ -22,7 +22,7 @@ JavaScript的數據類型共有六種（不包含ES6的symbol），即string, nu
 
 null和undefined的歷史有完整的說明。使用上，***null代表空的值，而undefined代表未定義***。
 
-下列六個值會被當成false
+邏輯運算符（&&, ||, ===, !==, >=, ... ）會返回boolean，下列六個值會被轉成false
 
 1. undefined
 2. null
@@ -31,7 +31,7 @@ null和undefined的歷史有完整的說明。使用上，***null代表空的值
 5. NaN
 6. "", ''
 
-
+`{}`和`[]`都是true，須注意。
 
 # 第三章　對象
 

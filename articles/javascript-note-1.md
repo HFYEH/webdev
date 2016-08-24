@@ -4,7 +4,7 @@
 
 ## 數據類型
 
-JavaScript的數據類型共有六種（不包含ES6的symbol），即string, number, boolean, undefined, null, object。前三種屬於原始的類型，但也可以用對象方式調用。
+JavaScript的數據類型共有六種（不包含ES6的symbol），即string, number, boolean, undefined, null, object。前三種屬於原始的類型，但也可以用對象方式調用。前三種的值可以被改變，object則是引用，無法被直接改變。
 
 其中object又分三種，普通的object, array 和 function。
 
@@ -64,6 +64,23 @@ Base64
 
 #### Object
 
+建立對象
+```
+// 以下三種寫法是等價的
+var o = {}                    // 簡潔
+var o = new Object()          // 顯示使用constructor的意圖
+var o = Object.create(null)   // 須要對象繼承時使用
+```
+
+* 對象是無序的key-value的集合
+* key必定是字串，大部份時候可省略引號（不合法的key就要加引號），就算是數值也會被轉成字串
+* 由於function可以被當作值傳遞進object，當某個key對應的是一般變數時，我們稱其為object的屬性，當某個key對應到的是一個函數時，我們稱其為方法
+
+```
+var o1 = {}
+var o2 = o1
+# 由於對象的引用是傳址，改變o1的內容會同時反映在o2上，對原始型態的話則是傳值引用
+```
 
 
 

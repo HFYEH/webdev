@@ -33,7 +33,7 @@ null和undefined的歷史有完整的說明。使用上，***null代表空的值
 `{}`和`[]`都是true，須注意。
 
 
-###### Number
+#### Number
 
 * `+0`和`-0`兩個是等價的，唯一差別是以其作為分母結果為`Infinity`和`-Infinity`
 * `NaN` 是一種number，代表一種特殊數值(0/0會得到NaN)，不等於包括自己在內的任何值，可以用isNaN(some_number)判斷是否為NaN，因為isNaN只對數值有效，裡面放數值外的東西會被轉型為NaN，須注意
@@ -48,8 +48,21 @@ null和undefined的歷史有完整的說明。使用上，***null代表空的值
 * `parseInt('100', 2)`第二個參數代表第一個參數的進制，此例中，返回值為8
 * `parseFloat`回傳字串的轉成的***浮點數***
 
-###### 字串
+#### String
 
+* 字串是唯讀的，欲對字串內字元操作，必須先轉成array
+* 字串的length屬性也是唯讀的
+* JavaScript使用Unicode，且可以直接使用unicode，比如'\u0049'
+* JavaScript字串長度固定為兩個字節，即16位元。32位元的unicode會被當成兩個字節
+
+Base64
+
+* Base64轉碼是為了不出現特殊字元
+* `btoa()`字串或二進位轉成Base64
+* `atob()`Base64轉為原來的編碼
+* 僅能用於ACSII
+
+#### Object
 
 
 

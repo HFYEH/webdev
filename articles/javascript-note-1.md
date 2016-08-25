@@ -76,27 +76,27 @@ var o = Object.create(null)   // 須要對象繼承時使用
 * key必定是字串，大部份時候可省略引號（不合法的key就要加引號），就算是數值也會被轉成字串
 * 由於function可以被當作值傳遞進object，當某個key對應的是一般變數時，我們稱其為object的屬性，當某個key對應到的是一個函數時，我們稱其為方法
 
+傳值引用
+
 ```
 var o1 = {}
 var o2 = o1
 # 由於對象的引用是傳址，改變o1的內容會同時反映在o2上，對原始型態的話則是傳值引用
 ```
 
+一些對象相關的方法
+
+```
+'a' in window    # 檢查屬性是否被聲名的正確寫法，但是無法分辨該屬性是否是繼承來的
+Object.keys(o)   # Object.keys()可檢查物件所有key
+delete o.p       # 刪除p的o屬性，僅能刪除自有屬性，刪除成功返回true，失敗返回false，返回true的狀況只能保證o.p為undefined，不能保證其值原本存在，使用var聲明的變量也預設無法被刪除
+for ... in       # 會遍歷所有可遍歷的屬性，包含繼承來的屬性
+for              # 只會取出自己的屬性
+```
 
 
 
 
-for in回取出原型的屬性，並且沒有固定的順序
-
-for只會取出自己的屬性，且有出現的順序
-
-# 第三章　對象
-
-JavaScript的簡單類型有number, string, boolean, null, undefined，它們是****不可變的****。
-
-JavaScript對象是可變的keyed collections。對象是屬性的容器，屬性為key / value對，key是任意字串，value是undefined之外的任意值。
-
-對象透過引用傳遞，永遠不會被拷貝。
 
 ##### 原型：
 

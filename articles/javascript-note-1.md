@@ -105,7 +105,6 @@ length
 * length屬性可以更改，array會自動變成該長度，多則刪除，少則補上undefined
 * length屬性是用32位元整數保存的，亦即其最大值為4294967295
 
-
 ```
 var a = [1,2,3,4,5]
 a.length        // 5

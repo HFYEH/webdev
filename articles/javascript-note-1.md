@@ -15,9 +15,11 @@ JavaScript的數據類型共有六種（不包含ES6的symbol），即string, nu
 3. undefined 會返回 "undefined"   (typeof 可檢查沒有聲明的變量而不報錯）
 4. "object"，包含一般對象，array和null
 
-如要區分array和object，可用`instanceof`。
+Array是一種特殊的object，使用typeof都會得到"object"，如要區分array和object，可用`instanceof`。
 
 null和undefined的歷史有完整的說明。使用上，***null代表空的值，而undefined代表未定義***。
+
+要檢查變量是否存在，使用`(typeof varaiable === "undefined)`
 
 邏輯運算符（&&, ||, ===, !==, >=, ... ）會返回boolean，下列六個值會被轉成false
 

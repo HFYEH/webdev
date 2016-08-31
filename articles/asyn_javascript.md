@@ -1,3 +1,10 @@
+本篇節錄自最下方的參考資料。
+
+
+JavaScript為single thread，因此異步編程是必須的。
+
+異步編程大概有有[四種]。(http://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html)
+
 
 
 

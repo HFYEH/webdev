@@ -158,14 +158,20 @@ arr[100] = 'a';
 ```
 var a = [1,,1];
 a.length // 3 （中間會產生一個空位）
-a[1]     // undefined （空位是可以被讀取的）
+a[1]     // undefined （空位是可以被讀取的，返回值是undefined）
 
 var b = [1,2,3,];
 b.length // 3 （最後一個逗號不影響length）
 delete b[2]
 b        // [1,2,undefined x 1]  （使用delete會產生一個空位）
 b.length // 3 （使用delete不會影響length屬性，使用上要注意）
+
+// undefined和空位是不同的，空位表示沒有此元素，undefined表示有此元素，值為undefined
+var c = [1,undefined, undefined, , , 3]
+c    // [1,undefined, undefined, undefined x 2, 3]
+// 因此使用forEach或for...in和Object.keys，空位都會被跳過
 ```
+
 
 
 

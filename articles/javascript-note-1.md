@@ -94,12 +94,12 @@ for ... in       # 會遍歷所有可遍歷的屬性，包含繼承來的屬性
 for              # 只會取出自己的屬性
 ```
 
-## Array
+#### Array
 
 * Array是一種特殊對象，其key是由按次序排列的整數字串
 * 可以使用`[]`取值，不能像一般對象使用`.`取值，因為數值不能作為標示符
 
-length
+##### length
 
 * length屬性可以返回array成員數量，length為動態的，其值為***key中最大整數+1***
 * length屬性可以更改，array會自動變成該長度，多則刪除，少則補上undefined
@@ -127,10 +127,45 @@ a["p"] = 123
 a.length    // 0
 ```
 
+##### Array-like object
 
+* Array-like的對象有一個特徵，即具有length屬性。但此length屬性不是動態值。
+* 典型的array-like object有函數的arguments，DOM元素集和string。
 
+`slice`可以將array-like object轉換成array
 
+```
+var arr = Array.prototype.slice.call(arraylike)
+```
 
+##### 遍歷
+Array.prototype.forEach.call和for皆可遍歷array和array-like object。
+
+for...in也可以遍歷array，但是會把非數字的key也遍歷到。不建議使用。
+
+##### in
+`in`也可以用來檢查key是否存在，數字會被轉為字串
+
+```
+var arr = []
+arr[100] = 'a';
+100 in arr // true
+1 in arr   // false
+```
+
+##### 空位
+
+```
+var a = [1,,1];
+a.length // 3 （中間會產生一個空位）
+a[1]     // undefined （空位是可以被讀取的）
+
+var b = [1,2,3,];
+b.length // 3 （最後一個逗號不影響length）
+delete b[2]
+b        // [1,2,undefined x 1]  （使用delete會產生一個空位）
+b.length // 3 （使用delete不會影響length屬性，使用上要注意）
+```
 
 
 

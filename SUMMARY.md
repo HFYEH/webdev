@@ -39,6 +39,7 @@
     * [Javascript 筆記](articles/javascript-note-1.md)
     * [XMLHttpRequest & Fetch](articles/xmlhttprequest_fetch.md)
     * [JavaScript 中的 Array.prototype.reduce\(\)](articles/reduce.md)
+    * [JavaScript的異步編程](articles/asyn_javascript.md)
 * [Front-End](front-end.md)
     * [Railsfun HTML & CSS & RWD](articles/railsfun-html-css-rwd.md)
     * [jQuery memo](articles/jquery-memo.md)

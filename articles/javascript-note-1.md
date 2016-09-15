@@ -193,4 +193,15 @@ delete 用來刪除屬性，它不會觸及原型鏈中的對象，但刪除與�
 
 #### 函數
 
+function declaration
+
+```
+function someFun(){}
+```
+
+function literal (函數表達式)
+```
+var someFun = function(){}
+```
+
 

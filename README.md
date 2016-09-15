@@ -4,7 +4,7 @@ WebDev記錄。
 
 本書內容屬筆記形式，整理成較完整的文章將會放在[這裡](sharefun.logdown.com)。
 
-本書同步發布於[github](https://github.com/HFYEH/webdev)及[gitbook](https://www.gitbook.com/book/sharefunyeh/webdev/details)。
+本書同步發布於[github](https://github.com/HFYEH/webdev/blob/master/SUMMARY.md)及[gitbook](
+https://sharefunyeh.gitbooks.io/webdev/content/)
 
-
-
+[下載全書](https://www.gitbook.com/download/pdf/book/sharefunyeh/webdev)。

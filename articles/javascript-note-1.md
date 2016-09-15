@@ -220,3 +220,5 @@ someFun()  // "function"
 3. toString()方法：返回該函數的原始碼
 
 ###### 函數作用域
+
+

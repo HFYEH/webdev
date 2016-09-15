@@ -6,4 +6,7 @@ WebDev記錄。
 
 [本書目錄](SUMMARY.md)
 
-本書同步發布於[github](https://www.gitbook.com/book/sharefunyeh/webdev/details)及[gitbook](https://www.gitbook.com/book/sharefunyeh/webdev/details)。
+本書同步發布於[github](https://github.com/HFYEH/webdev)及[gitbook](https://www.gitbook.com/book/sharefunyeh/webdev/details)。
+
+
+

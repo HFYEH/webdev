@@ -232,4 +232,8 @@ someFun()  // "function"
 String, Number, Boolean的原始類型，是以傳值進函數內部；Array, Object, function是以傳址方式進入函數內部，函數內更改其值，外部也會跟著改變。
 
 1. `arguments`對象存在函數內，可以讀取所有傳入的參數。
-2. arguments.length可以得到帶入當前函數的參數數目
+2. `arguments.length`可以得到帶入當前函數的參數數目
+3. `arguments`是array-like物件，可以用Array.prototype.slice.call(argument)轉存出新的Array
+
+###### Closure 閉包
+

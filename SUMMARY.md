@@ -36,7 +36,7 @@
     * [讀ECMAScript作用域模型](articles/ecmascript_scope.md)
     * [React Native 學習資源](articles/learn-react-native.md)
     * [學習Redux](articles/learn-redux.md)
-    * [Javascript 筆記](articles/javascript-note-1.md)
+    * [Javascript 筆記　數據類型](articles/javascript-note-1.md)
     * [XMLHttpRequest & Fetch](articles/xmlhttprequest_fetch.md)
     * [JavaScript 中的 Array.prototype.reduce\(\)](articles/reduce.md)
     * [JavaScript的異步編程](articles/asyn_javascript.md)

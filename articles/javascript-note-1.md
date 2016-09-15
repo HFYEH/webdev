@@ -193,15 +193,30 @@ delete 用來刪除屬性，它不會觸及原型鏈中的對象，但刪除與�
 
 #### 函數
 
+JavaScript作為一門函數編程語言，將函數看成一種值，與其他數據類型地位相同，因此可以將函數作為返回值或參數傳入其他函數，或視賦值給變量和對象的屬性。
+
 function declaration
 
 ```
 function someFun(){}
 ```
 
-function literal (函數表達式)
+function expression (函數表達式)
 ```
-var someFun = function(){}
+var someFun = function hi(){
+    console.log(typeof hi);
+};
+hi // UnreferenceError: hi is not defined
+
+someFun()  // "function"
 ```
+使用函數表達式時，函數名僅在函數內部可見。函數聲明不用加分號，但函數表達式因為是表達式，應該加分號。
 
 
+###### 函數的屬性和方法
+
+1. name屬性：返回函數名
+2. length屬性：函數***定義時***的參數個數
+3. toString()方法：返回該函數的原始碼
+
+###### 函數作用域

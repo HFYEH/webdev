@@ -55,3 +55,11 @@ catch (e) {
 //   at <anonymous>:3:9
 //   ...
 ```
+
+在try中的如果有任何對象（包函Error）被throw語句拋出後，會直接進到catch中進行後續處理。
+
+## try...catch...finally
+
+不管是否發生拋出，都必須在最後執行的語句，放置在finally區塊中。
+
+如果結構中有返回值，返回機制比較複雜一點，還是看[原教材](http://javascript.ruanyifeng.com/grammar/error.html#toc5)。

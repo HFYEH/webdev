@@ -27,7 +27,7 @@ http://javascript.ruanyifeng.com/grammar/error.html#toc1
 
 ## throw
 
-> throw语句的作用是中断程序执行，抛出一个意外或错误。它接受一个表达式作为参数，可以抛出各种值。 
+> throw语句的作用是中断程序执行，抛出一个意外或错误。它接受一个表达式作为参数，可以抛出各种值。JavaScript引擎一旦遇到throw语句，就会停止执行后面的语句，并将throw语句的参数值，返回给用户。 
 
 ```
 // 抛出一个字符串
@@ -40,3 +40,18 @@ throw true;
 throw {toString: function() { return "Error!"; } };
 ```
 
+## try...catch
+
+為了處理Error，須使用此結構。
+```
+try {
+  throw new Error('出错了!');
+}
+catch (e) {
+  console.log(e.name + ": " + e.message);
+  console.log(e.stack);
+}
+// Error: 出错了!
+//   at <anonymous>:3:9
+//   ...
+```

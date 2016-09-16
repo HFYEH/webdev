@@ -38,11 +38,11 @@
     * [JavaScript 筆記　運算符](articles/javascript-note-2.md)
     * [JavaScript 筆記　數據類型轉換](articles/javascript-note-3.md)
     * [JavaScript 筆記　錯誤處理機制](articles/javascript-note-4.md)
+    * [JavaScript 筆記　標準庫](articles/javascript-note-5.md)
     * [React Native 學習資源](articles/learn-react-native.md)
     * [學習Redux](articles/learn-redux.md)
     * [XMLHttpRequest & Fetch](articles/xmlhttprequest_fetch.md)
-    * [JavaScript 中的 Array.prototype.reduce\(\)](articles/reduce.md)
-    * JavaScript 筆記　錯誤處理機制
+    * JavaScript 筆記　標準庫
 * [Front-End](front-end.md)
     * [Railsfun HTML & CSS & RWD](articles/railsfun-html-css-rwd.md)
     * [jQuery memo](articles/jquery-memo.md)

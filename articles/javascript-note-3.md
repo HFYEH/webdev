@@ -1,5 +1,9 @@
 這裡記錄一些從阮一峰的[JavaScript參考教程](http://javascript.ruanyifeng.com/)和 JavaScript: The Good Part 中得到的知識，做記憶補強和方便回憶之用。
 
+## valueOf(), toString()
+
+valueOf()返回對象的原始類型值，toString()將對象轉為字串。
+
 ## 強制轉換
 
 #### Number()
@@ -53,3 +57,4 @@ Boolean('') // false
 
 ## 自動轉換
 
+自動轉換是基於上述的強制轉換，有很大的不確定性，且除錯不易，建議盡量使用強制轉換。

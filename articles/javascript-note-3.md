@@ -51,6 +51,5 @@ Boolean(NaN) // false
 Boolean('') // false
 ```
 
-
 ## 自動轉換
 

@@ -1,4 +1,4 @@
-資源列表：
+學習資源：
 
 [SQL Course](http://studybyyourself.com/seminar/sql/course/?lang=en)
 

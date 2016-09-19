@@ -2,7 +2,7 @@
 
 ## Object
 
-所有的JavaScript對象都繼承自Object對象。Object對象本身也是一個構造函數，可以透過它生成對象。
+所有的JavaScript對象都繼承自Object對象。Object對象本身也是一個構造函數，可以透過它生成對象，也可以用來包裝原始類型為對象。
 
 ```
 var o = new Object()  // 全等於 o = {}

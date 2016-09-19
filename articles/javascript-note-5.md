@@ -14,4 +14,20 @@ o1 === o2 // true
 // 如果傳入的參數是原始類型，就返回其值對應的包裝對象
 new Object(123) instanceof Number // true
 ```
+#### 部署方法
 
+###### 部署在Object - 構造函數方法
+
+```
+Object.print = function(o){console.log(o)}
+var o = new Object();
+Object.print(o);   // Object
+```
+
+###### 部署在Object.prototype - 實例方法
+
+```
+Object.prototype.print = function(){console.log(this)};
+var o = new Object();
+o.print()      // Object
+```

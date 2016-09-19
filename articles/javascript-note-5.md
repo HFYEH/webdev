@@ -16,7 +16,9 @@ new Object(123) instanceof Number // true
 ```
 #### 部署方法
 
-###### 部署在Object - 構造函數方法
+###### 部署在Object對象 - 構造函數方法
+
+方法存在Object中，如果其它對象想要使用，必須呼叫Object的方法。
 
 ```
 Object.print = function(o){console.log(o)}
@@ -25,6 +27,8 @@ Object.print(o);   // Object
 ```
 
 ###### 部署在Object.prototype - 實例方法
+
+**所有構造函數都有一個prototype屬性，指向一原型對象。為原型定義的所有屬性和方法，將被所有實例共享。**
 
 ```
 Object.prototype.print = function(){console.log(this)};

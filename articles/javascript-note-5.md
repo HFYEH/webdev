@@ -51,7 +51,7 @@ Object.prototype.toString()  // 返回對象的字串型式。比如Date()會被
 var a = {b:1}
 a.toSting()   // [object Object] 第二個表示該對象的構造函數，可用於判斷數據類型。
 
-// 因為返回的是構造函數，因此可以比typeof更精確的回傳變量類型，常用的只有NaN會返回Object而已
+// 因為返回的是構造函數，因此可以比typeof更精確的回傳變量類型，常用的只有NaN會返回Object而已，不過要用Object.prototype.toString.call，因為已經實例方法被覆蓋了
 
 // 以下總結Object兩種部署方法與實例間的關係
 var o1 = new Object();                // 建立o1
@@ -73,3 +73,12 @@ o2.toString();                        //  "Object constructor method"    o2使�
 
 ## Array
 Array就是鍵名為數字，且有順序性的一組值。JavaScript所有鍵名型態皆為字串，當使用整數時會被自動轉型。很類似對象，使用typeof也會得到object。
+
+```
+var a = [1,2,3];
+Object.keys
+
+```
+
+length屬性
+

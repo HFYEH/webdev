@@ -72,13 +72,5 @@ o2.toString();                        //  "Object constructor method"    o2使�
 
 
 ## Array
-Array就是鍵名為數字，且有順序性的一組值。JavaScript所有鍵名型態皆為字串，當使用整數時會被自動轉型。很類似對象，使用typeof也會得到object。
 
-```
-var a = [1,2,3];
-Object.keys
-
-```
-
-length屬性
 

@@ -53,11 +53,19 @@ a.toSting()   // [object Object] 第二個表示該對象的構造函數，可�
 
 // 因為返回的是構造函數，因此可以比typeof更精確的回傳變量類型，常用的只有NaN會返回Object而已
 
-a.toString = function(){return "Overwritten"}   // 如此可以在實例層級改寫toString，其他實例不受影響
-a.toString()  // "Overwritten"
-
-Object.prototype.toString.call(a)  // [object, Object]  使用call可以使用原本繼承來的toString
-
-
-
+// 以下說明Object兩種部署方法與實例間的關係
+var o1 = new Object();                // 建立o1
+var o2 = new Object();                // 建立o2
+o1.toString();                        // [object Object]  從Object.prototypr繼承來的toString會返回建構函數字串
+o1.toString = function(){
+  return "o1's toString instance method"
+}                                     // 改寫實例方法覆蓋
+o1.toString();                        // "o1's toString instance method"
+o2.toString();                        // [object Object]  不會覆蓋到其他實例
+Object.prototype.toString.call(o1)    // [object Object]  使用call可以呼叫到被覆概的方法
+Object.prototype.toString = function(){
+　　"Object constructor method"
+}                                     // 覆蓋建構函數方法
+o1.toString();                        // "o1's toString instance method"   因為被覆蓋了
+o2.toString();                        //  "Object constructor method"    o2使用繼承來的建構函數方法
 ```

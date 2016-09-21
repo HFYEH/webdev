@@ -53,7 +53,7 @@ a.toSting()   // [object Object] 第二個表示該對象的構造函數，可�
 
 // 因為返回的是構造函數，因此可以比typeof更精確的回傳變量類型，常用的只有NaN會返回Object而已
 
-// 以下說明Object兩種部署方法與實例間的關係
+// 以下總結Object兩種部署方法與實例間的關係
 var o1 = new Object();                // 建立o1
 var o2 = new Object();                // 建立o2
 o1.toString();                        // [object Object]  從Object.prototypr繼承來的toString會返回建構函數字串

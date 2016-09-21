@@ -35,3 +35,29 @@ Object.prototype.print = function(){console.log(this)};
 var o = new Object();
 o.print()      // Object
 ```
+
+#### Object自身的方法
+
+```
+Object.keys()   // 返回可枚舉的屬性
+Object.getOwnPropertyNames()  // 返回所有屬性
+```
+
+#### Object對象的實例方法
+
+```
+Object.prototype.valueOf()  // 預設返回對象自身
+Object.prototype.toString()  // 返回對象的字串型式。比如Date()會被改寫成日期時間的字串，是因為覆蓋了Object.prototype.toSting
+var a = {b:1}
+a.toSting()   // [object Object] 第二個表示該對象的構造函數，可用於判斷數據類型。
+
+// 因為返回的是構造函數，因此可以比typeof更精確的回傳變量類型，常用的只有NaN會返回Object而已
+
+a.toString = function(){return "Overwritten"}   // 如此可以在實例層級改寫toString，其他實例不受影響
+a.toString()  // "Overwritten"
+
+Object.prototype.toString.call(a)  // [object, Object]  使用call可以使用原本繼承來的toString
+
+
+
+```

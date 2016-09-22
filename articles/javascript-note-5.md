@@ -72,6 +72,8 @@ o2.toString();                        //  "Object constructor method"    o2使�
 
 JavaScript是採用原型繼承，所有實例都會繼承其對象原型中的方法和屬性。其他基本的原型，如Date.prototype, Number.prototype等，都繼承於Object.prototype。
 
+當使用對象方法或呼叫一個對象的屬性時，會沿著其原型繼承鏈一層一層往上找，直到找到為止。
+
 ## Array
 
 

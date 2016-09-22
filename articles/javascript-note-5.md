@@ -70,6 +70,7 @@ o1.toString();                        // "o1's toString instance method"   因�
 o2.toString();                        //  "Object constructor method"    o2使用繼承來的建構函數方法
 ```
 
+JavaScript是採用原型繼承，所有實例都會繼承其對象原型中的方法和屬性。其他基本的原型，如Date.prototype, Number.prototype等，都繼承於Object.prototype
 
 ## Array
 

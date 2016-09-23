@@ -2,7 +2,7 @@
 
 ## valueOf(), toString()
 
-valueOf()返回對象的原始類型值，toString()將對象轉為字串。
+valueOf()對一般對象返回對象本身，原始類型包裝成的對象則返回的原始類型值，toString()將對象轉為字串。
 
 ## 強制轉換
 

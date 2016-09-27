@@ -14,6 +14,14 @@ render()
 
 componentDidMount()：對DOM的異步操作放在這裡
 
+初始化一個組件和其子組件的順序依序是：
+parent.componentWillMount()
+parent.render()
+child.componentWillMount()
+child.render()
+child.componentDidMount()
+parent.componentDidMount()
+
 ###### 更新
 
 

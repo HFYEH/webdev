@@ -68,11 +68,6 @@ componentWillMount()：解除事件監聽，清除記憶體等放在這裡。
 
 
 
-
-
-[React Native通信机制详解](http://blog.cnbang.net/tech/2698/)
-
-
 [深入浅出React（四）：虚拟DOM Diff算法解析](http://www.infoq.com/cn/articles/react-dom-diff)
 
 

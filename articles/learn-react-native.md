@@ -59,11 +59,6 @@ componentWillMount()：解除事件監聽，清除記憶體等放在這裡。
 
 
 
-
-
-
-
-
 [第七卷 - Fetch 簡介以及 React Native 之 Fetch 的練習](http://winwu.github.io/react-native-note/2016/05/02/fetch-exampe/)
 
 

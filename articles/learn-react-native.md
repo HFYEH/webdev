@@ -6,6 +6,8 @@ state是當前組件內部的狀態，一旦變動，當前組件也會被更新
 
 #### React 組件生命週期和對時期對應的方法：
 
+[參考連結](https://segmentfault.com/a/1190000003691119)
+
 ###### 初始化
 
 componentWillMount()：用來在render前最後一次更改state，而且不會觸發重新render
@@ -26,7 +28,15 @@ parent.componentDidMount()
 
 componentWillReceiveProps(nextProps, nextContext)：組件接收到新的props會調用，當前組件的state發生變化不會執行。從當前組件的父組件改變當前組件的props意指從外部更新此組件，而state改變造成的更新，不在此處。此函數可以在更新前，最後一次修改state而不會觸發重新render。官方建議最外層的組件改變state與伺服器和用戶互動，而子組件只負責通過props更新。
 
-componentShouldUpdate()：
+componentShouldUpdate()：決定組件收到新的props和state後是否更新，預設回傳true。組件會將render()的返回值與當前的DOM比較，只更新有變動的部份。在此階段不能使用this.setState()。
+
+componentWillUpdate(), componentDidUpdate()：只能作非狀態的計算，同樣不能使用this.setState()。
+
+
+###### 移除
+
+componentWillMount()：解除事件監聽，清除記憶體等放在這裡。
+
 
 
 

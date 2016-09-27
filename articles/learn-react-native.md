@@ -1,4 +1,8 @@
+React DOM tree 是由單一個最上層組件，包含數目不等的組件，每個組件都可以包含數目不等的組件，最後展成一個組件樹。
 
+props是當前組件對外溝通的唯一管道，當props被更改，其下的DOM就會被更新。
+
+state是當前組件內部的狀態，一旦變動，當前組件也會被更新。
 
 
 [React Native 从入门到原理](http://www.jianshu.com/p/978c4bd3a759)

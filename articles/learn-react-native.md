@@ -24,7 +24,7 @@ parent.componentDidMount()
 
 ###### 更新
 
-componentWillReceiveProps(nextProps, nextContext)：組件接收到新的props會調用，當前組件的state發生變化不會執行。從當前組件的父組件改變當前組件的props意指從外部更新此組件，而state改變造成的更新，不在此處。此函數可以在更新前，最後一次修改state而不會觸發重新render
+componentWillReceiveProps(nextProps, nextContext)：組件接收到新的props會調用，當前組件的state發生變化不會執行。從當前組件的父組件改變當前組件的props意指從外部更新此組件，而state改變造成的更新，不在此處。此函數可以在更新前，最後一次修改state而不會觸發重新render。官方建議最外層的組件改變state，而子組件只負責通過props更新。
 
 componentShouldUpdate()：
 

@@ -85,5 +85,35 @@ Array.isArray(arr)   // true
 
 #### 實例方法
 
+###### 與Object相同的
+一樣有valueOf(), toString()
+
+###### push
+
+添加變量x到最後一個元素，會改變arr
+
+`arr.push(x)`
+
+合併兩array
+
+```
+a = [1,2,3]
+b = [4,5,6]
+Array.prototype.push.apply(a,b)
+a   // [1,2,3,4,5,6]
+```
+
+###### pop
+
+刪除最後一個元素，並返回該元素，會改變arr
+
+```
+var arr = [1,2,3]
+arr.pop()  // 3
+arr        // [1,2]
+```
+
+
+
 
 

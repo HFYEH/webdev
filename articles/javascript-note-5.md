@@ -59,7 +59,7 @@ var o2 = new Object();                // 建立o2
 o1.toString();                        // [object Object]  從Object.prototypr繼承來的toString會返回建構函數字串
 o1.toString = function(){
   return "o1's toString instance method"
-}                                     // 改寫實例方法覆蓋
+}                                     // 覆寫實例方法
 o1.toString();                        // "o1's toString instance method"
 o2.toString();                        // [object Object]  不會覆蓋到其他實例
 Object.prototype.toString.call(o1)    // [object Object]  使用call可以呼叫到被覆概的方法
@@ -76,7 +76,14 @@ JavaScript是採用原型繼承，所有實例都會繼承其對象原型中的�
 
 ## Array
 
-因為建構函數的不確定性，建議總是用literal方式產生Array變量。
+因為建構函數的不確定性，建議總是用literal方式產生Array變量。使用Array.isArray()檢查變量是否為Array。
+
+```
+var arr = [];    // 建構array object
+Array.isArray(arr)   // true
+```
+
+#### 實例方法
 
 
 

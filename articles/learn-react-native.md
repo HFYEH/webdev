@@ -24,6 +24,7 @@ parent.componentDidMount()
 
 ###### 更新
 
+componentWillReceiveProps(nextProps, nextContext)：
 
 
 

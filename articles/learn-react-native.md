@@ -39,19 +39,6 @@ componentWillMount()：解除事件監聽，清除記憶體等放在這裡。
 
 
 
-
-[React Native 从入门到原理](http://www.jianshu.com/p/978c4bd3a759)
-
-
-
-[第七卷 - Fetch 簡介以及 React Native 之 Fetch 的練習](http://winwu.github.io/react-native-note/2016/05/02/fetch-exampe/)
-
-
-[React Native通信机制详解](http://blog.cnbang.net/tech/2698/)
-
-[React Native 调研报告](http://blog.csdn.net/lihuiqwertyuiop/article/details/45241909)
-
-
 ## 理解 Navigator 的好文章
 
 [react-native组件生命周期在navigator上的表现](http://www.lynull.com/2016/03/13/react-native-navigator-lifecycle/)
@@ -68,3 +55,31 @@ componentWillMount()：解除事件監聽，清除記憶體等放在這裡。
 ## 理解 ListView 的好文章
 
 [浅析Listview组件01之最简实例](http://www.lynull.com/2016/04/02/%E6%B5%85%E6%9E%90listview%E7%BB%84%E4%BB%B601%E4%B9%8B%E6%9C%80%E7%AE%80%E5%AE%9E%E4%BE%8B/)
+
+
+
+
+[React Native 从入门到原理](http://www.jianshu.com/p/978c4bd3a759)
+
+
+
+
+
+
+
+[第七卷 - Fetch 簡介以及 React Native 之 Fetch 的練習](http://winwu.github.io/react-native-note/2016/05/02/fetch-exampe/)
+
+
+
+
+
+[React Native通信机制详解](http://blog.cnbang.net/tech/2698/)
+
+
+
+[React Native 调研报告](http://blog.csdn.net/lihuiqwertyuiop/article/details/45241909)
+
+
+
+
+

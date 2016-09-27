@@ -42,7 +42,6 @@
     * [React Native 學習資源](articles/learn-react-native.md)
     * [學習Redux](articles/learn-redux.md)
     * [XMLHttpRequest & Fetch](articles/xmlhttprequest_fetch.md)
-    * JavaScript 筆記　標準庫
 * [Front-End](front-end.md)
     * [Railsfun HTML & CSS & RWD](articles/railsfun-html-css-rwd.md)
     * [jQuery memo](articles/jquery-memo.md)

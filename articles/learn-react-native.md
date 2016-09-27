@@ -24,7 +24,8 @@ parent.componentDidMount()
 
 ###### 更新
 
-componentWillReceiveProps(nextProps, nextContext)：
+componentWillReceiveProps(nextProps, nextContext)：組件接收到新的props會調用，當前組件的state發生變化不會執行
+
 
 
 

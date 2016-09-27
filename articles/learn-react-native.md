@@ -59,9 +59,6 @@ componentWillMount()：解除事件監聽，清除記憶體等放在這裡。
 
 
 
-[React Native 从入门到原理](http://www.jianshu.com/p/978c4bd3a759)
-
-
 
 
 
@@ -77,10 +74,6 @@ componentWillMount()：解除事件監聽，清除記憶體等放在這裡。
 
 
 [深入浅出React（四）：虚拟DOM Diff算法解析](http://www.infoq.com/cn/articles/react-dom-diff)
-
-
-[React Native 调研报告](http://blog.csdn.net/lihuiqwertyuiop/article/details/45241909)
-
 
 
 

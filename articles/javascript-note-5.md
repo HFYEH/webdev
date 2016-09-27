@@ -124,6 +124,20 @@ Array.prototype.join可以用於array-like對象
 Array.prototype.join.apply('hello','-')  // "h-e-l-l-o"
 ```
 
+###### concat
+array合併，接收參數接到原array之後，並返回，原array不變。
+
+```
+var a = [1,2,3]
+var b = [4,5,6]
+a.concat(b)  // [1,2,3,4,5,6]
+a.concat(4,5,6) // 同上
+a.concat(4,[5,6]) // 同上
+```
+注意，只要原array中包含對象，返回的array包函對該對象的引用而非硬拷貝。
+
+
+###### shift
 
 
 

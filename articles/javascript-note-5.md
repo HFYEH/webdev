@@ -113,6 +113,19 @@ arr.pop()  // 3
 arr        // [1,2]
 ```
 
+###### join
+將array合併為字串返回。
+```
+var a = [1,2,3]
+a.join()  // "1,2,3"
+```
+Array.prototype.join可以用於array-like對象
+```
+Array.prototype.join.apply('hello','-')  // "h-e-l-l-o"
+```
+
+
+
 
 
 

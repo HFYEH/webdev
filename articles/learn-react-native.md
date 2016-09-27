@@ -4,6 +4,21 @@ props是當前組件對外溝通的唯一管道，當props被更改，其下的D
 
 state是當前組件內部的狀態，一旦變動，當前組件也會被更新。
 
+#### React 組件生命週期和對時期對應的方法：
+
+###### 初始化
+
+componentWillMount()：用來在render前最後一次更改state，而且不會觸發重新render
+
+render()
+
+componentDidMount()：對DOM的異步操作放在這裡
+
+###### 更新
+
+
+
+
 
 [React Native 从入门到原理](http://www.jianshu.com/p/978c4bd3a759)
 

@@ -15,7 +15,6 @@ W3C CSS2.1 有BFC (Block Formatting Context)和IFC (Inline Formatting Context)�
 3. block container, `display`為 `inline-block`, `table-cell`, `table-caption`, `flex`, `inline-flex`
 4. overflow不為visible
 5. root元素也會自動生成BFC
-inline-block, table-cell, table-caption, flex, inline-flex作者： Walk_ 链接：http://www.imooc.com/article/9723来源：慕课网
 
 塊級元素是一個獨立的盒子，內部布局不受外部影響，也不會影響到外部布局。有點像是程式語言中的作用域概念，一旦建立起一個塊級元素，就等同於建起一個獨立的作用域。
 

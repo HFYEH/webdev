@@ -8,9 +8,13 @@ W3C CSS2.1 有BFC (Block Formatting Context)和IFC (Inline Formatting Context)�
 
 ##### 產生條件
 
-display屬性為`block`, `list-item`, `table`的元素
+一共有四種。一個元素若滿足任何一個條件，將生成一個BFC。
 
-
+1. `float`
+2. `position`為`absolute`
+3. `display`為 `block`, `list-item`, `table`
+4. overflow不為visible
+5. root元素也會自動生成BFC
 
 塊級元素是一個獨立的盒子，內部布局不受外部影響，也不會影響到外部布局。有點像是程式語言中的作用域概念，一旦建立起一個塊級元素，就等同於建起一個獨立的作用域。
 

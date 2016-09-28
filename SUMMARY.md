@@ -45,7 +45,7 @@
 * [Front-End](front-end.md)
     * [Railsfun HTML & CSS & RWD](articles/railsfun-html-css-rwd.md)
     * [jQuery memo](articles/jquery-memo.md)
-    * [BFC, Collapsing margins](articles/bfc_collapsing_margins.md)
+    * [BFC & Margin Collapse](articles/bfc_collapsing_margins.md)
     * [CSS設計模式摘要集](articles/css-design-pattern-digest.md)
 * [Database](database.md)
     * [postgresql on ubuntu](articles/postgresql-on-ubuntu.md)

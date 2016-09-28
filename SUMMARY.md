@@ -45,8 +45,8 @@
 * [Front-End](front-end.md)
     * [Railsfun HTML & CSS & RWD](articles/railsfun-html-css-rwd.md)
     * [jQuery memo](articles/jquery-memo.md)
-    * [BFC & Margin Collapse](articles/bfc_collapsing_margins.md)
     * [CSS設計模式摘要集](articles/css-design-pattern-digest.md)
+    * [BFC](articles/bfc_collapsing_margins.md)
 * [Database](database.md)
     * [postgresql on ubuntu](articles/postgresql-on-ubuntu.md)
     * [N+1 query, sql重新包裝利用](articles/n-1-query.md)
@@ -61,7 +61,7 @@
 * [Cheet Sheets](cheetsheets.md)
     * [Git memo](articles/git-memo-for-git-real.md)
     * [Sublime text](articles/sublime-text-hotkey.md)
-    * [zsh \/ vim \/ tmux](articles/tmux.md)
+    * [zsh X vim X tmux](articles/tmux.md)
     * [cURL](articles/curl.md)
     * [adb \(Android Debug Bridge\)](articles/adb_cheet_sheet.md)
 

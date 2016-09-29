@@ -18,12 +18,13 @@ W3C CSS2.1 有BFC (Block Formatting Context)和IFC (Inline Formatting Context)�
 
 塊級元素是一個獨立的盒子，內部布局不受外部影響，也不會影響到外部布局。有點像是程式語言中的作用域概念，一旦建立起一個塊級元素，就等同於建起一個獨立的作用域。
 
-BFC的特性條列如下：
+BFC布局規則
 
 1. 內部的box會在垂直方向，從上而下排列。
-2. Box垂直方向的距離由margin決定，屬於同一BFC的兩相鄰box的margin會重合。
-3. 
-
+2. 內部的Box垂直方向的距離由margin決定，屬於同一BFC的兩相鄰box的margin會重合。
+3. 內部的Box的margin-left會與外部的border-left碰觸，浮動的內部Box亦然。
+4. BFC的區域不會與float元素重疊。
+5. 計算BFC高度時，float元素會列入計算。
 
 display屬性為`inline`, `inline-block`, `inline-table`的元素為行內元素，會採用IFC。
 

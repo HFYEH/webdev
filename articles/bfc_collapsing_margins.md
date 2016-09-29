@@ -21,15 +21,18 @@ W3C CSS2.1 有BFC (Block Formatting Context)和IFC (Inline Formatting Context)�
 
 ##### BFC布局規則
 
-1. 內部的box會在垂直方向，從上而下排列。
-2. 內部的Box垂直方向的距離由margin決定，屬於同一BFC的兩相鄰box的margin會疊加。
-3. 內部的Box的margin-left會與外部的border-left碰觸，浮動的內部Box亦然。
-4. BFC的區域不會與float元素重疊。
+1. 內部的box會在垂直方向，從上而下排列。（由上而下）
+2. 內部的Box垂直方向的距離由margin決定，***屬於同一BFC***的兩相鄰box的margin會疊加。（可解外邊距合併）
+3. 內部的Box的margin-left會與外部的border-left碰觸，浮動的內部Box亦然。（靠左對齊）
+4. BFC的區域不會與float元素重疊。（可用於布局）
 5. 計算BFC高度時，float元素會列入計算。
 
 ##### 功用
 
 1. 外邊距疊加
+
+<p data-height="265" data-theme-id="0" data-slug-hash="xELRJB" data-default-tab="html" data-user="sharefun" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/sharefun/pen/xELRJB/">BFC - collapse margin</a> by sharefun (<a href="http://codepen.io/sharefun">@sharefun</a>) on <a href="http://codepen.io">CodePen</a>.</p><script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
 
 2. 布局
 

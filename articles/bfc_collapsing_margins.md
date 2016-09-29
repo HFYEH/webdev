@@ -24,7 +24,7 @@ W3C CSS2.1 有BFC (Block Formatting Context)和IFC (Inline Formatting Context)�
 1. 內部的box會在垂直方向，從上而下排列。（由上而下）
 2. 內部的Box垂直方向的距離由margin決定，***屬於同一BFC***的兩相鄰box的margin會疊加。（元素和其first-child或元素和其sibline皆算是相鄰，可用此特性解外邊距合併）
 3. 內部的Box的margin-left會與外部的border-left碰觸，浮動的內部Box亦然。（靠左對齊）
-4. BFC的區域不會與float元素重疊。（可用於布局）
+4. BFC的區域不會與float元素重疊。（也就是去除浮動，可用於布局）
 5. 計算BFC高度時，float元素會列入計算。
 
 ##### 功用

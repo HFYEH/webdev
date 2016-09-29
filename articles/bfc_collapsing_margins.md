@@ -33,7 +33,6 @@ W3C CSS2.1 有BFC (Block Formatting Context)和IFC (Inline Formatting Context)�
 
 <p data-height="265" data-theme-id="0" data-slug-hash="xELRJB" data-default-tab="html" data-user="sharefun" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/sharefun/pen/xELRJB/">BFC - collapse margin</a> by sharefun (<a href="http://codepen.io/sharefun">@sharefun</a>) on <a href="http://codepen.io">CodePen</a>.</p><script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
-
 2. 布局
 
 3. 清除浮動計算高度

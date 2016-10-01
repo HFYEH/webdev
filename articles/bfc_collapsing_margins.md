@@ -17,7 +17,7 @@ W3C CSS2.1 有BFC (Block Formatting Context)和IFC (Inline Formatting Context)�
 
 塊級元素是一個獨立的盒子，內部布局不受外部影響，也不會影響到外部布局。有點像是程式語言中的作用域概念，一旦建立起一個塊級元素，就等同於建起一個獨立的作用域。
 
-這四種生成BFC的方式中，以overflow: hidden最為常用，副作用最小。
+這四種生成BFC的方式中，以overflow: hidden最為常用，副作用最小。另外可以在外層加border或padding，或將內層第一個block元素做成BFC。
 
 ##### BFC布局規則
 

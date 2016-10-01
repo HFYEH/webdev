@@ -107,3 +107,8 @@ BFC是一個獨立的區域，內部布局不受外部影響，也不會影響�
 [深入理解BFC和Margin Collapse](http://www.w3cplus.com/css/understanding-bfc-and-margin-collapse.html)
 
 [CSS魔法堂：重新认识Box Model、IFC、BFC和Collapsing margins](https://segmentfault.com/a/1190000004625635)
+
+[CSS之BFC详解](http://www.html-js.com/article/1866)
+
+[CSS 三种定位方式以及格式化上下文详解](http://www.html5jscss.com/box-context.html)
+

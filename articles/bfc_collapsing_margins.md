@@ -35,7 +35,7 @@ W3C CSS2.1 有BFC (Block Formatting Context)和IFC (Inline Formatting Context)�
 
 * 布局
 
-<p data-height="265" data-theme-id="0" data-slug-hash="xEXwJG" data-default-tab="html,result" data-user="sharefun" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/sharefun/pen/xEXwJG/">BFC - clearance</a> by sharefun (<a href="http://codepen.io/sharefun">@sharefun</a>) on <a href="http://codepen.io">CodePen</a>.</p><script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+<p data-height="265" data-theme-id="0" data-slug-hash="xEXwJG" data-default-tab="html,result" data-user="sharefun" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/sharefun/pen/xEXwJG/">BFC - 布局</a> by sharefun (<a href="http://codepen.io/sharefun">@sharefun</a>) on <a href="http://codepen.io">CodePen</a>.</p><script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 
 * 清除浮動計算高度

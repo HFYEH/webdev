@@ -98,7 +98,7 @@ BFC是一個獨立的區域，內部布局不受外部影響，也不會影響�
 
 ## Inline Formatting Context (IFC)
 
-
+IFC會生成line box，為排版基本單位，line box內部的Box水平排列，水平方向上的寬度會得到保留。如果寬度大於containing box的話，會自動換行。每一行都會生成一個line box。Line box高度決定該行的高度，line box的高度由其內的所有inline-level block的高度最大值決定。line-height或font-size或inline-block高度決定inline-block box的高度。
 
 ## 參考資料：
 

@@ -1,16 +1,38 @@
 ### 前言
 
-Formatting Context 格式化上下文，是一塊渲染區域中的渲染規則，它決定元素定位方式，和與其他元素的交互作用。Box是CSS布局的基本單位，元素的類型（會有預設的display性質）或附加的display屬性會決定此box要參與哪一種formatting context。
+Formatting Context 格式化上下文，是一塊渲染區域中的渲染規則，它決定元素定位方式，和與其他元素的交互作用。Box是CSS布局的基本單位，元素的類型（會有預設的display性質）或附加的display屬性會決定此元素生成怎的box類型，box類型會決定該box要參與哪一種formatting context。
 
-W3C CSS2.1 有BFC (Block Formatting Context)和IFC (Inline Formatting Context)，W3C CSS3 新增了GFC, FFC。
+W3C CSS2.1 有BFC (Block Formatting Context)和IFC (Inline Formatting Context)，W3C CSS3 新增了GFC, FFC，此文暫不涵蓋。
 
 ##### 名詞解釋
 
-Box：就是常說的盒模型的box，有幾種類型，以display決定
+Box：就是常說的盒模型的box，有幾種類型，以display決定，有block-level box和inline box。Box是被元素生成的。
 
-Block-level box：原本就是塊級的元素，或是`display`為`block`, `list-item`, `table`的元素，這是會參與BFC的元素。
+Block-level element：為元素設置`display`為`block`, `list-item`, `table`的元素，就是塊級元素。
 
+Block-level box：每個塊級元素至少會生成一個block-level box。塊級盒會參與BFC。
 
+Block containing box：塊容器盒只包含其他block-level box或inline-level box。
+
+Block box：同時是block-level box和block containing box的稱為塊盒。
+
+![](https://developer.mozilla.org/@api/deki/files/5995/=venn_blocks.png)
+
+Inline-level element：為元素設置`display`為`inline`,`inline-block`,`inline-table`的元素，就是行內元素。
+
+Inline-level box：行內級元素會行內級盒，但不是所有的行內級盒都會參加IFC。
+
+Inline-box：參與IFC的行內級盒稱為行內盒。只有`display`為`inline`的inline-level box會參與IFC，而`display`為`inline-block`,`inline-table`和可替換行內元素生成的盒，不能拆分多個盒，不參與IFC。
+
+![](https://developer.mozilla.org/@api/deki/files/6008/=venn_inlines.png)
+
+##### 文檔流
+
+Normal flow：在BFC中垂直排列，在IFC中水平排列。`position`為`static`或`relative`，且`float`為`none`時會觸發。
+
+Float：處於當前行的開頭或末尾，會使得normal flow圍繞在其周圍，直至設置clear為止。`position`為`state`或`relative`，`float`不為`none`時會觸發。
+
+Absolute positioning：從normal flow中被移除，且不影響normal flow布局。`position`為`absolute`或`fixed`時觸發。
 
 ### Block Formatting Context (BFC)
 

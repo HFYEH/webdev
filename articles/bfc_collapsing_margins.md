@@ -12,7 +12,7 @@ W3C CSS2.1 有BFC (Block Formatting Context)和IFC (Inline Formatting Context)�
 
 1. `float`不為`none`
 2. `position`為`absolute`或`fixed`
-3. block container, `display`為 `inline-block`, `table-cell`, `table-caption`, `flex`, `inline-flex`
+3. `display`為 `inline-block`, `table-cell`, `table-caption`, `flex`, `inline-flex`
 4. overflow不為visible
 
 塊級元素是一個獨立的盒子，內部布局不受外部影響，也不會影響到外部布局。有點像是程式語言中的作用域概念，一旦建立起一個塊級元素，就等同於建起一個獨立的作用域。

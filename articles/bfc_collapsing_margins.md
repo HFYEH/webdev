@@ -4,6 +4,14 @@ Formatting Context 格式化上下文，是一塊渲染區域中的渲染規則�
 
 W3C CSS2.1 有BFC (Block Formatting Context)和IFC (Inline Formatting Context)，W3C CSS3 新增了GFC, FFC。
 
+##### 名詞解釋
+
+Box：就是常說的盒模型的box，有幾種類型，以display決定
+
+Block-level box：原本就是塊級的元素，或是`display`為`block`, `list-item`, `table`的元素，這是會參與BFC的元素。
+
+
+
 ### Block Formatting Context (BFC)
 
 ##### 產生條件

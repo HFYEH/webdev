@@ -10,39 +10,42 @@ W3C CSS2.1 有BFC (Block Formatting Context)和IFC (Inline Formatting Context)�
 
 一共有四種。一個元素若滿足任何一個條件，將生成一個BFC。
 
-1. `float`不為`none`
-2. `position`為`absolute`或`fixed`
-3. `display`為 `inline-block`, `table-cell`, `table-caption`, `flex`, `inline-flex`
+1. `float`不為`none`（只要是浮動元素就會生成BFC）
+2. `position`為`absolute`或`fixed`（絕對位置也會生成BFC）
+3. `display`為`block`,`list-item`,`table`,`table-cell`, `table-caption`, `flex`, `inline-flex`
 4. overflow不為visible
 
-塊級元素是一個獨立的盒子，內部布局不受外部影響，也不會影響到外部布局。有點像是程式語言中的作用域概念，一旦建立起一個塊級元素，就等同於建起一個獨立的作用域。
+BFC是一個獨立的區域，內部布局不受外部影響，也不會影響到外部布局。有點像是程式語言中的作用域概念，一旦建立起一個塊級元素，就等同於建起一個獨立的作用域。
 
-這四種生成BFC的方式中，以overflow: hidden最為常用，副作用最小。另外可以在外層加border或padding，或將內層第一個block元素做成BFC。
+這四種生成BFC的方式中，以overflow: hidden最為常用，副作用最小。
 
-##### BFC布局規則
+##### BFC內部的布局規則
 
 1. 內部的box會在垂直方向，從上而下排列。（由上而下）
-2. 內部的Box垂直方向的距離由margin決定，***屬於同一BFC的兩相鄰box的margin***會疊加。（元素和其first-child或元素和其sibline皆算是相鄰，可用此特性解外邊距合併）
-3. 內部的Box的margin-left會與外部的border-left碰觸，浮動的內部Box亦然。（靠左對齊）
+2. 內部的Box垂直方向的距離由margin決定，***屬於同一BFC的兩相鄰box的margin***會疊加。（此段容後細說）
+3. 內部box的margin-left會與BFC的border-left碰觸，浮動的內部Box亦然（以float: left為例）。（BFC內元素預設皆靠左對齊）
 4. BFC的區域不會與float元素重疊。（也就是去除浮動，可用於布局）
-5. 計算BFC高度時，float元素會列入計算。
+5. 計算BFC高度時，內部的float元素會列入計算。（BFC可以包含住float元素）
 
 ##### 功用
 
 * 外邊距合併例子
 
-上面提到，***屬於同一BFC的兩相鄰box的margin***會疊加。此處的相鄰有更嚴格的條件：
+上面2提到，***屬於同一BFC的兩相鄰box的margin***會疊加。此處的相鄰有更細緻的條件：
 
-1. 處於一般的文檔流中的block-level元素，不是float和fixed（不然就自己產生BFC了）
-2. block間沒有clearance，也沒有padding或border隔開
+1. 一般的文檔流中的block-level box，不是float和絕對定位（不然就自己產生BFC了）才有可能發生
+2. block-level box間沒有clearance，也沒有padding或border隔開
 3. 上邊距或下邊距才會發生合併
+4. 承上，父元素和滿足上述條件的first-child元素的margin會合併
+5. 承上，滿足上述條件的子元素和sibling元素的margin會合併
+6. 承上，height為auto的父元素和滿足上述條件的last-child元素的margin會合併
+7. 最小高度和高度為0，且自身沒有建立BFC，且沒有一般文檔流的子元素，因為上邊距和下邊距間沒有隔開，也會合併
 
-因此，以下幾種條件，就可以避免外邊距合併
+浮動和絕對定位元素，因為脫離了當前的文檔流，所以margin沒有和別的元素相鄰，又因為產了BFC，所以不會和其他元素的外邊距合併。
 
-1. 新的BFC不會與子元素發生合併
-2. 浮動元素，絕對定位元素不會和任何元素合併，不論是父元素或子元素
-3. inline-block元素不會和任何元素合併，不論是父元素或子元素
+浮動元素脫離文檔流之後，後面的sibling元素會接上一般文檔流，所以float元素上下的元素也有可能發生外邊距合併，須注意。
 
+閉合浮動元素會產生clearance，這會使得閉合浮動元素的border-top總是緊貼著最後一個浮動元素的margin-bottom，而且為閉合浮動元素設置margin-top是無效的，詳見[此篇](http://www.imooc.com/article/9723)。
 
 <p data-height="265" data-theme-id="0" data-slug-hash="xELRJB" data-default-tab="html" data-user="sharefun" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/sharefun/pen/xELRJB/">BFC - collapse margin</a> by sharefun (<a href="http://codepen.io/sharefun">@sharefun</a>) on <a href="http://codepen.io">CodePen</a>.</p><script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 

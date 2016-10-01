@@ -44,7 +44,7 @@ Absolute positioning：從normal flow中被移除，且不影響normal flow布�
 
 1. `float`不為`none`（只要是浮動元素就會生成BFC）
 2. `position`為`absolute`或`fixed`（絕對位置也會生成BFC）
-3. `display`為`block`,`list-item`,`table`,`table-cell`, `table-caption`, `flex`, `inline-flex`
+3. `display`為`block`,`list-item`,`table`,`table-cell`, `table-caption`
 4. overflow不為visible
 
 BFC是一個獨立的區域，內部布局不受外部影響，也不會影響到外部布局。有點像是程式語言中的作用域概念，一旦建立起一個塊級元素，就等同於建起一個獨立的作用域。

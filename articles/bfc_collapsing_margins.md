@@ -43,7 +43,7 @@ Absolute positioning：從normal flow中被移除，且不影響normal flow布�
 一共有四種。一個元素若滿足任何一個條件，將生成一個BFC。
 
 1. `float`不為`none`（只要是浮動元素就會生成BFC）
-2. `position`為`absolute`或`fixed`（絕對位置也會生成BFC）
+2. `position`為`absolute`或`fixed`（絕對位置元素也會生成BFC）
 3. `display`為`block`,`list-item`,`table`,`table-cell`, `table-caption`
 4. overflow不為visible
 

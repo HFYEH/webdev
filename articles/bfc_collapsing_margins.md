@@ -34,6 +34,8 @@ Float：處於當前行的開頭或末尾，會使得normal flow圍繞在其周�
 
 Absolute positioning：從normal flow中被移除，且不影響normal flow布局。`position`為`absolute`或`fixed`時觸發。
 
+參考[MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Visual_formatting_model)
+
 ### Block Formatting Context (BFC)
 
 ##### 產生條件

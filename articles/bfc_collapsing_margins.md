@@ -42,9 +42,10 @@ Absolute positioning：從normal flow中被移除，且不影響normal flow布�
 
 一共有四種。一個元素若滿足任何一個條件，將生成一個BFC。
 
+0. 根元素
 1. `float`不為`none`（只要是浮動元素就會生成BFC）
 2. `position`為`absolute`或`fixed`（絕對位置元素也會生成BFC）
-3. `display`為`block`,`list-item`,`table`,`table-cell`, `table-caption`
+3. `display`為`inline-block`,`table-cell`, `table-caption`(CSS3新增`flex`, `inline-flex`，`table`則會間接產生BFC）
 4. overflow不為visible
 
 BFC是一個獨立的區域，內部布局不受外部影響，也不會影響到外部布局。有點像是程式語言中的作用域概念，一旦建立起一個塊級元素，就等同於建起一個獨立的作用域。
@@ -73,11 +74,6 @@ BFC是一個獨立的區域，內部布局不受外部影響，也不會影響�
 6. 承上，height為auto的父元素和滿足上述條件的last-child元素的margin會合併
 7. 最小高度和高度為0，且自身沒有建立BFC，且沒有一般文檔流的子元素，因為上邊距和下邊距間沒有隔開，也會合併
 
-浮動和絕對定位元素，因為脫離了當前的文檔流，所以margin沒有和別的元素相鄰，又因為產了BFC，所以不會和其他元素的外邊距合併。
-
-浮動元素脫離文檔流之後，後面的sibling元素會接上一般文檔流，所以float元素上下的元素也有可能發生外邊距合併，須注意。
-
-閉合浮動元素會產生clearance，這會使得閉合浮動元素的border-top總是緊貼著最後一個浮動元素的margin-bottom，而且為閉合浮動元素設置margin-top是無效的，詳見[此篇](http://www.imooc.com/article/9723)。
 
 <p data-height="265" data-theme-id="0" data-slug-hash="xELRJB" data-default-tab="html" data-user="sharefun" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/sharefun/pen/xELRJB/">BFC - collapse margin</a> by sharefun (<a href="http://codepen.io/sharefun">@sharefun</a>) on <a href="http://codepen.io">CodePen</a>.</p><script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
@@ -89,6 +85,13 @@ BFC是一個獨立的區域，內部布局不受外部影響，也不會影響�
 * 容納浮動元素
 
 <p data-height="265" data-theme-id="0" data-slug-hash="ZpXbdz" data-default-tab="html,result" data-user="sharefun" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/sharefun/pen/ZpXbdz/">BFC - 容納浮動元素</a> by sharefun (<a href="http://codepen.io/sharefun">@sharefun</a>) on <a href="http://codepen.io">CodePen</a>.</p><script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+
+浮動和絕對定位元素，因為脫離了當前的文檔流，所以margin沒有和別的元素相鄰，又因為產了BFC，所以不會和其他元素的外邊距合併。
+
+絕對定位元素脫離文檔流之後，後面的sibling元素會接上一般文檔流，所以絕對定位元素上下的元素也有可能發生外邊距合併，須注意。
+
+閉合浮動元素會產生clearance，這會使得閉合浮動元素的border-top總是緊貼著最後一個浮動元素的margin-bottom，而且為閉合浮動元素設置margin-top是無效的，詳見[此篇](http://www.imooc.com/article/9723)。
 
 
 ## Inline Formatting Context (IFC)

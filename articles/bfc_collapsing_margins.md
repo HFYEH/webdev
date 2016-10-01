@@ -1,6 +1,6 @@
 ### 前言
 
-Formatting Context 格式化上下文，是一塊渲染區域中的渲染規則，它決定元素定位方式，和與其他元素的交互作用。Box是CSS布局的基本單位，元素的類型（會有預設的display性質）或附加的display屬性會決定此元素生成怎的box類型，box類型會決定該box要參與哪一種formatting context。
+Formatting Context 格式化上下文，是一塊渲染區域中的渲染規則，它決定元素定位方式，和與其他元素的交互作用。它在正常的文檔流中另外開一種排版格式，並具備某些特性，比如可包含float元素，使得排版更有彈性。Box是CSS布局的基本單位，CSS只認box而不認元素的，元素的類型（會有預設的display性質）或附加的display屬性會決定此元素生成怎的box類型，box類型會決定該box要參與哪一種formatting context。
 
 W3C CSS2.1 有BFC (Block Formatting Context)和IFC (Inline Formatting Context)，W3C CSS3 新增了GFC, FFC，此文暫不涵蓋。
 
@@ -96,13 +96,12 @@ BFC是一個獨立的區域，內部布局不受外部影響，也不會影響�
 
 ## Inline Formatting Context (IFC)
 
-display屬性為`inline`, `inline-block`, `inline-table`的元素為行內元素，會採用IFC。
 
 
+## 參考資料：
 
+[细说 CSS margin](https://blog.coding.net/blog/css-margin)
 
 [深入理解BFC和Margin Collapse](http://www.w3cplus.com/css/understanding-bfc-and-margin-collapse.html)
 
-[CSS魔法堂：重新认识Box Model、IFC、BFC和Collapsing margins](http://web.jobbole.com/86060/)
-
-[揭开外边距折叠Collapsing margins的面纱](http://developer.51cto.com/art/201008/219288.htm)
+[CSS魔法堂：重新认识Box Model、IFC、BFC和Collapsing margins](https://segmentfault.com/a/1190000004625635)

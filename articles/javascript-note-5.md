@@ -41,6 +41,8 @@ o.print()      // Object
 ```
 Object.keys()   // 返回可枚舉的屬性
 Object.getOwnPropertyNames()  // 返回所有屬性
+hasOwnProperty()     // 判斷某属性是否為當前對象自身的屬性
+
 ```
 
 #### Object對象的實例方法

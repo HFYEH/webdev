@@ -40,7 +40,7 @@ o.print()      // Object
 
 ```
 Object.keys()   // 返回可枚舉的屬性
-Object.getOwnPropertyNames()  // 返回所有屬性
+Object.getOwnPropertyNames()  // 返回所有屬性（如Array的length屬性不可枚舉，在此會被列出
 hasOwnProperty()     // 判斷某属性是否為當前對象自身的屬性
 ```
 

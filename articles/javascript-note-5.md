@@ -122,7 +122,7 @@ a.join()  // "1,2,3"
 ```
 Array.prototype.join可以用於array-like對象
 ```
-Array.prototype.join.apply('hello','-')  // "h-e-l-l-o"
+Array.prototype.join.call('hello','-')  // "h-e-l-l-o"
 ```
 
 ###### concat

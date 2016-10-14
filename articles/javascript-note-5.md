@@ -126,7 +126,7 @@ Array.prototype.join.call('hello','-')  // "h-e-l-l-o"
 ```
 
 ###### concat
-array合併，接收參數接到原array之後，並返回，原array不變。
+array合併，接收參數接到原array之後，並返回，原array不變。規則是所有參數會打破一層array，其中所有元素會依序接上，如果某個參數是原始數值，則直接接上。如果有兩層，第二層會以引用方式作為一個元素接上。
 
 ```
 var a = [1,2,3]

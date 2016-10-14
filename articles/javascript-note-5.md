@@ -151,7 +151,7 @@ a.concat(4,[5,6]) // 同上
 ```
 注意，只要原array中包含對象，返回的array包函對該對象的引用而非硬拷貝。
 
-# slice
+###### slice
 
 從array切出另一個array並返回，原array不變。代入參數為起點和終點index，若只代入一個參數，則返回該位置元素一直到最後為止。
 
@@ -165,7 +165,7 @@ arr2 = arr1.slice(0)  // arr2是新的array
 Array.prototype.slice.call({0: 'a', 1: 'b', length: 2})  // ['a','b']
 ```
 
-# splice
+###### splice
 
 
 

@@ -44,6 +44,7 @@
     * [React Native](articles/learn-react-native.md)
     * [Redux](articles/learn-redux.md)
     * [Reduce](articles/reduce.md)
+    * [XMLHttpRequest to Fetch](articles/xmlhttprequest_fetch.md)
 * [Front-End](front-end.md)
     * [Railsfun HTML & CSS & RWD](articles/railsfun-html-css-rwd.md)
     * [jQuery memo](articles/jquery-memo.md)

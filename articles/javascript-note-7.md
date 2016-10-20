@@ -53,8 +53,8 @@ toUTCString()   // 返回UTC時間的字串
 toJSON()        // 符合JSON格式的ISO格式時間字串
 toDateString()
 toTimeString()
-toLocalDateString()
-toLocalTimeString()
+toLocaleDateString()
+toLocaleTimeString()
 
 getDate()
 getDay()        // 返回星期幾，0是星期日，隨後遞增

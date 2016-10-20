@@ -50,8 +50,6 @@
     * [postgresql on ubuntu](articles/postgresql-on-ubuntu.md)
     * [N+1 query, sql重新包裝利用](articles/n-1-query.md)
     * [Railsfun RDBMS](articles/railsfun_db.md)
-* [Virtualization](virtualization.md)
-    * [VirtualBox共享資料夾](articles/2015-03-22-vb-shared.md)
 * [Arduino & Raspberry Pi 與讀書會](arduino-rpi.md)
     * [Raspberry Pi 使用ssh登入](articles/rpi.md)
     * [Git 會前準備](articles/prior-to-git-ready.md)

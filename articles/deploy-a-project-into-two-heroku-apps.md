@@ -1,10 +1,3 @@
----
-layout: post
-title: '一個專案部署成兩個Heroku Apps'
-date: 2016-05-21 12:45
-comments: true
-categories: 
----
 # Branch設定：
 # 現在新增兩個branch，chiduino-dev and chiduino-prod
 # 以後不用master branch開發，開發的主線變為chiduino-dev

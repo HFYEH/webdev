@@ -25,7 +25,7 @@
     * [ActiveRecord Coursera 課程](articles/coursera-active-record-and-action-pack-active-record.md)
     * [ActionPack Coursera Course](articles/coursera-active-record-and-action-pack-expressing-database-relationships.md)
     * [User Story and Agile](articles/user-story-agile.md)
-    * [capistrano一個專案一台機器兩個branch部暑成兩個app](articles/deploy-a-project-into-two-heroku-apps.md)
+    * [一個專案部署成兩個Heroku Apps](articles/deploy-a-project-into-two-heroku-apps.md)
     * [capistrano一個專案一台機器兩個branch部暑成兩個app](articles/a-project-a-machine-two-summer-branch-into-two-app.md)
     * [理解 Rails delegate](articles/understanding-rails-delegate.md)
     * [Websocket 資料](articles/websocket-data.md)

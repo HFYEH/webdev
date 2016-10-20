@@ -7,7 +7,7 @@
 
 [知乎原理介紹](https://www.zhihu.com/question/20215561)
 
-[Railsfun JC 大解釋](http://railsfun.tw/t/rails-websocket/498/3)
+[Railsfun JC大 解釋](http://railsfun.tw/t/rails-websocket/498/3)
 
 
 ## 參考資料

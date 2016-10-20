@@ -1,10 +1,3 @@
----
-layout: post
-title: 'Raspberry Pi 使用ssh登入'
-date: 2016-06-07 11:51
-comments: true
-categories: 
----
 因為實在少一台電腦螢幕，所以要玩RPi都得用電視。想想其實大多數時候我用不到螢幕，那就用ssh登入吧！
 
 這篇文章說明如何用個人電腦登入Raspberry Pi的文字介面。當RPi已經安裝完成，且連接上網路後，就可以開始了。步驟不多，簡單記錄下來，順便給隊員參考。

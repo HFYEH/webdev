@@ -64,5 +64,7 @@ getMonth()     // 0表示一月
 getHours()
 getMinutes()
 getSeconds()
+
+etc etc...
 ```
 

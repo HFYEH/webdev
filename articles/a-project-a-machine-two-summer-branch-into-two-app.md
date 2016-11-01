@@ -1,10 +1,3 @@
----
-layout: post
-title: 'capistrano一個專案一台機器兩個branch部暑成兩個app'
-date: 2016-06-07 01:35
-comments: true
-categories: 
----
 只要在deploy.rb裡改這段
 ```
 # Default branch is :master, we deploy current branch

@@ -167,7 +167,7 @@ Array.prototype.slice.call({0: 'a', 1: 'b', length: 2})  // ['a','b']
 
 ###### splice
 
-
+從array刪除一些元素，並在刪除的位置加入新元素，返回值是被刪除的元素。***會改變原array***
 
 ```
 

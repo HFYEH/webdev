@@ -170,8 +170,13 @@ Array.prototype.slice.call({0: 'a', 1: 'b', length: 2})  // ['a','b']
 從array刪除一些元素，並在刪除的位置加入新元素，返回值是被刪除的元素。***會改變原array***
 
 ```
+var arr = [0,1,2,3,4,5,6,7]
+arr.splice(1,5,'x','y','z')  # [1, 2, 3, 4, 5]從index=1開始刪除5個元素arr  # [0, "x", "y", "z", 6, 7]
 
+arr.splice(1,'w')
+arr  # [0, "w", "x", "y", "z", 6, 7]
 ```
+
 
 
 

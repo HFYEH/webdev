@@ -181,8 +181,29 @@ arr  # [0, "w", "x", "y", "z", 6, 7]
 
 按照字碼改變排序，數字會先被轉成字串。***會改變原array***
 
+可以使用自定的排序方式
 
+```
+var arr = [100,111,102]
+arr.sort(function(a,b){return a-b})
+```
 
+###### map
+
+對所有元素調用一個函數，根據函數返回值組成一個新array。
+
+map第二個參數可以代入原array，這樣就可以在map的第一個函數參數內使用this關鍵字
+```
+var arr = ['x','y','z']
+arr.map(function(e, index){return arr[index] == e}, arr)
+# [true, true, true]
+```
+
+map不會遍歷到array的空位。
+
+###### forEach
+
+同map，用於不返回值的時候。
 
 
 

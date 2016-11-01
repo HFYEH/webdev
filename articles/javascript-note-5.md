@@ -236,5 +236,7 @@ reduceRight只是從尾巴開始逆向迭代而已。
 
 ###### indexOf, lastIndexOf
 
+indexOf在array中尋找等於第一參數的第一個元素，返回其位置，lastIndexOf則是找最後一個等於的元素。
 
+第二個參數表示從該位置開始往後找。
 

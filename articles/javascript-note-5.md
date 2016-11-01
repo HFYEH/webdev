@@ -222,3 +222,19 @@ every: 參數為一函數，全部都返回true，才返回true，反之則為fa
 
 ###### reduce, reduceRight
 
+reduce就是ruby的inject，函數參數的第一個參數為累積值，第二個參數為當前元素，第三個參數是index
+
+reduce的第二個參數可以對累積變量指定初始值。
+
+reduceRight只是從尾巴開始逆向迭代而已。
+
+```
+[1,2,3,4,5].reduce(function(sum, x){return x+y})
+# 15
+```
+
+
+###### indexOf, lastIndexOf
+
+
+

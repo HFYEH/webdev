@@ -213,4 +213,12 @@ map不會遍歷到array的空位。
 函數參數型式同map和forEach，可代index為第二參數，而filter本身亦可以代入第二參數，將this綁定到目前處理的array上。
 
 
-###### 
+###### some, every
+
+some: 參數為一函數，只要其中一個返回true，就返回true，反之則為false
+
+every: 參數為一函數，全部都返回true，才返回true，反之則為false
+
+
+###### reduce, reduceRight
+

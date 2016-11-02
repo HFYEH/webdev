@@ -4,7 +4,6 @@
 
 http://javascript.ruanyifeng.com/stdlib/math.html
 
-
 ## Date
 
 範圍：基準時間1970年1月1日00:00:00前後一億日

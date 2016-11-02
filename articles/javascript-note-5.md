@@ -167,12 +167,76 @@ Array.prototype.slice.call({0: 'a', 1: 'b', length: 2})  // ['a','b']
 
 ###### splice
 
-
-
-```
+從array刪除一些元素，並在刪除的位置加入新元素，返回值是被刪除的元素。***會改變原array***
 
 ```
+var arr = [0,1,2,3,4,5,6,7]
+arr.splice(1,5,'x','y','z')  # [1, 2, 3, 4, 5]從index=1開始刪除5個元素arr  # [0, "x", "y", "z", 6, 7]
+
+arr.splice(1,'w')
+arr  # [0, "w", "x", "y", "z", 6, 7]
+```
+
+###### sort
+
+按照字碼改變排序，數字會先被轉成字串。***會改變原array***
+
+可以使用自定的排序方式
+
+```
+var arr = [100,111,102]
+arr.sort(function(a,b){return a-b})
+```
+
+###### map
+
+對所有元素調用一個函數，根據函數返回值組成一個新array。
+
+map第二個參數可以代入原array，這樣就可以在map的第一個函數參數內使用this關鍵字
+```
+var arr = ['x','y','z']
+arr.map(function(e, index){return arr[index] == e}, arr)
+# [true, true, true]
+```
+
+map不會遍歷到array的空位。
+
+###### forEach
+
+同map，用於不返回值的時候。不像for loop，它總是會遍歷完所有元素。
 
 
+###### filter
 
+參數為一函數，會返回true或false，該函數會遍歷array所有元素，最後將返回true的元素們重組為一array，不改變原值。
+
+函數參數型式同map和forEach，可代index為第二參數，而filter本身亦可以代入第二參數，將this綁定到目前處理的array上。
+
+
+###### some, every
+
+some: 參數為一函數，只要其中一個返回true，就返回true，反之則為false
+
+every: 參數為一函數，全部都返回true，才返回true，反之則為false
+
+
+###### reduce, reduceRight
+
+reduce就是ruby的inject，函數參數的第一個參數為累積值，第二個參數為當前元素，第三個參數是index
+
+reduce的第二個參數可以對累積變量指定初始值。
+
+reduceRight只是從尾巴開始逆向迭代而已。
+
+```
+[1,2,3,4,5].reduce(function(sum, x){return x+y})
+# 15
+```
+
+
+###### indexOf, lastIndexOf
+
+indexOf在array中尋找等於第一參數的第一個元素，返回其位置，lastIndexOf則是找最後一個等於的元素。
+
+第二個參數表示從該位置開始往後找。
 

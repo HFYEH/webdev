@@ -5,6 +5,7 @@
 原始類型的值可以包裝成對象。
 
 ```
+// 構造函數調用可以生成新的對象
 var x = new Number(123);
 var y = new String('aaa');
 var z = new Boolean(true);
@@ -13,8 +14,14 @@ typeof x  // "object"
 typeof y  // "object"
 typeof z  // "object"
 
-// 以下皆為false，因為對象比較值是比較引用是否相同
+// 以下皆為false，因為類型不同，而且對象比較值是比較引用是否相同
 x === 123   // false
 y === 'aaa' // false
 z === true  // false
+
+// 函數調用則將內部值轉為原始數值
+Number(123)   // 123
+String('aaa') // "aaa"
+Boolean(true) // true
 ```
+

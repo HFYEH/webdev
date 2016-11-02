@@ -196,7 +196,7 @@ map第二個參數可以代入原array，這樣就可以在map的第一個函數
 ```
 var arr = ['x','y','z']
 arr.map(function(e, index){return arr[index] == e}, arr)
-# [true, true, true]
+// [true, true, true]
 ```
 
 map不會遍歷到array的空位。
@@ -230,7 +230,7 @@ reduceRight只是從尾巴開始逆向迭代而已。
 
 ```
 [1,2,3,4,5].reduce(function(sum, x){return x+y})
-# 15
+// 15
 ```
 
 

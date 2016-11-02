@@ -25,6 +25,12 @@ String('aaa') // "aaa"
 Boolean(true) // true
 ```
 
+## 包裝對象實例的方法
 
+包裝對象可以使用Object提供的原生方法，主要為`valueOf`和`toString`。
 
+`valueOf`用於返回對對象的原始類型
 
+`toString`返回實例對應的字串形式
+
+## 自動轉換

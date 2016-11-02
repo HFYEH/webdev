@@ -13,6 +13,8 @@ typeof x  // "object"
 typeof y  // "object"
 typeof z  // "object"
 
-
-
+// 以下皆為false，因為對象比較值是比較引用是否相同
+x === 123   // false
+y === 'aaa' // false
+z === true  // false
 ```

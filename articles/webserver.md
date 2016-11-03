@@ -12,8 +12,6 @@
 
 [HTTP Server 大小事](http://michaelhsu.tw/2013/07/04/server/)
 
-[網站佈署 Ruby on Rails實戰聖經](https://ihower.tw/rails4/deployment.html)
-
 [Passenger (Raptor) 原理](http://ohcoder.com/blog/2014/11/11/raptor-part-1/)
 
 [Passenger 設計和架構](https://www.phusionpassenger.com/documentation/Design%20and%20Architecture.html)

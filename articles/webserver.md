@@ -19,4 +19,3 @@
 [Ruby Web 服务器这十五年](https://linux.cn/article-6006-1.html)
 
 
-[Long polling](https://blog.gtwang.org/web-development/websocket-protocol/)

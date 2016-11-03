@@ -16,13 +16,14 @@
 # Application server
 
 [HTTP Server 大小事](http://michaelhsu.tw/2013/07/04/server/)
+
 [網站佈署 Ruby on Rails實戰聖經](https://ihower.tw/rails4/deployment.html)
+
 [Passenger (Raptor) 原理](http://ohcoder.com/blog/2014/11/11/raptor-part-1/)
+
 [Passenger 設計和架構](https://www.phusionpassenger.com/documentation/Design%20and%20Architecture.html)
 
-Ruby application server 歷史包含rack的簡單說明
-https://linux.cn/article-6006-1.html
+[Ruby application server 歷史包含rack的簡單說明](https://linux.cn/article-6006-1.html)
 
 
-Long polling
-https://blog.gtwang.org/web-development/websocket-protocol/
+[Long polling](https://blog.gtwang.org/web-development/websocket-protocol/)

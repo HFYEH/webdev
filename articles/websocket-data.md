@@ -9,6 +9,8 @@
 
 [Railsfun JC大 解釋](http://railsfun.tw/t/rails-websocket/498/3)
 
+[Long polling](https://blog.gtwang.org/web-development/websocket-protocol/)
+
 
 ## 參考資料
 

@@ -26,7 +26,8 @@ sidekick
 
 # pdf
 wicked_pdf
-# https://github.com/thoughtbot/paperclip/wiki/PDF-Email-Attachments-with-Paperclip-and-wicked_pdf
+
+https://github.com/thoughtbot/paperclip/wiki/PDF-Email-Attachments-with-Paperclip-and-wicked_pdf
 
 
 

@@ -2,7 +2,7 @@
 
 # Process / Thread 說明
 
-[進程(Process、行程)、線程(Thread、執行緒)、多線程(Multithreading、多執行緒)、Intel 超線程技術(Hyper-Threading、超執行緒技術) 簡介]（http://libersky.tumblr.com/post/59939987956/%E9%80%B2%E7%A8%8Bprocess%E8%A1%8C%E7%A8%8B%E7%B7%9A%E7%A8%8Bthread%E5%9F%B7%E8%A1%8C%E7%B7%92%E5%A4%9A%E7%B7%9A%E7%A8%8Bmultithreading%E5%A4%9A%E5%9F%B7)
+[進程(Process、行程)、線程(Thread、執行緒)、多線程(Multithreading、多執行緒)、Intel 超線程技術(Hyper-Threading、超執行緒技術) 簡介](http://libersky.tumblr.com/post/59939987956/%E9%80%B2%E7%A8%8Bprocess%E8%A1%8C%E7%A8%8B%E7%B7%9A%E7%A8%8Bthread%E5%9F%B7%E8%A1%8C%E7%B7%92%E5%A4%9A%E7%B7%9A%E7%A8%8Bmultithreading%E5%A4%9A%E5%9F%B7)
 
 
 

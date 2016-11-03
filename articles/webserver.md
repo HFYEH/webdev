@@ -16,7 +16,7 @@
 
 [Passenger 設計和架構](https://www.phusionpassenger.com/documentation/Design%20and%20Architecture.html)
 
-[Ruby application server 歷史包含rack的簡單說明](https://linux.cn/article-6006-1.html)
+[Ruby Web 服务器这十五年](https://linux.cn/article-6006-1.html)
 
 
 [Long polling](https://blog.gtwang.org/web-development/websocket-protocol/)

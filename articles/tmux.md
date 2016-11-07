@@ -8,6 +8,11 @@
 
 [Vundle：Vim Plugin 自動下載、安裝、更新與管理工具（Vim Bundle）](https://blog.gtwang.org/linux/vundle-vim-bundle-plugin-manager/)
 
+[所需即所获：像 IDE 一样使用 vim](https://github.com/yangyangwithgnu/use_vim_as_ide)
+
+[笨方法学Vimscript](http://learnvimscriptthehardway.onefloweroneworld.com/)
+
+[exVim](http://exvim.github.io/docs-zh/intro/)
 
 # tmux
 

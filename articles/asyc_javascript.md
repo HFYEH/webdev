@@ -34,7 +34,7 @@ JavaScript為single thread，因此異步編程是必須的。
 
 
 
-參考資料：
+### 參考資料：
 
 [ECMAScript 6 入門](http://es6.ruanyifeng.com/) -  阮一峰
 
@@ -51,4 +51,7 @@ JavaScript為single thread，因此異步編程是必須的。
 [async函数的含义与用法](http://www.ruanyifeng.com/blog/2015/05/async.html)
 
 
+###### setTimeout 和 setTimeInterval
+
+[JavaScript异步机制](http://www.cnblogs.com/zhaodongyu/p/3922961.html)
 

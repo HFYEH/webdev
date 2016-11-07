@@ -39,7 +39,7 @@
     * [JavaScript 筆記　標準庫 Object Array](articles/javascript-note-5.md)
     * [JavaScript 筆記　標準庫 包裝對象 Boolean Number String](articles/javascript-note-6.md)
     * [JavaScript 筆記　標準庫 Math Date RegExp JSON console](articles/javascript-note-7.md)
-    * [非同步處理](articles/asyc_javascript.md)
+    * [非同步處理 - 從Promise到Async](articles/asyc_javascript.md)
     * [React Native](articles/learn-react-native.md)
     * [Redux](articles/learn-redux.md)
     * [Reduce](articles/reduce.md)

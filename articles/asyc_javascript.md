@@ -43,7 +43,7 @@ Promise對象有三種狀態，`pending`, `resolved`, `rejected`，變化途徑�
 1. 成功，Promise對象傳回一個值，狀態變為resolved。
 2. 失敗，Promise對象拋出例外，狀態變為rejected。
 
-使用`then`添加回調函數，它接受兩個函數作為參數，第一個是成功時的回調函數，第二是失敗時的回調函數。一但Promise對象狀態改變，就會調用相應的函數。
+使用`then`添加回調函數，它接受兩個函數作為參數，第一個是成功時的回調函數，第二是失敗時的回調函數。一旦Promise對象狀態改變，就會調用相應的函數。
 
 假設promise是一個Promise對象
 

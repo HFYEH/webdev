@@ -54,7 +54,7 @@ promise
 .then(console.log("Success"), console.log("Error"))
 ```
 
-以上promise如果狀態改變為resolved，就會依次執行`step1`, `step2` `console.log("Success")`，前一步完成才會執行下一步，如果失敗，就會往下找到第一個操作失敗時的回調，也就是`console.log("Error")`。這也表明，失敗的回調是可以省略的，而且錯誤有傳遞性。
+以上promise如果狀態改變為resolved，就會依次執行每一個then指定的回調，前一步完成才會執行下一步，如果失敗，就會往下找到第一個操作失敗時的回調，也就是`console.log("Error")`。這也表明，失敗的回調是可以省略的，而且錯誤有傳遞性。
 
 因為Promise成功時會回傳值，從同步的角度，上面的程式大約等於
 

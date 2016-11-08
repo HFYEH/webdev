@@ -15,7 +15,16 @@ f2()
 ```
 兩個函數本身都是同步函數，因此f1執行完才會執行f2。
 
-假如f1須要較長的執行時間，而且含有等待IO的時間，則這些等待的時間是種浪費，有沒有方法先繞過去做f2呢？我們須要的是非同步模式。
+假如f1須要較長的執行時間，而且含有等待IO的時間，則這些等待的時間是種浪費，有沒有方法讓我們在等待IO的時間裡先繞過去做f2呢？我們須要的是非同步模式。
+
+非同步編程大概有下面[四種](http://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html)：
+
+1. 是把任務使用setTimeout(fn, 0)排進下一個任務之中。setTimeout()是塞任務用的，跟一般的函數呼叫後馬上執行是有差異的。不過作者給的例子不太正確，實際跑起來還是同步的。
+2. 監聽事件，並綁定回調函數(callback)。這個就很常見了，會用jQuery的應該不陌生。
+3. publish/subscribe，沒有使用過，看起來跟websocket的模式有點像，其實也是一種回調。相比於上者，有統一管理的好處。
+4. Promise對象。CommonJS工作處提出的歸範，旨在為非同步操作提供統一的接口。
+
+
 
 
 
@@ -27,9 +36,13 @@ f2()
 
 
 
-JavaScript為single thread，因此異步編程是必須的。
 
-異步編程大概有有[四種]。(http://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html)
+
+
+
+
+
+JavaScript為single thread，因此異步編程是必須的。
 
 
 

@@ -51,8 +51,8 @@ Promise對象接受一個函數作為參數，該函數有兩個參數，`resolv
 
 ```
 var promise = new Promise(function(resolve, reject){
-  // 异步操作的代码
-  if (/* 异步操作成功 */){
+  // 非同步操作的程式碼
+  if (/* 非同步操作成功 */){
     resolve(value); 
   } else {
     reject(error); 

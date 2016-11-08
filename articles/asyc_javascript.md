@@ -24,7 +24,7 @@ f2()
 3. publish/subscribe，沒有使用過，看起來跟websocket的模式有點像，其實也是一種回調。相比於上者，有統一管理的好處。
 4. Promise對象。CommonJS工作處提出的歸範，旨在為非同步操作提供統一的接口。
 
-
+如標題所說，以下將只專注於Promise。
 
 
 

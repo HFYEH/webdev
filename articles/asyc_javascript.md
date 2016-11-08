@@ -36,9 +36,7 @@ Promise是一個對象，目的在當作非同步操作和回調函數的中介�
 
 ##### 接口
 
-Promise對象有三種狀態，`pending`, `resolved`, `rejected`。
-
-變化途徑只有兩種`pending -> resolved`, `pending -> rejected`。
+Promise對象有三種狀態，`pending`, `resolved`, `rejected`，變化途徑只有兩種`pending -> resolved`, `pending -> rejected`。
 
 變化只會發生一次，一但狀態改變，就不會再有新的狀態變化。因此Promise對象最後只有兩種結果：
 

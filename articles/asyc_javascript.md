@@ -47,6 +47,29 @@ Promise對象有三種狀態，`pending`, `resolved`, `rejected`。
 
 使用`then`添加回調函數，它接受兩個函數作為參數，第一個是成功時的回調函數，第二是失敗時的回調函數。一但Promise對象狀態改變，就會調用相應的函數。
 
+假設promise是一個Promise對象
+
+```
+promise
+.then(step1)
+.then(step2)
+.then(console.log("Success"), console.log("Error"))
+```
+
+以上promise如果狀態改變為resolved，就會沿著`step1`, `step2` `console.log("Success")`一路執行下來，如果失敗，就會往下找到第一個操作失敗時的回調，也就是`console.log("Error")`。這也表明，失敗的回調是可以省略的，而且錯誤有傳遞性。
+
+因為Promise成功時會回傳值，從同步的角度，上面的程式大約等於
+
+```
+try{
+  var v1 = step1(promise)
+  var v2 = step2(v1)
+  console.log("Success")
+} catch (error)
+  console.log("Error")
+}
+```
+
 
 ### 
 

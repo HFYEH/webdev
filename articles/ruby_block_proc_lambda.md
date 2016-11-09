@@ -5,7 +5,7 @@ def method_1(*args, &block)
   block.call
 end
 
-def method_1(*args)
+def method_2(*args)
  yield
 end
 

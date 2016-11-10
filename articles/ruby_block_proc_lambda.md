@@ -1,3 +1,28 @@
+Ruby有三種具有函數功能的東西，即一般的函數，Proc和lambda。
+
+Ruby的函數都是有名字的，如果像JavaScript那樣把函數賦值給另一個變量，只是會執行一次該函數而已。而Proc和lambda就類似匿名函數，是一段程式碼，可以丟給別人執行。
+
+#### 函數
+
+Ruby定義函數很容易
+```
+def myfun
+  puts "myfun"
+end
+
+Object.ooo  // myfun
+```
+以上也表明，如果不給定實例方法所處的位置，此函數就會自動綁定到頂層對象上，成為該對象的方法
+
+#### Proc, lambda
+
+```
+func1 = Proc.new { puts "This is a Proc" }
+func2 = lambda { puts "This is a lambda" }
+
+```
+
+
 函數都可以接收一個block參數，有兩種方式，完全等價
 
 ```

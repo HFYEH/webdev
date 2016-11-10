@@ -50,7 +50,7 @@ Boolean(true) // true
 ```
 var bool = new Boolean(false)
 typeof bool             // "object"
-Boolean(bool)           // true 因為是object
+Boolean(bool)           // true, 因為是object
 Boolean(bool.valueOf()) // false
 Boolean(1)              // true
 Boolean('false')        // true 

@@ -62,3 +62,4 @@ Boolean(/foo/)          // true
 
 ***也可以直接用`!!`取值***
 
+## Number對象

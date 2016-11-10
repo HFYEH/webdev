@@ -23,3 +23,9 @@ p = n_times("Hello ")    # 產生closure，記住了定義block時的上下文�
 p.call(3)    # Hello Hello Hello，生成環境雖已消失，但是block仍可以使用原始作用域中的訊息
 ```
 
+
+### 參考資料：
+
+[method / block / yield / Proc / lambda 全面解釋](http://railsfun.tw/t/method-block-yield-proc-lambda/110)
+
+

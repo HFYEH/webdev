@@ -10,6 +10,8 @@ var x = new Number(123);
 var y = new String('aaa');
 var z = new Boolean(true);
 
+// 包裝後的對象有一primitiveValue屬性，外部無法直接調用，須要透過valueOf或toString才能取得
+
 typeof x  // "object"
 typeof y  // "object"
 typeof z  // "object"
@@ -34,3 +36,10 @@ Boolean(true) // true
 `toString`返回實例對應的字串形式
 
 ## 自動轉換
+
+```
+'abc'.length
+// 3
+```
+
+`'abc'`應是字串，之所以可以調用`length`屬性，是因為JavaScript引擎將字串自動生成包裝對象，使用length後就立刻銷毀。包裝

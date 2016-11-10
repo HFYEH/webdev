@@ -33,19 +33,25 @@ func2 = lambda do
 end
 ```
 
-這樣就可以生成一個Proc對象，是一段程式碼，可以記住定義時的上下文
+這樣就可以生成一個Proc對象，是一段程式碼，可以記住生成時的上下文。這點我們後面會提到。
 
-函數都可以接收一個block參數，有兩種方式，完全等價
+### 參數
+
+函數，Proc和lambda都可以接收一個block參數，會放在參數的最尾端，有兩種方式，完全等價，下面只寫函數的參數餵法
 
 ```
-def method_2(*args)
+def myfun(*args)
   yield
 end
 
-def method_1(*args, &block)
+def myfun(*args, &block)
   block.call
 end
 ```
+
+
+
+
 
 若定義方法時，最後一個參數加上&，則調用該方法時，Ruby會尋找一個block，並將之轉化為Proc對象，賦值給參數，如此可以像處理其他變量一樣處理該參數。
 

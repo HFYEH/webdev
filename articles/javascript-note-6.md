@@ -49,6 +49,7 @@ Boolean(true) // true
 
 ```
 var bool = new Boolean(false)
+typeof bool             // "object"
 Boolean(bool)           // true 因為是object
 Boolean(bool.valueOf()) // false
 Boolean(1)              // true
@@ -59,5 +60,5 @@ Boolean(function () {}) // true
 Boolean(/foo/)          // true
 ```
 
-也可以直接用`!!`取值
+**也可以直接用`!!`取值**
 

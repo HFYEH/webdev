@@ -21,6 +21,19 @@ func1 = Proc.new { puts "This is a Proc" }
 func2 = lambda { puts "This is a lambda" }
 ```
 
+附帶一提，下面這個寫法是完全等價的，這是Ruby convention，單行的程式碼就用`{}`，多行就用`do...end`
+
+```
+func1 = Proc.new do
+  puts "This is a Proc"
+end
+
+func2 = lambda do
+  puts "This is a lambda"
+end
+```
+
+
 這樣就可以生成一個Proc對象，是一段程式碼，可以記住
 
 函數都可以接收一個block參數，有兩種方式，完全等價

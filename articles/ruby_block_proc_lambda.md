@@ -19,9 +19,9 @@ Object.ooo  // myfun
 ```
 func1 = Proc.new { puts "This is a Proc" }
 func2 = lambda { puts "This is a lambda" }
-
 ```
 
+這樣就可以生成一個Proc對象，是一段程式碼，可以記住
 
 函數都可以接收一個block參數，有兩種方式，完全等價
 

@@ -42,4 +42,22 @@ Boolean(true) // true
 // 3
 ```
 
-`'abc'`應是字串，之所以可以調用`length`屬性，是因為JavaScript引擎將字串自動生成包裝對象，使用length後就立刻銷毀。包裝
+`'abc'`應是字串，之所以可以調用`length`屬性，是因為JavaScript引擎將字串自動生成包裝對象，使用length後就立刻銷毀。
+
+
+## Boolean對象
+
+```
+var bool = new Boolean(false)
+Boolean(bool)           // true 因為是object
+Boolean(bool.valueOf()) // false
+Boolean(1)              // true
+Boolean('false')        // true 
+Boolean([])             // true 
+Boolean({})             // true 
+Boolean(function () {}) // true 
+Boolean(/foo/)          // true
+```
+
+也可以直接用`!!`取值
+

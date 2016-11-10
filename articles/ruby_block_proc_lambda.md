@@ -15,7 +15,8 @@ def n_times(thing)
 end
 
 p = n_times("Hello ")    # 產生closure，記住了定義block時的上下文，即self，作用域內的方法，常量和變量
-p.call(3)    # Hello Hello Hello
+
+p.call(3)    # Hello Hello Hello，生成環境雖已消失，但是block仍可以使用原始作用域中的訊息
 ```
 
 

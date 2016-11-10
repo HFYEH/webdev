@@ -9,7 +9,6 @@ def method_2(*args)
   yield
 end
 
-
 def method_1(*args, &block)
   block.call
 end

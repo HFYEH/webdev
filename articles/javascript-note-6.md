@@ -10,7 +10,7 @@ var x = new Number(123);
 var y = new String('aaa');
 var z = new Boolean(true);
 
-// 包裝後的對象有一primitiveValue屬性，外部無法直接調用，須要透過valueOf或toString才能取得
+// 包裝後的對象有一[[primitiveValue]]屬性，外部無法直接調用，須要透過valueOf或toString才能取得
 
 typeof x  // "object"
 typeof y  // "object"

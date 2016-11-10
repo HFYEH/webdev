@@ -10,25 +10,25 @@ def myfun
   puts "myfun"
 end
 
-Object.ooo  // myfun
+Object.myfun  // myfun
 ```
 以上也表明，如果不給定實例方法所處的位置，此函數就會自動綁定到頂層對象上，成為該對象的方法
 
 #### Proc, lambda
 
 ```
-func1 = Proc.new { puts "This is a Proc" }
-func2 = lambda { puts "This is a lambda" }
+myproc = Proc.new { puts "This is a Proc" }
+mylamda = lambda { puts "This is a lambda" }
 ```
 
 附帶一提，下面這個寫法是完全等價的，這是Ruby convention，單行的程式碼就用`{}`，多行就用`do...end`
 
 ```
-func1 = Proc.new do
+myproc = Proc.new do
   puts "This is a Proc"
 end
 
-func2 = lambda do
+mylambda = lambda do
   puts "This is a lambda"
 end
 ```
@@ -51,6 +51,23 @@ end
 # 函數中有yield，則呼叫函數時一定要帶block進去，否則一樣會拋出例外
 ```
 
+Block傳參數的方式是用`||`
+
+```
+myproc = Proc.new { |*args, &block| ... }
+```
+
+#### 範例
+
+說了這麽多，還是看看範例吧
+
+```
+def myfun(&block)
+  block.call("myfun")
+end
+  
+
+```
 
 
 

@@ -37,16 +37,18 @@ end
 
 ### 參數
 
-函數，Proc和lambda都可以接收一個block參數，會放在參數的最尾端，有兩種方式，完全等價，下面只寫函數的參數餵法
+函數，Proc和lambda都可以接收一個block參數，會放在參數的最尾端，有兩種方式，完全等價，下面只顯示函數的block參數餵法
 
 ```
-def myfun(*args)
-  yield
-end
-
 def myfun(*args, &block)
   block.call
 end
+# 顯示的寫法，如果沒帶block進去會拋出例外
+
+def myfun(*args)
+  yield
+end
+# 函數中有yield，則呼叫函數時一定要帶block進去，否則一樣會拋出例外
 ```
 
 

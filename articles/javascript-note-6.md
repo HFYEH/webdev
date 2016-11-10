@@ -64,6 +64,16 @@ Boolean(/foo/)          // true
 
 ## Number對象
 
+以下是一些實例方法
 
+```
+// toString參數是進位制
+2.toString(2)   // "10"
+2.toString(10)  // "2"
 
+// toFixd參數是顯示的小數位數，四捨五入
+(10.005).toFixed(2)  // 10.01
 
+// toExponential
+
+```

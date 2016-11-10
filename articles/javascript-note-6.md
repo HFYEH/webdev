@@ -60,5 +60,5 @@ Boolean(function () {}) // true
 Boolean(/foo/)          // true
 ```
 
-**也可以直接用`!!`取值**
+***也可以直接用`!!`取值***
 

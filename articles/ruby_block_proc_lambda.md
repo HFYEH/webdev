@@ -14,7 +14,7 @@ def n_times(thing)
   return lambda { |n| thing*n }
 end
 
-p = n_times("Hello ")
+p = n_times("Hello ")    # 產生closure，記住了定義block時的上下文，即self，作用域內的方法，常量和變量
 p.call(3)    # Hello Hello Hello
 ```
 

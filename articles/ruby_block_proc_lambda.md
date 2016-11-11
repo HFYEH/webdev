@@ -33,22 +33,33 @@ mylambda = lambda do
 end
 ```
 
-這樣就可以生成一個Proc對象，是一段程式碼，可以記住生成時的上下文。這點我們後面會提到。
+這樣就可以生成一個Proc對象，是一段程式碼，可以之後再執行。
 
 #### 參數
 
 函數，Proc和lambda都可以接收一個block參數，會放在參數的最尾端，有兩種方式，完全等價。函數的的call和yeild分別是顯式和隱式的呼叫block。
 
 ```
+# 顯式的寫法，如果沒帶block進去會拋出例外
 def myfun(*args, &block)
   block.call
 end
-# 顯式的寫法，如果沒帶block進去會拋出例外
 
+
+# 函數中有yield，則呼叫函數時一定要帶block進去，否則一樣會拋出例外
 def myfun(*args)
   yield
 end
-# 函數中有yield，則呼叫函數時一定要帶block進去，否則一樣會拋出例外
+
+# 可以使用Kernel.block_given?來判斷是否有block傳入，再做相應的措施
+def myfun(*args)
+  if block_given?
+    yield
+    puts "Block given"
+  else
+    puts "No block given"
+  end
+end
 ```
 
 Block傳參數的方式是用`||`

@@ -74,14 +74,20 @@ def myfun(&p)
 end
 
 myproc = Proc.new { puts "use myproc" }
+mylambda = lambda { puts "use mylambda" }
 
 # 直接代block
 myfun { puts "use block" }
-# #<Proc:0x000000032330b8@(pry):116># use block
+# #<Proc:0x000000032330b8@(pry):116>
+# use block
 
 # 代已經定義過的Proc
 myfun &myproc
-# #<Proc:0x000000032ab770@(pry):114># use myproc
+# #<Proc:0x000000032ab770@(pry):114>
+# use myproc
+
+myfun &mylambda
+# #<Proc:0x00000003235c00@(pry):208 (lambda)>#use mylambda
 ```
 
 函數和Proc, lambda傳遞參數的方式其實很像，只是Block是用`||`

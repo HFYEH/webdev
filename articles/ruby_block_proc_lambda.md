@@ -37,7 +37,7 @@ end
 
 #### 參數
 
-函數，Proc和lambda都可以接收一個block參數，會放在參數的最尾端，有兩種方式，完全等價。函數的的call和yeild分別是顯式和隱式的呼叫block。
+函數，Proc和lambda都可以接收一個block參數，會放在參數的最尾端，有兩種方式，完全等價。函數的的call和yield分別是顯式和隱式的呼叫block。
 
 ```
 # 顯式的寫法，如果沒帶block進去會拋出例外

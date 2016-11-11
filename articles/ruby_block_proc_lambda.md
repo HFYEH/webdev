@@ -41,7 +41,7 @@ end
 
 ```
 # 顯式的寫法，如果沒帶block進去會拋出例外
-def myfun(*args, &block)
+def myfun(*args, &p)
   block.call
 end
 
@@ -63,14 +63,14 @@ def myfun(*args)
 end
 ```
 
-第一種寫法可能比較難理解。Ruby中萬物皆對象，唯獨block例外。每次做一個block時，Ruby就會幫忙生成一個Proc對象，指向該block。而把block當參數代入時，其實也是立即被轉成Proc，所以在把Proc當參數引入時，加入`&`符號可以幫我們找回該block。
+第一種寫法可能比較難理解。Ruby中萬物皆對象，唯獨block例外。每次做一個block時，Ruby就會幫忙生成一個Proc對象，指向該block。上例中，把block當參數代入時，`p`是被生成的Proc，指向block，而`&p`是block本體，這表明函數是接受block而非Proc。
 
 可以看到以下兩種傳入block的效果是一模一樣的，而代block預設就是轉成Proc
 
 ```
-def myfun(&block)
-  puts block
-  yield block
+def myfun(&p)
+  puts p
+  yield
 end
 
 myproc = Proc.new { puts "use myproc" }
@@ -87,7 +87,7 @@ myfun &myproc
 函數和Proc, lambda傳遞參數的方式其實很像，只是Block是用`||`
 
 ```
-myproc = Proc.new { |*args, &block| ... }
+myproc = Proc.new { |*args, &p| ... }
 ```
 
 #### 範例
@@ -95,7 +95,7 @@ myproc = Proc.new { |*args, &block| ... }
 說了這麽多，還是看看範例吧
 
 ```
-def myfun(&block)
+def myfun(&p)
   block.call("myfun")
 end
 
@@ -106,21 +106,38 @@ myfun(&myproc)   # myfun call myproc
 myfun(&mylambda) # myfun call mylambda
 ```
 
+若定義方法時，最後一個參數加上`&`，則調用該方法時，Ruby會尋找一個block，並將之轉化為Proc對象，賦值給參數`p`，如此在函數內只要用`p.call`或是`yield`就可以執行該block。
 
+#### 其他寫法
 
-
-若定義方法時，最後一個參數加上&，則調用該方法時，Ruby會尋找一個block，並將之轉化為Proc對象，賦值給參數，如此可以像處理其他變量一樣處理該參數。
-
-採自Programming Ruby的例子
 ```
-def n_times(thing)
-  return lambda { |n| thing*n }
+# 下列語法可以產生Proc
+Proc.new {...}
+proc{...}
+
+# 下列語法可以產生lambda
+lambda {...}
+-> {...}
+```
+
+其實也可以把Proc當成變數傳入，這時它就只是一般的參數而已
+
+```
+def myfun (proc)
+  proc.call
 end
 
-p = n_times("Hello ")    # 產生closure，記住了定義block時的上下文，即self，作用域內的方法，常量和變量
-
-p.call(3)    # Hello Hello Hello，生成環境雖已消失，但是block仍可以使用原始作用域中的訊息
+p = Proc.new {puts "myproc"}
+l = lambda {puts "mylambda" }
+myfun (p)
+myfun (l)
 ```
+
+#### Proc, lambda差異
+
+如果函數有接收block，我們會用
+
+
 
 
 ### 參考資料：

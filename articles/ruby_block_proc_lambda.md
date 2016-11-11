@@ -87,7 +87,8 @@ myfun &myproc
 # use myproc
 
 myfun &mylambda
-# #<Proc:0x00000003235c00@(pry):208 (lambda)>#use mylambda
+# #<Proc:0x00000003235c00@(pry):208 (lambda)>
+#use mylambda
 ```
 
 函數和Proc, lambda傳遞參數的方式其實很像，只是Block是用`||`

@@ -42,7 +42,7 @@ end
 ```
 # 顯式的寫法，如果沒帶block進去會拋出例外
 def myfun(*args, &p)
-  block.call
+  p.call
 end
 
 

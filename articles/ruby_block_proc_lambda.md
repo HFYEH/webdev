@@ -142,10 +142,9 @@ myfun (l)
 
 #### Proc, lambda差異
 
-如果函數有接收block，我們會用
+參考資料中有詳盡的差異說明，我的理解是，把p.call當成block，每次執行時，其實就是把block內容整個搬進p.call的發生地，因此傳入參數不必詳細檢查，而且return時會直接在p.call發生地返回。
 
-
-
+而lambda是真正的匿名函數，參數會檢查，而就算lambda return了，也只會回到p.call的地方往下繼續執行。
 
 ### 參考資料：
 

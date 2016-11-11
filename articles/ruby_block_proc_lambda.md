@@ -87,7 +87,7 @@ myfun &myproc
 # use myproc
 
 myfun &mylambda
-# #<Proc:0x00000003235c00@(pry):208 (lambda)>
+# #<Proc:0x00000003235c00@(pry):115 (lambda)>
 #use mylambda
 ```
 

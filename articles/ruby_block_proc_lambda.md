@@ -62,7 +62,28 @@ def myfun(*args)
 end
 ```
 
-Block傳參數的方式是用`||`
+第一種寫法可能比較難理解。Ruby中萬物皆對象，唯獨block例外。每次做一個block時，Ruby就會幫忙生成一個Proc對象，指向該block。而把block當參數代入時，其實也是立即被轉成Proc，所以在把Proc當參數引入時，加入`&`符號可以幫我們找回該block。
+
+可以看到以下兩種傳入block的效果是一模一樣的，而代block預設就是轉成Proc
+
+```
+def myfun(&block)
+  puts block
+  yield block
+end
+
+myproc = Proc.new { puts "use myproc" }
+
+# 直接代block
+myfun { puts "use block" }
+# #<Proc:0x000000032330b8@(pry):116># use block
+
+# 代已經定義過的Proc
+myfun &myproc
+# #<Proc:0x000000032ab770@(pry):114># use myproc
+```
+
+函數和Proc, lambda傳遞參數的方式其實很像，只是Block是用`||`
 
 ```
 myproc = Proc.new { |*args, &block| ... }
@@ -107,4 +128,6 @@ p.call(3)    # Hello Hello Hello，生成環境雖已消失，但是block仍可�
 
 [method / block / yield / Proc / lambda 全面解釋](http://railsfun.tw/t/method-block-yield-proc-lambda/110)
 
+[聊聊 Ruby 中的 block, proc 和 lambda]
+(https://ruby-china.org/topics/10414)
 

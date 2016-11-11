@@ -1,6 +1,9 @@
 
 # SSL
 
+
+[HTTPS科普扫盲帖](https://segmentfault.com/a/1190000004523659)
+
 http://seanlook.com/2015/05/28/nginx-ssl/
 
 https://segmentfault.com/a/1190000002554673

@@ -52,6 +52,7 @@ def myfun(*args)
 end
 
 # 可以使用Kernel.block_given?來判斷是否有block傳入，再做相應的措施
+# File.open在有block和沒有block的時候有不同的行為，就是這樣實現的
 def myfun(*args)
   if block_given?
     yield

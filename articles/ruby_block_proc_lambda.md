@@ -78,16 +78,16 @@ mylambda = lambda { puts "use mylambda" }
 
 # 直接代block
 myfun { puts "use block" }
-# #<Proc:0x000000032330b8@(pry):116>
+# #<Proc:0x000000032330b8@(pry):115>
 # use block
 
 # 代已經定義過的Proc
 myfun &myproc
-# #<Proc:0x000000032ab770@(pry):114>
+# #<Proc:0x000000032ab770@(pry):116>
 # use myproc
 
 myfun &mylambda
-# #<Proc:0x00000003235c00@(pry):115 (lambda)>
+# #<Proc:0x00000003235c00@(pry):117 (lambda)>
 #use mylambda
 ```
 

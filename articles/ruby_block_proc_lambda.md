@@ -128,6 +128,5 @@ p.call(3)    # Hello Hello Hello，生成環境雖已消失，但是block仍可�
 
 [method / block / yield / Proc / lambda 全面解釋](http://railsfun.tw/t/method-block-yield-proc-lambda/110)
 
-[聊聊 Ruby 中的 block, proc 和 lambda]
-(https://ruby-china.org/topics/10414)
+[聊聊 Ruby 中的 block, proc 和 lambda](https://ruby-china.org/topics/10414)
 

@@ -1,10 +1,4 @@
----
-layout: post
-title: '理解Rails delegate'
-date: 2016-06-13 02:14
-comments: true
-categories: 
----
+
 兩個Model如果是繼承關係，可以用子類別可以繼承父類別的方法或特性，如果兩個Model沒有繼承關係，想要讓一個類別使用另一個類別的方法，則可以用delegate。
 
 本文翻譯自此https://simonecarletti.com/blog/2009/12/inside-ruby-on-rails-delegate/

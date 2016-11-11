@@ -2,7 +2,7 @@ Ruby有三種具有函數功能的東西，即一般的函數，Proc和lambda。
 
 Ruby的函數都是有名字的，如果像JavaScript那樣把函數賦值給另一個變量，只是會執行一次該函數而已。而Proc和lambda就類似匿名函數，是一段程式碼，可以丟給別人執行。
 
-#### 函數
+### 函數
 
 Ruby定義函數很容易
 ```
@@ -14,7 +14,7 @@ Object.myfun  // myfun
 ```
 以上也表明，如果不給定實例方法所處的位置，此函數就會自動綁定到頂層對象上，成為該對象的方法
 
-#### Proc, lambda
+### Proc, lambda
 
 ```
 myproc = Proc.new { puts "This is a Proc" }
@@ -35,7 +35,7 @@ end
 
 這樣就可以生成一個Proc對象，是一段程式碼，可以之後再執行。
 
-#### 參數
+### 參數
 
 函數，Proc和lambda都可以接收一個block參數，會放在參數的最尾端，有兩種方式，完全等價。函數的`call`和`yield`分別是顯式和隱式的呼叫block。
 
@@ -115,7 +115,7 @@ myfun(&mylambda) # myfun call mylambda
 
 若定義方法時，最後一個參數加上`&`，則調用該方法時，Ruby會尋找一個block，並將之轉化為Proc對象，賦值給參數`p`，如此在函數內只要用`p.call`或是`yield`就可以執行該block。
 
-#### 其他寫法
+### 其他寫法
 
 ```
 # 下列語法可以產生Proc
@@ -140,7 +140,7 @@ myfun (p)
 myfun (l)
 ```
 
-#### Proc, lambda差異
+### Proc, lambda差異
 
 參考資料中有詳盡的差異說明，這邊就不複製貼上了。我認為比較方便的理解方法是，把p.call當成block，每次執行時，其實就是把block內容整個搬進`p.call`的發生地，因此傳入參數不必詳細檢查，而且return時會直接在`p.call`發生地返回。
 

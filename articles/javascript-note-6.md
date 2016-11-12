@@ -10,6 +10,8 @@ var x = new Number(123);
 var y = new String('aaa');
 var z = new Boolean(true);
 
+// 包裝後的對象有一[[primitiveValue]]屬性，外部無法直接調用，須要透過valueOf或toString才能取得
+
 typeof x  // "object"
 typeof y  // "object"
 typeof z  // "object"
@@ -34,3 +36,44 @@ Boolean(true) // true
 `toString`返回實例對應的字串形式
 
 ## 自動轉換
+
+```
+'abc'.length
+// 3
+```
+
+`'abc'`應是字串，之所以可以調用`length`屬性，是因為JavaScript引擎將字串自動生成包裝對象，使用length後就立刻銷毀。
+
+
+## Boolean對象
+
+```
+var bool = new Boolean(false)
+typeof bool             // "object"
+Boolean(bool)           // true, 因為是object
+Boolean(bool.valueOf()) // false
+Boolean(1)              // true
+Boolean('false')        // true 
+Boolean([])             // true 
+Boolean({})             // true 
+Boolean(function () {}) // true 
+Boolean(/foo/)          // true
+```
+
+***也可以直接用`!!`取值***
+
+## Number對象
+
+以下是一些實例方法
+
+```
+// toString參數是進位制
+2.toString(2)   // "10"
+2.toString(10)  // "2"
+
+// toFixd參數是顯示的小數位數，四捨五入
+(10.005).toFixed(2)  // 10.01
+
+// toExponential
+
+```

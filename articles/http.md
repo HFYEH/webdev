@@ -1,7 +1,6 @@
 
 # SSL
 
-
 [HTTPS科普扫盲帖](https://segmentfault.com/a/1190000004523659)
 
 [nginx配置ssl加密（单双向认证、部分https）](http://seanlook.com/2015/05/28/nginx-ssl/)

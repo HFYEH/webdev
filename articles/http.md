@@ -12,21 +12,16 @@
 
 [基于OpenSSL自建CA和颁发SSL证书](https://segmentfault.com/a/1190000002569859)
 
+[解析傳輸協定與運作流程，網站SSL加密原理簡介](http://www.netadmin.com.tw/article_content.aspx?sn=1106140008)
 
 
-https://wp.littlecho.tw/tag/ssl_certificate/
+[Nginx SSL Certificate Installation](https://www.digicert.com/ssl-certificate-installation-nginx.htm)
 
-https://blog.gtwang.org/linux/nginx-create-and-install-ssl-certificate-on-ubuntu-linux/
-
-http://www.netadmin.com.tw/article_content.aspx?sn=1106140008
-
-https://www.digicert.com/ssl-certificate-installation-nginx.htm
-
-https://www.digicert.com/csr-creation-nginx.htm
 
 
 # Content Security Policy
 
-http://www.html5rocks.com/en/tutorials/security/content-security-policy/
-https://content-security-policy.com/#source_list
-http://blog.twtnn.com/2015/06/refused-to-execute-inline.html
+
+[An Introduction to Content Security Policy](http://www.html5rocks.com/en/tutorials/security/content-security-policy/)
+
+[Content Security Policy Reference](https://content-security-policy.com/#source_list)

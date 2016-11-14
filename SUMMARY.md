@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Web Basics](server.md)
+* [Basics](server.md)
     * [Secure Socket Layer](articles/http.md)
     * [Nginx 中文文章 與如何做websocket server](articles/nginx.md)
     * [理解Nginx代理，負載平衡，緩衝和緩存](articles/understand-nginx-proxy-load-balancing-buffer-and-cache.md)

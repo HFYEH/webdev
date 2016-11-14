@@ -10,6 +10,8 @@
 
 [OpenSSL 与 SSL 数字证书概念贴](https://segmentfault.com/a/1190000002568019)
 
+[基于OpenSSL自建CA和颁发SSL证书](https://segmentfault.com/a/1190000002569859)
+
 
 
 https://wp.littlecho.tw/tag/ssl_certificate/

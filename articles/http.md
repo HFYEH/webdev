@@ -8,6 +8,10 @@
 
 [SSL/TLS原理详解](https://segmentfault.com/a/1190000002554673)
 
+[OpenSSL 与 SSL 数字证书概念贴](https://segmentfault.com/a/1190000002568019)
+
+
+
 https://wp.littlecho.tw/tag/ssl_certificate/
 
 https://blog.gtwang.org/linux/nginx-create-and-install-ssl-certificate-on-ubuntu-linux/

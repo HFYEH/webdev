@@ -3,6 +3,10 @@
 
 [HTTPS科普扫盲帖](https://segmentfault.com/a/1190000004523659)
 
+伺服器公私鑰的非對稱加密僅保證client->server安全，因為訊息是用公鑰加密，私鑰解密，但是伺服器回傳時，若經過代理伺服器，因為server->client的訊息是用私鑰加密的，惡意的代理伺服器就可以透過server公鑰解密。
+
+
+
 [nginx配置ssl加密（单双向认证、部分https）](http://seanlook.com/2015/05/28/nginx-ssl/)
 
 [SSL/TLS原理详解](https://segmentfault.com/a/1190000002554673)

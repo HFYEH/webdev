@@ -19,6 +19,8 @@
 
 [和安全有关的那些事(非对称加密、数字摘要、数字签名、数字证书、SSL、HTTPS及其他)](http://blog.csdn.net/bluishglc/article/details/7585965)
 
+[SSL/TLS协议运行机制的概述](http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)
+
 
 [nginx配置ssl加密（单双向认证、部分https）](http://seanlook.com/2015/05/28/nginx-ssl/)
 

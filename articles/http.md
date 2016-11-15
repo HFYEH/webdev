@@ -21,7 +21,6 @@
 
 [SSL/TLS协议运行机制的概述](http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html)
 
-
 [nginx配置ssl加密（单双向认证、部分https）](http://seanlook.com/2015/05/28/nginx-ssl/)
 
 [SSL/TLS原理详解](https://segmentfault.com/a/1190000002554673)

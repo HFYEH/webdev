@@ -26,6 +26,12 @@ git config --global alias.pushall "push --recurse-submodules=on-demand"    # 在
 // --system是所有user
 ```
 
+## 查看說明
+```
+git xxx help                 # 查看xxx指令的說明，說明檔已經寫得很詳細，以下僅列出常用的指令之說明
+```
+
+
 ## 裸裝與平裝的分別
 ```
 git init project #單人使用(平裝)
@@ -33,16 +39,16 @@ git init --bare project.git #多人使用(裸裝)
 ```
 ## glt clone
 ```
-git clone /var/git/project.git/                                # 複製本機的repository
-git clone ssh://imroot@127.0.0.1:/var/git/project.git/         # 複製外部的repository
+git clone /var/git/project.git/                                   # 複製本機的repository
+git clone ssh://imroot@127.0.0.1:/var/git/project.git/            # 複製外部的repository
 git clone -o origin ssh://imroot@127.0.0.1:/var/git/project.git/  # 為遠端repo取名(預設為origin）
 ```
 
 ## git diff
 ```
-git diff    #比較未 staging 與所在 branch 中最後一個 commit,等同 git diff HEAD
-git diff --cached    #比較 staging area 跟 Repo
-git diff HEAD^    #比較未 staging 與 Repo中倒數第二個 commit
+git diff             # 比較未 staging 與所在 branch 中最後一個 commit,等同 git diff HEAD
+git diff --cached    # 比較 staging area 跟 Repo
+git diff HEAD^       # 比較未 staging 與 Repo中倒數第二個 commit
 ```
 
 想看先前的版本間差異
@@ -52,16 +58,22 @@ git diff SHA1..SHA2
 git diff --since=1.week.ago --until=1.minute.ago
 ```
 
-## git reset \(已經 git push後嚴禁使用\)
+## git reset
 ```
-git reset HEAD filename #從 staging area 狀態回到 unstaging 或 untracked \(檔案內容並不會改變\)
-git reset HEAD --soft HEAD^   # 把最後一次 commit 的檔案回復到 staging 並取消最後一次 commit
+git reset                    # git add功能相反，取消staging的狀態回到unstaging或untracked
+git reset filename           # 指定特定檔案從 staging area 狀態回到 unstaging 或 untracked
 
 # 若只是忘記加入某檔案可以使用
 git add filename
 git commit --amend -m "message"
 
-git reset --hard HEAD^    # 取消最後一個 commit 並且將專案目錄回覆到上一個 commit 的樣子
+# 已經 git push後嚴禁使用
+git reset --soft             # 把HEAD指向HEAD，所以不會有任何改變
+git reset --soft <commit>    # 把HEAD指向該commit，相應的結果為之前commit的結果回到staging，若檔案經過多次改變，以最後staging的版本為準
+git reset --soft HEAD^       # 把最後一次 commit 的檔案回復到 staging 並取消最後一次 commit
+git reset --hard             # 把當前目錄和staging與最後一次commit(HEAD)同步，未追蹤的資料不會變化
+git reset --hard <commit>    # 把commit之後的記錄完全取消並且將當前目錄與commit同步
+git reset --hard HEAD^       # 取消最後一個 commit 並且將專案目錄回復到上一個 commit 的樣子，也就是此之前所有改變皆消失
 ```
 ## git checkout
 ```
@@ -88,17 +100,15 @@ heroku create                         # 創建新的遠端 Repo 於 Heroku 上�
 git remote show origin                # 做下列三件事
 
 # 1. 顯示所有 origin 中的 remote branch 及追蹤狀態
-# 2. 顯示所有 local 及它們與 remote branch 的關係\(使用git pull會發生的事\)
-# 3. 顯示所有 local 及它們與 remote branch 的關係\(使用git push會發生的事\)
+# 2. 顯示所有 local 及它們與 remote branch 的關係(使用git pull會發生的事)
+# 3. 顯示所有 local 及它們與 remote branch 的關係(使用git push會發生的事)
 ```
 
 ## git fetch
-
 ```
 git fetch origin                  # 抓下遠端repo所有記錄
 git fetch origin <branch>         # 只抓特定分支，取回的分支，在本地命名為origin/<branch>
 ```
-
 
 ## git pull
 
@@ -162,7 +172,7 @@ git rebase   # 預設會去rebase origin/branch_name
 # 3. 回復到使用 rebase 前的狀態 `git rebase --abort`
 ```
 
-### Local branch rebase \(無衝突情況\)
+### Local branch rebase (無衝突情況)
 Rebase 真正含義
 
 首先，當前的 branch 是從某個 commit 分出來的，那個 commit 就是此 branch 的 base。
@@ -211,7 +221,7 @@ git log --until=1.minute.ago            # 只顯示一分鐘前的所有 commit
 git log --since=1.day(hour/month).ago   # 只顯示一天\(小時\/月\)以內的所有 commit
 ```
 
-## git tag \(用於釋出版本\)
+## git tag (用於釋出版本)
 使用時機：每次推向production時使用（除非是用CI）
 ```
 git tag                               # 檢視所有 tags
@@ -233,11 +243,11 @@ git blame filename --date short  # 關於此檔案的所有 commit 紀錄\(包�
 2. 存在超過一天的分支,想儲存在遠端 Repo
 
 ```
-git checkout -b <branch>   # 建立並切換分支
-git push origin <branch>   # 連結近端 branch 到遠端 branch 並追蹤
+git checkout -b <branch>        # 建立並切換分支
+git push origin <branch>        # 連結近端 branch 到遠端 branch 並追蹤
 # 修改...
 git commit -am "message"
-git push                      # 會自動儲存到遠端 Repo 的該 branch
+git push                        # 會自動儲存到遠端 Repo 的該 branch
 # 其他人只要 git pull 就可以同步了
 ```
 
@@ -284,7 +294,7 @@ git remote prune origin   # 清理origin中被沒有追蹤的分支
 git push heroku-staging local_branch:master   # 把 local 分支部署到 Heroku master
 ```
 
-## exclude \(專屬自己的資料夾,不給別人看的\)
+## exclude (專屬自己的資料夾,不給別人看的)
 ```
 .git/info/exclude
 experiments/    # exclude folder
@@ -292,7 +302,7 @@ tutorial.mp4    # file
 *.mp4                    # all file ended with .mp4
 ```
 
-## .gitignore \(所有repo中都有的,要故意忽略的\)
+## .gitignore (所有repo中都有的,要故意忽略的)
 ```
 *.log
 ```

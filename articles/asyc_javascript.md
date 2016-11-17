@@ -121,6 +121,8 @@ JavaScript為single thread，因此異步編程是必須的。
 
 [async函数的含义与用法](http://www.ruanyifeng.com/blog/2015/05/async.html)
 
+[JavaScript Promise API](https://segmentfault.com/a/1190000004476610)
+
 
 ###### setTimeout 和 setTimeInterval
 

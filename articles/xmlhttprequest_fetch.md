@@ -105,8 +105,6 @@ async/await的例子說明
 [告別 JavaScript 的 Promise！迎接 Async/Await 的到來](http://jigsawye.com/2016/04/18/understanding-javascript-async-await/)
 
 待讀
-[JavaScript Promise API](https://segmentfault.com/a/1190000004476610)
-
 [深入浅出Fetch API](http://wwsun.github.io/posts/fetch-api-intro.html)
 
 [Fetch API](https://segmentfault.com/a/1190000006039533)
@@ -114,8 +112,3 @@ async/await的例子說明
 [传统 Ajax 已死，Fetch 永生](https://github.com/camsong/blog/issues/2)
 
 [你真的会使用XMLHttpRequest吗？](https://segmentfault.com/a/1190000004322487)
-
-
-阮一峰的《深入掌握 ECMAScript 6 异步编程》系列，超好懂！
-
-[Generator 函数的含义与用法](http://www.ruanyifeng.com/blog/2015/04/generator.html)

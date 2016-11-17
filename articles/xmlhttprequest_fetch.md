@@ -98,13 +98,8 @@ Promise.prototype.then和Promise.prototype.catch方法返回promises，所以可
 
 [fetch介紹](https://segmentfault.com/a/1190000003810652)
 
-一些fetch API的例子說明
 [This API is So Fetching 譯文](http://www.w3ctech.com/topic/854)
 
-async/await的例子說明
-[告別 JavaScript 的 Promise！迎接 Async/Await 的到來](http://jigsawye.com/2016/04/18/understanding-javascript-async-await/)
-
-待讀
 [深入浅出Fetch API](http://wwsun.github.io/posts/fetch-api-intro.html)
 
 [Fetch API](https://segmentfault.com/a/1190000006039533)

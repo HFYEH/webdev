@@ -65,5 +65,8 @@ componentWillMount()：解除事件監聽，清除記憶體等放在這裡。
 [深入浅出React（四）：虚拟DOM Diff算法解析](http://www.infoq.com/cn/articles/react-dom-diff)
 
 
+## Android
+
+[Android Developers Guide](http://hukai.me/android-training-course-in-chinese/basics/)
 
 

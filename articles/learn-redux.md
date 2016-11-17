@@ -208,6 +208,8 @@ class App extends Component { constructor(props){
 
 [Gitbook](https://unbug.gitbooks.io/react-native-training/content/4_architecture.html)
 
+[Redux](http://chentsulin.github.io/redux/index.html)
+
 [視訊](https://www.youtube.com/watch?v=JlYwmoJyM34&list=PLC_rYRxEnwQGLQqrHR0aho33U6DCeJamC&index=4)
 
 另外[這篇](https://github.com/berwin/Blog/issues/4)從另一個角度切入，也寫得很不錯。（莫非高手都用Github issue寫blog？）

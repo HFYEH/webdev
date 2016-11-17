@@ -1,5 +1,6 @@
+[GPG入门教程](http://www.ruanyifeng.com/blog/2013/07/gpg.html)
 
-
+[使用 OpenSSL 或 GnuPG 加密檔案與目錄，用密碼上鎖保護機密資料](https://blog.gtwang.org/linux/how-to-encrypt-data-in-linux-using-gpg-and-open-ssl/2/)
 
 [使用 GnuPG 建立你的 PGP 金鑰， 讓別人能夠私密寄信給你](http://newtoypia.blogspot.tw/2013/12/gnupg-pgp.html)
 

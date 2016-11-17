@@ -67,6 +67,6 @@ componentWillMount()：解除事件監聽，清除記憶體等放在這裡。
 
 ## Android
 
-[Android Developers Guide](http://hukai.me/android-training-course-in-chinese/basics/)
+[Android Developers Guide 中文版](http://hukai.me/android-training-course-in-chinese/basics/)
 
 

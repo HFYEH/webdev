@@ -46,6 +46,7 @@
     * [Redux](articles/learn-redux.md)
     * [Reduce](articles/reduce.md)
     * [XMLHttpRequest to Fetch](articles/xmlhttprequest_fetch.md)
+    * [Vue](articles/vue.md)
 * [Front-End](front-end.md)
     * [jQuery memo](articles/jquery-memo.md)
     * [CSS設計模式摘要集](articles/css-design-pattern-digest.md)

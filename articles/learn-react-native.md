@@ -72,6 +72,11 @@ componentWillMount()：解除事件監聽，清除記憶體等放在這裡。
 [React Native热部署](http://www.beansmile.com/blog/posts/react-native-hot-deployment)
 
 
+# WebView
+
+[React-Native之Android: WebView（Html）与原生端通讯](http://www.jianshu.com/p/8ef6ee4cf37a)
+
+
 
 ## Android
 

@@ -32,7 +32,7 @@
     * [Linux 部署環境配置 \(Nginx + Passenger + Rails by Capistrano\)](articles/deploying-rails-on-ubuntu-14-trusty-with-nginx-passenger-using-capistrano.md)
     * [Metaprogramming Ruby 代碼塊](articles/metaprogramming_ch3.md)
     * [Ruby中的block, Proc和Lambda](articles/ruby_block_proc_lambda.md)
-    * [Ruby 參數賦值與呼叫時的不同處](ruby-參數賦值與呼叫時的不同處.md)
+    * [Ruby 參數賦值與調用時的不同處](ruby-參數賦值與呼叫時的不同處.md)
 * [JavaScript](javascript.md)
     * [讀ECMAScript作用域模型](articles/ecmascript_scope.md)
     * [Javascript 筆記　數據類型](articles/javascript-note-1.md)

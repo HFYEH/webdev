@@ -35,7 +35,7 @@ tmux kill-session -t session_count 依編號刪除session
 
 ****
 Session
-d 脫離目前session；暫時回到Shell界面，输入tmux attach能够重新进入之前的会话
+d 脫離目前session；暫時回到Shell界面，输入tmux attach能夠重新進入之前的session
 D 選擇要脫離的session；若同時有多個sessions時使用
 ctrl+z 關閉目前session
 s 切換session

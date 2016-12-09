@@ -3,6 +3,7 @@
 
 [Using zsh and vim to Improve Terminal Visibility](http://mayurrokade.com/blog/using-zsh-and-vim-to-improve-terminal-visibility/)
 
+[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 
 # vim
 

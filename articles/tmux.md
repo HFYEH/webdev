@@ -5,6 +5,8 @@
 
 [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 
+[git plugin](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git)
+
 # vim
 
 [Vundle：Vim Plugin 自動下載、安裝、更新與管理工具（Vim Bundle）](https://blog.gtwang.org/linux/vundle-vim-bundle-plugin-manager/)

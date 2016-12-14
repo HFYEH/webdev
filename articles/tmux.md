@@ -3,6 +3,9 @@
 
 [Using zsh and vim to Improve Terminal Visibility](http://mayurrokade.com/blog/using-zsh-and-vim-to-improve-terminal-visibility/)
 
+[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+
+[git plugin](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git)
 
 # vim
 
@@ -34,7 +37,7 @@ tmux kill-session -t session_count 依編號刪除session
 
 ****
 Session
-d 脫離目前session；暫時回到Shell界面，输入tmux attach能够重新进入之前的会话
+d 脫離目前session；暫時回到Shell界面，输入tmux attach能夠重新進入之前的session
 D 選擇要脫離的session；若同時有多個sessions時使用
 ctrl+z 關閉目前session
 s 切換session
@@ -42,20 +45,17 @@ s 切換session
 ****
 多視窗操作
 c：建立新的視窗；
-l：與先前選擇的視窗間切換；
 n：移動到下個視窗；
 p：移動到上個視窗；
-,：重新命名目前的視窗；
-q：顯示各分割區塊的號碼（用來切換到不同的區塊）
-o：切換到下個區塊；
 w：列出目前 clinet 的視窗，用數字鍵選視窗
 1：跳到指定的數字視窗
+l：與先前選擇的視窗間切換；
+,：重新命名目前的視窗；
 
 ****
 單一視窗多區塊之操作
 %：當前區塊垂直切割成兩區塊；
 "：當前區塊水平切割成兩區塊
-:split-window：水平分離視窗；
 o：移往下一個區塊；
 q：顯示區塊的數字代號，當數字顯示時使用數字鍵移往該區塊；
 上下左右 跳到上下左右的分割視窗

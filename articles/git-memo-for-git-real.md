@@ -18,7 +18,6 @@ git config --global alias.unstage 'reset HEAD --'
 git config --global alias.last 'log -1 HEAD'
 git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-commit --all"
 git config --global alias.mylog "log --pretty=format:'%h %s [%an]' --graph"
-git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-commit --all"
 git config --global alias.pushall "push --recurse-submodules=on-demand"    # 在parent repo push 時可以 push 所有submodule
 
 // --global是此user，存在~/.gitconfig

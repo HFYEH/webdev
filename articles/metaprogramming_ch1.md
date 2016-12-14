@@ -137,11 +137,9 @@ class 的名字是常量。object 是變量。
 module M
   class C
     X = "Constant"    # M::C::X
-    ::M::X    # 雙冒號表示根路徑，相當於在外層呼叫M::X
   end
 
   X = "M constant"    # M::X
-  C::X    # C中的X
 end
 
 Module.constants    # 回傳所有頂級常量，包含class名

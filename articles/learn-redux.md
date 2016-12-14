@@ -204,9 +204,9 @@ class App extends Component { constructor(props){
 
 參考資料：
 
-作者為[Unbug Lee](https://github.com/unbug)
+[React native training](https://unbug.gitbooks.io/react-native-training/content/4_architecture.html)
 
-[Gitbook](https://unbug.gitbooks.io/react-native-training/content/4_architecture.html)
+[Redux](http://chentsulin.github.io/redux/index.html)
 
 [視訊](https://www.youtube.com/watch?v=JlYwmoJyM34&list=PLC_rYRxEnwQGLQqrHR0aho33U6DCeJamC&index=4)
 

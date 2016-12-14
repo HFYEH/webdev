@@ -98,14 +98,7 @@ Promise.prototype.then和Promise.prototype.catch方法返回promises，所以可
 
 [fetch介紹](https://segmentfault.com/a/1190000003810652)
 
-一些fetch API的例子說明
 [This API is So Fetching 譯文](http://www.w3ctech.com/topic/854)
-
-async/await的例子說明
-[告別 JavaScript 的 Promise！迎接 Async/Await 的到來](http://jigsawye.com/2016/04/18/understanding-javascript-async-await/)
-
-待讀
-[JavaScript Promise API](https://segmentfault.com/a/1190000004476610)
 
 [深入浅出Fetch API](http://wwsun.github.io/posts/fetch-api-intro.html)
 
@@ -113,7 +106,4 @@ async/await的例子說明
 
 [传统 Ajax 已死，Fetch 永生](https://github.com/camsong/blog/issues/2)
 
-
-阮一峰的《深入掌握 ECMAScript 6 异步编程》系列，超好懂！
-
-[Generator 函数的含义与用法](http://www.ruanyifeng.com/blog/2015/04/generator.html)
+[你真的会使用XMLHttpRequest吗？](https://segmentfault.com/a/1190000004322487)

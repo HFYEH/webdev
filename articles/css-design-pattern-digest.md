@@ -21,7 +21,7 @@ CSS三權分立指的是將下列三者分別寫在不同class中，以達到較
 
 // css
 .box{width:300px; height:80px;}
-.box .roundBox{padding:10px 15px; border:1px solid #ccc;}
+.roundBox{padding:10px 15px; border:1px solid #ccc;}
 
 .mt10{margin-top:10px}
 .mt15{margin-top:15px}

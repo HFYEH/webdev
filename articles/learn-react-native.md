@@ -65,5 +65,24 @@ componentWillMount()：解除事件監聽，清除記憶體等放在這裡。
 [深入浅出React（四）：虚拟DOM Diff算法解析](http://www.infoq.com/cn/articles/react-dom-diff)
 
 
+## Hot-reload
+
+[React-Native 实现增量热更新的思路](http://www.reactnative.pw/reactnative%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/react-native-%E5%AE%9E%E7%8E%B0%E5%A2%9E%E9%87%8F%E7%83%AD%E6%9B%B4%E6%96%B0%E7%9A%84%E6%80%9D%E8%B7%AF.html)
+
+[React Native热部署](http://www.beansmile.com/blog/posts/react-native-hot-deployment)
+
+
+# WebView
+
+[React-Native之Android: WebView（Html）与原生端通讯](http://www.jianshu.com/p/8ef6ee4cf37a)
+
+# ES5/ES6
+
+[React/React Native 的ES5 ES6写法对照表](http://bbs.reactnative.cn/topic/15/react-react-native-%E7%9A%84es5-es6%E5%86%99%E6%B3%95%E5%AF%B9%E7%85%A7%E8%A1%A8)
+
+
+## Android
+
+[Android Developers Guide 中文版](http://hukai.me/android-training-course-in-chinese/basics/)
 
 

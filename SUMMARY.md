@@ -33,6 +33,7 @@
     * [Metaprogramming Ruby 代碼塊](articles/metaprogramming_ch3.md)
     * [Ruby中的block, Proc和Lambda](articles/ruby_block_proc_lambda.md)
     * [Ruby中一些賦值與調用時的不同處](articles/ruby-call-and-set-param.md)
+    * [Action Cable Chat Room](articles/action-cable-chatroom.md)
 * [JavaScript](javascript.md)
     * [讀ECMAScript作用域模型](articles/ecmascript_scope.md)
     * [Javascript 筆記　數據類型](articles/javascript-note-1.md)

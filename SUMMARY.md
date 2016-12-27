@@ -34,7 +34,7 @@
     * [Ruby中的block, Proc和Lambda](articles/ruby_block_proc_lambda.md)
     * [Ruby中一些賦值與調用時的不同處](articles/ruby-call-and-set-param.md)
     * [Action Cable Chat Room](articles/action-cable-chatroom.md)
-    * [html\_safe](articles/html_safe.md)
+    * [html\_safe](articles/acitve_support.md)
 * [JavaScript](javascript.md)
     * [讀ECMAScript作用域模型](articles/ecmascript_scope.md)
     * [Javascript 筆記　數據類型](articles/javascript-note-1.md)

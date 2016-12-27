@@ -1,6 +1,4 @@
-
-
-[Everything you know about html_safe is wrong](https://makandracards.com/makandra/2579-everything-you-know-about-html_safe-is-wrong)
+原文：[Everything you know about html_safe is wrong](https://makandracards.com/makandra/2579-everything-you-know-about-html_safe-is-wrong)
 
 Rails render template時，會將字串轉為ActiveSupport::SafeBuffer類別的實例。轉換過程中，會escape html的`<`和`>`。預設會將所有的字串都轉為ActiveSupporr::SafeBuffer才會render。
 

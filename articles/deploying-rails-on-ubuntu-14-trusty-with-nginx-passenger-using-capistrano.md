@@ -143,6 +143,8 @@ Capistrano在本機運行，它的工作是登入你的伺服器，進行一系�
 首先先在本地端安裝capistrano gem
 `gem install capistrano`
 然後在Gemfile中加上（實際上依applicatoin server的不同，下面會有所不同）
+
+`bin/rake db:environment:set RAILS_ENV=production`
 ```
 gem 'capistrano-rails', :group => :development
 gem 'capistrano-passenger', :group => :development

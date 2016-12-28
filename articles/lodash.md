@@ -16,3 +16,14 @@ _.intersectionBy(arr_of_obj1, arr_of_obj2, key)
 _.intersectionWith(arr_of_obj1, arr_of_obj2, _.isEqual)
 ```
 
+```
+_.chunk(arr, 2)    // 拆分陣列為兩兩一組為元素的陣列
+_.compact(arr)     // 返回刪除boolean值為false的元素的新陣列
+_.concat(arr1, 1, arr2)   // 返回所有參數組成的陣列
+```
+
+```
+_.drop(arr, 1)         // 返回刪去第一個元素的新陣列
+_.dropRight(arr, 1)    // 返回刪去最後一個原素的新陣列
+_.take(arr, 1)         // 返回第一個元素
+```

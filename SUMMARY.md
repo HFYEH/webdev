@@ -50,7 +50,6 @@
     * [XMLHttpRequest to Fetch](articles/xmlhttprequest_fetch.md)
     * [非同步處理 - 從Promise到Async](articles/asyc_javascript.md)
     * [Vue](articles/vue.md)
-    * [lodash 常用速記](articles/lodash.md)
 * [Front-End](front-end.md)
     * [jQuery memo](articles/jquery-memo.md)
     * [CSS設計模式摘要集](articles/css-design-pattern-digest.md)

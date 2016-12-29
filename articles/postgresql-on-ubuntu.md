@@ -1,9 +1,11 @@
 # 安裝
 
 安裝必要lib和postgres
+
 `sudo apt-get install postgresql libpq-dev postgresql-contrib postgresql-client`
 
 安裝 pgadmin3 的客戶端管理工具（可跳過）
+
 `sudo apt-get install pgadmin3`
 
 # 操作

@@ -76,10 +76,9 @@ gunzip -c database.gz | psql database
 // Restore custom dump format
 pg_restore -d database database.sql
 pg_restore database.sql | psql database
-
-[db權限問題](http://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge)
 ```
 
+[db權限問題](http://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge)
 
 # Use pgAdmin III
 

@@ -47,15 +47,36 @@ ALTER ROLE username WITH Superuser;
 
 # export database
 ```
+// 基本
+pg_dump database > database.sql
+
+// 壓縮
+pg_dump database | gzip > database.gz
+
+// Custom dump format
+pg_dump -Fc database > database.sql
+
 pg_dump --host dingtaxi.ck44hqdryldr.ap-northeast-1.rds.amazonaws.com --port 5432 --username dingtaxi --dbname dingtaxi > $BACKUP_DIRECTORY/${1}_database_${CURRENT_DATE}.sql
 
 psql --host my_host --port 5432 --username my_user_name --dbname my_db_name -f output.sql
+
+// export完直接import進別的server
+pg_dump -h host1 dbname | psql -h host2 dbname
 ```
 # import database
+```
+// 基本 
+psql database < database.sql
 
-psql databasename &lt; data\_base\_dump
+// 解壓縮後匯入
+gunzip -c database.gz | psql database
+
+// Restore custom dump format
+pg_restore -d database database.sql
+pg_restore database.sql | psql database
+
 [db權限問題](http://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge)
-
+```
 
 
 # Use pgAdmin III

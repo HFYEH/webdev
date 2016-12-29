@@ -58,7 +58,6 @@
     * [CSS設計模式摘要集](articles/css-design-pattern-digest.md)
     * [BFC & IFC](articles/bfc_collapsing_margins.md)
 * [Database](database.md)
-    * [postgresql on ubuntu](articles/postgresql-on-ubuntu.md)
     * [N+1 query, sql重新包裝利用](articles/n-1-query.md)
     * [Railsfun RDBMS](articles/railsfun_db.md)
 * [Arduino & Raspberry Pi 與讀書會](arduino-rpi.md)
@@ -73,4 +72,5 @@
     * [zsh X vim X tmux](articles/tmux.md)
     * [cURL](articles/curl.md)
     * [adb \(Android Debug Bridge\)](articles/adb_cheet_sheet.md)
+    * [postgresql](articles/postgresql-on-ubuntu.md)
 

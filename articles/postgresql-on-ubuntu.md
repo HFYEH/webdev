@@ -1,23 +1,28 @@
+# 安裝
+
 安裝必要lib和postgres
 `sudo apt-get install postgresql libpq-dev postgresql-contrib postgresql-client`
 
 安裝 pgadmin3 的客戶端管理工具（可跳過）
 `sudo apt-get install pgadmin3`
 
+# 操作
+
 切換到 postgres 帳號， postgres 預設沒有密碼且是 superuser 權限
-`sudo su - postgres` \(to postgres directory\)
-`sudo su postgres` \(to current directory\)
+```
+sudo su - postgres   # switch to postgres in its home directory
+sudo su postgres     # switch to postgres in current directory
 
-`psql` \(登入db\)
+psql                 # 以postgres帳號登入postgres server，登入後可以執行以下指令
+\du                  # See all users
+\l                   # list all databases
+\c database_name     # connect to database
+\dt                  # list all tables in the connected database
+\password postgres   # 為postgres帳號新增密碼
+\q                   # 退出postgres server
+```
 
-`\du` See all users
-`\list or \l` list all databases
-`\dt` list all tables in the current database
-`\password postgres` 為postgres帳號新增密碼
-`\q` ※退出
-
-建立新使用者\(In postgres server\)
-
+# 建立新使用者
 ```
 CREATE ROLE username SUPERUSER LOGIN;
 or
@@ -26,9 +31,7 @@ CREATE USER username SUPERUSER;
 ALTER USER username WITH PASSWORD '密碼';
 
 ALTER ROLE ※看到這結果表示修改成功
-```
 
-```
 # 事後改權限
 ALTER ROLE username WITH Superuser;
 ```

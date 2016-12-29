@@ -4,6 +4,8 @@
 
 # window對象
 
+window是當前分頁的頂層對象。
+
 # history對象
 
 history保存目前分頁的瀏覽記錄，是一array-like對象，其length屬性表示訪問過的網址。

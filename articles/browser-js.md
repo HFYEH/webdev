@@ -21,10 +21,21 @@ history保存目前分頁的瀏覽記錄，是一array-like對象，其length屬
 
 接收三個參數，
 
-1. `state`如果觸發popState，會傳入callback function
+1. `state`如果觸發`popState`，會傳入callback function
 2. `title`會被忽略
 3. `url`網址
 
 ***注意，只能設定同源網址。而且只會造成網址列改變並且新增記錄，並不會造成頁面刷新。***
 
-`history.replaceState()` 同上
+`history.replaceState()` 同上，只不過不是新增一筆記錄，而是取代當前的記錄
+
+`history.state()` 返回當前的`state`對象
+
+`history.popState()` 當history對象發生改變，會觸發此事件。但是如果是使用`pushState`或`replaceState`是不會觸發該事件的。如果切換到另一個文檔，此事件也不會觸發。
+
+可以用下列方式新增callback
+```
+window.onpopstate = function(event){console.log(event.state}  // 即上述的state
+```
+
+

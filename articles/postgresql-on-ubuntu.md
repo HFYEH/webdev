@@ -1,12 +1,6 @@
----
-layout: post
-title: postgresql on ubuntu
-date: '2015-02-03 23:00'
-comments: true
-categories: null
----
-
+安裝必要lib和postgres
 `sudo apt-get install postgresql libpq-dev postgresql-contrib postgresql-client`
+
 安裝 pgadmin3 的客戶端管理工具（可跳過）
 `sudo apt-get install pgadmin3`
 
@@ -34,6 +28,15 @@ ALTER USER username WITH PASSWORD '密碼';
 ALTER ROLE ※看到這結果表示修改成功
 ```
 
+```
+# 事後改權限
+ALTER ROLE username WITH Superuser;
+```
+
+# export database
+```
+pg_dump --host dingtaxi.ck44hqdryldr.ap-northeast-1.rds.amazonaws.com --port 5432 --username dingtaxi --dbname dingtaxi > $BACKUP_DIRECTORY/${1}_database_${CURRENT_DATE}.sql
+```
 # import database
 
 psql databasename &lt; data\_base\_dump
@@ -96,60 +99,11 @@ host all all ::1/128       md5
 `createdb  -O sharefun my_database_test`
 `createdb  -O sharefun my_database_production`
 
-在config\/database.yml
 
-```
-default: &default
-  adapter: postgresql
-  pool: 5
-  encoding: unicode
-  timeout: 5000
-
-development:
-  <<: *default
-  database: airpopo_landing_development
-  username: sharefun
-  password: "password"
-
-test:
-  <<: *default
-  database: airpopo_landing_test
-  username: sharefun
-  password: "password"
-
-production:
-  <<: *default
-  database: airpopo_landing_production
-  username: sharefun
-  password: "password"
-  host: localhost
-```
-
-在rails4的歡迎頁面不是靜態檔,請自行設定路徑
-need to add a root route
-再試跑看看
-`server thin -e production`
-
-或者讓靜態檔可以產生\(??\)
-In production.rb
-`config.assets.compile = true`
-
-If you are using Ubuntu try to install following lib file
-`sudo apt-get install libpq-dev`
-and then
-
-```
-group :production do
-    gem 'pg'
-    gem 'rails_12factor'
-end
-```
-
-`bundle install --without production`
 
 遠端操作資料庫
 
-psql -f mydb2dump.sql --host dingtaxi.ck44hqdryldr.ap-northeast-1.rds.amazonaws.com --port 5432 --username dingtaxi --dbname dingtaxi
+psql --host my_host --port 5432 --username my_user_name --dbname my_db_name -f output.sql
 
 pg_dump ...
 

@@ -16,7 +16,6 @@ history保存目前分頁的瀏覽記錄，是一array-like對象，其length屬
 
 `history.go(0)` 等同重新整理
 
-
 `history.pushState()` 對history增添一筆新記錄。
 
 接收三個參數，

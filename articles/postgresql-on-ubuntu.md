@@ -56,8 +56,8 @@ pg_dump database | gzip > database.gz
 // Custom dump format
 pg_dump -Fc database > database.sql
 
-pg_dump --host dingtaxi.ck44hqdryldr.ap-northeast-1.rds.amazonaws.com --port 5432 --username dingtaxi --dbname dingtaxi > $BACKUP_DIRECTORY/${1}_database_${CURRENT_DATE}.sql
-
+// 遠端備份
+pg_dump --host my_host --port 5432 --username my_user_name --dbname my_db_name > $BACKUP_DIRECTORY/${1}_database_${CURRENT_DATE}.sql
 psql --host my_host --port 5432 --username my_user_name --dbname my_db_name -f output.sql
 
 // export完直接import進別的server

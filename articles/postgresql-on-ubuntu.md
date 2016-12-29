@@ -48,13 +48,19 @@ ALTER ROLE username WITH Superuser;
 # export database
 ```
 pg_dump --host dingtaxi.ck44hqdryldr.ap-northeast-1.rds.amazonaws.com --port 5432 --username dingtaxi --dbname dingtaxi > $BACKUP_DIRECTORY/${1}_database_${CURRENT_DATE}.sql
+
+psql --host my_host --port 5432 --username my_user_name --dbname my_db_name -f output.sql
 ```
 # import database
 
 psql databasename &lt; data\_base\_dump
 [db權限問題](http://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge)
 
-現在，我們就可以在資料庫伺服器上使用psql或者pgAdmin操作資料庫了。但是若想用第二項安裝的pgAdmin III管理工具，在啟動pgAdmin前需要建立修改一些PostgreSQL。打開命令列。首先，我们需要编辑postgresql.conf：
+
+
+# Use pgAdmin III
+
+若想用第二項安裝的pgAdmin III管理工具，在啟動pgAdmin前需要建立修改一些PostgreSQL。打開命令列。首先，我们需要编辑postgresql.conf：
 `sudo gedit /etc/postgresql/9.0/main/postgresql.conf`
 
 ```
@@ -90,15 +96,6 @@ host all all ::1/128       md5
 
 現在可以在Ubuntu下使用PostgreSQL了。
 `sudo /etc/init.d/postgresql restart`
-
-
-
-
-遠端操作資料庫
-
-psql --host my_host --port 5432 --username my_user_name --dbname my_db_name -f output.sql
-
-pg_dump ...
 
 
 # Heroku的問題

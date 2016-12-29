@@ -10,20 +10,20 @@
 
 切換到 postgres 帳號， postgres 預設沒有密碼且是 superuser 權限
 ```
-sudo su - postgres   # switch to postgres in its home directory
-sudo su postgres     # switch to postgres in current directory
+sudo su - postgres   // switch to postgres in its home directory
+sudo su postgres     // switch to postgres in current directory
 
-psql                 # 以postgres帳號登入postgres server，登入後可以執行以下指令
-\du                  # See all users
-\l                   # list all databases
-\c database_name     # connect to database
-\dt                  # list all tables in the connected database
-\password postgres   # 為postgres帳號新增密碼
-\q                   # 退出postgres server
+psql                 // 以postgres帳號登入postgres server，登入後可以執行以下指令
+\du                  // See all users
+\l                   // list all databases
+\c database_name     // connect to database
+\dt                  // list all tables in the connected database
+\password postgres   // 為postgres帳號新增密碼
+\q                   // 退出postgres server
 ```
 
 # 建立新使用者
-```
+```shell
 CREATE ROLE username SUPERUSER LOGIN;
 or
 CREATE USER username SUPERUSER;
@@ -32,8 +32,17 @@ ALTER USER username WITH PASSWORD '密碼';
 
 ALTER ROLE ※看到這結果表示修改成功
 
-# 事後改權限
+// 事後改權限
 ALTER ROLE username WITH Superuser;
+
+// 使用指令創建
+建立使用者帳號sharefun，-r 能夠建立 role ，並且賦予  -s 超級使用者、-d 能夠建立 DB 、-l 能夠登入系統、-P能夠建立密碼
+`createuser -r sharefun -s -d -l -P`
+
+// 建立屬於 sharefun 使用者的資料庫
+`createdb -O sharefun my_database_development`
+`createdb -O sharefun my_database_test`
+`createdb -O sharefun my_database_production`
 ```
 
 # export database
@@ -94,13 +103,6 @@ host all all ::1/128       md5
 現在可以在Ubuntu下使用PostgreSQL了。
 `sudo /etc/init.d/postgresql restart`
 
-建立使用者帳號sharefun，-r 能夠建立 role ，並且賦予  -s 超級使用者、-d 能夠建立 DB 、-l 能夠登入系統、-P能夠建立密碼
-`createuser --r sharefun -s -d -l  -P`
-
-建立資料庫  屬於 -O sharefun 使用者的
-`createdb  -O sharefun my_database_development`
-`createdb  -O sharefun my_database_test`
-`createdb  -O sharefun my_database_production`
 
 
 

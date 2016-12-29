@@ -39,12 +39,12 @@ ALTER ROLE username WITH Superuser;
 
 // 使用指令創建
 建立使用者帳號sharefun，-r 能夠建立 role ，並且賦予  -s 超級使用者、-d 能夠建立 DB 、-l 能夠登入系統、-P能夠建立密碼
-`createuser -r sharefun -s -d -l -P`
+createuser -r sharefun -s -d -l -P
 
 // 建立屬於 sharefun 使用者的資料庫
-`createdb -O sharefun my_database_development`
-`createdb -O sharefun my_database_test`
-`createdb -O sharefun my_database_production`
+createdb -O sharefun my_database_development
+createdb -O sharefun my_database_test
+createdb -O sharefun my_database_production
 ```
 
 # export database

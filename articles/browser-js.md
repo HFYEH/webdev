@@ -20,6 +20,7 @@ history保存目前分頁的瀏覽記錄，是一array-like對象，其length屬
 `history.pushState()` 對history增添一筆新記錄。
 
 接收三個參數，
+
 1. `state`如果觸發popState，會傳入callback function
 2. `title`會被忽略
 3. `url`網址

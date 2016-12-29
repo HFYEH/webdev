@@ -47,7 +47,7 @@ createdb -O sharefun my_database_test
 createdb -O sharefun my_database_production
 ```
 
-# export database
+# Export database
 ```
 // 基本
 pg_dump database > database.sql
@@ -65,7 +65,7 @@ psql --host my_host --port 5432 --username my_user_name --dbname my_db_name -f o
 // export完直接import進別的server
 pg_dump -h host1 dbname | psql -h host2 dbname
 ```
-# import database
+# Import database
 ```
 // 基本 
 psql database < database.sql

@@ -54,18 +54,6 @@ pg_dump --host dingtaxi.ck44hqdryldr.ap-northeast-1.rds.amazonaws.com --port 543
 psql databasename &lt; data\_base\_dump
 [db權限問題](http://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge)
 
-### Heroku db dump
-
-`heroku pg:backups public-url b001 --app sushi`
-`curl -o latest.dump`heroku pg:backups public-url`--app sushi`
-sushi是app名稱
-
-### Load to linux db
-
-從heroku抓下來的db不能load，改用
-`pg_restore latest.dump | psql db_name`
-psql後面要接database name，否則會以user為database name
-
 現在，我們就可以在資料庫伺服器上使用psql或者pgAdmin操作資料庫了。但是若想用第二項安裝的pgAdmin III管理工具，在啟動pgAdmin前需要建立修改一些PostgreSQL。打開命令列。首先，我们需要编辑postgresql.conf：
 `sudo gedit /etc/postgresql/9.0/main/postgresql.conf`
 
@@ -111,4 +99,16 @@ host all all ::1/128       md5
 psql --host my_host --port 5432 --username my_user_name --dbname my_db_name -f output.sql
 
 pg_dump ...
+
+
+# Heroku的問題
+```
+// Heroku db dump
+heroku pg:backups public-url b001 --app sushi
+curl -o latest.dump`heroku pg:backups public-url --app sushi   //sushi是app名稱
+
+// Load to linux db
+// 從heroku抓下來的db不能load，改用
+pg_restore latest.dump | psql db_name    //psql後面要接database name，否則會以user為database name
+```
 

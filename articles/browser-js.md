@@ -12,3 +12,8 @@ history保存目前分頁的瀏覽記錄，是一array-like對象，其length屬
 
 `history.forward()`   等同下一頁
 
+`history.go(1)`       等同下一頁
+
+`history.go(0)`       等同重新整理
+
+

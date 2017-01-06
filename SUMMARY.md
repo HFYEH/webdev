@@ -27,7 +27,7 @@
     * [capistrano一個專案一台機器兩個branch部暑成兩個app](articles/a-project-a-machine-two-summer-branch-into-two-app.md)
     * [理解 Rails delegate](articles/understanding-rails-delegate.md)
     * [Websocket 資料](articles/websocket-data.md)
-    * [Metaprogramming - 解釋find\_by\_xxx](articles/metagramming-in-programming-ruby.md)
+    * [Metaprogramming in Programming Ruby](articles/metagramming-in-programming-ruby.md)
     * [Metaprogramming Ruby 對象模型](articles/metaprogramming_ch1.md)
     * [Metaprogramming Ruby 代碼塊](articles/metaprogramming_ch3.md)
     * [Linux 部署環境配置 \(Nginx + Passenger + Rails by Capistrano\)](articles/deploying-rails-on-ubuntu-14-trusty-with-nginx-passenger-using-capistrano.md)

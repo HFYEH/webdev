@@ -1,2 +1,7 @@
+# Metaprogramming in Programming Ruby
+
 本篇文章是Programming Ruby第三部份關於meataprogramming的讀書筆記，幫助整理思路。直接進Metaprogramming Ruby感覺比較吃力，有一些觀念是看了這章後才豁然開朗的。如果讀者讀Metaprogramming Ruby碰壁，可以考慮先讀Programming Ruby的這一章。
 
+## Object and Class
+
+Ruby中萬物皆物件（除了block），所謂的Class也只是class Class自己的實例而已。

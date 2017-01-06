@@ -30,4 +30,12 @@ class method其實不存在`Class`中，而是存在其產生的`singleton class
 
 由於Class也是object，當我們在class內使用`self.xxx`時，也是在為class object建立實例函數，故也會產生新的singleton class，繼承於原本的class，當前的class也會變成該singleton class的實例。
 
+#### Reopen singleton class
+```
+class << your_object
+  def xxx
+  end
+end
+```
+Ruby會禁止你用singleton class建新的實例，這是取名singleton class的原因。
 

@@ -26,3 +26,8 @@ class method其實不存在`Class`中，而是存在其產生的`singleton class
 
 ## Singletons
 
+每當為一個object建立一個實例方法時，它會產生一個anonymous class (singleton class)，object會成為該class的實例，而object原本的class會變成此class的parent class。
+
+由於Class也是object，當我們在class內使用`self.xxx`時，也是在為class object建立實例函數，故也會產生新的singleton class，繼承於原本的class，當前的class也會變成該singleton class的實例。
+
+

@@ -4,8 +4,21 @@
 
 ## Object and Class
 
-Ruby中萬物皆物件（除了block），所謂的Class也只是class Class自己的實例而已。但物件和類別的內容是不同的。
+Ruby中萬物皆物件（除了block），所謂的`Class`也只是class `Class`自己的實例而已。但物件和類別的內容是不同的。
 
-Object包含一些***flag***，***實例變數***，和關聯到的***類別***。
+`Object`包含一些***flag***，***實例變數***，和關聯到的***class***。
 
-Class因為也是Object，所以包含上面所有，再加上一些***（實例）方法***和關聯到的***父類***。
+`Class`因為也是`Object`，所以包含上面所有，再加上一些***（實例）方法***和關聯到的***superclass***。
+
+class method其實不存在`Class`中，而是存在其產生的`singleton class`中作為實例方法而存在，稍後會提到。
+
+## self的幾個用途
+
+`self`指的是當前object，如果沒有explicit receiver，`self`不會變化。
+
+1. 用來控制Ruby找其實例變數。
+2. 當沒有explicit receiver時，會以`self`作為receiver。
+3. 當有explicit receiver時，`self`會被設定為該object。
+
+當使用class關鍵字時，會將`self`設為此class object，在class定義中，`self`總是被設為此class object。
+

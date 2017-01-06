@@ -4,4 +4,8 @@
 
 ## Object and Class
 
-Ruby中萬物皆物件（除了block），所謂的Class也只是class Class自己的實例而已。
+Ruby中萬物皆物件（除了block），所謂的Class也只是class Class自己的實例而已。但物件和類別的內容是不同的。
+
+Object包含一些***flag***，***實例變數***，和關聯到的***類別***。
+
+Class因為也是Object，所以包含上面所有，再加上一些***（實例）方法***和關聯到的***父類***。

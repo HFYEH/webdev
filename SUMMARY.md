@@ -19,7 +19,7 @@
     * [Grape-Swagger](articles/grape-swagger.md)
     * [伺服器圖片轉移至S3，並使用自訂的domain name](articles/paperclip.md)
     * [Rack Middleware](articles/rack-middleware.md)
-    * [Metaprogramming - 解釋find\_by\_xxx](articles/metagramming-find-by-method.md)
+    * [Metaprogramming - 解釋find\_by\_xxx](articles/metagramming-in-programming-ruby.md)
     * [Metaprogramming - Coursera 課程](articles/coursera-metaprogramming.md)
     * [Railsfun 購物車教學](articles/railsfun-2-5-class.md)
     * [ActiveRecord Coursera 課程](articles/coursera-active-record-and-action-pack-active-record.md)

@@ -1,3 +1,5 @@
+此為閱讀Metaprogramming Ruby的讀書筆記。
+
 # Metaprogramming Ruby 對象模型
 
 此系列為Metaprogramming Ruby第一版的筆記，記錄於此作為複習之用。

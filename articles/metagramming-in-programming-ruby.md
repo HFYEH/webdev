@@ -55,6 +55,13 @@ Extend module則是針對特定object增加instance methods，因此不會被其
 
 簡言之，include和prepend會為class增加instance methods，而且其所有的instance皆可使用。相對的，extend對object會增加instance method，最class則會增加class method，且只有該object(or class object)可以使用。
 
+## Class-level Macros
+
+這裡解釋attr_accessor, has_many這類的class method是如何實現的。
+
+先從一般object開始。當我使用`obj.method`的時候，Ruby會將`self`設為`obj`，然後到`obj`所屬的class的instance methods中尋找，如果找不到，就再往其superclass中尋找，這中間當然也包括所有prepend和include的module。
+
+對class而言亦然。
 
 
 

@@ -61,7 +61,9 @@ Extend module則是針對特定object增加instance methods，因此不會被其
 
 先從一般object開始。當我使用`obj.method`的時候，Ruby會將`self`設為`obj`，然後到`obj`所屬的class的instance methods中尋找，如果找不到，就再往其superclass中尋找，這中間當然也包括所有prepend和include的module。
 
-對class而言亦然。
+對class而言亦然。在child class中呼叫class method時，如果不存在，它就會往其superclass找class method。
+
+has_many和attr_accessor這類的magic就是這樣泡製出來的。我們只是只是輸入一些方法名，它就自動幫你生出相對應的函數。
 
 
 

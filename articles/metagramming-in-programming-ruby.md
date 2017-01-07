@@ -32,8 +32,8 @@ class method其實不存在`Class`中，而是存在其產生的`singleton class
 
 #### Reopen singleton class
 ```
-class << your_object
-  def xxx
+class << your_object   # 打開your_object的singleton class
+  def xxx              # 為your_object定義instance method
   end
 end
 ```

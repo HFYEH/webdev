@@ -49,6 +49,11 @@ Include module目的是在class中增加一些instance methods。
 
 prepend也是類似，只不過與原class的繼承關係相反。
 
+Extend module則是針對特定object增加instance methods，因此不會被其他instance共享。
+
+如果在class中extend module，則會創建class methods。因為class裡的self就是class本身。
+
+簡言之，include和prepend會為class增加instance methods，而且其所有的instance皆可使用。相對的，extend對object會增加instance method，最class則會增加class method，且只有該object(or class object)可以使用。
 
 
 

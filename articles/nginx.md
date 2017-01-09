@@ -17,8 +17,6 @@
 
 # Websocket
 
-[Nginx反向代理Websocket](http://www.uml.org.cn/AJAX/201410103.asp?artid=15303)
-
 [HTML5 Web Sockets与代理服务器交互](http://www.infoq.com/cn/articles/Web-Sockets-Proxy-Servers)
 
 [官方說明ws+nginx](http://nginx.org/en/docs/http/websocket.html)

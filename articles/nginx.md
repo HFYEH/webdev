@@ -25,10 +25,6 @@
 
 [Nginx完整官方說明](http://nginx.org/en/docs/)
 
-[Nginx 作为 WebSockets 代理](http://www.oschina.net/translate/websocket-nginx)
-
-[Nginx反向代理Websocket](http://blog.fens.me/nodejs-websocket-nginx/)
-
 [基本的 WebSocket 的 Nginx 配置](https://segmentfault.com/a/1190000000453817)
 
 [nginx websocket简介及配置](http://coolnull.com/4275.html)

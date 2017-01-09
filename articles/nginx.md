@@ -4,18 +4,12 @@
 
 [Nginx 基本設定教學](http://blog.yslin.tw/2012/02/nginx.html)
 
-[Nginx配置文件详细说明](http://www.cnblogs.com/xiaogangqq123/archive/2011/03/02/1969006.html)
-
-[Nginx配置参数中文说明](http://dockone.io/article/1482)
-
 [Nginx配置参数中文说明](http://wangying.sinaapp.com/archives/931)
-
-[nginx基础及其配制说明](http://lawrence-zxc.github.io/2012/05/01/nginx-jichu/)
 
 
 # Websocket
 
-[Nginx完整文件](http://nginx.org/en/docs/)
+[Nginx官方文件](http://nginx.org/en/docs/)
 
 [nginx配置location总结及rewrite规则写法](http://seanlook.com/2015/05/17/nginx-location-rewrite/)
 

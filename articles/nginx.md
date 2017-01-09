@@ -6,6 +6,8 @@
 
 [nginx配置location总结及rewrite规则写法](http://seanlook.com/2015/05/17/nginx-location-rewrite/)
 
+[关于nginx中的host变量](https://rocfang.gitbooks.io/dev-notes/content/guan_yu_nginx_zhong_de_host_bian_liang.html)
+
 # nginx說明檔
 
 [Nginx官方文件](http://nginx.org/en/docs/)

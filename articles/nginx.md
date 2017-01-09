@@ -15,14 +15,7 @@
 
 # Websocket
 
-[官方說明ws+nginx](http://nginx.org/en/docs/http/websocket.html)
-
-[Nginx完整官方說明](http://nginx.org/en/docs/)
-
-[基本的 WebSocket 的 Nginx 配置](https://segmentfault.com/a/1190000000453817)
-
-[nginx websocket简介及配置](http://coolnull.com/4275.html)
-
+[Nginx完整文件](http://nginx.org/en/docs/)
 
 [nginx配置location总结及rewrite规则写法](http://seanlook.com/2015/05/17/nginx-location-rewrite/)
 

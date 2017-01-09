@@ -17,8 +17,6 @@
 
 [官方說明ws+nginx](http://nginx.org/en/docs/http/websocket.html)
 
-[上面的中文版](http://translate17.com/article/2057)
-
 [Nginx完整官方說明](http://nginx.org/en/docs/)
 
 [基本的 WebSocket 的 Nginx 配置](https://segmentfault.com/a/1190000000453817)

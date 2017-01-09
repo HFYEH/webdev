@@ -17,8 +17,6 @@
 
 # Websocket
 
-[HTML5 Web Sockets与代理服务器交互](http://www.infoq.com/cn/articles/Web-Sockets-Proxy-Servers)
-
 [官方說明ws+nginx](http://nginx.org/en/docs/http/websocket.html)
 
 [上面的中文版](http://translate17.com/article/2057)

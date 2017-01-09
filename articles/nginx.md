@@ -1,9 +1,6 @@
 # Nginx 範例
 
-[nginx 基礎設定教學](http://blog.hellojcc.tw/2015/12/07/nginx-beginner-tutorial/)
-
 [Nginx配置参数中文说明](http://wangying.sinaapp.com/archives/931)
-
 
 # Websocket
 

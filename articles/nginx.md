@@ -1,4 +1,4 @@
-# Nginx 中文文章
+# Nginx 範例
 
 [nginx 基礎設定教學](http://blog.hellojcc.tw/2015/12/07/nginx-beginner-tutorial/)
 

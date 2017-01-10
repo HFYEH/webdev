@@ -10,3 +10,5 @@
 
 [如何进行高效的Rails单元测试](http://www.infoq.com/cn/articles/effective-rails-testing)
 
+# 設定Database_cleaner
+[Configuring database_cleaner with Rails, RSpec, Capybara, and Selenium](http://www.virtuouscode.com/2012/08/31/configuring-database_cleaner-with-rails-rspec-capybara-and-selenium/)

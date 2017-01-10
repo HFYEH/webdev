@@ -12,3 +12,5 @@
 
 # 設定Database_cleaner
 [Configuring database_cleaner with Rails, RSpec, Capybara, and Selenium](http://www.virtuouscode.com/2012/08/31/configuring-database_cleaner-with-rails-rspec-capybara-and-selenium/)
+
+[Transactions](https://www.relishapp.com/rspec/rspec-rails/docs/transactions)

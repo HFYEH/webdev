@@ -14,3 +14,5 @@
 [Configuring database_cleaner with Rails, RSpec, Capybara, and Selenium](http://www.virtuouscode.com/2012/08/31/configuring-database_cleaner-with-rails-rspec-capybara-and-selenium/)
 
 [Relish: RSpec Rails 3.5 - Transactions](https://www.relishapp.com/rspec/rspec-rails/docs/transactions)
+
+[Taking the test trash out with DatabaseCleaner and RSpec](http://tomdallimore.com/blog/taking-the-test-trash-out-with-databasecleaner-and-rspec/)

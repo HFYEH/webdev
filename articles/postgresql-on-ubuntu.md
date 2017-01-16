@@ -1,30 +1,31 @@
----
-layout: post
-title: postgresql on ubuntu
-date: '2015-02-03 23:00'
-comments: true
-categories: null
----
+# 安裝
+
+安裝必要lib和postgres
 
 `sudo apt-get install postgresql libpq-dev postgresql-contrib postgresql-client`
+
 安裝 pgadmin3 的客戶端管理工具（可跳過）
+
 `sudo apt-get install pgadmin3`
 
+# 操作
+
 切換到 postgres 帳號， postgres 預設沒有密碼且是 superuser 權限
-`sudo su - postgres` \(to postgres directory\)
-`sudo su postgres` \(to current directory\)
-
-`psql` \(登入db\)
-
-`\du` See all users
-`\list or \l` list all databases
-`\dt` list all tables in the current database
-`\password postgres` 為postgres帳號新增密碼
-`\q` ※退出
-
-建立新使用者\(In postgres server\)
-
 ```
+sudo su - postgres   // switch to postgres in its home directory
+sudo su postgres     // switch to postgres in current directory
+
+psql                 // 以postgres帳號登入postgres server，登入後可以執行以下指令
+\du                  // See all users
+\l                   // list all databases
+\c database_name     // connect to database
+\dt                  // list all tables in the connected database
+\password postgres   // 為postgres帳號新增密碼
+\q                   // 退出postgres server
+```
+
+# 建立新使用者
+```shell
 CREATE ROLE username SUPERUSER LOGIN;
 or
 CREATE USER username SUPERUSER;
@@ -32,26 +33,56 @@ CREATE USER username SUPERUSER;
 ALTER USER username WITH PASSWORD '密碼';
 
 ALTER ROLE ※看到這結果表示修改成功
+
+// 事後改權限
+ALTER ROLE username WITH Superuser;
+
+// 使用指令創建
+建立使用者帳號sharefun，-r 能夠建立 role ，並且賦予  -s 超級使用者、-d 能夠建立 DB 、-l 能夠登入系統、-P能夠建立密碼
+createuser -r sharefun -s -d -l -P
+
+// 建立屬於 sharefun 使用者的資料庫
+createdb -O sharefun my_database_development
+createdb -O sharefun my_database_test
+createdb -O sharefun my_database_production
 ```
 
-# import database
+# Export database
+```
+// 基本
+pg_dump database > database.sql
 
-psql databasename &lt; data\_base\_dump
+// 壓縮
+pg_dump database | gzip > database.gz
+
+// Custom dump format
+pg_dump -Fc database > database.sql
+
+// 遠端備份
+pg_dump --host my_host --port 5432 --username my_user_name --dbname my_db_name > $BACKUP_DIRECTORY/${1}_database_${CURRENT_DATE}.sql
+psql --host my_host --port 5432 --username my_user_name --dbname my_db_name -f output.sql
+
+// export完直接import進別的server
+pg_dump -h host1 dbname | psql -h host2 dbname
+```
+# Import database
+```
+// 基本 
+psql database < database.sql
+
+// 解壓縮後匯入
+gunzip -c database.gz | psql database
+
+// Restore custom dump format
+pg_restore -d database database.sql
+pg_restore database.sql | psql database
+```
+
 [db權限問題](http://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge)
 
-### Heroku db dump
+# Use pgAdmin III
 
-`heroku pg:backups public-url b001 --app sushi`
-`curl -o latest.dump`heroku pg:backups public-url`--app sushi`
-sushi是app名稱
-
-### Load to linux db
-
-從heroku抓下來的db不能load，改用
-`pg_restore latest.dump | psql db_name`
-psql後面要接database name，否則會以user為database name
-
-現在，我們就可以在資料庫伺服器上使用psql或者pgAdmin操作資料庫了。但是若想用第二項安裝的pgAdmin III管理工具，在啟動pgAdmin前需要建立修改一些PostgreSQL。打開命令列。首先，我们需要编辑postgresql.conf：
+若想用第二項安裝的pgAdmin III管理工具，在啟動pgAdmin前需要建立修改一些PostgreSQL。打開命令列。首先，我们需要编辑postgresql.conf：
 `sudo gedit /etc/postgresql/9.0/main/postgresql.conf`
 
 ```
@@ -88,68 +119,15 @@ host all all ::1/128       md5
 現在可以在Ubuntu下使用PostgreSQL了。
 `sudo /etc/init.d/postgresql restart`
 
-建立使用者帳號sharefun，-r 能夠建立 role ，並且賦予  -s 超級使用者、-d 能夠建立 DB 、-l 能夠登入系統、-P能夠建立密碼
-`createuser --r sharefun -s -d -l  -P`
 
-建立資料庫  屬於 -O sharefun 使用者的
-`createdb  -O sharefun my_database_development`
-`createdb  -O sharefun my_database_test`
-`createdb  -O sharefun my_database_production`
-
-在config\/database.yml
-
+# Heroku的問題
 ```
-default: &default
-  adapter: postgresql
-  pool: 5
-  encoding: unicode
-  timeout: 5000
+// Heroku db dump
+heroku pg:backups public-url b001 --app sushi
+curl -o latest.dump`heroku pg:backups public-url --app sushi   //sushi是app名稱
 
-development:
-  <<: *default
-  database: airpopo_landing_development
-  username: sharefun
-  password: "password"
-
-test:
-  <<: *default
-  database: airpopo_landing_test
-  username: sharefun
-  password: "password"
-
-production:
-  <<: *default
-  database: airpopo_landing_production
-  username: sharefun
-  password: "password"
-  host: localhost
+// Load to linux db
+// 從heroku抓下來的db不能load，改用
+pg_restore latest.dump | psql db_name    //psql後面要接database name，否則會以user為database name
 ```
-
-在rails4的歡迎頁面不是靜態檔,請自行設定路徑
-need to add a root route
-再試跑看看
-`server thin -e production`
-
-或者讓靜態檔可以產生\(??\)
-In production.rb
-`config.assets.compile = true`
-
-If you are using Ubuntu try to install following lib file
-`sudo apt-get install libpq-dev`
-and then
-
-```
-group :production do
-    gem 'pg'
-    gem 'rails_12factor'
-end
-```
-
-`bundle install --without production`
-
-遠端操作資料庫
-
-psql -f mydb2dump.sql --host dingtaxi.ck44hqdryldr.ap-northeast-1.rds.amazonaws.com --port 5432 --username dingtaxi --dbname dingtaxi
-
-pg_dump ...
 

@@ -1,3 +1,5 @@
+此為閱讀Metaprogramming Ruby的讀書筆記。
+
 # Metaprogramming Ruby 代碼塊
 
 

@@ -2,7 +2,7 @@
 
 ## 數據類型
 
-JavaScript的數據類型共有六種（不包含ES6的symbol），即string, number, boolean, undefined, null, object。前三種屬於原始的類型，但也可以用對象方式調用。前三種的值可以被改變，object則是引用，無法被直接改變。
+JavaScript的數據類型共有六種（不包含ES6的symbol），即string, number, boolean, undefined, null, object。前三種屬於原始的類型，但也可以用對象方式調用。前三種的值可以被改變，object則是位址的引用，無法被直接改變，如果對變量重新賦值給另一個object，原指向的object會消失，變量指向新的object。
 
 其中object又分三種，普通的object, array 和 function。
 
@@ -13,7 +13,7 @@ JavaScript的數據類型共有六種（不包含ES6的symbol），即string, nu
 1. 原始類型的"string", "number", "boolean"
 2. 函數類的"function"
 3. undefined 會返回 "undefined"   (typeof 可檢查沒有聲明的變量而不報錯）
-4. "object"，包含一般對象，array和null
+4. "object"，包含一般對象，array 和 null
 
 Array是一種特殊的object，使用typeof都會得到"object"，如要區分array和object，可用`instanceof`。
 

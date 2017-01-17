@@ -212,7 +212,7 @@ map不會遍歷到array的空位。
 
 ###### filter
 
-參數為一函數，會返回true或false，該函數會遍歷array所有元素，最後將返回true的元素們重組為一array，不改變原值。
+參數為一函數，會返回true或false，該函數會遍歷array所有元素，最後將返回true的元素們重組為一新array，不改變原array。
 
 函數參數型式同map和forEach，可代index為第二參數，而filter本身亦可以代入第二參數，將this綁定到目前處理的array上。
 

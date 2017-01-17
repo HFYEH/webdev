@@ -12,7 +12,6 @@
 * [Ruby & Rails](rails.md)
     * [Linux 部署環境配置 \(Nginx + Passenger + Rails by Capistrano\)](articles/deploying-rails-on-ubuntu-14-trusty-with-nginx-passenger-using-capistrano.md)
     * [RSpec資料](articles/rspec.md)
-    * [Gemfile](articles/gemfile.md)
     * [Railsfun Ruby 介紹](articles/railsfun-ruby.md)
     * [Railsfun Rails 介紹](articles/railsfun-rails.md)
     * [Grape 初體驗（於rails）](articles/grape-first-experience.md)

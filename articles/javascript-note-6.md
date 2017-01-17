@@ -75,5 +75,39 @@ Boolean(/foo/)          // true
 (10.005).toFixed(2)  // 10.01
 
 // toExponential
+(10).toExponential   // "1e+1"
+```
 
+## String對象
+
+以下是一些實例方法
+
+```
+'abc'.length           // 3
+
+// 找出某位置上的字元
+'abc'.charAt(1)        // "b"
+
+// 找出某位置上字元的Unicode，String.fromCharCode()的逆操作
+'abc'.charCodeAt(1)   // 98
+
+// 連接兩字串後返回，不改變原字串
+'abc'.concat('def')   // "abcdef"
+
+// slice功能與array相同，參數為開始和結束位置
+'abc'.slice(1)        // "bc"
+
+// substr參數為開始位置和擷取長度，不改變原字串
+'abc'.substr(1,1)     // "b"
+
+// indexOf, lastIndexOf 參數為欲搜尋的字元，和從起始搜尋位置
+'hello world'.indexOf('o', 6)  // 7
+
+// trim 去兩端空格和換行符號等
+
+// toLowerCase, toUpperCase
+
+// match, replace 多用在正則表達式
+
+// split是join的相反，將string切成array
 ```

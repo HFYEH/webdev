@@ -89,7 +89,7 @@ getDate()
 getDay()        // 返回星期幾，0是星期日，隨後遞增
 getYear()
 getFullYear()
-getMonth()     // 0表示一月
+getMonth()      // 0表示一月
 getHours()
 getMinutes()
 getSeconds()

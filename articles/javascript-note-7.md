@@ -2,7 +2,31 @@
 
 ## Math
 
-http://javascript.ruanyifeng.com/stdlib/math.html
+屬性
+```
+Math.E：常數e。
+Math.LN2：2的自然對數。
+Math.LN10：10的自然對數。
+Math.LOG2E：以2為底的e的對數。
+Math.LOG10E：以10為底的e的對數。
+Math.PI：常數Pi。
+Math.SQRT1_2：0.5的平方根。
+Math.SQRT2：2的平方根。
+```
+方法
+```
+Math.abs()：絕對值
+Math.ceil()：向上取整
+Math.floor()：向下取整
+Math.max()：最大值
+Math.min()：最小值
+Math.pow()：指數運算
+Math.sqrt()：平方根
+Math.log()：自然對數
+Math.exp()：e的指數
+Math.round()：四捨五入
+Math.random()：[0-1)的隨機數
+```
 
 ## Date
 

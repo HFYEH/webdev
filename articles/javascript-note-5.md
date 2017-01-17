@@ -52,7 +52,7 @@ Object.prototype.toString()  // 返回對象的字串型式。比如Date()會被
 var a = {b:1}
 a.toSting()   // [object Object] 第二個表示該對象的構造函數，可用於判斷數據類型。
 
-// 因為返回的是構造函數，因此可以比typeof更精確的回傳變量類型，常用的只有NaN會返回Object而已，不過要用Object.prototype.toString.call，因為已經實例方法被覆蓋了
+// 因為返回的是構造函數，因此可以比typeof更精確的回傳變量類型，常用的只有NaN會返回Object而已，不過要用Object.prototype.toString.call，因為實例方法已經被覆蓋了
 
 // 以下總結Object兩種部署方法與實例間的關係
 var o1 = new Object();                // 建立o1

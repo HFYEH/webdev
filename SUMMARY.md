@@ -40,10 +40,8 @@
     * [JavaScript 筆記　標準庫 包裝對象 Boolean Number String](articles/javascript-note-6.md)
     * [JavaScript 筆記　標準庫 Math Date RegExp JSON console](articles/javascript-note-7.md)
     * [JavaScript 筆記　標準庫 屬性描述對象](articles/javascript-note-8.md)
-    * [JavaScript 筆記　物件導向編程](articles/oo-js.md)
-    * JavaScript 筆記　標準庫 Math Date RegExp JSON console
+    * [JavaScript 筆記　物件導向編程](articles/js-oo.md)
     * [JavaScript 筆記　語法專題](articles/js-insight.md)
-    * JavaScript 筆記 s
     * [Redux](articles/learn-redux.md)
     * [Reduce](articles/reduce.md)
     * [XMLHttpRequest to Fetch](articles/xmlhttprequest_fetch.md)

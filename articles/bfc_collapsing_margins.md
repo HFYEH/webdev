@@ -22,7 +22,7 @@ Block box：同時是block-level box和block containing box的稱為塊盒。
 
 Inline-level element：為元素設置`display`為`inline`,`inline-block`,`inline-table`的元素，就是行內元素。
 
-Inline-level box：行內級元素會行內級盒，但不是所有的行內級盒都會參加IFC。
+Inline-level box：行內級元素會生成行內級盒，但不是所有的行內級盒都會參加IFC。
 
 Inline-box：參與IFC的行內級盒稱為行內盒。只有`display`為`inline`的inline-level box會參與IFC，而`display`為`inline-block`,`inline-table`和可替換行內元素生成的盒，不能拆分多個盒，不參與IFC。
 

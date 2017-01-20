@@ -99,7 +99,7 @@ LC_ALL="en_US.UTF-8"
 `sudo apt-get install postgresql libpq-dev postgresql-contrib postgresql-client`
  
 - 裝Nginx + Passenger
-移除系統預裝的nginx  
+移除系統預裝的nginx
 `sudo apt-get purge nginx nginx-full nginx-light nginx-naxsi nginx-common`  
 `sudo rm -rf /etc/nginx`  
 

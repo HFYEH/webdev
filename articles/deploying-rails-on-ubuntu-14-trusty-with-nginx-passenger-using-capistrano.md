@@ -96,7 +96,7 @@ LC_ALL="en_US.UTF-8"
 
 正式安裝postgres[postgresql on ubuntu](http://sharefun.logdown.com/posts/253465-postgresql-on-ubuntu)
 
-
+`sudo apt-get install postgresql libpq-dev postgresql-contrib postgresql-client`
 
 `sudo service postgresql start`  
 發現錯誤訊息，是因為語系沒有先設定好，所以安裝過程出錯  

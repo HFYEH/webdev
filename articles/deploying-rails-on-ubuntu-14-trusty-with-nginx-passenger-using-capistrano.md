@@ -195,10 +195,10 @@ gitignore上述兩個檔案。
 `passenger-config about ruby-command`
 
 測試格式是否正確
-`nginx -t`
+`sudo nginx -t`
 
 檢查nginx狀態
-`service nginx status`
+`sudo service nginx status`
 
 bundle exec passenger start
 bundle exec passenger restart

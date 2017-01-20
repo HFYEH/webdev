@@ -49,11 +49,6 @@ PasswordAuthentication no
 `ssh -t username@xxx.xxx.xxx.xxx /bin/sh`
 
 # Part 5 裝機
-這兩篇寫得蠻詳細的，本篇主要照這兩篇來做，並在下方輔助一些參考資料
-
-（極客技術網 http://www.rails365.net/articles/bu-shu-zhi-zai-a-li-yun-ubuntu-zhu-ji-shang-an-zhuang-ruby-on-rails-huan-jing-liu）
-（Ruby on Rails 實戰聖經部署篇 https://ihower.tw/rails4/deployment.html）
-（xdite http://rails101s.logdown.com/posts/247891-project-deploy-on-the-server）
 
 - 先裝git `sudo apt-get install git`
 - 調整時區 `sudo dpkg-reconfigure tzdata`

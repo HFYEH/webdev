@@ -1,4 +1,3 @@
-
 # Part 1 虛擬環境設置
 在這裡小卡關，因為機器沒有開啟Visualization，又因為一開始沒有在Vagrantfile裡打開virtualbox視窗的選項，所以看到錯誤訊息一直不明究理。總之，到BIOS設定開啟visualization後就好了。
 
@@ -19,7 +18,8 @@
 （Vagrant基礎說明 http://www.codedata.com.tw/social-coding/vagrant-tutorial-4-guest-host-communication/）
 
 # Part 2 更新
-`sudo apt-get update`  
+`sudo apt-get update`
+
 `sudo apt-get upgrade`
 
 # Part 3 新增使用者sharefun
@@ -32,10 +32,14 @@
 `sudo su sharefun` # switch to sharefun  
 
 # Part 4 ssh 登入
-沒有公私鑰才使用下列指令  
+沒有公私鑰才使用下列指令
+
 `ssh-keygen -t rsa`  
-複製本機的 ~/.ssh/id_rsa.pub 到機器的 /home/sharefun/.ssh/authorized_keys  
+
+複製本機的 ~/.ssh/id_rsa.pub 到機器的/home/sharefun/.ssh/authorized_keys  
+
 `cat ~/.ssh/id_rsa.pub | ssh sharefun@xxx.xxx.xxx.xxx 'cat >> ~/.ssh/authorized_keys'`
+
 chmod 644 /home/sharefun/.ssh/authorized_keys  
 chown sharefun:sharefun /home/sharefun/.ssh/authorized_keys  
 
@@ -45,7 +49,9 @@ sudo vi /etc/ssh/sshd_config
 PasswordAuthentication no
 ```
 執行`sudo service ssh restart`使之生效  
+
 如果之後搞壞.bashrc，導致登不進去（我就發生這個問題），可以在不跑.bashrc的情況登入（因為已經不能用密碼登入了）  
+
 `ssh -t username@xxx.xxx.xxx.xxx /bin/sh`
 
 # Part 5 裝機
@@ -76,20 +82,27 @@ gem install bunlder --no-doc --no-ri
 ```
 
 - 裝postgres
-請見[postgresql on ubuntu](http://sharefun.logdown.com/posts/253465-postgresql-on-ubuntu)  
-安裝完發現無法啟動  
-`sudo service postgresql start`  
-發現錯誤訊息，是因為語系沒有先設定好，所以安裝過程出錯  
- `* No PostgreSQL clusters exist; see "man pg_createcluster"`  
-根據這篇繼續找原因   http://dba.stackexchange.com/questions/50906/why-wont-postgresql-9-3-start-on-ubuntu  
-`sudo vi /etc/default/locale`  
-加入三行  
+
+因為[語系設定問題](http://dba.stackexchange.com/questions/50906/why-wont-postgresql-9-3-start-on-ubuntu
+)，會導致postgres無法安裝，先設定好可免除後續debug。
+
+`sudo vi /etc/default/locale`加入三行
 ```
 LANG="en_US.UTF-8"
 LANGAUGE="en_US.UTF-8"
 LC_ALL="en_US.UTF-8"
 ```
-`sudo dpkg-reconfigure locale`  
+再執行`sudo dpkg-reconfigure locales` 即可
+
+正式安裝postgres[postgresql on ubuntu](http://sharefun.logdown.com/posts/253465-postgresql-on-ubuntu)
+
+
+
+`sudo service postgresql start`  
+發現錯誤訊息，是因為語系沒有先設定好，所以安裝過程出錯  
+ `* No PostgreSQL clusters exist; see "man pg_createcluster"`  
+根據這篇繼續找原因   http://dba.stackexchange.com/questions/50906/why-wont-postgresql-9-3-start-on-ubuntu
+ 
 `sudo pg_createcluster 9.3 main --start`  
 再回去打第一條，打完收工~  
  

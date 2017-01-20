@@ -191,10 +191,21 @@ gitignore上述兩個檔案。
 執行 deploy 程序正式運作自動化 deploy
 `cap production deploy`
 
+得知passenger_ruby的位置
+`passenger-config about ruby-command`
+
+測試格式是否正確
+`nginx -t`
+
+檢查nginx狀態
+`service nginx status`
+
 bundle exec passenger start
 bundle exec passenger restart
 
 passenger-config validate-install
+
+passenger-memory-stats
 
 passenger-status
 

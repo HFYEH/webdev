@@ -110,19 +110,28 @@ CREATE ROLE deploy SUPERUSER LOGIN;
 ALTER USER deploy WITH PASSWORD 'your_password';
 ```
  
-- 裝Nginx + Passenger
+- 裝Nginx + Passenger （建議跳過下面繁雜的方式，那是早期的做法，請直接參考[Install Passenger + Nginx](https://www.phusionpassenger.com/library/install/nginx/install/oss/)）
+
 移除系統預裝的nginx
 `sudo apt-get purge nginx nginx-full nginx-light nginx-naxsi nginx-common`  
+
 `sudo rm -rf /etc/nginx`  
 
 `gem install passenger --no-ri --no-rdoc`  
+
 `which passenger-install-nginx-module`  
+
 `rvmsudo 上面的輸出`  
+
 碰到虛擬記憶體不足的問題，依建議輸入指令即可解決  
 驗證安裝是否成功  
+
 `rvmsudo passenger-config validate-install`  
+
 片尾有訊息說要改passenger和ruby的路徑，可用下列指令查詢，並在其下找passenger path  
+
 `which ruby`  
+
 `which passenger`  
 
 如果無法啟動rails server，出現這樣的訊息  

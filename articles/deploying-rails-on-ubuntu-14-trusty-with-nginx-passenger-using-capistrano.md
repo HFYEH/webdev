@@ -182,6 +182,9 @@ gem 'capistrano-passenger', :group => :development
 做 deploy 前的檢查，並把遠端 (production) 需要的資料夾建立，如果有 error 請檢查錯誤訊息去 debug
 `cap production deploy:check`
 
+假裝跑看看
+`cap production deploy --dry-run`
+
 把secret.yml, database.yml複製一份到server，並且使用`rake secret`得到本地端的secret_key_base，貼至server。
 gitignore上述兩個檔案。
 

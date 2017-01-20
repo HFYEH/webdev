@@ -97,6 +97,18 @@ LC_ALL="en_US.UTF-8"
 正式安裝[postgresql](/articles/postgresql-on-ubuntu.md)
 
 `sudo apt-get install postgresql libpq-dev postgresql-contrib postgresql-client`
+
+以postgres登入db server，創建使用者
+```
+// 切換成postgres
+sudo su postgres
+
+// 登入db server
+psql
+
+CREATE ROLE deploy SUPERUSER LOGIN;
+ALTER USER deploy WITH PASSWORD 'your_password';
+```
  
 - 裝Nginx + Passenger
 移除系統預裝的nginx

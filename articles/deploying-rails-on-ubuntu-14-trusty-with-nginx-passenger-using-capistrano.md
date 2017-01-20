@@ -58,9 +58,13 @@ PasswordAuthentication no
 // Build tool and library for ruby
 sudo apt-get install build-essential zlib1g zlib1g-dev libssl-dev libreadline6-dev libyaml-dev git-core bison openssl curl libsqlite3-0 libsqlite3-dev sqlite3 autoconf libc6-dev libpcre3-dev curl libcurl4-nss-dev libxml2-dev libxslt-dev libffi-dev redis-server imagemagick nodejs ruby-dev liblzma-dev libgmp-dev
 
-// Nodejs升到最新版4.x
-curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-sudo apt-get install -y nodejs
+// 下載並安裝NodeJS
+curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh
+
+// 這段script會新增到你到configiguration
+sudo bash nodesource_setup.sh
+
+sudo apt-get install nodejs
 
 // Install rvm and Ruby
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3

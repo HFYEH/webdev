@@ -25,7 +25,6 @@
     * [Metaprogramming in Programming Ruby](articles/metagramming-in-programming-ruby.md)
     * [Metaprogramming Ruby 對象模型](articles/metaprogramming_ch1.md)
     * [Metaprogramming Ruby 代碼塊](articles/metaprogramming_ch3.md)
-    * [Linux 部署環境配置 \(Nginx + Passenger + Rails by Capistrano\)](articles/deploying-rails-on-ubuntu-14-trusty-with-nginx-passenger-using-capistrano.md)
     * [Ruby中的block, Proc和Lambda](articles/ruby_block_proc_lambda.md)
     * [Ruby中一些賦值與調用時的不同處](articles/ruby-call-and-set-param.md)
     * [Action Cable Chat Room](articles/action-cable-chatroom.md)

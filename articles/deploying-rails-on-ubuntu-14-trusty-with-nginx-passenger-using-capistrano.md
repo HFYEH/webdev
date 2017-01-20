@@ -97,14 +97,6 @@ LC_ALL="en_US.UTF-8"
 正式安裝[postgresql](/articles/postgresql-on-ubuntu.md)
 
 `sudo apt-get install postgresql libpq-dev postgresql-contrib postgresql-client`
-
-`sudo service postgresql start`  
-發現錯誤訊息，是因為語系沒有先設定好，所以安裝過程出錯  
- `* No PostgreSQL clusters exist; see "man pg_createcluster"`  
-根據這篇繼續找原因   http://dba.stackexchange.com/questions/50906/why-wont-postgresql-9-3-start-on-ubuntu
- 
-`sudo pg_createcluster 9.3 main --start`  
-再回去打第一條，打完收工~  
  
 - 裝Nginx + Passenger
 移除系統預裝的nginx  

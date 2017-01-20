@@ -61,7 +61,6 @@ sudo apt-get install build-essential zlib1g zlib1g-dev libssl-dev libreadline6-d
 // 下載並安裝NodeJS
 curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh
 
-// 這段script會新增到你到configiguration
 sudo bash nodesource_setup.sh
 
 sudo apt-get install nodejs

@@ -94,7 +94,7 @@ LC_ALL="en_US.UTF-8"
 ```
 再執行`sudo dpkg-reconfigure locales` 即可
 
-正式安裝postgres[postgresql on ubuntu](http://sharefun.logdown.com/posts/253465-postgresql-on-ubuntu)
+正式安裝[postgresql](/articles/postgresql-on-ubuntu.md)
 
 `sudo apt-get install postgresql libpq-dev postgresql-contrib postgresql-client`
 

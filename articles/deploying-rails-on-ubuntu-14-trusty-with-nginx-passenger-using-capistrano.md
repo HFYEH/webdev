@@ -71,6 +71,8 @@ sudo bash nodesource_setup.sh
 
 sudo apt-get install nodejs
 
+sudo apt-get install vim
+
 // Install rvm and Ruby
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 \curl -sSL https://get.rvm.io | bash -s stable // 預設裝在使者目錄

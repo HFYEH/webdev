@@ -126,7 +126,7 @@ ALTER USER deploy WITH PASSWORD 'your_password';
 
 `sudo rm -rf /etc/nginx`  
 
-`gem install passenger --no-ri --no-rdoc`  
+`gem install passenger --no-ri --no-rdoc`
 
 `which passenger-install-nginx-module`  
 

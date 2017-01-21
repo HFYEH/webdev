@@ -110,7 +110,14 @@ CREATE ROLE deploy SUPERUSER LOGIN;
 ALTER USER deploy WITH PASSWORD 'your_password';
 ```
  
-- 裝Nginx + Passenger （建議跳過下面繁雜的方式，那是早期的做法，請直接參考[Install Passenger + Nginx](https://www.phusionpassenger.com/library/install/nginx/install/oss/)）
+- 裝Nginx + Passenger（兩種方式）
+
+[Install Passenger + Nginx with APT](https://www.phusionpassenger.com/library/install/nginx/install/oss/)）
+
+
+[Install Passenger + Nginx with RVM](https://www.phusionpassenger.com/library/install/nginx/install/oss/rubygems_rvm/)
+
+
 
 移除系統預裝的nginx
 `sudo apt-get purge nginx nginx-full nginx-light nginx-naxsi nginx-common`  

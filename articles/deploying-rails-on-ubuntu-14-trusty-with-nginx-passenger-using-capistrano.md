@@ -122,17 +122,18 @@ ALTER USER deploy WITH PASSWORD 'your_password';
 
 
 移除系統預裝的nginx
-`sudo apt-get purge nginx nginx-full nginx-light nginx-naxsi nginx-common`  
+`sudo apt-get purge nginx nginx-full nginx-light nginx-naxsi nginx-common`
 
-`sudo rm -rf /etc/nginx`  
+`sudo rm -rf /etc/nginx`
 
 `gem install passenger --no-ri --no-rdoc`
 
-`which passenger-install-nginx-module`  
+`which passenger-install-nginx-module`
 
-`rvmsudo 上面的輸出`  
+`rvmsudo 上面的輸出`
 
 碰到虛擬記憶體不足的問題，依建議輸入指令即可解決  
+
 驗證安裝是否成功  
 
 `rvmsudo passenger-config validate-install`  

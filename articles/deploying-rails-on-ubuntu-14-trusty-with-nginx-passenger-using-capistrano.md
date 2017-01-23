@@ -243,10 +243,10 @@ RAILS_ENV=production passenger start
 
 
 # Part 8 轉址常用指令
-在`vi /etc/resolv.conf`中設定
+在`vi /etc/hosts`中設定
 
 ```
-your_name_server xxx.xxx.xxx.xxx
+xxx.xxx.xxx.xxx  your_name_server
 ```
 
 在console可以測試其對應

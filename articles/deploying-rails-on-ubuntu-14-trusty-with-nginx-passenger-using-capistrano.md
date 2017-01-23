@@ -242,7 +242,21 @@ bundle exec rake db:migrate RAILS_ENV=production
 RAILS_ENV=production passenger start
 
 
+# Part 8 轉址常用指令
+在`vi /etc/resolv.conf`中設定
 
+```
+your_name_server xxx.xxx.xxx.xxx
+```
+
+在console可以測試其對應
+
+```
+host your_name_server
+dig your_name_server
+ping your_name_server
+nslookup your_name_server
+```
 
 
 

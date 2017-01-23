@@ -170,6 +170,7 @@ sudo service nginx stop
 sudo service nginx restart
 sudo service nginx configtest
 sudo nginx -t      // 設定檔路徑和格式檢查
+netstat -tlpn      // check netstate binding
 ```
 
 

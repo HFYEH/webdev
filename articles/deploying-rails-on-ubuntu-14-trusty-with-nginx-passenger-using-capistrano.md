@@ -258,6 +258,11 @@ ping your_name_server
 nslookup your_name_server
 ```
 
+# Part 9 SSL 設置
+[Setting up a SSL Cert from Comodo](https://gist.github.com/bradmontgomery/6487319)
+
+# nginx 設置
+
 
 
 # Production environment build up 其他參考資料

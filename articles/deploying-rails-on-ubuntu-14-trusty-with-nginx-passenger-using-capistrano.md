@@ -267,30 +267,13 @@ nslookup your_name_server
 
 # Production environment build up 其他參考資料
 
-Passenger
-https://www.phusionpassenger.com/library/
-
-Rocodev
-https://github.com/rocodev/guides/wiki
 
 Ruby China
 https://ruby-china.org/wiki/deployment-rails
 
-其他
-http://wulfric.me/2016/03/ruby-on-rails-on-aliyun/
-
-Linode + capistrano
-https://github.com/rocodev/guides/wiki/setup-production-development
-
 Ruby China
 https://ruby-china.org/topics/18616
 
-Unicore + nginx
-http://tech.gadii.net/blog/2013/03/07/rails-deploy-ji-chu-jiao-xue/
-
-
-# SSL
-https://www.peterdavehello.org/2015/10/build-an-a-plus-best-practice-https-web-server-via-nginx-chinese-version/
 
 # Vagrant 參考資料
 

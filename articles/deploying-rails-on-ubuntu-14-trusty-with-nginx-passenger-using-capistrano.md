@@ -288,10 +288,6 @@ https://ruby-china.org/topics/18616
 Unicore + nginx
 http://tech.gadii.net/blog/2013/03/07/rails-deploy-ji-chu-jiao-xue/
 
-Nginx範例和說明
-http://docs.bitshares.org/testnet/8-nginx.html
-http://rexlnamp.blogspot.tw/2015/09/nginx.html
-http://z00w00.blog.51cto.com/515114/1031287
 
 # SSL
 https://www.peterdavehello.org/2015/10/build-an-a-plus-best-practice-https-web-server-via-nginx-chinese-version/

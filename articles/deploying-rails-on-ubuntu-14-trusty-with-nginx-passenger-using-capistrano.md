@@ -267,7 +267,6 @@ nslookup your_name_server
 
 # Production environment build up 其他參考資料
 
-
 Ruby China
 https://ruby-china.org/wiki/deployment-rails
 

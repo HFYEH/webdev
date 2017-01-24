@@ -263,7 +263,7 @@ nslookup your_name_server
 
 # nginx 設置
 
-
+[DingTaxi設置](https://gist.github.com/HFYEH/914827ce9c31710b5853fa322b7bc08c)
 
 # Production environment build up 其他參考資料
 

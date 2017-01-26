@@ -32,7 +32,7 @@ Person.prototype === person.__proto__  // true
 person.greet() // "Hi, sharefun"
 ```
 
-可以發現每次生成的新對象，都會帶有`greet`屬性，但是這個屬性是指向一個函數，函數內容明顯是可以共用的，這時就可以把該函數加到`person`的***constructor的原型對象上***。改寫該方法到原型對象上。
+可以發現每次生成的新對象，都會生成新的`greet`屬性，但是這個屬性是指向一個函數，函數內容明顯是可以共用的，這時就可以把該函數加到`person`的***constructor的原型對象上***（`person`自己是沒有prototype的）。改寫該方法到原型對象上。
 
 ```
 function Person(name){
@@ -46,6 +46,7 @@ Person.prototype.greet = function(){
 
 var person = new Person("sharefun")
 
+// 現在這個原型對象就帶一個新的屬性`greet`了
 person.__proto__  // Object {constructor: ..., greet: ..., __proto__: ...}
 
 

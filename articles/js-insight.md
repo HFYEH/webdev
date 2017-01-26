@@ -23,8 +23,11 @@ function Person(name){
 // 生成實例，會自動為對象分配原型對象
 var person = new Person("sharefun")
 
-// 檢查對象的建構函數
+// 檢查對象的建構函數可以用constructor屬性（此屬性此原對象屬性），後面會介紹
 person.constructor  // Person(){...}
+
+// 或可用 instanceof 檢查
+person instanceof Person // true
 
 // 查看此對象的原型對象
 person.__proto__     // Object {constructor: ..., __proto__: ...}
@@ -62,6 +65,12 @@ person.__proto__.__proto__ === Object.prototype
 person.__proto__.__proto__.__proto__   // null
 ```
 
+原型對象有一constructor屬性，預設指向原型對象所在的建構函數。因此，所有用建構函數生成的對象，都可以透過調用原型的constructor屬性得到對象的建構函數
+```
+Person.prototype.constructor === Person  // true
 
+person.constructor === Person  // true
+
+```
 
 123

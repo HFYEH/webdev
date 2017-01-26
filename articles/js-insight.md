@@ -23,7 +23,7 @@ function Person(name){
 var person = new Person("sharefun")
 
 // 查看此對象的原型對象
-person.__proto__     // Object {}
+person.__proto__     // Object {constructor: ..., __proto__: ...}
 
 // 這個原型對象怎麽來的呢？其實就是建構函數的prototype屬性指向的對象
 Person.prototype === person.__proto__  // true
@@ -32,4 +32,21 @@ Person.prototype === person.__proto__  // true
 person.greet() // "Hi, sharefun"
 ```
 
-可以發現每次生成的新對象，都會帶有`greet`屬性，但是這個屬性是指向一個函數，函數內容明顯是可以共用的，這時就可以把該函數加到`person`的***constructor的原型對象上***。
+可以發現每次生成的新對象，都會帶有`greet`屬性，但是這個屬性是指向一個函數，函數內容明顯是可以共用的，這時就可以把該函數加到`person`的***constructor的原型對象上***。改寫該方法到原型對象上。
+
+```
+function Person(name){
+  // 將會生成對象屬性
+  this.name = name;
+}
+
+Person.prototype.greet = function(){
+  console.log("Hi, " + this.name);
+}
+
+var person = new Person("sharefun")
+
+person.__proto__  // Object {constructor: ..., greet: ..., __proto__: ...}
+
+
+```

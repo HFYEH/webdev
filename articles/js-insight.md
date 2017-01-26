@@ -22,14 +22,14 @@ function Person(name){
 // 生成實例，會自動為對象分配原型對象
 var person = new Person("sharefun")
 
-// 查看此對象的原型對象（？）
+// 查看此對象的原型對象
 person.__proto__     // Object {}
 
 // 這個原型對象怎麽來的呢？其實就是建構函數的prototype屬性指向的對象
-Person.prototype
+Person.prototype === person.__proto__  // true
 
 // 呼叫對象自身方法，不過一般不會這樣用，而是把該方法寫在原型對象中
 person.greet() // "Hi, sharefun"
 ```
 
-可以發現每次生成的新對象，都會帶有`greet`屬性，但是這個屬性是指向一個函數，函數內容明顯是可以共用的，這時就可以把該函數加到`person`的***constructor的原型對象上***。函數皆存在constructor
+可以發現每次生成的新對象，都會帶有`greet`屬性，但是這個屬性是指向一個函數，函數內容明顯是可以共用的，這時就可以把該函數加到`person`的***constructor的原型對象上***。

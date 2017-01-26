@@ -50,3 +50,5 @@ person.__proto__  // Object {constructor: ..., greet: ..., __proto__: ...}
 
 
 ```
+
+123

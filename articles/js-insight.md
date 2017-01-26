@@ -23,6 +23,9 @@ function Person(name){
 // 生成實例，會自動為對象分配原型對象
 var person = new Person("sharefun")
 
+// 檢查對象的建構函數
+person.constructor  // Person(){...}
+
 // 查看此對象的原型對象
 person.__proto__     // Object {constructor: ..., __proto__: ...}
 

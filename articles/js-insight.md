@@ -6,6 +6,7 @@ JavaScript對象的建構是基於原型的，而不是基於類的。基於原�
 
 在繼續說明前，要先知道，所有對象都繼承自另一個對象，除了null之外。原型對象上的屬性和方法，都會被衍生的對象共享。
 
+又，所有函數都會有prototype屬性，建構函數也不例外。這個prototype屬性指向的就是原型對象，用此建構函數生成的對象都繼承於這個原型對象。
 
 ```javascript
 // 建構函數
@@ -36,7 +37,6 @@ person.greet() // "Hi, sharefun"
 
 ```
 function Person(name){
-  // 將會生成對象屬性
   this.name = name;
 }
 
@@ -49,7 +49,16 @@ var person = new Person("sharefun")
 // 現在這個原型對象就帶一個新的屬性`greet`了
 person.__proto__  // Object {constructor: ..., greet: ..., __proto__: ...}
 
+```
+
+原型對象也是一個對象，也是繼承於另一個原型對象，這形成原型鏈，原型鏈最頂端是`Object.prototype`
 
 ```
+person.__proto__ === Person.prototype
+person.__proto__.__proto__ === Object.prototype
+person.__proto__.__proto__.__proto__   // null
+```
+
+
 
 123

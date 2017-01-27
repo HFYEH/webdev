@@ -6,7 +6,7 @@ JavaScript對象的建構是基於原型的，而不是基於類的。基於原�
 
 在繼續說明前，要先知道，所有對象都繼承自另一個對象，除了null之外。原型對象上的屬性和方法，都會被衍生的對象共享。
 
-又，所有函數都會有prototype屬性，建構函數也不例外。這個prototype屬性指向的就是原型對象，用此建構函數生成的對象都繼承於這個原型對象。
+又，***所有函數都會有prototype屬性***，建構函數也不例外。這個prototype屬性指向的就是原型對象，用此建構函數生成的對象都繼承於這個原型對象。
 
 ```javascript
 // 建構函數
@@ -23,7 +23,7 @@ function Person(name){
 // 生成實例，會自動為對象分配原型對象
 var person = new Person("sharefun")
 
-// 檢查對象的建構函數可以用constructor屬性（此屬性此原對象屬性），後面會介紹
+// 檢查對象的建構函數可以用constructor屬性（此屬性為原生對象屬性），後面會介紹
 person.constructor  // Person(){...}
 
 // 或可用 instanceof 檢查
@@ -65,12 +65,19 @@ person.__proto__.__proto__ === Object.prototype
 person.__proto__.__proto__.__proto__   // null
 ```
 
-原型對象有一constructor屬性，預設指向原型對象所在的建構函數。因此，所有用建構函數生成的對象，都可以透過調用原型的constructor屬性得到對象的建構函數
+上面提到***建構函數都有一個原型對象（所有函數都有），而原型對象都有一constructor屬性（所有對象都有），此屬性預設指向原型對象所在的建構函數***。因此，所有用建構函數生成的對象，都可以透過調用原型的constructor屬性得到對象的建構函數
 ```
 Person.prototype.constructor === Person  // true
 
 person.constructor === Person  // true
-
 ```
 
-123
+```
+// 檢查建構函數Person的原型對象，是否在person的原型鏈上
+person instanceof Person  // true
+
+// 原型鏈上可能有多個原型對象，所以像下列的也會回傳true
+person instanceof Object  // true
+```
+
+

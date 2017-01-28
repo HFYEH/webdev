@@ -24,13 +24,6 @@ person = new Person(18)
 
 ## this 關鍵字
 
-關於this的參考資料
-
-http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html
-
-http://www.zcfy.cc/article/901
-
-
 
 # prototype對象
 

@@ -152,9 +152,7 @@ Object.setPrototypeOf(person, {})
 person instanceOf Person // false
 ```
 
-原型繼承
-
-**JavaScript的原型繼承的本質：將建構函數的原型對象指向由另一個建構函數創建的實例。**
+接下來說原型繼承。**JavaScript的原型繼承的本質：將建構函數的原型對象指向由另一個建構函數創建的實例。**
 
 ```
 // 建構函數預設的原型對象就是Object()的實例
@@ -177,4 +175,7 @@ girl.constructor // function Person(){}
 Girl.prototype = new Person();
 Girl.prototype.constructor = Girl;   // Girl.prototype.constructor就是指向上一行的new Person()
 ```
+
+
+
 

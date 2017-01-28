@@ -30,8 +30,6 @@ http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html
 
 http://www.zcfy.cc/article/901
 
-https://segmentfault.com/a/1190000006076637
-
 
 
 # prototype對象

@@ -1,12 +1,34 @@
 這裡記錄一些從阮一峰的[JavaScript參考教程](http://javascript.ruanyifeng.com/)和 JavaScript: The Good Part 中得到的知識，做記憶補強和方便回憶之用。
 
+
+# 概述
+
+JavaScript是用建構函數建成對象的。建構函數形如一般的函數，但裡面的this關鍵字指向一個新對象，由此可以賦予其實例變量和方法。生成對象時，要用`new`關鍵字。
+
+```
+function Person(age){
+  this.age = age
+}
+person = new Person(18)
+```
+
+使用`new`關鍵字，這個函數就不是正常調用。它做的事情是
+
+1. 基於構造函數的原型對象創建一個空對象
+2. 將空對象賦值給this
+3. 執行建構函數中的語句後返回這個對象
+
+# this關鍵字
+
+
+
 # prototype對象
 
 JavaScript對象的建構是基於原型的，而不是基於類的。基於原型的意思是，對象的生成不再是從一個類實例化而來，而是從另一個對象生成。JavaScript因為沒有類，所以用建構函數生成對象。
 
 在繼續說明前，要先知道，所有對象都繼承自另一個對象，除了null之外。原型對象上的屬性和方法，都會被衍生的對象共享。
 
-又，***所有函數都會有prototype屬性***，建構函數也不例外。這個prototype屬性指向的就是原型對象，用此建構函數生成的對象都繼承於這個原型對象。
+又，***所有函數都會有prototype屬性***，建構函數也不例外。這個prototype屬性指向的就是原型對象，用此建構函數生成的對象都可以取用這個原型對象的屬性。
 
 ```javascript
 // 建構函數
@@ -125,3 +147,30 @@ person.isPrototypeOf({})  // false
 Object.setPrototypeOf(person, {})
 person instanceOf Person // false
 ```
+
+原型繼承
+
+**JavaScript的原型繼承的本質：將建構函數的原型對象指向由另一個建構函數創建的實例。**
+
+```
+// 建構函數預設的原型對象就是Object()的實例
+function Person(){}
+Person.prototype  // Object
+
+function Girl(){}
+Girl.prototype = new Person()
+// 現在Girl建構函數繼承了Person的建構函數
+
+// 所以Girl實例的prototype指向的是Person實例
+var girl = new Girl()
+girl.prototype  // Person
+girl.constructor // function Person(){}
+```
+
+可以看到連constructor也被改了。這是因為在為Girl設置prototype時，是將原型對象指向Person的實例，這個實例中的constructor屬性自然是指向Person建構函數。girl對象繼承的的原型對象從Girl.prototype變成Person.prototype，所以去找constructor時會找到Person.prototype。如果想要讓constructor看起來是正確的，可以改寫一new Person()產生的原型對象。
+
+```
+Girl.prototype = new Person();
+Girl.prototype.constructor = Girl;   // Girl.prototype.constructor就是指向上一行的new Person()
+```
+

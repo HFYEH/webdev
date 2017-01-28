@@ -80,7 +80,7 @@ person.__proto__  // Object {constructor: ..., greet: ..., __proto__: ...}
 
 ```
 
-原型對象也是一個對象，也是繼承於另一個原型對象，這形成原型鏈，原型鏈最頂端是`Object.prototype`
+因為原型對象也是一個對象，也是繼承於另一個原型對象，這形成原型鏈，原型鏈最頂端是`Object.prototype`，剛剛已經說明了。
 
 ```
 person.__proto__ === Person.prototype
@@ -88,7 +88,7 @@ person.__proto__.__proto__ === Object.prototype
 person.__proto__.__proto__.__proto__   // null
 ```
 
-上面提到***建構函數都有一個原型對象（所有函數都有），而原型對象都有一constructor屬性（所有對象都有），此屬性預設指向原型對象所在的建構函數***。因此，所有用建構函數生成的對象，都可以透過調用原型的constructor屬性得到對象的建構函數
+上面提到***建構函數都有一個原型對象（所有函數都有），而原型對象都有一constructor屬性（所有對象都有），此屬性預設指向原型對象所在的建構函數***，也就是兩個互指。因此，所有用建構函數生成的對象，都可以透過調用原型的constructor屬性得到對象的建構函數
 ```
 Person.prototype.constructor === Person  // true
 
@@ -114,17 +114,20 @@ obj = {
 var obj2 = Object.create(obj)
 obj2.sayHello();
 
-// 近似於
+// 全等於
 function O(){}
 
+O.prototype = {}
+
+// 與上一個順序不可顛倒，不然這個屬性就不見了
 O.prototype.sayHello = function(){
   console.log("Hello");
 }
+// 指定原型對象的constructor
+O.prototype.constructor = Object
 
 var obj2 = new O()
 obj2.sayHello();
-
-// 兩者的不同處在於，前者的原型的建構函數是Object(obj是直接由Object生成的)，後者的原型的建構函數是O
 ```
 
 原型對象的修改和查詢

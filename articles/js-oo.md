@@ -19,6 +19,7 @@ https://segmentfault.com/a/1190000006076637
 ## prototype對象
 
 
+
 ## Object 對象與繼承
 
 ## 物件導向的編程模式

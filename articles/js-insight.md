@@ -80,4 +80,48 @@ person instanceof Person  // true
 person instanceof Object  // true
 ```
 
+```
+// Object.create(obj)以obj作為原型對象生成新對象
+obj = {
+  sayHello: function(){
+    console.log("Hello");
+  }
+}
 
+var obj2 = Object.create(obj)
+obj2.sayHello();
+
+// 近似於
+function O(){}
+
+O.prototype.sayHello = function(){
+  console.log("Hello");
+}
+
+var obj2 = new O()
+obj2.sayHello();
+
+// 兩者的不同處在於，前者的原型的建構函數是Object(obj是直接由Object生成的)，後者的原型的建構函數是O
+```
+
+原型對象的修改和查詢
+```
+// 原型對象的查詢
+Object.getPrototypeOf(person)
+person.__proto__ // 只有瀏覽器須部署，而且是內部屬性，應盡量避免使用
+person.constructor.prototype  // 手動改原型對象時可能會失效，所以修改原型對象時，要一起改其constructor屬性
+```
+
+```
+// 前者是對象，後者是建構函數，檢查對象是否在建構函數的原型對象的原型鏈上
+person instanceof Person  // true
+
+// 前後都是對象，檢查前者是否是在後者的原型鏈上
+person.isPrototypeOf({})  // false
+```
+
+```
+// 設定對象的原型對象，前者是當前對象，後者是原型對象
+Object.setPrototypeOf(person, {})
+person instanceOf Person // false
+```

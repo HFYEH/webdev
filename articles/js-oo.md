@@ -20,8 +20,6 @@ person = new Person(18)
 
 至於什麽是原型對象，之後會說明。
 
-
-
 ## this 關鍵字
 
 

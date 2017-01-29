@@ -1,6 +1,8 @@
 [原文](http://www.cnblogs.com/leoo2sk/archive/2010/12/19/ecmascript-scope.html#comment_tip)（作者张洋）
 
 
+[JavaScript: The core](http://dmitrysoshnikov.com/ecmascript/javascript-the-core/)
+
 ## 例子
 
 在多數程式語言中，變數是有塊級作用域的。如C

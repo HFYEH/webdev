@@ -14,8 +14,17 @@
 ```
 sudo su - postgres   // switch to postgres in its home directory
 sudo su postgres     // switch to postgres in current directory
+```
+切換到 postgres 帳號後，有一些指令可用
+```
+createdb book        // 建立資料庫
+```
 
+```
 psql                 // 以postgres帳號登入postgres server，登入後可以執行以下指令
+\h                   // 可用的SQL指令
+\h CREATE INDEX      // CREATE INDEX的輔助訊息
+\?                   // 列出postgres特有的指令
 \du                  // See all users
 \l                   // list all databases
 \c database_name     // connect to database

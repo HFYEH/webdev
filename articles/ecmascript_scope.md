@@ -32,13 +32,15 @@ console.log(i); // 11
 
 ## ECMAScirpt作用域模型
 
-#### 執行環境 Execution context
+#### 執行上下文 Execution context
 可執行代碼分成三種：Global code, Eval code, Function code
 
-****當執行控制流進入Global code或Function code時，都會暫停當前的執行環境，創建一個新執行環境，執行新的對應的上下文，直到執行環境返回為止。而執行一函數時，該執行環境會在棧頂，離開時，會銷毀該環境。****
+****當執行控制流進入Global code或Function code時，都會暫停當前的執行上下文，創建一個新執行上下文，執行其內容，直到返回為止。而執行一函數時，該執行上下文會在棧頂，離開時，會銷毀該環境。****
+
+執行上下文可以被當作一個簡單的對象，其屬性包含一個variable object，一個this，和scope chain。
 
 #### 變量對象 Variable Object
-****每一個執行環境都有一個與其相關的變量對象(varaible object)，它記憶了此環境中的的變量和函數。此外還有一個this，和scope chain。****
+****每一個執行上下文都有一個與其相關的變量對象(varaible object)，它記憶了此環境中的的變量和函數。****
 
 一段程式碼如下
 ```

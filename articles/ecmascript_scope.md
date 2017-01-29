@@ -33,7 +33,7 @@ console.log(i); // 11
 #### 執行環境 Execution context
 可執行代碼分成三種：Global code, Eval code, Function code
 
-****當執行控制流進入Global code或Function code時，都會創建一個執行環境。而執行一函數時，該執行環境會在棧頂，離開時，會銷毀該環境。****
+****當執行控制流進入Global code或Function code時，都會暫停當前的執行環境，創建一個新執行環境，執行新的對應的上下文，直到執行環境返回為止。而執行一函數時，該執行環境會在棧頂，離開時，會銷毀該環境。****
 
 #### 變量對象 Variable Object
 ****每一個執行環境都有一個與其相關的變量對象(varaible object)，它記憶了此環境中的的變量和函數。此外還有一個this，和scope chain。****

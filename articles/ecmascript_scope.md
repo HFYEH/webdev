@@ -40,7 +40,7 @@ console.log(i); // 11
 執行上下文可以被當作一個簡單的對象，其屬性包含一個variable object，一個this，和scope chain。
 
 #### 變量對象 Variable Object
-****每一個執行上下文都有一個與其相關的變量對象(varaible object)，它記憶了此環境中的的變量和函數。****
+****每一個執行上下文都有一個與其相關的變量對象(varaible object)，它記憶了此環境中的的變量和函數（只有函數宣告，不包含函數表達式）。****
 
 一段程式碼如下
 ```

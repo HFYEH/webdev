@@ -4,7 +4,7 @@
 
 所有的JavaScript對象都繼承自Object對象。Object對象本身也是一個構造函數，可以透過它生成對象，也可以用來包裝原始類型為對象。
 
-```
+```javascript
 var o = new Object()  // 全等於 o = {}
 
 // 如果傳入的參數是對象，就返回該對象
@@ -20,7 +20,7 @@ new Object(123) instanceof Number // true
 
 方法存在Object中，如果其它對象想要使用，必須呼叫Object的方法。
 
-```
+```javascript
 Object.print = function(o){console.log(o)}
 var o = new Object();
 Object.print(o);   // Object
@@ -30,7 +30,7 @@ Object.print(o);   // Object
 
 **所有構造函數都有一個prototype屬性，指向一原型對象。為原型定義的所有屬性和方法，將被所有實例共享。**
 
-```
+```javascript
 Object.prototype.print = function(){console.log(this)};
 var o = new Object();
 o.print()      // Object
@@ -38,7 +38,7 @@ o.print()      // Object
 
 #### Object自身的方法
 
-```
+```javascript
 Object.keys()   // 返回可枚舉的屬性
 Object.getOwnPropertyNames()  // 返回所有屬性（如Array的length屬性不可枚舉，在此會被列出
 hasOwnProperty()     // 判斷某属性是否為當前對象自身的屬性
@@ -46,7 +46,7 @@ hasOwnProperty()     // 判斷某属性是否為當前對象自身的屬性
 
 #### Object對象的實例方法
 
-```
+```javascript
 Object.prototype.valueOf()  // 預設返回對象自身
 Object.prototype.toString()  // 返回對象的字串型式。比如Date()會被改寫成日期時間的字串，是因為覆蓋了Object.prototype.toSting
 var a = {b:1}
@@ -83,7 +83,7 @@ JavaScript是採用原型繼承，所有實例都會繼承其對象原型中的�
 
 使用Array.isArray()檢查變量是否為Array。
 
-```
+```javascript
 var arr = [];    // 建構array object
 Array.isArray(arr)   // true
 ```
@@ -101,7 +101,7 @@ Array.isArray(arr)   // true
 
 合併兩array
 
-```
+```javascript
 a = [1,2,3]
 b = [4,5,6]
 Array.prototype.push.apply(a,b)
@@ -112,7 +112,7 @@ a   // [1,2,3,4,5,6]
 
 刪除最後一個元素，並返回該元素，***會改變原array***
 
-```
+```javascript
 var arr = [1,2,3]
 arr.pop()  // 3
 arr        // [1,2]
@@ -132,19 +132,19 @@ arr        // [1,2]
 
 ###### join
 將array合併為字串返回。
-```
+```javascript
 var a = [1,2,3]
 a.join()  // "1,2,3"
 ```
 Array.prototype.join可以用於array-like對象
-```
+```javascript
 Array.prototype.join.call('hello','-')  // "h-e-l-l-o"
 ```
 
 ###### concat
 array合併，接收參數接到原array之後，並返回，原array不變。規則是所有參數會打破一層array，其中所有元素會依序接上，如果某個參數是原始數值，則直接接上。如果有兩層，第二層會以引用方式作為一個元素接上。
 
-```
+```javascript
 var a = [1,2,3]
 var b = [4,5,6]
 a.concat(b)  // [1,2,3,4,5,6]
@@ -152,7 +152,7 @@ a.concat(4,5,6) // 同上
 a.concat(4,[5,6]) // 同上
 
 [0,1].concat([2],[3,4],[5,[6,7]],8)   // [0, 1, 2, 3, 4, 5, Array[2], 8]
-```
+```javascript
 注意，只要原array中包含對象，返回的array包函對該對象的引用而非硬拷貝。
 
 ###### slice
@@ -161,7 +161,7 @@ a.concat(4,[5,6]) // 同上
 
 這通常拿來複製array，或將array-like對象轉為array
 
-```
+```javascript
 // 複製array
 arr1 = [1,2,3]
 arr2 = arr1.slice(0)  // arr2是新的array
@@ -173,7 +173,7 @@ Array.prototype.slice.call({0: 'a', 1: 'b', length: 2})  // ['a','b']
 
 從array刪除一些元素，並在刪除的位置加入新元素，返回值是被刪除的元素。***會改變原array***
 
-```
+```javascript
 var arr = [0,1,2,3,4,5,6,7]
 arr.splice(1,5,'x','y','z')  # [1, 2, 3, 4, 5]從index=1開始刪除5個元素arr  # [0, "x", "y", "z", 6, 7]
 
@@ -187,7 +187,7 @@ arr  # [0, "w", "x", "y", "z", 6, 7]
 
 可以使用自定的排序方式
 
-```
+```javascript
 var arr = [100,111,102]
 arr.sort(function(a,b){return a-b})
 ```
@@ -197,7 +197,7 @@ arr.sort(function(a,b){return a-b})
 對所有元素調用一個函數，根據函數返回值組成一個新array。
 
 map第二個參數可以代入原array，這樣就可以在map的第一個函數參數內使用this關鍵字
-```
+```javascript
 var arr = ['x','y','z']
 arr.map(function(e, index){return arr[index] == e}, arr)
 // [true, true, true]
@@ -232,7 +232,7 @@ reduce的第二個參數可以對累積變量指定初始值。
 
 reduceRight只是從尾巴開始逆向迭代而已。
 
-```
+```javascript
 [1,2,3,4,5].reduce(function(sum, x){return x+y})
 // 15
 ```

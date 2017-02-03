@@ -4,7 +4,7 @@
 
 原始類型的值可以包裝成對象。
 
-```
+```javascript
 // 構造函數調用可以生成新的對象
 var x = new Number(123);
 var y = new String('aaa');
@@ -37,7 +37,7 @@ Boolean(true) // true
 
 ## 自動轉換
 
-```
+```javascript
 'abc'.length
 // 3
 ```
@@ -47,7 +47,7 @@ Boolean(true) // true
 
 ## Boolean對象
 
-```
+```javascript
 var bool = new Boolean(false)
 typeof bool             // "object"
 Boolean(bool)           // true, 因為是object
@@ -66,7 +66,7 @@ Boolean(/foo/)          // true
 
 以下是一些實例方法
 
-```
+```javascript
 // toString參數是進位制
 2.toString(2)   // "10"
 2.toString(10)  // "2"
@@ -82,7 +82,7 @@ Boolean(/foo/)          // true
 
 以下是一些實例方法
 
-```
+```javascript
 'abc'.length           // 3
 
 // 找出某位置上的字元

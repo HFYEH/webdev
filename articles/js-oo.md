@@ -5,7 +5,7 @@
 
 JavaScript是用建構函數建成對象的。建構函數形如一般的函數，使用new調用時，裡面的this關鍵字指向一個新對象，由此可以賦予其實例變量和方法。
 
-```
+```javascript
 function Person(age){
   this.age = age
 }
@@ -64,7 +64,7 @@ person.greet() // "Hi, sharefun"
 
 可以發現每次生成的新對象，都會生成新的`greet`屬性，但是這個屬性是指向一個函數，函數內容明顯是可以共用的，這時就可以把該函數加到`person`的原型對象上。
 
-```
+```javascript
 function Person(name){
   this.name = name;
 }
@@ -82,20 +82,20 @@ person.__proto__  // Object {constructor: ..., greet: ..., __proto__: ...}
 
 因為原型對象也是一個對象，也是繼承於另一個原型對象，這形成原型鏈，原型鏈最頂端是`Object.prototype`，剛剛已經說明了。
 
-```
+```javascript
 person.__proto__ === Person.prototype
 person.__proto__.__proto__ === Object.prototype
 person.__proto__.__proto__.__proto__   // null
 ```
 
 上面提到***建構函數都有一個原型對象（所有函數都有），而原型對象都有一constructor屬性（所有對象都有），此屬性預設指向原型對象所在的建構函數***，也就是兩個互指。因此，所有用建構函數生成的對象，都可以透過調用原型的constructor屬性得到對象的建構函數
-```
+```javascript
 Person.prototype.constructor === Person  // true
 
 person.constructor === Person  // true
 ```
 
-```
+```javascript
 // 檢查建構函數Person的原型對象，是否在person的原型鏈上
 person instanceof Person  // true
 
@@ -103,7 +103,7 @@ person instanceof Person  // true
 person instanceof Object  // true
 ```
 
-```
+```javascript
 // Object.create(obj)以obj作為原型對象生成新對象
 obj = {
   sayHello: function(){
@@ -131,14 +131,14 @@ obj2.sayHello();
 ```
 
 原型對象的修改和查詢
-```
+```javascript
 // 原型對象的查詢
 Object.getPrototypeOf(person)
 person.__proto__ // 只有瀏覽器須部署，而且是內部屬性，應盡量避免使用
 person.constructor.prototype  // 手動改原型對象時可能會失效，所以修改原型對象時，要一起改其constructor屬性
 ```
 
-```
+```javascript
 // 前者是對象，後者是建構函數，檢查對象是否在建構函數的原型對象的原型鏈上
 person instanceof Person  // true
 
@@ -146,7 +146,7 @@ person instanceof Person  // true
 person.isPrototypeOf({})  // false
 ```
 
-```
+```javascript
 // 設定對象的原型對象，前者是當前對象，後者是原型對象
 Object.setPrototypeOf(person, {})
 person instanceOf Person // false
@@ -154,7 +154,7 @@ person instanceOf Person // false
 
 接下來說原型繼承。**JavaScript的原型繼承的本質：將建構函數的原型對象指向由另一個建構函數創建的實例。**
 
-```
+```javascript
 // 建構函數預設的原型對象就是Object()的實例
 function Person(){}
 Person.prototype  // Object
@@ -171,7 +171,7 @@ girl.constructor // function Person(){}
 
 可以看到連constructor也被改了。這是因為在為Girl設置prototype時，是將原型對象指向Person的實例，這個實例中的constructor屬性自然是指向Person建構函數。girl對象繼承的的原型對象從Girl.prototype變成Person.prototype，所以去找constructor時會找到Person.prototype。如果想要讓constructor看起來是正確的，可以改寫一new Person()產生的原型對象。
 
-```
+```javascript
 Girl.prototype = new Person();
 Girl.prototype.constructor = Girl;   // Girl.prototype.constructor就是指向上一行的new Person()
 ```

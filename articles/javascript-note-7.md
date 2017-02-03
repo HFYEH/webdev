@@ -3,7 +3,7 @@
 ## Math
 
 屬性
-```
+```javascript
 Math.E：常數e。
 Math.LN2：2的自然對數。
 Math.LN10：10的自然對數。
@@ -14,7 +14,7 @@ Math.SQRT1_2：0.5的平方根。
 Math.SQRT2：2的平方根。
 ```
 方法
-```
+```javascript
 Math.abs()：絕對值
 Math.ceil()：向上取整
 Math.floor()：向下取整
@@ -32,7 +32,7 @@ Math.random()：[0-1)的隨機數
 
 範圍：基準時間1970年1月1日00:00:00前後一億日
 
-```
+```javascript
 Date()            // 直接調用對象，返回當地時間的字串，參數無效
 // "Thu Oct 20 2016 11:54:20 GMT+0800 (CST)"
 
@@ -55,14 +55,14 @@ new Date(1970, 0, 1, 0, 0, 0, 0)   // 代入年月日時分毫秒為參數
 
 #### 運算
 
-```
+```javascript
 var d1 = new Date(2000, 2, 1);
 var d2 = new Date(2000, 3, 1);
 d2 - d1 // 2678400000  相減可得毫秒差
 ```
 
 #### Date對象靜態方法
-```
+```javascript
 Date.now()   // 基準時間到當前時間的毫秒數
 Date.parse() // 將字串解析並返回距基準時間的毫秒數
 Date.UTC(1970,1,1)  // 使用法與new Date()第三種一樣
@@ -76,7 +76,7 @@ Date.parse(d1) == d2
 ```
 
 #### Date對象實例方法
-```
+```javascript
 toString()      // 讀取Date對象的預設的方法
 toUTCString()   // 返回UTC時間的字串
 toJSON()        // 符合JSON格式的ISO格式時間字串

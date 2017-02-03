@@ -21,4 +21,4 @@ end
 #=> <div><script>alert("!!!");</script></div>
 ```
 
-切記，永遠不要對使用者提供的內容做html_safe，可永保平安。
+切記，永遠不要對使用者提供的內容做`html_safe`，可永保平安。

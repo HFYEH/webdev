@@ -58,6 +58,8 @@
   * [jQuery memo](articles/jquery-memo.md)
   * [CSS設計模式摘要集](articles/css-design-pattern-digest.md)
   * [BFC & IFC](articles/bfc_collapsing_margins.md)
+* [Design](design.md)
+  * [Note on Landing Page Design Course](articles/udemy-course-landing-page-design-note.md)
 * [Arduino & Raspberry Pi](arduino-rpi.md)
   * [Raspberry Pi 使用ssh登入](articles/rpi.md)
   * [Git 會前準備](articles/prior-to-git-ready.md)

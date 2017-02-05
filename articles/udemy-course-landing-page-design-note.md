@@ -40,3 +40,13 @@ Landing Page Definition: 1st page toward conversion goal
 Attention Ratio = 點擊到購買的連結(完成conversion action) / 頁面上所有連結
 
 這三種主要彰顯的要點是，如果網頁上有太多分心的圖案或連結，使用者就愈容易分心。所以AR愈高，幾乎可以決定轉換率愈高。網頁仍然要放有足夠的資訊，但對於促成轉換率無助益的東西就應該拿掉。不過並不代表左邊的就是不好的Landing Page，這取決於你的訴求為何。
+
+## 常見的 Business Model 並理解你的 Conversion Actions
+
+Conversion = **Action** that is **measurable** + has **a value**
+
+
+![](../images/business-models.jpg)
+
+![](../images/business-models-2.jpg)
+

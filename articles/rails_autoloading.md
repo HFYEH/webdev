@@ -1,9 +1,12 @@
-# Rails Autoloading
+# Constant Finding and Rails Autoloading
 
 - [Rails Autoloading](#rails-autoloading)
     - [從常數查詢開始](#從常數查詢開始)
         - [Module.nesting](#modulenesting)
         - [Module.nesting.first.ancestors](#modulenestingfirstancestors)
+    - [Object.ancestors](#objectancestors)
+    - [About class_eval and singleton](#about-class_eval-and-singleton)
+
 
 ## 從常數查詢開始
 
@@ -83,7 +86,7 @@ end
 #=> true
 ```
 
-## Object.ancestors
+### Object.ancestors
 
 如果`Module.nesting == []`表示在頂層物件`Object`。Ruby會在該物件和其祖先找常數。以下例而言，所有常數都出現在Object這一層。
 
@@ -179,3 +182,47 @@ class E
 end
 #=> F
 ```
+
+## Rails Autoloading
+
+Ruby的autoload方法須要指定class name和檔案路徑，rails改寫了這個方法（實際上是改寫了const_missing方法），使得它可以自動從常數名去配對檔案路徑，因此可以不用require，只須指定autoload_path，rails即會在這些path內自動依慣例尋找。
+
+預設情況下，rails會找專案中的app資料夾。但我們可以手動加入別的path。
+
+```ruby
+# config/application.rb
+module MyApp
+  class Application < Rails::Application
+    config.autoload_paths << Rails.root.join("lib")
+  end
+end
+MyApp::Application.config.autoload_paths
+#=> ["<project_folder>/lib"]
+```
+
+[Rails autoloading — how it works, and when it doesn't](http://urbanautomaton.com/blog/2013/08/27/rails-autoloading-hell/)
+
+留下範例以供複習，以rails和ruby呼叫Foo::Bar.print_qux會有不同結果，以rails呼叫第二次會NameError，原因？
+
+```ruby
+# qux.rb
+Qux = "I'm at the root!"
+
+# foo.rb
+module Foo
+end
+
+# foo/qux.rb
+module Foo
+  Qux = "I'm in Foo!"
+end
+
+# foo/bar.rb
+class Foo::Bar
+  def self.print_qux
+    puts Qux
+  end
+end
+```
+
+**解決方法就是總是明確指定是在哪一層module**。

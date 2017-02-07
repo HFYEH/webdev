@@ -101,7 +101,7 @@ funcA內部有個pointer，指向funcA的作用域鏈，funcA的作用域鏈分�
 
 JavaScript的函數可以當作變量傳遞，可以傳入當函數參數，也可以當函數返回值。把函數當參數代入另一個函數時，稱作functional arguments，把函數當返回值時，稱作functional value。
 
-為了在函數內的activation variable找不到變量時，為了使其可以向外找，而且即使在外層已經結束了還能找到，所以在產生當前函數時會在[scope]屬性存放祖先的作用域鏈。
+為了在函數內的activation variable找不到變量時，為了使其可以向外找，而且即使在外層已經結束了還能找到，所以在**產生函數**時會在[scope]屬性存放祖先的作用域鏈。注意，是在**產生函數**的時候執行上述動作的。
 
 Scope chain = Activation object + [scope]
 

@@ -22,6 +22,7 @@ createdb book        // 建立資料庫
 
 ```
 psql                 // 以postgres帳號登入postgres server，登入後可以執行以下指令
+psql postgres        // 直接以psql登入postgres server
 \h                   // 可用的SQL指令
 \h CREATE INDEX      // CREATE INDEX的輔助訊息
 \?                   // 列出postgres特有的指令
@@ -76,7 +77,12 @@ pg_dump -h host1 dbname | psql -h host2 dbname
 ```
 # Import database
 ```
-// 基本 
+// (如果是現存的server) In postgres server, terminate session connection
+select pg_terminate_backend(pid) from pg_stat_activity where datname='your_db_name';
+drop database "your_db_name";
+create database "your_db_name";
+
+// 基本
 psql database < database.sql
 
 // 解壓縮後匯入

@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [Web Basics](server.md)
-  * [Secure Socket Layer mm](articles/http.md)
+  * [Secure Socket Layer](articles/http.md)
   * [Nginx](articles/nginx.md)
   * [理解Nginx代理，負載平衡，緩衝和緩存](articles/understand-nginx-proxy-load-balancing-buffer-and-cache.md)
   * [Process & Thread & App Server 的種類](articles/webserver.md)
@@ -30,7 +30,7 @@
   * [Ruby中一些賦值與調用時的不同處](articles/ruby-call-and-set-param.md)
   * [Action Cable Chat Room](articles/action-cable-chatroom.md)
   * [html\_safe](articles/acitve_support.md)
-  * [Rails autoloading 機制](articles/rails_autoloading.md)
+  * [Rails 常數查詢和 autoloading 機制](articles/rails_autoloading.md)
 * [JavaScript](javascript.md)
   * [讀ECMAScript作用域模型](articles/ecmascript_scope.md)
   * [Javascript 筆記　數據類型](articles/javascript-note-1.md)

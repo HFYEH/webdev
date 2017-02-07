@@ -116,6 +116,22 @@ Interest, Desire相對來說容易轉換，此階段則是使用者對產品還�
 
 ### Interest Stage
 
+- 比較接近Awareness而不是Desire
+- 有可能因為Landing page上的特定區塊而短暫達到這個階段
+- 不可能說服人對你的產品感興趣，這是自我選擇的（行銷是用在後兩階段）
+
+### person-based selection
+
+給人自我辨別（依據角色或職位），比如網站提供全職區域和兼差區域給使用者自行選擇，給使用者明確的指示可以往哪裡看更多資訊
+
+（person-based通常比較好，但仍是視產品而定）
+
+### need-based selection
+
+讓使用者依需求選擇，提供相關的內文資訊來引起興趣
+
+### Preference Test
+
 ### Desire Stage
 
 ### Action Stage

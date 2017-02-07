@@ -1,5 +1,21 @@
 # Landing Page Design and Optimization Fundamentals
 
+
+- [Landing Page Design and Optimization Fundamentals](#landing-page-design-and-optimization-fundamentals)
+    - [Landing page定義及其內容重點](#landing-page定義及其內容重點)
+        - [五秒測試](#五秒測試)
+    - [轉換率須知](#轉換率須知)
+    - [三種 Landing Page](#三種-landing-page)
+    - [常見的 Business Model 並理解你的 Conversion Actions](#常見的-business-model-並理解你的-conversion-actions)
+    - [AIDA Sale Funnel and Decision Making Process](#aida-sale-funnel-and-decision-making-process)
+        - [4 main conitive phase](#4-main-conitive-phase)
+        - [AIDA to website visitors](#aida-to-website-visitors)
+        - [Awareness Stage](#awareness-stage)
+        - [Interest Stage](#interest-stage)
+        - [Desire Stage](#desire-stage)
+        - [Action Stage](#action-stage)
+
+
 ## Landing page定義及其內容重點
 
 Landing Page Definition: 1st page toward conversion goal
@@ -50,3 +66,56 @@ Conversion = **Action** that is **measurable** + has **a value**
 
 ![](../images/business-models-2.jpg)
 
+## AIDA Sale Funnel and Decision Making Process
+
+### 4 main conitive phase
+
+1. Awareness
+2. Interest
+3. Desire
+4. Action
+
+前三者是extrinsic stimuli。最後是natrual result。
+
+這四層組成一個funnel cycle。以買車和買耳機為例，說明不同產品走這些cycle的變化是很大的。而且走完到Action後，使用者會再回退回funnel上一層或上多層。
+
+### AIDA to website visitors
+
+| AIDA | Web |
+|---|---|
+| Browsers | awareness |
+| Evaluators (take note, compare) | interest |
+| Transactors (add to cart) | desire |
+| Customers | action |
+
+在這四階中，使用者心中會問的問題是
+
+1. Do you have what I want? （五秒測試中的公司在賣什麽）
+2. Why buy from you? （五秒測試中的公司提供什麽價值）
+
+**生活經驗中，可以觀察自己在購買東西的過程中，是如何轉化的？是看到什麽？特價？實用？新奇？觀察自己在每一階如何轉化至下一階，並將其應用到自己的頁面上。**
+
+### Awareness Stage
+
+Interest, Desire相對來說容易轉換，此階段則是使用者對產品還陌生的時候，故要能有效的吸引使用者注意力。
+
+- Spreading awareness should be don via permission marketing, **trading free value for engagement and attention** (以免費的價值來吸引注意力)
+- New visitors are low on commitment and are looking for **reassureance, value and clarity**（安心，價值，明確）
+
+> 訊息耗損接收者的注意力。愈豐富的訊息會使得注意力愈發貧乏，因而須要有效的將注意力定位到過度豐富的訊息中。
+（所以在Landing page中放的連結不宜過多，是一樣的道理。）
+
+- Be still, calm，過多動畫或花俏的特效反直覺的會趕走使用者。只強調真正須要強調的東西，使東西容易找。
+- 所有次要action都會自動削弱主要action，所以主要的一定要比次要顯眼。
+- Genearating awareness is about capturing attention **quickly, effectively, clearly, succinctly.**
+- 整理所有元素，使用空白給出一種階層感和可讀性
+- 清楚的標題和副標
+- 清楚的行動按鈕（後述）
+
+（搭配講義看Landing page好壞的範例，不用擔心簡單得像是網頁初學者一樣，明確，是此階段最重要的事）
+
+### Interest Stage
+
+### Desire Stage
+
+### Action Stage

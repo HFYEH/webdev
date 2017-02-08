@@ -1,6 +1,5 @@
-# Landing Page Design and Optimization Fundamentals
 
-- [Landing Page Design and Optimization Fundamentals](#landing-page-design-and-optimization-fundamentals)
+- [[第一章] Landing Page Design and Optimization Fundamentals](#第一章-landing-page-design-and-optimization-fundamentals)
     - [Landing page定義及其內容重點](#landing-page定義及其內容重點)
         - [五秒測試](#五秒測試)
     - [轉換率須知](#轉換率須知)
@@ -17,6 +16,8 @@
         - [Desire Stage](#desire-stage)
             - [此階段常見的活動](#此階段常見的活動)
         - [Action Stage](#action-stage)
+
+# [第一章] Landing Page Design and Optimization Fundamentals
 
 ## Landing page定義及其內容重點
 

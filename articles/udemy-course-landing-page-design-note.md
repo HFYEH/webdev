@@ -157,3 +157,25 @@ Interest, Desire相對來說容易轉換，此階段則是使用者對產品還�
 - 不管是在contact form或checkout process，不要讓使用者填寫**任何**不必要的欄位
 - 簡單至上，簡化選擇，移除無關的分心物，省略不必要的字
 - 避免驚訝(avoiding surprises)，不要問人還要不要買別的，不要讓別人填別的表單
+
+## Fogg Behavior Model
+
+**B = MAT** (at same time)
+
+Behavior = Motivation Abitility Tigger at the same time
+
+![](../images/bmat.jpg)
+
+![](../images/bmat-2.jpg)
+
+### Motivation
+
+1. sensation (感情的)
+2. anticipation (預期的)
+3. social***
+
+### Ability
+
+增加simplicity，就增加使用者的ability。
+
+### Trigger

@@ -1,6 +1,5 @@
 # Landing Page Design and Optimization Fundamentals
 
-
 - [Landing Page Design and Optimization Fundamentals](#landing-page-design-and-optimization-fundamentals)
     - [Landing page定義及其內容重點](#landing-page定義及其內容重點)
         - [五秒測試](#五秒測試)
@@ -12,9 +11,12 @@
         - [AIDA to website visitors](#aida-to-website-visitors)
         - [Awareness Stage](#awareness-stage)
         - [Interest Stage](#interest-stage)
+            - [person-based selection](#person-based-selection)
+            - [need-based selection](#need-based-selection)
+            - [Preference Test](#preference-test)
         - [Desire Stage](#desire-stage)
+            - [此階段常見的活動](#此階段常見的活動)
         - [Action Stage](#action-stage)
-
 
 ## Landing page定義及其內容重點
 

@@ -179,3 +179,30 @@ Behavior = Motivation Abitility Tigger at the same time
 增加simplicity，就增加使用者的ability。
 
 ### Trigger
+
+## Making It Memorable
+
+### Limbic System (邊緣系統)
+
+- 2nd part of the brain to evolve
+- responsible for emotion, attention, affective responses + memories
+- Value judgements
+- Avoid pain / pursues pleasure
+- Spontaneous behavior
+
+好的設計就是要進入 limbic system。我們要在情感和心理面使使用者產生信任感。雖然我們的設計都是基於科學和統計的，但最後是要讓使用者在情感面和情緒面接受我們的產品。
+
+### The Way We Learn
+
+modalities
+
+- Visual: imagery, color, tables, infographics, videos, tours （滑板使用說明）
+- Audio: voice-overs, music, video, telephone
+- Kinesthetic: quizzed, games, role-playing （使用互動幫你配色/傢俱擺設）
+
+這些不應該干擾好的設計，也不是說要硬加這些元素上去，而是增強體驗用的。這在Desire/Interest階段特別重要。這些東西應該是在使用者須要更多內容或協助時才出現的。
+
+
+# [第二章] The Primay of Product and the Concept of Usability in Landing Page Design
+
+## 

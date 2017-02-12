@@ -1,4 +1,3 @@
-
 - [[第一章] Landing Page Design and Optimization Fundamentals](#第一章-landing-page-design-and-optimization-fundamentals)
     - [Landing page定義及其內容重點](#landing-page定義及其內容重點)
         - [五秒測試](#五秒測試)
@@ -16,6 +15,16 @@
         - [Desire Stage](#desire-stage)
             - [此階段常見的活動](#此階段常見的活動)
         - [Action Stage](#action-stage)
+    - [Fogg Behavior Model](#fogg-behavior-model)
+        - [Motivation](#motivation)
+        - [Ability](#ability)
+        - [Trigger](#trigger)
+    - [Making It Memorable](#making-it-memorable)
+        - [Limbic System (邊緣系統)](#limbic-system-邊緣系統)
+        - [The Way We Learn](#the-way-we-learn)
+- [[第二章] The Primay of Product and the Concept of Usability in Landing Page Design](#第二章-the-primay-of-product-and-the-concept-of-usability-in-landing-page-design)
+    - [](#)
+
 
 # [第一章] Landing Page Design and Optimization Fundamentals
 
@@ -185,3 +194,40 @@ Facilitator: M↑ PD↓ >> 降低進入門檻（以買車為例，是有高度mo
 Signals: 
 
 Sparks: M↓ PD↑ >> 適當給與獎勵（以訂閱電子報為例，因為很簡單，要驅使人訂購，就須提供較好的優惠）
+
+
+## Making It Memorable
+
+### Limbic System (邊緣系統)
+
+- 2nd part of the brain to evolve
+- responsible for emotion, attention, affective responses + memories
+- Value judgements
+- Avoid pain / pursues pleasure
+- Spontaneous behavior
+
+好的設計就是要進入 limbic system。我們要在情感和心理面使使用者產生信任感。雖然我們的設計都是基於科學和統計的，但最後是要讓使用者在情感面和情緒面接受我們的產品。
+
+### The Way We Learn
+
+modalities
+
+- Visual: imagery, color, tables, infographics, videos, tours （滑板使用說明）
+- Audio: voice-overs, music, video, telephone
+- Kinesthetic: quizzed, games, role-playing （使用互動幫你配色/傢俱擺設）
+
+這些不應該干擾好的設計，也不是說要硬加這些元素上去，而是增強體驗用的。這在Desire/Interest階段特別重要。這些東西應該是在使用者須要更多內容或協助時才出現的。
+
+
+# [第二章] The Primay of Product and the Concept of Usability in Landing Page Design
+
+## Usability
+
+物品類和諮詢類各自有不同的 usability。諮詢類要強調成效，可以顯示有多少人使用過有成效；物品類往往可以在別處找到，所以你能提供的價值可能就是給予售後服務或是較低廉的價格。
+
+> Usability: A person of average ability and experience can figure out what you do and how to use your website without it being more trouble than it's worth.
+
+![](../images/usability.jpg)
+
+好的設計會增加 proceed value 並降低使用難度，讓使用者落在右下角，此時轉換率才能最大化。
+

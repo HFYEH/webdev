@@ -176,6 +176,12 @@ Behavior = Motivation Abitility Tigger at the same time
 
 ### Ability
 
-增加simplicity，就增加使用者的ability。
+增加simplicity，就增加使用者的ability，proceed difficulty (PD)下降。
 
 ### Trigger
+
+Facilitator: M↑ PD↓ >> 降低進入門檻（以買車為例，是有高度motivation，但門檻很高，可以分期或減配等等）
+
+Signals: 
+
+Sparks: M↓ PD↑ >> 適當給與獎勵（以訂閱電子報為例，因為很簡單，要驅使人訂購，就須提供較好的優惠）

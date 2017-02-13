@@ -231,3 +231,9 @@ modalities
 
 好的設計會增加 proceed value 並降低使用難度，讓使用者落在右下角，此時轉換率才能最大化。
 
+## Clarity
+
+### clarity 和 simplicity 是為了減少 thought
+
+- Don't Make Me Think
+- Things should be self evident. If not, then self explanatory

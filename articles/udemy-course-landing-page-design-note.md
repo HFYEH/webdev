@@ -237,3 +237,5 @@ modalities
 
 - Don't Make Me Think
 - Things should be self evident. If not, then self explanatory
+- 老嫗能解
+- 避免任何 subtle frustraion，讓使用盡可能簡單

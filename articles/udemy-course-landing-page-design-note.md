@@ -259,9 +259,18 @@ modalities
 
 1. CTA 要明顯，別讓使用者找它
 2. 每頁理想要有一個 CTA
-3. 不要用 "submit"，用"我想要..."這類的詞當 CTA
-4. 要讓使用者知道會發生什麼事
+3. 用標題去支持 CTA
+4. Attention ratio 要高
+5. 不要用 "submit"，以使用的角度和心態，用"我想要..."這類的詞當 CTA
+6. 要讓使用者知道會發生什麼事，要設定期望
+7. 有劃定清楚的的 action block
+8. 不要讓使用者填太多資訊
 
 ![](../images/art-of-cta-1.jpg)
 
 ![](../images/art-of-cta-2.jpg)
+
+按鈕要明確
+
+![](../images/art-of-cta-3.jpg)
+

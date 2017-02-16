@@ -274,3 +274,19 @@ modalities
 
 ![](../images/art-of-cta-3.jpg)
 
+## Landing Page Readibility
+
+最容易被搞砸的項目。根本原因在於設計者是以「使用者會看完我所有的文字內容」來設計的，但使用者在頁面上通常只會 scan 並試圖理解，如果可以理解，才會點擊你的 CTA。
+
+> How users read on the web: they don't.
+
+people glance and scan，直到找到與他們有關的關鍵處（特別在初期）。人們不 read 的原因在於忙碌，而且有其他選擇。Scaning 是我們找到與我們有關項目的方法。使用者會聚焦在那些符合他認為他正在找的東西。
+
+1. Create visual hierarchies - the inverted pyramid
+2. Use bullet points and highlight key terms
+3. Short paragraphs. Very short.
+4. Don't write full sentences
+5. Use headlines on every page to give the user a sense of orientation
+6. Avoid jargon and hyperbole...Fewer adjectives, more objectivity
+7. Focus on essential information
+8. Keep it simple 容易讀，不要用難理解的辭彙或字

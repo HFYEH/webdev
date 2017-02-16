@@ -239,3 +239,29 @@ modalities
 - Things should be self evident. If not, then self explanatory
 - 老嫗能解
 - 避免任何 subtle frustraion，讓使用盡可能簡單
+
+以購物網站為例，在每一頁應該都要讓使用者知道這些事
+
+![](../images/quest-for-fewer-questions.jpg)
+
+而不要讓使用者有這些疑問
+
+![](../images/quest-for-fewer-questions-wrong.jpg)
+
+## 五秒測試（續）
+
+1. 標題和副標題是最重要的
+2. 如果有一段文字標示目前在做什麼，那它就應該是標題
+
+## The Art of the CTA
+
+** HAVE A FREAKING CTA **
+
+1. CTA 要明顯，別讓使用者找它
+2. 每頁理想要有一個 CTA
+3. 不要用 "submit"，用"我想要..."這類的詞當 CTA
+4. 要讓使用者知道會發生什麼事
+
+![](../images/art-of-cta-1.jpg)
+
+![](../images/art-of-cta-2.jpg)

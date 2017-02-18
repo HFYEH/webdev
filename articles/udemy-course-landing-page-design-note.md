@@ -372,3 +372,14 @@ Many and comparable 的旅館例子：問旅客要回收毛巾或是要新的毛
 6. Split up long forms to only include key fields on the first page
 7. Consistent Messaging From The Upstream Click
 
+測試順序
+
+1. Headlines
+2. Form Fields
+3. Offers / Promotions
+4. CTA Text
+5. Images / Video
+
+![](../images/dedicated-landing-best-practice-1.jpg)
+
+![](../images/dedicated-landing-best-practice-2.jpg)

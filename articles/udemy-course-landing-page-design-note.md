@@ -347,3 +347,28 @@ Icon 和 thumbnail 應被用來創造結構感和組織感
 2. Feedback, on-hover, on-click etc
 3. Typography, sans-serif better than serif, don't use more thant 2 font families
 
+## Trust Credibility + Safety
+
+三個汽車網站顯示使用者雖然不知技術細節，但這些細節影響著我們對網站的信任感。
+
+以下是一些可以增進信任感和安全感的東西
+
+1. Transactional assurances: demo and free trial are most popular
+2. Guarantees and policies
+3. Safety logos
+4. Clients and media
+
+The **many**, the **comparable**, testimonials, social identity
+
+Many and comparable 的旅館例子：問旅客要回收毛巾或是要新的毛巾。控制組說是**為了環境並與我們合作**，38%的旅客會回收。變數一說**與我們合作並加入這個計畫**，36%的旅客回收（因為是感覺是旅館要，而旅客沒有任何好處），變數二說**大多數的人會回收毛巾**，46%會回收（這邊用到了 the many），變數三說**大多數住在這間房間的人會回收毛巾**，54%人會回收（因為有 comparable）。
+
+## Dedicated Landing Page Best Practice
+
+1. Clear and Unmistakable Headline
+2. Action Block / CTA Above The Fold
+3. Remove any Excess Text and Highlight Primary Features
+4. Trust, Trust and a Little More Trust
+5. Explainer Videos Work Great on Landing Pages
+6. Split up long forms to only include key fields on the first page
+7. Consistent Messaging From The Upstream Click
+

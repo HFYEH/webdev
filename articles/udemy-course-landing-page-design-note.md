@@ -301,7 +301,7 @@ Convention 是使用者長期使用網站而習得的，要破壞 convention 一
 
 ![](../images/respect-conventions.jpg)
 
-## Increase CR With Images+Graphics
+## Increase CR With Images + Graphics
 
 ![](../images/graph-principles.jpg)
 
@@ -323,4 +323,27 @@ Icon 和 thumbnail 應被用來創造結構感和組織感
 在不同 row 間交換圖和文字的順序可以幫助建立結構
 
 別忘了勾起使用者的情感
+
+## Information Archetecture + Accessibility
+
+### Archetecture
+
+網站沒有方向，所以要做好導覽，以下各部講解看投影片。
+
+![](../images/archetect-accessibilicy-1.jpg)
+
+看自己的網站是否缺乏以下這些
+
+1. Site name / Logo
+2. Page name
+3. Primary nav
+4. Local Navigation
+5. "You are here" visual distinction
+6. Search
+
+### Accessibility
+
+1. Contrast, make sure you have lots of it.
+2. Feedback, on-hover, on-click etc
+3. Typography, sans-serif better than serif, don't use more thant 2 font families
 

@@ -290,3 +290,37 @@ people glance and scan，直到找到與他們有關的關鍵處（特別在初�
 6. Avoid jargon and hyperbole...Fewer adjectives, more objectivity
 7. Focus on essential information
 8. Keep it simple 容易讀，不要用難理解的辭彙或字
+
+## Respecting Web Conventions
+
+User spend most of their time on other website
+
+Convention 是使用者長期使用網站而習得的，要破壞 convention 一定要確定它可以不證自明，或是其背後價值可以彌補使用者的心力，唯一確定的方法是使用者實驗。
+
+以下是一般主頁的 convention，dedicated LP 可能會省略很多地方，但位置和規則不變
+
+![](../images/respect-conventions.jpg)
+
+## Increase CR With Images+Graphics
+
+![](../images/graph-principles.jpg)
+
+圖片設計技巧
+
+1. Solid background container, with text on top of an image
+2. Use **color overlay** to match brand style, reduce **brightness** and **complexity** of the image
+3. Use solid black overlay with an opacity level of 80-95%
+4. Position image and make text on a solid part of the overall image
+5. Gradient overlay from transparent to solid fade over image
+6. Blur background image enough to let text be prominent and clear
+
+圖片要（而且也應該）能夠取代文字
+
+Icon 和 thumbnail 應被用來創造結構感和組織感
+
+如果 LP 中有些地方字太多，可以加一些輔助圖形把文字打散並且使文字較容易被吸收
+
+在不同 row 間交換圖和文字的順序可以幫助建立結構
+
+別忘了勾起使用者的情感
+

@@ -383,3 +383,12 @@ Many and comparable 的旅館例子：問旅客要回收毛巾或是要新的毛
 ![](../images/dedicated-landing-best-practice-1.jpg)
 
 ![](../images/dedicated-landing-best-practice-2.jpg)
+
+# Principles of Persuasion
+
+## Scacity
+
+- 限量是殘酷的，人們傾向做倉促的決定多過錯過一筆交易
+- 商品可以是實體物品促成導引性銷售，可以是限時或限量
+- Don't overdo it
+

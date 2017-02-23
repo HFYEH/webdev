@@ -392,3 +392,39 @@ Many and comparable 的旅館例子：問旅客要回收毛巾或是要新的毛
 - 商品可以是實體物品促成導引性銷售，可以是限時或限量
 - Don't overdo it
 
+## Reciprocity (互惠報答）, Reciprocal Concessions （讓步） + Anchoring
+
+- 人在潛意識比較不會對第二選項（後來提出，較佳的條件）說不，以在別人庭院放大小招牌，和小孩提出的五元要求為例
+- 以研討會的早鳥票和一般票為例
+- 寄信提供折扣
+- Create a second package with additional features not usaully important to the majority of your customers
+- Yes / No exti-intent popovers
+
+### Reciprocal concessions + Anchoring
+
+- 在 decision making 中，anchor 指的是第一個或是最圖出的選項
+- 人傾向過度依賴 anchor，接下來的選項皆會以 anchor 為基準來評量
+- 最常用在訂定價格上
+- 可以放上你根本也不打算銷售的東西
+
+善用 anchoring 提高產品利潤的例子。這是講者做的實驗。**實際上，即使是一模一樣的產品，一樣的真實售價，在有提供 anchoring 的情況下，已經多次證明比那些沒有提供的有較高轉換率**。
+
+![](../images/reciprocal-concessions-anchoring-1.jpg)
+
+### Engendering indebtedness （產生受惠感）
+
+- 人們傾向回報你的恩惠
+- 實驗，在結帳前提供客人糖果或巧克力，小費就有明顯不同
+- Don't ask for anything in return
+- Free advice, free tools, trials, content previews, free resources, ebooks and white-papers, consultations, audits and additional perks are all gestures that will create a desire to reciprocate
+
+**提供恩惠並不僅僅造成增加銷量，而是在潛意識引發客戶想要回報的心理。**舉線上販售眼鏡為例，提供無償退貨，免運，五天試用，還有精美木盒，客戶傾向於回報商家。
+
+- Don't underestimate the resource library （以我自身為例，會去看 launch school 的書）
+
+### Cognitive Dissonance Theory (認知失調論) Works Well With Riciprocity
+
+- 人們傾向不矛盾。他們要他們的行為和信念是相符的
+- 我們合理化並且作為使它們不違背先前的行為和努力
+- **以此課程為例，我更有可能向講者的 Landing page 課程買單，因為我從這門課得到價值，而且沒有付出太多錢，因此會更傾向回報講者。這不是說服，靠說服是沒有用的。而是一旦我自己決定要，我就會去找那些對自己有價值的事物。**
+

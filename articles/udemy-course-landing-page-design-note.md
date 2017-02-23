@@ -437,3 +437,8 @@ Many and comparable 的旅館例子：問旅客要回收毛巾或是要新的毛
 
 ## Empathy and Contextual Awareness
 
+Walk in their shoes.
+
+看投影片。
+
+Practice: Write user scenarios, role, the trait and intent of conversion path. Close eye, imagine you're that person, feel the fear, anxiety, motivation, need for more information to get your question answered. Go back your site, experience the site with sense of empathy from the prospetive of your user scenarios.

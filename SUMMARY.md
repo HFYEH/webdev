@@ -54,6 +54,7 @@
   * [React Native](articles/learn-react-native.md)
   * [React Essentials 筆記](articles/react-essentials.md)
   * [React Native 的 ES5 ES6寫法對照](articles/es5-es6.md)
+  * [自建 CodePush Server 記錄](articles/build-code-push-server.md)
 * [Front-End](front-end.md)
   * [jQuery memo](articles/jquery-memo.md)
   * [CSS設計模式摘要集](articles/css-design-pattern-digest.md)

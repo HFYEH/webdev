@@ -89,7 +89,7 @@ cp code-push-server/docs/process.json .
       "BUCKET_NAME": "s3_bucket_name",                                                                                                             
       "REGION": "ap-northeast-1",
       "DOWNLOAD_URL": "http://codepush.dingtaxi.com.s3-ap-northeast-1.amazonaws.com",  // 有兩種形式，一是"resion/bucket_name"，另一種是"bucket_name.region"
-      "DATA_DIR": "/home/ubuntu/code-push-server/data",
+      "DATA_DIR": "/home/ubuntu/apps/code-push-server/data",
       "STORAGE_TYPE": "s3"   // 此項要設定，否則預設會讀 local 作為 bundle file 存放處
     }
   }]

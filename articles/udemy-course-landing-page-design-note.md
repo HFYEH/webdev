@@ -455,7 +455,7 @@ Many and comparable 的旅館例子：問旅客要回收毛巾或是要新的毛
 
 以下是一個利用 cognitive dissonance 的好例子，人們很難按下 No，因為那跟他們一直想做的事相反。 人們不喜歡行為和認知相反，投影片有更多利用弱點的經典例子。
 
-![](reciprocal-concessions-anchoring-2.jpg)
+![](../images/reciprocal-concessions-anchoring-2.jpg)
 
 ## Empathy and Contextual Awareness
 

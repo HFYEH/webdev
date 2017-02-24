@@ -39,7 +39,7 @@
     - [Trust Credibility + Safety](#trust-credibility--safety)
     - [Dedicated Landing Page Best Practice](#dedicated-landing-page-best-practice)
 - [[第三章] Principles of Persuasion](#第三章-principles-of-persuasion)
-    - [Scacity](#scacity)
+    - [Scarcity](#scarcity)
     - [Reciprocity (互惠報答）, Reciprocal Concessions （讓步） + Anchoring](#reciprocity-互惠報答-reciprocal-concessions-讓步--anchoring)
         - [Reciprocal concessions + Anchoring](#reciprocal-concessions--anchoring)
         - [Engendering indebtedness （產生受惠感）](#engendering-indebtedness-產生受惠感)
@@ -408,7 +408,7 @@ Many and comparable 的旅館例子：問旅客要回收毛巾或是要新的毛
 
 # [第三章] Principles of Persuasion
 
-## Scacity
+## Scarcity
 
 - 限量是殘酷的，人們傾向做倉促的決定多過錯過一筆交易
 - 商品可以是實體物品促成導引性銷售，可以是限時或限量

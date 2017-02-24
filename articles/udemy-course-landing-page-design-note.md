@@ -1,3 +1,5 @@
+<!-- TOC -->
+
 - [[第一章] Landing Page Design and Optimization Fundamentals](#第一章-landing-page-design-and-optimization-fundamentals)
     - [Landing page定義及其內容重點](#landing-page定義及其內容重點)
         - [五秒測試](#五秒測試)
@@ -23,8 +25,28 @@
         - [Limbic System (邊緣系統)](#limbic-system-邊緣系統)
         - [The Way We Learn](#the-way-we-learn)
 - [[第二章] The Primay of Product and the Concept of Usability in Landing Page Design](#第二章-the-primay-of-product-and-the-concept-of-usability-in-landing-page-design)
-    - [](#)
+    - [Usability](#usability)
+    - [Clarity](#clarity)
+        - [clarity 和 simplicity 是為了減少 thought](#clarity-和-simplicity-是為了減少-thought)
+    - [五秒測試（續）](#五秒測試續)
+    - [The Art of the CTA](#the-art-of-the-cta)
+    - [Landing Page Readibility](#landing-page-readibility)
+    - [Respecting Web Conventions](#respecting-web-conventions)
+    - [Increase CR With Images + Graphics](#increase-cr-with-images--graphics)
+    - [Information Archetecture + Accessibility](#information-archetecture--accessibility)
+        - [Archetecture](#archetecture)
+        - [Accessibility](#accessibility)
+    - [Trust Credibility + Safety](#trust-credibility--safety)
+    - [Dedicated Landing Page Best Practice](#dedicated-landing-page-best-practice)
+- [[第三章] Principles of Persuasion](#第三章-principles-of-persuasion)
+    - [Scacity](#scacity)
+    - [Reciprocity (互惠報答）, Reciprocal Concessions （讓步） + Anchoring](#reciprocity-互惠報答-reciprocal-concessions-讓步--anchoring)
+        - [Reciprocal concessions + Anchoring](#reciprocal-concessions--anchoring)
+        - [Engendering indebtedness （產生受惠感）](#engendering-indebtedness-產生受惠感)
+        - [Cognitive Dissonance Theory (認知失調論) Works Well With Riciprocity](#cognitive-dissonance-theory-認知失調論-works-well-with-riciprocity)
+    - [Empathy and Contextual Awareness](#empathy-and-contextual-awareness)
 
+<!-- /TOC -->
 
 # [第一章] Landing Page Design and Optimization Fundamentals
 
@@ -384,7 +406,7 @@ Many and comparable 的旅館例子：問旅客要回收毛巾或是要新的毛
 
 ![](../images/dedicated-landing-best-practice-2.jpg)
 
-# Principles of Persuasion
+# [第三章] Principles of Persuasion
 
 ## Scacity
 

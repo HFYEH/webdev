@@ -119,9 +119,8 @@ git fetch -p                      # 清理已經被刪除的 remote branch
 
 ## git pull
 
-###### 情境：如果遠端 Repo 與本機的 commit 不同,且不同處非同一個文件
+### 以merge操作
 
-以merge操作
 ```
 # 完整格式
 git pull origin <remote_branch>:<branch>    # 取回origin的remote_branch分支，與本地的branch合併
@@ -136,26 +135,26 @@ git pull                                    # 如果當前分支只有唯一的�
 
 # 此時 master 多一個 commit
 # 加上新的commit後， origin/master 還不知道這個新的 commit
-`git push`                                 # origin/master 與 master 指到相同位置,並且上傳至遠端 Repo
+git push                                    # origin/master 與 master 指到相同位置,並且上傳至遠端 Repo
 ```
 
-以rebase操作
+### 以rebase操作
+
 ```
 git pull --rebase
 # 會做兩件事
 # 1. 同步遠端 Repo 至本機(git fetch)
 # 2. rebase origin/master (git rebase origin/master)
-git push
 ```
 
 ## git push
 
 ```
 git push origin <branch>:<remote_branch>    # 對照git pull，冒號的意思就是從左邊送到右邊
-git push origin :<remote_branch>            # 因為把branch設為空，表示刪除遠端分支
+git push origin :<remote_branch>            # 因為把branch設為空，表示刪除遠端分支（之後用git fetch -p刪除）
 git push -u origin <branch>                 # 上傳當前分支到遠端 Repo，並將origin設為默認遠端
 
-git push --tag               # 為遠端 Repo 加上 tag
+git push --tag                              # 為遠端 Repo 加上 tag（預設不會push tag，要用此指令才會）
 ```
 
 
@@ -174,36 +173,38 @@ git fetch
 git rebase   # 預設會去rebase origin/branch_name
 
 # 碰到衝突有三種處置方法
-# 1. 解決衝突後 `git rebase --continue`
+# 1. 解決衝突後`git add .`再`git rebase --continue`
 # 2. 跳過 master 上的這個 commit `git rebase --skip`
 # 3. 回復到使用 rebase 前的狀態 `git rebase --abort`
 ```
 
-### Local branch rebase (無衝突情況)
+### git rebase
 Rebase 真正含義
 
 首先，當前的 branch 是從某個 commit 分出來的，那個 commit 就是此 branch 的 base。
 
-Rebase 時,先把當前 branch 的最後一個 commit 到 base commit 之後的所有 commit 移到暫存資料區，再把HEAD指向要被 rebase 的目標（也就是跑了所有的新的base的commit）,再將暫存區中的 commit 一一 commit 回來
+Rebase 時,先把當前 branch 的最後一個 commit 到 base commit 間的所有 commits 移到暫存資料區，再把HEAD指向要被 rebase 的目標（也就是跑了所有的新的base的commit）,再將暫存區中的 commit 一一 commit 回來
 
-假定現在要從某branch做rebase master
+假定現在要從某 branch 做 rebase master
 ```
 git checkout <branch>           # 切到該branch
 git rebase master               # 先在本 branch 上跑 master 的 commit, 再跑 branch 上的 commit
 git checkout master
-git merge <branch>
+git merge <branch>              # 用此指令會是 fast-forward，只有一支
+git merge <branch> --no-ff      # 不用 fast-forward 的情況下，會產生新的 merge commit，一個 merge 就代表一個 feature 的完成
 ```
 
 有了這層認識後，`git pull --rebase`就不難理解了。
 
-當使用`git rebase`時，會找到當前branch的origin/branch，origin/branch和local branch有各自的更新，但是當前branch的base就是在上一次`git push`的地方。所以會把push後的local commit先移到暫存區，再跑所有的origin/branch的commit，最後再把暫存區的commit回來。
+當使用`git rebase --rebase`時，會找到當前 branch 的 origin/branch，origin/branch 和 local branch 有各自的更新，但是當前 branch 的 base 就是在上一次`git push`的地方。所以會把 push 後的 local commit 先移到暫存區，再跑所有的origin/branch 的 commit，最後再把暫存區的commit回來。
 
 ## git rebase -i (Interactive rebase)
 在同一個分支裡跑 rebase 是在更改 commit 順序
+
 ```
 # rebase 到 HEAD^
-git rebase -i HEAD^   # 因為 HEAD^ 之後只有一個commit,故只會有一個 commit 出現，所以其實不會改變順序
-git rebase -i HEAD~3    重跑最後三個 commit,會跑出 editor,編輯完後再執行該 editor
+git rebase -i HEAD^      # 因為 HEAD^ 之後只有一個commit,故只會有一個 commit 出現，所以其實不會改變順序
+git rebase -i HEAD~3     # 重跑最後三個 commit,會跑出 editor,編輯完後再執行該 editor
 # 之後會進editor，編輯順序，不過要注意，最上面是最先會被commit的，儲存後就會rebase了，進入editor後可看說明更改順序和commnet，合併，拆解
 ```
 

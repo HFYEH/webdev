@@ -383,12 +383,12 @@ git rm --cached development.log    # 之後再加入.gitignore
 
 # Github
 
-## upstream
+## fork project workflow
 ```
 # Update your fork
 
-git remote add upstream <path_to_repo>   # Add remote for upstream
-git fetch upstream                       # Fetch changes
+git remote add upstream <path_to_repo>   # Add remote for upstream (now we have origin, upstream)
+git fetch upstream                       # Fetch changes (fetch from upstream)
 git merge upstream/master master         # Merge them into master
 git push origin master                   # Push to your remote
 ```

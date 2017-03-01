@@ -178,7 +178,7 @@ git rebase   # 預設會去rebase origin/branch_name
 # 3. 回復到使用 rebase 前的狀態 `git rebase --abort`
 ```
 
-### git rebase
+## git rebase
 Rebase 真正含義
 
 首先，當前的 branch 是從某個 commit 分出來的，那個 commit 就是此 branch 的 base。
@@ -263,7 +263,7 @@ git push                        # 會自動儲存到遠端 Repo 的該 branch
 # 其他人只要 git pull 就可以同步了
 ```
 
-## stashing
+## git stash
 正在分支編寫,臨時要去 master 救火
 ```
 git stash save "message"   # 把目前還沒有 commit 的文件存到暫存區並且將工作目錄復原到最後一次 commit
@@ -293,9 +293,9 @@ git stash pop                 # git stash apply; git stash drop;
 
 ## 清理遠端branch和本地的origin
 ```
-git push origin :branch_name # 刪除遠端分支
-git remote show origin   # 可以看到被砍掉的 branch 狀態為 stale，此時local branch還在，但是origin裡的branch失去追蹤的branch了
-git remote prune origin   # 清理origin中被沒有追蹤的分支
+git push origin :branch_name   # 刪除遠端分支
+git remote show origin         # 可以看到被砍掉的 branch 狀態為 stale，此時local branch還在，但是 origin 裡的 branch 失去追蹤的branch了
+git remote prune origin        # 清理 origin 中被沒有追蹤的分支，應該跟 git fetch -p 功用相同
 ```
 
 ## 在 Heroku 部署 local 分支
@@ -333,7 +333,7 @@ git rm --cached development.log
 1. 違反著作權
 2. 大檔案移除
 
-可以使用BFG或filter-branch，BFG(https://rtyley.github.io/bfg-repo-cleaner/)要安裝，[filter-branch](https://help.github.com/articles/removing-sensitive-data-from-a-repository/)較慢
+可以使用BFG或filter-branch，[BFG](https://rtyley.github.io/bfg-repo-cleaner/)要安裝，[filter-branch](https://help.github.com/articles/removing-sensitive-data-from-a-repository/)較慢
 
 ## cherry-pick
 ```

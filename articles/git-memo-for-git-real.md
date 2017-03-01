@@ -196,7 +196,9 @@ git merge <branch> --no-ff      # 不用 fast-forward 的情況下，會產生�
 
 有了這層認識後，`git pull --rebase`就不難理解了。
 
-當使用`git rebase --rebase`時，會找到當前 branch 的 origin/branch，origin/branch 和 local branch 有各自的更新，但是當前 branch 的 base 就是在上一次`git push`的地方。所以會把 push 後的 local commit 先移到暫存區，再跑所有的origin/branch 的 commit，最後再把暫存區的commit回來。
+當使用`git rebase --rebase`時，會找到當前 branch 的 origin/branch，origin/branch 和 local branch 有各自的更新，但是當前 branch 的 base 就是在上一次`git pull`的地方。所以會把 pull 後的 local commit 先移到暫存區，再跑所有的origin/branch 的 commit，最後再把暫存區的 commit 回來。
+
+參考ihower的[說明](https://ihower.tw/blog/archives/3843)
 
 ## git rebase -i (Interactive rebase)
 在同一個分支裡跑 rebase 是在更改 commit 順序
@@ -324,11 +326,14 @@ git rm --cached development.log
 # 之後再加入.gitignore
 ```
 
-## git purge
-有檔案要從所有歷史中完全移除的情況
+## git filter-branch
+
+這些情況下會有檔案要從所有歷史中完全移除。
 
 1. 違反著作權
 2. 大檔案移除
+
+可以使用BFG或filter-branch，BFG(https://rtyley.github.io/bfg-repo-cleaner/)要安裝，[filter-branch](https://help.github.com/articles/removing-sensitive-data-from-a-repository/)較慢
 
 ## cherry-pick
 ```

@@ -1,3 +1,5 @@
+# Setup
+
 ## Configuration
 
 ```bash
@@ -24,18 +26,20 @@ git config --global alias.pushall "push --recurse-submodules=on-demand"    # 在
 // --local是此repo，存在repo的.git/config
 // --system是所有user
 ```
-
 ## 查看說明
 ```
 git xxx help                 # 查看xxx指令的說明，說明檔已經寫得很詳細，以下僅列出常用的指令之說明
 ```
 
+# Git commands
 
 ## 裸裝與平裝的分別
+
 ```
 git init project #單人使用(平裝)
 git init --bare project.git #多人使用(裸裝)
 ```
+
 ## glt clone
 ```
 git clone /var/git/project.git/                                   # 複製本機的repository
@@ -398,3 +402,13 @@ git commit -m "Fixes #1"
 git commit -m "closes #1"
 git commit -m "resolves #1"
 ```
+
+# [commit messges 七條準則](https://chris.beams.io/posts/git-commit/)
+
+1. 標題和主體以空行分隔
+2. 標題控制在50個字母內，至多72個
+3. 標題首字字首大寫
+4. 標題句尾不加句號
+5. 使用祈使句，要滿足這樣的句式：If applied, this commit will <your_commit_message>
+6. 主體也以一行72個字母為限
+7. 使用主體解釋 what, why vs. how，說明為何做，之前是如何，現在變得如何

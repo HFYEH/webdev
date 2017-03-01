@@ -59,21 +59,28 @@ git diff --since=1.week.ago --until=1.minute.ago
 
 ## git reset
 ```
-git reset                    # git add功能相反，取消staging的狀態回到unstaging或untracked
-git reset filename           # 指定特定檔案從 staging area 狀態回到 unstaging 或 untracked
+git reset (HEAD)             # 與 git add 功能相反，取消 staging 的狀態回到 unstaging 或 untracked
+git reset (HEAD) filename    # 指定特定檔案從 staging area 狀態回到 unstaging 或 untracked
 
-# 若只是忘記加入某檔案可以使用
-git add filename
+# 若最後一次commit有一些小錯誤要修正，想把修改之後的結果放入同一次commit
+git add file_changed
 git commit --amend -m "message"
+git commit -a -m "message"   # 同上
 
-# 已經 git push後嚴禁使用
-git reset --soft             # 把HEAD指向HEAD，所以不會有任何改變
-git reset --soft <commit>    # 把HEAD指向該commit，相應的結果為之前commit的結果回到staging，若檔案經過多次改變，以最後staging的版本為準
+# 如果想把 commit 撤銷，但不要回到unstaging或untrack，而是回到staging，可加--soft
+git reset --soft <commit>    # 把 HEAD 指向該 commit，相應的結果為此commit之後的修改都回到 staging
+
+# 如果要讓工作目錄與 commit 完全相同，可加--hard
 git reset --soft HEAD^       # 把最後一次 commit 的檔案回復到 staging 並取消最後一次 commit
-git reset --hard             # 把當前目錄和staging與最後一次commit(HEAD)同步，未追蹤的資料不會變化
-git reset --hard <commit>    # 把commit之後的記錄完全取消並且將當前目錄與commit同步
-git reset --hard HEAD^       # 取消最後一個 commit 並且將專案目錄回復到上一個 commit 的樣子，也就是此之前所有改變皆消失
+git reset --hard             # 把當前目錄和 staging 與最後一次 commit(HEAD) 同步，未追蹤的資料不會變化
+git reset --hard <commit>    # 把 commit 之後的記錄完全撤銷並且將當前目錄與 commit 同步
+git reset --hard HEAD^       # 取消最後一個 commit 並且將專案目錄回復到上一個 commit 的樣子
 ```
+## git revert
+```
+git revert <commit>          # 對該 commit 所有更變逆操作，做成新的 commit
+```
+
 ## git checkout
 ```
 git checkout .               # Recover all to repo version
@@ -107,6 +114,7 @@ git remote show origin                # 做下列三件事
 ```
 git fetch origin                  # 抓下遠端repo所有記錄
 git fetch origin <branch>         # 只抓特定分支，取回的分支，在本地命名為origin/<branch>
+git fetch -p                      # 清理已經被刪除的 remote branch
 ```
 
 ## git pull
@@ -190,7 +198,7 @@ git merge <branch>
 
 當使用`git rebase`時，會找到當前branch的origin/branch，origin/branch和local branch有各自的更新，但是當前branch的base就是在上一次`git push`的地方。所以會把push後的local commit先移到暫存區，再跑所有的origin/branch的commit，最後再把暫存區的commit回來。
 
-## Interactive rebase
+## git rebase -i (Interactive rebase)
 在同一個分支裡跑 rebase 是在更改 commit 順序
 ```
 # rebase 到 HEAD^
@@ -201,12 +209,14 @@ git rebase -i HEAD~3    重跑最後三個 commit,會跑出 editor,編輯完後�
 
 ## git branch
 ```
-git branch                  # 列出目前的local branch
-git branch -r               # 列出目前的remote branch
-git branch -a               # 列出目前的local branch 和remote branch
+git branch                  # 列出目前的 local branch
+git branch -r               # 列出目前的 remote branch
+git branch -a               # 列出目前的 local branch 和remote branch
 git branch <branch>         # 建立一個分支 branch
 git branch -d <branch>      # 刪除 branch 分支
 git branch -D <branch>      # 強制刪除 branch 分支（有 commit 但未 merge 時用）
+git branch --merged         # 列出已經合併的 local branch
+git branch -r --merged      # 列出已經合併的 remote branch
 ```
 
 ## git log

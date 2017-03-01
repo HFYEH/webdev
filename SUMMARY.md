@@ -33,7 +33,7 @@
   * [Rails 常數查詢和 autoloading 機制](articles/rails_autoloading.md)
 * [JavaScript](javascript.md)
   * [讀ECMAScript作用域模型](articles/ecmascript_scope.md)
-  * [Javascript 筆記　數據類型](articles/javascript-note-1.md)
+  * [JavaScript 筆記　數據類型](articles/javascript-note-1.md)
   * [JavaScript 筆記　運算符](articles/javascript-note-2.md)
   * [JavaScript 筆記　數據類型轉換](articles/javascript-note-3.md)
   * [JavaScript 筆記　錯誤處理機制](articles/javascript-note-4.md)

@@ -298,34 +298,6 @@ git remote show origin         # 可以看到被砍掉的 branch 狀態為 stale
 git remote prune origin        # 清理 origin 中被沒有追蹤的分支，應該跟 git fetch -p 功用相同
 ```
 
-## 在 Heroku 部署 local 分支
-```
-# Heroku 只會部署 master
-<commit position>:<remote branch>
-
-git push heroku-staging local_branch:master   # 把 local 分支部署到 Heroku master
-```
-
-## exclude (專屬自己的資料夾,不給別人看的)
-```
-.git/info/exclude
-experiments/    # exclude folder
-tutorial.mp4    # file
-*.mp4                    # all file ended with .mp4
-```
-
-## .gitignore (所有repo中都有的,要故意忽略的)
-```
-*.log
-```
-
-###### 情境：要將本來在repo的檔案停止追蹤但不刪除
-
-```
-git rm --cached development.log
-# 之後再加入.gitignore
-```
-
 ## git filter-branch
 
 這些情況下會有檔案要從所有歷史中完全移除。
@@ -335,7 +307,7 @@ git rm --cached development.log
 
 可以使用BFG或filter-branch，[BFG](https://rtyley.github.io/bfg-repo-cleaner/)要安裝，[filter-branch](https://help.github.com/articles/removing-sensitive-data-from-a-repository/)較慢
 
-## cherry-pick
+## git cherry-pick
 ```
 # 要把別的branch的特定commit複製一份到當前branch，複製過來的commit有不同的SHA
 git cherry-pick 54ea45
@@ -376,25 +348,53 @@ git submodule update        # clone submodules
 ```
 
 
-## Github
+
+
+## 在 Heroku 部署 local 分支
+```
+# Heroku 只會部署 master
+<commit position>:<remote branch>
+
+git push heroku-staging local_branch:master   # 把 local 分支部署到 Heroku master
+```
+
+## exclude (專屬自己的資料夾,不給別人看的)
+```
+.git/info/exclude
+experiments/    # exclude folder
+tutorial.mp4    # file
+*.mp4                    # all file ended with .mp4
+```
+
+## .gitignore (所有repo中都有的,要故意忽略的)
+```
+*.log
+```
+
+###### 情境：要將本來在repo的檔案停止追蹤但不刪除
+
+```
+git rm --cached development.log    # 之後再加入.gitignore
+```
+
+# Github
+
+## upstream
 ```
 # Update your fork
 
-# 1. Add remote for upstream
-git remote add upstream <path_to_repo>
-# 2. Fetch changes
-git fetch upstream
-# 3. Merge them into master
-git merge upstream/master master
-# 4. Push to your remote
-git push origin master
+git remote add upstream <path_to_repo>   # Add remote for upstream
+git fetch upstream                       # Fetch changes
+git merge upstream/master master         # Merge them into master
+git push origin master                   # Push to your remote
 ```
 
 ## Issue
 ```
 git commit -m "This message will show up at issue #1"
+
+# 下述三個，當 commit 被 merge 回 master 時，會關閉 issue
 git commit -m "Fixes #1"
 git commit -m "closes #1"
 git commit -m "resolves #1"
-# 上述三個，當commit被merge回master時，會關閉issue
 ```

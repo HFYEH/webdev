@@ -1,18 +1,33 @@
+
+
 # Metaprogramming in Programming Ruby
 
-本篇文章是Programming Ruby第三部份關於meataprogramming的讀書筆記，幫助整理思路。直接進Metaprogramming Ruby感覺比較吃力，有一些觀念是看了這章後才豁然開朗的。如果讀者讀Metaprogramming Ruby碰壁，可以考慮先讀Programming Ruby的這一章。
+本篇文章是Programming Ruby第三部份關於meataprogramming的讀書筆記，幫助整理思路。
+
+筆者的學習經驗中，直接進Metaprogramming Ruby感覺比較吃力，有一些卡關的觀念是看了這章後才豁然開朗的。如果讀者讀Metaprogramming Ruby碰壁，可以考慮先讀Programming Ruby的這一章。
 
 ## Object and Class
 
-Ruby中萬物皆物件（除了block），所謂的`class`也只是class `Class`自己的實例而已。對Ruby來說，class只是物件的一種而已。
+除了block，Ruby中萬物皆物件。Ruby中沒有真正的類，Ruby的類宣告其實全等於初始化一個類別物件，並指派給一個常數。
 
-`Object`包含一些***flag***，***實例變數***，和關聯到的***class***。
+```
+class MyClass; end
 
-`Class`因為也是`Object`，所以包含上面所有，再加上一些***（實例）方法***和關聯到的***superclass***。
+# Behind the hood
+MyClass = Class.new
+```
 
-class method其實不存在`class`中，而是存在其產生的`singleton class`中作為實例方法而存在，稍後會提到。
+對Ruby來說，類只是物件的一種而已。
 
-#### self的幾個用途
+`Object`包含一些flag，實例變數，和關聯到的class。
+
+`Class`因為也是object，所以包含上面所有，再加上一些（實例）方法和關聯到的superclass。
+
+![](../images/metaprogramming-ruby-1.jpg)
+
+因為類也是物件，所以我們常見到的class method其實不存在`class`中，而是存在其產生的`singleton class`中作為實例方法而存在。當我們為一個類新增class method，就會產生一個中繼class存放這個方法，並且當前的物件的類變成此中繼class。稍後會有更詳細的說明。
+
+### self的幾個用途
 
 `self`指的是當前object，如果沒有explicit receiver，`self`不會變化。
 
@@ -20,9 +35,9 @@ class method其實不存在`class`中，而是存在其產生的`singleton class
 2. 當沒有explicit receiver時，會以`self`作為receiver。
 3. 當有explicit receiver時，`self`會被設定為該object。
 
-#### self in class object
+### self in class object
 
-當使用class關鍵字時，會將`self`設為此class object，在class定義中，`self`總是被設為此class object。
+當使用class關鍵字時，會將`self`設為此class object，在class定義的上下文中，`self`總是被設為此class object。
 
 ## Singletons
 
@@ -30,7 +45,7 @@ class method其實不存在`class`中，而是存在其產生的`singleton class
 
 由於class也是object，當我們在class內使用`self.xxx`時，也是在為class object建立實例函數，故也會產生新的singleton class，繼承於原本的class，當前的class也會變成該singleton class的實例。
 
-#### Reopen singleton class
+### Reopen singleton class
 ```
 class << your_object   # 打開your_object的singleton class
   def xxx              # 為your_object定義instance method
@@ -41,11 +56,11 @@ Ruby會禁止你用singleton class建新的實例，這是取名singleton class�
 
 ## Module and Mixins
 
-Include module目的是在class中增加一些instance methods。
-
-在class裡include module就像是為這個class新增一個superclass。
+Include module目的是在class中增加一些instance methods。（但也可以增加class method，而且其實有被大量使用，所以不能從include判斷是否是增加instance method還是class method）在class裡include module就像是為這個class新增一個superclass，存放一些instance method。
 
 實踐上，當include module時，Ruby會建一個新暱名的class object，當前class的superclass指向它，而新的暱名class object的superclass指向原class的superclass。此暱名class本身並不帶instance method，要作函數找查時，它會指向module要函數。如此才可以做到隨意插入module至class中而不會造成繼承樹的錯亂。但也有一個問題，就是一旦改動module，所有include此module的都會立即改變。
+
+Ruby在物件的繼承鏈中只能被include一次。
 
 prepend也是類似，只不過與原class的繼承關係相反。
 
@@ -53,7 +68,7 @@ Extend module則是針對特定object增加instance methods，因此不會被其
 
 如果在class中extend module，則會創建class methods。因為class裡的self就是class本身。
 
-簡言之，include和prepend會為class增加instance methods，而且其所有的instance皆可使用。相對的，extend對object會增加instance method，最class則會增加class method，且只有該object(or class object)可以使用。
+簡言之，include和prepend會為class增加instance methods，而且其所有的instance皆可使用。相對的，extend直接對object增加instance method，最class則會增加class-level instance method (kind of class method)，且只有該object可以使用。
 
 ## Class-level Macros
 
@@ -65,6 +80,28 @@ Extend module則是針對特定object增加instance methods，因此不會被其
 
 has_many和attr_accessor這類的magic就是這樣泡製出來的。我們只是只是輸入一些方法名，它就自動幫你生出相對應的函數。
 
+書中舉例
+
+```
+class People
+  def self.say_hi
+    def say_hi(foo)
+      "hihi " + foo
+    end
+  end
+end
+
+class Engineer < People
+  say_hi
+  # or self.say_hi("Yooo!")
+end
+
+Engineer.new.say_hi
+```
+
+在Enginner裡執行self.say_hi，self是Engineer，找不到該方法，所以會往其parent找，在Parent找到該方法並執行，因此可以得到一個instance method，存在People。這在Engineer定義完成時就會生成（因為逐行執行，只有函數內的東西在生成時不會被執行）。往後Engineer的任何實例都可以使用實例方法say_hi了。
+
+這樣就可以理解has_many這樣的類方法是怎麼使用的了。say_hi換成has_many，"Yooo!"換成DB欄位的參數，就可以讓新的model實例生成後就能使用一系列的實例方法了。
 
 
 

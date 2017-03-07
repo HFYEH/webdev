@@ -96,12 +96,26 @@ class Engineer < People
   # or self.say_hi("Yooo!")
 end
 
-Engineer.new.say_hi
+Engineer.new.say_hi("xxx")
 ```
 
 在Enginner裡執行self.say_hi，self是Engineer，找不到該方法，所以會往其parent找，在People找到該方法並執行，因此可以得到一個instance method，存在People。這在Engineer定義完成時就會生成（因為逐行執行，只有函數內的東西在生成時不會被執行）。往後Engineer的任何實例都可以使用實例方法say_hi了。
 
 這樣就可以理解has_many這樣的類方法是怎麼使用的了。say_hi換成has_many，"Yooo!"換成DB欄位的參數，就可以讓新的model實例生成後就能使用一系列的實例方法了。
 
+不過，當使用has_many時，我們是依據參數內容產生不同名的實例方法，這意味著要動態的生成方法，我們可以使用define_method做到這點
 
+```
+class People
+  def self.say_hi(foo)
+    define_method("say_hi") do |foo|
+      "hihi " + foo
+    end
+  end
+end
+
+class Engineer < People
+  say_hi "yoo"
+end
+```
 

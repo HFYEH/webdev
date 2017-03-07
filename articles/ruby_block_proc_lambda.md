@@ -4,7 +4,7 @@
 Ruby有三種具有函數功能的東西，即一般的函數，Proc和lambda。
 
 - Ruby的函數都是有名字的，每次呼叫函數必定會尋找receiver，再決定呼叫哪個物件的同名方法。
-- Block包含一段待執行的程式碼，也是Ruby中唯一不是物件的東西。
+- Block包含一段待執行的程式碼，也是Ruby中唯一不是物件的東西。Block本身被設計成不能access的，只能在被包裝成物件後才能被access。
 - Ruby可以將block存成proc物件，再於他處執行。
 - Ruby也可以將block存成lambda，與proc有物件有些微不同。lambda表現更像是常見的暱名函數。
 
@@ -68,9 +68,9 @@ mylambda.call
 
 Proc的return會跳出調用者的上下文，lambda的return只會跳出lambda自身的上下文
 
-## 使用yeild或call調用的差別
+## 使用yield或call調用的差別
 
-我們可以很簡單的使用yeild調用block
+我們可以很簡單的使用yield關鍵字（不是方法）調用block
 
 ```
 def hihi
@@ -84,18 +84,20 @@ hihi {puts "yooo"}
 #=> yooo
 #=> End
 ```
-但這樣我們沒辦法控制調用
-
-
+但這樣我們沒辦法access block。要access，可以包裝block成proc
 ```
-def hihi(&block)
+def hihi(&p)
   puts "Start"
-  block.call
+  p.call  # p是一個proc物件，因為&p會將block轉成proc存入p
   puts "End"
 end
 
-
+hihi {puts "yooo"}
+#=> Start
+#=> yooo
+#=> End
 ```
+雖然這樣造成一些效能損耗，但是你可以決定要在哪一個execution context執行該proc，這在建立DSL時特別有用。
 
 
 
@@ -109,33 +111,6 @@ end
 
 
 
-
-```
-def hihi
-  puts "Start"
-  yield
-  puts "End"
-end
-
-# 使用yield時不會產生proc，但預設會將block效果跟proc相同
-hihi {puts "yooo"; return}
-# => Start
-# => yooo
-```
-lambda的return只會跳出lambda自身的上下文
-```
-def hihi(x)
-  puts "Start"
-  x.call
-  puts "End"
-end
-
-# 使用yield時預設會將block效果跟proc相同
-mylamdba = lamdba{puts "yooo"; return}
-hihi mylambda
-# => Start
-# => yooo
-```
 
 
 

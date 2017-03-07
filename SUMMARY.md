@@ -50,7 +50,7 @@
   * [Reduce](articles/reduce.md)
   * [XMLHttpRequest to Fetch](articles/xmlhttprequest_fetch.md)
   * [非同步處理 - 從Promise到Async](articles/asyc_javascript.md)
-  * [Vue](articles/vue.md)
+  * [Vue 要點筆記](articles/vue.md)
   * [React Native](articles/learn-react-native.md)
   * [React Essentials 筆記](articles/react-essentials.md)
   * [React Native 的 ES5 ES6寫法對照](articles/es5-es6.md)

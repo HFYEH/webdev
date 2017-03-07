@@ -1,8 +1,14 @@
+
+# Ruby中的block, Proc和Lambda
+
 Ruby有三種具有函數功能的東西，即一般的函數，Proc和lambda。
 
-Ruby的函數都是有名字的，如果像JavaScript那樣把函數賦值給另一個變量，只是會執行一次該函數而已。而Proc指向一段block，可以自由的插入其他程式當中，lambda則是匿名函數，可以被呼叫。
+- Ruby的函數都是有名字的，每次呼叫函數必定會尋找receiver，再決定呼叫哪個物件的同名方法。
+- Block包含一段待執行的程式碼，也是Ruby中唯一不是物件的東西。
+- Ruby可以將block存成proc物件，再於他處執行。
+- Ruby也可以將block存成lambda，與proc有物件有些微不同。lambda表現更像是常見的暱名函數。
 
-### 函數
+## 函數
 
 Ruby定義函數很容易
 ```
@@ -10,21 +16,28 @@ def myfun
   puts "myfun"
 end
 
-Object.myfun  // myfun
+Object.myfun == myfun  // true
 ```
 以上也表明，如果不給定實例方法所處的位置，此函數就會自動綁定到頂層對象上，成為該對象的方法
 
-### Proc, lambda
+## Proc, lambda
+
+Proc或lambda將一段程式碼包裝成物件，供別人使用
 
 ```
-myproc = Proc.new { puts "This is a Proc" }
+# 包裝
+myproc = proc { puts "This is a Proc" }
 mylamda = lambda { puts "This is a lambda" }
+
+# 呼叫
+myproc.call(param1, param2, ...)
+mylambda.(param1, param2, ...)
 ```
 
 附帶一提，下面這個寫法是完全等價的，這是Ruby convention，單行的程式碼就用`{}`，多行就用`do...end`
 
 ```
-myproc = Proc.new do
+myproc = proc do
   puts "This is a Proc"
 end
 
@@ -33,9 +46,98 @@ mylambda = lambda do
 end
 ```
 
-這樣就可以生成一個Proc對象，是一段程式碼，可以之後再執行。
+Proc和lambda的差異主要有二，一是是否檢查參數，二是return的效果。
 
-### 參數
+### 呼叫參數
+
+```
+# 指定要代入參數
+myproc = proc {|s| puts "hihi"}
+mylambda = lambda {|s| puts "hihi"}
+
+# proc不檢查參數
+myproc.call
+#=> hihi
+
+# lambda檢查參數
+mylambda.call
+#=> ArgumentError: wrong number of arguments
+```
+
+### Return
+
+Proc的return會跳出調用者的上下文，lambda的return只會跳出lambda自身的上下文
+
+## 使用yeild或call調用的差別
+
+我們可以很簡單的使用yeild調用block
+
+```
+def hihi
+  puts "Start"
+  yield
+  puts "End"
+end
+
+hihi {puts "yooo"}
+#=> Start
+#=> yooo
+#=> End
+```
+但這樣我們沒辦法控制調用
+
+
+```
+def hihi(&block)
+  puts "Start"
+  block.call
+  puts "End"
+end
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+def hihi
+  puts "Start"
+  yield
+  puts "End"
+end
+
+# 使用yield時不會產生proc，但預設會將block效果跟proc相同
+hihi {puts "yooo"; return}
+# => Start
+# => yooo
+```
+lambda的return只會跳出lambda自身的上下文
+```
+def hihi(x)
+  puts "Start"
+  x.call
+  puts "End"
+end
+
+# 使用yield時預設會將block效果跟proc相同
+mylamdba = lamdba{puts "yooo"; return}
+hihi mylambda
+# => Start
+# => yooo
+```
+
+
 
 函數，Proc和lambda都可以接收一個block參數，會放在參數的最尾端，有兩種方式，完全等價。函數的`call`和`yield`分別是顯式和隱式的呼叫block。
 
@@ -44,7 +146,6 @@ end
 def myfun(*args, &p)
   p.call
 end
-
 
 # 函數中有yield，則呼叫函數時一定要帶block進去，否則一樣會拋出例外
 def myfun(*args)
@@ -119,12 +220,12 @@ myfun(&mylambda) # myfun call mylambda
 
 ```
 # 下列語法可以產生Proc
-Proc.new {...}
-proc{...}
+Proc.new {|s| ...}
+proc {|s| ...}
 
 # 下列語法可以產生lambda
-lambda {...}
--> {...}
+lambda {|s| ...}
+-> s {...}
 ```
 
 其實也可以把Proc當成變數傳入，這時它就只是一般的參數而已

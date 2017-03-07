@@ -56,7 +56,7 @@ Ruby會禁止你用singleton class建新的實例，這是取名singleton class�
 
 ## Module and Mixins
 
-Include module目的是在class中增加一些instance methods。（但也可以增加class method，而且其實有被大量使用，所以不能從include判斷是否是增加instance method還是class method）在class裡include module就像是為這個class新增一個superclass，存放一些instance method。
+`include`是在class內才可以使用的方法。Include module目的是在class中增加一些instance methods。（但也可以增加class method，而且其實有被大量使用，所以不能從include判斷是否是增加instance method還是class method）在class裡include module就像是為這個class新增一個superclass，存放一些instance method。
 
 實踐上，當include module時，Ruby會建一個新暱名的class object，當前class的superclass指向它，而新的暱名class object的superclass指向原class的superclass。此暱名class本身並不帶instance method，要作函數找查時，它會指向module要函數。如此才可以做到隨意插入module至class中而不會造成繼承樹的錯亂。但也有一個問題，就是一旦改動module，所有include此module的都會立即改變。
 
@@ -64,7 +64,7 @@ Ruby在物件的繼承鏈中只能被include一次。
 
 prepend也是類似，只不過與原class的繼承關係相反。
 
-Extend module則是針對特定object增加instance methods，因此不會被其他instance共享。
+`extend`是物件的方法，任意物件都可以使用。Extend module是針對特定object增加instance methods，因此不會被其他instance共享。
 
 如果在class中extend module，則會創建class methods。因為class裡的self就是class本身。
 

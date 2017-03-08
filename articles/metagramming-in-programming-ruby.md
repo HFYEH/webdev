@@ -158,3 +158,20 @@ Example.my_class_method
 Example.new.my_instance_method
 ```
 
+## Tow Other Forms of Class Definition
+
+### 第一種
+
+```
+class A < B
+end
+```
+B可以換成任何回傳一class object的東西，比方`Struct.new`會回傳一個class object，所以也可以寫成像
+
+```
+class A < Struct.new(:name, :age)
+end
+```
+
+### 第二種
+

@@ -129,5 +129,32 @@ Factory.new.cars                       # 因為has_many後面接了cars，所有
 
 如果同時有class method和instance method要加進一個class，不能用簡單的使用extend。這時我們會須要使用一個rails極常使用的pattern：ruby的hook method `included`，此方法在你**include module到class時會自動調用**。
 
+直接上demo code。
 
+```
+module MyModule
+  # include 後會成為 instance method
+  def my_instance_method
+  end
+
+  # 用 module 包住 class method，慣例上 module 名為 ClassMethods
+  module ClassMethods
+    # include後會成為class method
+    def my_class_method
+    end
+  end
+
+  # 當有 class include 此 module 時 extend 該 class
+  def self.included(host_class)
+    host_class.extend(ClassMethods)
+  end
+end
+
+class Example
+  include MyModule
+end
+
+Example.my_class_method
+Example.new.my_instance_method
+```
 

@@ -106,16 +106,22 @@ Engineer.new.say_hi("xxx")
 不過，當使用has_many時，我們是依據參數內容產生不同名的實例方法，這意味著要動態的生成方法，我們可以使用define_method做到這點
 
 ```
-class People
-  def self.say_hi(foo)
-    define_method("say_hi") do |foo|
-      "hihi " + foo
+module ActiveRecord
+  class Base                           # 類比ActiveRecord::Base，實現has_many
+    def self.has_many(things)
+      define_method(things) do         # 如果即將定義的實例方法有參數，加在do的後面
+        "There are your " + things
+      end
     end
   end
 end
 
-class Engineer < People
-  say_hi "yoo"
+class Factory < ActiveRecord::Base
+  self.has_many "cars"
 end
+
+Factory.new.cars                       # 因為has_many後面接了cars，所有實例自動會有cars方法，這是在定義Factory時就產生的
+#=> "There are your cars"              # 執行cars方法得到的結果
 ```
+
 

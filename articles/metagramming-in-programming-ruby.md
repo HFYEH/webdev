@@ -123,5 +123,11 @@ end
 Factory.new.cars                       # 因為has_many後面接了cars，所有實例自動會有cars方法，這是在定義Factory時就產生的
 #=> "There are your cars"              # 執行cars方法得到的結果
 ```
+## Class Method and Modules
+
+有更多時候，我們的class已經繼承其他class，因此無法再繼承其他class。這時可以把這些方法寫進module，使用extend module為class新增類方法，類方法的內容就類似上面的self.has_many。
+
+如果同時有class method和instance method要加進一個class，不能用簡單的使用extend。這時我們會須要使用一個rails極常使用的pattern：ruby的hook method `included`，此方法在你**include module到class時會自動調用**。
+
 
 

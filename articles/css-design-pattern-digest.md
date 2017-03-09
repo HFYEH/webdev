@@ -30,7 +30,7 @@ CSS三權分立指的是將下列三者分別寫在不同class中，以達到較
 ...
 ```
 
-1. box實際的大小是width+padding+border三者藕合在一起的，造成修改不易。
+1. box實際的大小是width+padding+border三者耦合在一起的，造成修改不易。
 2. 把width和height放在外層，不另加border/padding，此外層box標示box實際的大小。
 3. 犧牲一點點效能，在內層建立一個新的tag，標示border和padding，border和padding本質上幾乎是一樣的。
 4. 往後若須修改padding，因為已經與width解藕合，所以只要直接改內層的css即可。

@@ -12,7 +12,12 @@
 這裡是一些好用的工具，因為放在書籤太佔空間，所以集中在這裡。
 
 ## 網站監控
-
+| 例外錯誤監控 |網站 Uptime 監控|
+|-|-|
+|[Rollbar](https://rollbar.com/)|sss|
+|[Rollbar](https://rollbar.com/)| [Uptime Robot](https://uptimerobot.com/)|
+|[Rollbar](https://rollbar.com/)| [Pingdom](https://tools.pingdom.com/)|
+|[Rollbar](https://rollbar.com/)| [StatusCake](https://www.statuscake.com/)|
 例外錯誤監控
 - [Rollbar](https://rollbar.com/)
 - [Airbrake](https://airbrake.io/)
@@ -40,3 +45,4 @@
 - [Google Analytics](https://analytics.google.com/analytics/)
 - [Amplitude](https://amplitude.com)
 - [Mixpanel](https://mixpanel.com)
+

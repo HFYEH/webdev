@@ -175,3 +175,44 @@ end
 
 ### 第二種
 
+```
+SomeClass = Class.new do
+  def some_method
+  end
+end
+
+SomeClass.new
+```
+
+## instance_eval and class_eval
+
+Object#instance_eval, Module#class_eval, Module#module_eval 讓我們可以將 `self` 設定為任意 object，執行 block 內容後，再將 `self` 指回原本的 object
+
+```
+"Yoo".instance_eval { self.upcase }
+#=> "YOO"
+
+# 定義 class method
+class A; end
+A.instance_eval do
+  def say_hello
+    puts "Hello!"
+  end
+end
+
+A.say_hello
+```
+
+class_eval 也如同 instance_eval，只不過它多設定了可以定義方法的環境，就像 reopen class 一樣。
+```
+# 定義 instance method
+class A; end
+A.class_eval do
+  def say_hi
+    puts "Hi!"
+  end
+end
+A.new.say_hi
+#=> Hi!
+```
+

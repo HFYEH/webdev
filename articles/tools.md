@@ -1,8 +1,10 @@
 # 工具集
 
-這裡是一些好用的工具，因為放著太佔書籤，所以集中在這裡。
+這裡是一些好用的工具，因為放在書籤太佔空間，所以集中在這裡。
 
-## 例外錯誤監控
+## 網站監控相關
+
+例外錯誤監控
 - [Rollbar](https://rollbar.com/)
 - [Airbrake](https://airbrake.io/)
 - [Sentry](https://getsentry.com/)

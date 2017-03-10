@@ -4,6 +4,7 @@
     - [網站監控分析](#網站監控分析)
     - [網站分析](#網站分析)
     - [使用者分析](#使用者分析)
+    - [報告圖表](#報告圖表)
 
 <!-- /TOC -->
 
@@ -31,3 +32,11 @@
 - [Amplitude](https://amplitude.com)
 - [Mixpanel](https://mixpanel.com)
 
+## 報告圖表
+
+|投影片|圖表|
+|---|---|
+|[Speaker Deck](https://speakerdeck.com/sharefun)|[chartblocks](https://app.chartblocks.com/) |
+|[Slides](https://slides.com/sharefun)|[PlotDB](https://plotdb.com/)|
+|[Slidebean](https://app.slidebean.com/)||
+|[emaze](http://app.emaze.com/mypresentations#/home)||

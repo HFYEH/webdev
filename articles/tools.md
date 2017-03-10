@@ -5,6 +5,9 @@
     - [網站分析](#網站分析)
     - [使用者分析](#使用者分析)
     - [報告圖表](#報告圖表)
+    - [團隊溝通](#團隊溝通)
+    - [共筆](#共筆)
+    - [網頁設計](#網頁設計)
 
 <!-- /TOC -->
 
@@ -40,3 +43,18 @@
 |[Slides](https://slides.com/sharefun)|[PlotDB](https://plotdb.com/)|
 |[Slidebean](https://app.slidebean.com/)||
 |[emaze](http://app.emaze.com/mypresentations#/home)||
+
+## 團隊溝通
+
+[Slack](https://learningark.slack.com/messages/ch-arduino/stars/)
+[Gitter](https://gitter.im/home)
+[Notion](https://www.notion.so)
+[Trello](https://trello.com/b/v7dOUTkS/sharefun)
+
+## 共筆
+
+[HackMD](https://hackmd.io)
+[Quip](https://sharefun.quip.com/browse)
+
+## 網頁設計
+

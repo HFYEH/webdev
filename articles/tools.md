@@ -12,12 +12,13 @@
 這裡是一些好用的工具，因為放在書籤太佔空間，所以集中在這裡。
 
 ## 網站監控
-| 例外錯誤監控 |網站 Uptime 監控|
-|-|-|
-|[Rollbar](https://rollbar.com/)|sss|
-|[Rollbar](https://rollbar.com/)| [Uptime Robot](https://uptimerobot.com/)|
-|[Rollbar](https://rollbar.com/)| [Pingdom](https://tools.pingdom.com/)|
-|[Rollbar](https://rollbar.com/)| [StatusCake](https://www.statuscake.com/)|
+| 例外錯誤監控 |網站 Uptime 監控|網站效能監控|
+|---|---|---|
+|[Rollbar](https://rollbar.com/)| [Uptime Robot](https://uptimerobot.com/)|[AppSignal](https://appsignal.com/)|
+|[Airbrake](https://airbrake.io/)| [Pingdom](https://tools.pingdom.com/)|[New Relic](https://rpm.newrelic.com/)|
+|[Sentry](https://getsentry.com/)| [StatusCake](https://www.statuscake.com/)|[Skylight](https://www.skylight.io/)|
+|[Honeybadger](https://www.honeybadger.io/)| |
+
 例外錯誤監控
 - [Rollbar](https://rollbar.com/)
 - [Airbrake](https://airbrake.io/)

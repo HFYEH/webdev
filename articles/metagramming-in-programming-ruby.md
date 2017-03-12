@@ -56,7 +56,7 @@ Ruby會禁止你用singleton class建新的實例，這是取名singleton class�
 
 ## Module and Mixins
 
-Include module目的是在class中增加一些instance methods。（但也可以增加class method，而且其實有被大量使用，所以不能從include判斷是否是增加instance method還是class method）在class裡include module就像是為這個class新增一個superclass，存放一些instance method。
+`include`是在class內才可以使用的方法。Include module目的是在class中增加一些instance methods。（但也可以增加class method，而且其實有被大量使用，所以不能從include判斷是否是增加instance method還是class method）在class裡include module就像是為這個class新增一個superclass，存放一些instance method。
 
 實踐上，當include module時，Ruby會建一個新暱名的class object，當前class的superclass指向它，而新的暱名class object的superclass指向原class的superclass。此暱名class本身並不帶instance method，要作函數找查時，它會指向module要函數。如此才可以做到隨意插入module至class中而不會造成繼承樹的錯亂。但也有一個問題，就是一旦改動module，所有include此module的都會立即改變。
 
@@ -64,7 +64,7 @@ Ruby在物件的繼承鏈中只能被include一次。
 
 prepend也是類似，只不過與原class的繼承關係相反。
 
-Extend module則是針對特定object增加instance methods，因此不會被其他instance共享。
+`extend`是物件的方法，任意物件都可以使用。Extend module是針對特定object增加instance methods，因此不會被其他instance共享。
 
 如果在class中extend module，則會創建class methods。因為class裡的self就是class本身。
 
@@ -96,12 +96,123 @@ class Engineer < People
   # or self.say_hi("Yooo!")
 end
 
-Engineer.new.say_hi
+Engineer.new.say_hi("xxx")
 ```
 
-在Enginner裡執行self.say_hi，self是Engineer，找不到該方法，所以會往其parent找，在Parent找到該方法並執行，因此可以得到一個instance method，存在People。這在Engineer定義完成時就會生成（因為逐行執行，只有函數內的東西在生成時不會被執行）。往後Engineer的任何實例都可以使用實例方法say_hi了。
+在Enginner裡執行self.say_hi，self是Engineer，找不到該方法，所以會往其parent找，在People找到該方法並執行，因此可以得到一個instance method，存在People。這在Engineer定義完成時就會生成（因為逐行執行，只有函數內的東西在生成時不會被執行）。往後Engineer的任何實例都可以使用實例方法say_hi了。
 
 這樣就可以理解has_many這樣的類方法是怎麼使用的了。say_hi換成has_many，"Yooo!"換成DB欄位的參數，就可以讓新的model實例生成後就能使用一系列的實例方法了。
 
+不過，當使用has_many時，我們是依據參數內容產生不同名的實例方法，這意味著要動態的生成方法，我們可以使用define_method做到這點
 
+```
+module ActiveRecord
+  class Base                           # 類比ActiveRecord::Base，實現has_many
+    def self.has_many(things)
+      define_method(things) do         # 如果即將定義的實例方法有參數，加在do的後面
+        "There are your " + things
+      end
+    end
+  end
+end
+
+class Factory < ActiveRecord::Base
+  self.has_many "cars"
+end
+
+Factory.new.cars                       # 因為has_many後面接了cars，所有實例自動會有cars方法，這是在定義Factory時就產生的
+#=> "There are your cars"              # 執行cars方法得到的結果
+```
+## Class Method and Modules
+
+有更多時候，我們的class已經繼承其他class，因此無法再繼承其他class。這時可以把這些方法寫進module，使用extend module為class新增類方法，類方法的內容就類似上面的self.has_many。
+
+如果同時有class method和instance method要加進一個class，不能用簡單的使用extend。這時我們會須要使用一個rails極常使用的pattern：ruby的hook method `included`，此方法在你**include module到class時會自動調用**。
+
+直接上demo code。
+
+```
+module MyModule
+  # include 後會成為 instance method
+  def my_instance_method
+  end
+
+  # 用 module 包住 class method，慣例上 module 名為 ClassMethods
+  module ClassMethods
+    # include後會成為class method
+    def my_class_method
+    end
+  end
+
+  # 當有 class include 此 module 時 extend 該 class
+  def self.included(host_class)
+    host_class.extend(ClassMethods)
+  end
+end
+
+class Example
+  include MyModule
+end
+
+Example.my_class_method
+Example.new.my_instance_method
+```
+
+## Tow Other Forms of Class Definition
+
+### 第一種
+
+```
+class A < B
+end
+```
+B可以換成任何回傳一class object的東西，比方`Struct.new`會回傳一個class object，所以也可以寫成像
+
+```
+class A < Struct.new(:name, :age)
+end
+```
+
+### 第二種
+
+```
+SomeClass = Class.new do
+  def some_method
+  end
+end
+
+SomeClass.new
+```
+
+## instance_eval and class_eval
+
+Object#instance_eval, Module#class_eval, Module#module_eval 讓我們可以將 `self` 設定為任意 object，執行 block 內容後，再將 `self` 指回原本的 object
+
+```
+"Yoo".instance_eval { self.upcase }
+#=> "YOO"
+
+# 定義 class method
+class A; end
+A.instance_eval do
+  def say_hello
+    puts "Hello!"
+  end
+end
+
+A.say_hello
+```
+
+class_eval 也如同 instance_eval，只不過它多設定了可以定義方法的環境，就像 reopen class 一樣。
+```
+# 定義 instance method
+class A; end
+A.class_eval do
+  def say_hi
+    puts "Hi!"
+  end
+end
+A.new.say_hi
+#=> Hi!
+```
 

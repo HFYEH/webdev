@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Web Basics](server.md)
+* Web Basics
   * [Secure Socket Layer](articles/http.md)
   * [Nginx](articles/nginx.md)
   * [理解Nginx代理，負載平衡，緩衝和緩存](articles/understand-nginx-proxy-load-balancing-buffer-and-cache.md)
@@ -10,7 +10,7 @@
   * [CSRF and CORS](articles/csrf-and-cors.md)
   * [GnuPG 加密](articles/gpg.md)
   * [OAuth](articles/oauth.md)
-* [Ruby & Rails](rails.md)
+* Ruby & Rails
   * [Linux 部署環境配置 \(Nginx + Passenger + Rails by Capistrano\)](articles/deploying-rails-on-ubuntu-14-trusty-with-nginx-passenger-using-capistrano.md)
   * [RSpec資料](articles/rspec.md)
   * [Railsfun Ruby 介紹](articles/railsfun-ruby.md)
@@ -31,7 +31,11 @@
   * [Action Cable Chat Room](articles/action-cable-chatroom.md)
   * [html_safe](articles/acitve_support.md)
   * [Rails 常數查詢和 autoloading 機制](articles/rails_autoloading.md)
-* [JavaScript](javascript.md)
+  * [Rails Patterns 1/4: Active Record](articles/rails-patterns-active-record.md)
+  * [Rails Patterns 2/4: Front Controller](articles/rails-patterns-front-controller.md)
+  * [Rails Patterns 3/4: Intercepting Filter](articles/rails-patterns-intercepting-filter.md)
+  * [Rails Patterns 4/4: Template View](articles/rails-patterns-template-view.md)
+* JavaScript
   * [讀ECMAScript作用域模型](articles/ecmascript_scope.md)
   * [JavaScript 筆記　數據類型](articles/javascript-note-1.md)
   * [JavaScript 筆記　運算符](articles/javascript-note-2.md)
@@ -50,31 +54,32 @@
   * [Reduce](articles/reduce.md)
   * [XMLHttpRequest to Fetch](articles/xmlhttprequest_fetch.md)
   * [非同步處理 - 從Promise到Async](articles/asyc_javascript.md)
-  * [Vue](articles/vue.md)
+  * [Vue 要點筆記](articles/vue.md)
   * [React Native](articles/learn-react-native.md)
   * [React Essentials 筆記](articles/react-essentials.md)
   * [React Native 的 ES5 ES6寫法對照](articles/es5-es6.md)
   * [自建 CodePush Server 記錄](articles/build-code-push-server.md)
-* [Front-End](front-end.md)
+* Front-End
   * [jQuery memo](articles/jquery-memo.md)
   * [CSS設計模式摘要集](articles/css-design-pattern-digest.md)
   * [BFC & IFC](articles/bfc_collapsing_margins.md)
-* [Design](design.md)
+* Design
   * [Note on Landing Page Design Course](articles/udemy-course-landing-page-design-note.md)
-* [Arduino & Raspberry Pi](arduino-rpi.md)
+* Arduino & Raspberry Pi
   * [Raspberry Pi 使用ssh登入](articles/rpi.md)
   * [Git 會前準備](articles/prior-to-git-ready.md)
-* [Database](database.md)
+* Database
+  * [學習資源](articles/database.md)
   * [N+1 query, sql重新包裝利用](articles/n-1-query.md)
   * [Railsfun RDBMS](articles/railsfun_db.md)
-* [DevOps](devops.md)
+* DevOps
   * [相關文章](articles/devops.md)
   * [User Story and Agile](articles/user-story-agile.md)
-* [Cheet Sheets](cheetsheets.md)
+* Cheet Sheets
   * [Git memo](articles/git-memo-for-git-real.md)
   * [Sublime text](articles/sublime-text-hotkey.md)
   * [zsh X vim X tmux](articles/tmux.md)
   * [cURL](articles/curl.md)
   * [adb \(Android Debug Bridge\)](articles/adb_cheet_sheet.md)
   * [postgresql](articles/postgresql-on-ubuntu.md)
-
+  * [網站工具集](articles/tools.md)

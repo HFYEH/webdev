@@ -216,3 +216,6 @@ A.new.say_hi
 #=> Hi!
 ```
 
+Object#instance_exec, Module#class_exec, Module#module_exec 讓我們可以額外送進別的object當參數，放於 block 的參數中。
+
+Constant lookup 在 eval 中是看 lexical 環境。

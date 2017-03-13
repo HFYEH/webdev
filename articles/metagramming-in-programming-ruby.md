@@ -216,6 +216,16 @@ A.new.say_hi
 #=> Hi!
 ```
 
+
 Object#instance_exec, Module#class_exec, Module#module_exec 讓我們可以額外送進別的object當參數，放於 block 的參數中。
 
 Constant lookup 在 eval 中是看 lexical 環境。
+
+## Hooked Methods
+
+hooked methods == callbacks
+
+被解釋器自動調用的方法。在 Ruby 中是以名稱去找的，如果你有定義同名函數，就會執行之。下表是書中所列的 hooked methods
+
+![](../images/hooked-method.jpg)
+

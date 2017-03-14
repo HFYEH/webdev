@@ -33,6 +33,8 @@
   * [Rails Patterns 2/4: Front Controller](articles/rails-patterns-front-controller.md)
   * [Rails Patterns 3/4: Intercepting Filter](articles/rails-patterns-intercepting-filter.md)
   * [Rails Patterns 4/4: Template View](articles/rails-patterns-template-view.md)
+* Elixir
+  * [Programming Elixir](articles/programming-elixir.md)
 * JavaScript
   * [讀ECMAScript作用域模型](articles/ecmascript_scope.md)
   * [JavaScript 筆記　數據類型](articles/javascript-note-1.md)

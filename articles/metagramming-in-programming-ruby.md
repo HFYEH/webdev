@@ -99,11 +99,11 @@ end
 Engineer.new.say_hi("xxx")
 ```
 
-在Enginner裡執行self.say_hi，self是Engineer，找不到該方法，所以會往其parent找，在People找到該方法並執行，因此可以得到一個instance method，存在People。這在Engineer定義完成時就會生成（因為逐行執行，只有函數內的東西在生成時不會被執行）。往後Engineer的任何實例都可以使用實例方法say_hi了。
+在Enginner裡執行 self.say_hi，self 是 Engineer，找不到該方法，所以會往其 parent 找，在 People 找到該方法並執行，因此 Engineer 可以得到一個 instance method，存在People。這在Engineer定義完成時就會生成（因為逐行執行，只有函數內的東西在生成時不會被執行）。往後 Engineer 的任何實例都可以使用實例方法 say_hi 了。
 
-這樣就可以理解has_many這樣的類方法是怎麼使用的了。say_hi換成has_many，"Yooo!"換成DB欄位的參數，就可以讓新的model實例生成後就能使用一系列的實例方法了。
+這樣就可以理解 has_many 這樣的類方法是怎麼使用的了。say_hi 換成 has_many，"Yooo!"換成 DB 欄位的參數，就可以讓新的 model 實例生成後就能使用一系列的實例方法了。
 
-不過，當使用has_many時，我們是依據參數內容產生不同名的實例方法，這意味著要動態的生成方法，我們可以使用define_method做到這點
+不過，當使用 has_many 時，我們是依據參數內容產生不同名的實例方法，這意味著要動態的生成方法，我們可以使用define_method 做到這點
 
 ```
 module ActiveRecord
@@ -216,7 +216,6 @@ A.new.say_hi
 #=> Hi!
 ```
 
-
 Object#instance_exec, Module#class_exec, Module#module_exec 讓我們可以額外送進別的object當參數，放於 block 的參數中。
 
 Constant lookup 在 eval 中是看 lexical 環境。
@@ -228,4 +227,25 @@ hooked methods == callbacks
 被解釋器自動調用的方法。在 Ruby 中是以名稱去找的，如果你有定義同名函數，就會執行之。下表是書中所列的 hooked methods
 
 ![](../images/hooked-method.jpg)
+
+### inherited
+
+在有別的 class 繼承於當前 class 時被調用，參數為 child class
+
+```
+class Parent
+  def self.inherited(child)
+    puts "Some class inherited from this"
+  end
+end
+
+class Child < Parent
+end
+
+#=> Some class inherited from this
+```
+### method_missing
+
+完整參數：`def method_missing(name, *args, &block) ...`
+
 

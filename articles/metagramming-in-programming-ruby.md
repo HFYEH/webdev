@@ -248,4 +248,29 @@ end
 
 完整參數：`def method_missing(name, *args, &block) ...`
 
+以下簡化書中範例，自己寫一個只讀的 OpenStruct，。繼承於 BasicObject 以獲得最少的實例方法。我附上註解。
+```
+class MyOpenStruct < BasicObject
+  def initialize(initial_values = {})
+    @values = initial_values    # MyOpenStruct的實例變數是一個hash
+  end
+  def _singleton_class
+    class << self               # 新增一個MyOpenStruct的singleton class
+      self                      # 並且回傳該singleton class
+    end
+  end
 
+  def method_missing(name, *args, &block)
+    _singleton_class.instance_exec(name) do |name|    # 找不到方法時，在singleton中新增實例方法
+      define_method(name.to_sym) do
+        @values[name]
+      end
+    end
+    @values[name] + 3
+  end
+end
+
+struct = MyOpenStruct.new(x:3)
+struct.x  #=> 6   # 會傳到 method_missing
+struct.x  #=> 3   # 第二次調用時，因為該方法在method_missing中已經被定義，所以直接調用該方法
+```

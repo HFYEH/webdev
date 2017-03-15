@@ -123,6 +123,8 @@ end
 Factory.new.cars                       # 因為has_many後面接了cars，所有實例自動會有cars方法，這是在定義Factory時就產生的
 #=> "There are your cars"              # 執行cars方法得到的結果
 ```
+值得注意的一個細節是，define_method永遠只會產生instance_method，不論是在class_exec中或是instance_exec中。
+
 ## Class Method and Modules
 
 有更多時候，我們的class已經繼承其他class，因此無法再繼承其他class。這時可以把這些方法寫進module，使用extend module為class新增類方法，類方法的內容就類似上面的self.has_many。
@@ -244,7 +246,7 @@ end
 
 #=> Some class inherited from this
 ```
-### method_missing
+### method_missing to simulate accessors
 
 完整參數：`def method_missing(name, *args, &block) ...`
 
@@ -274,3 +276,9 @@ struct = MyOpenStruct.new(x:3)
 struct.x  #=> 6   # 會傳到 method_missing
 struct.x  #=> 3   # 第二次調用時，因為該方法在method_missing中已經被定義，所以直接調用該方法
 ```
+
+繼承BasicObject看起來是使用method_missing的好方法，但是因為缺少很多常用方法，它帶來的壞處可能比好處更多。
+
+### method_missing as a filter
+
+用method_missing去定義所有方法是不實際的。像ActiveRecord::Base是用regular expression去過濾方法，不符合的就會調用parent的method_missing。

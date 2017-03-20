@@ -2,9 +2,11 @@
 
 # Metaprogramming Ruby 對象模型
 
-此系列為Metaprogramming Ruby第一版的筆記，記錄於此作為複習之用。
+此系列為Metaprogramming Ruby第二版的筆記，記錄於此作為複習之用。
 
-###### Open class
+## Object model
+
+### Open class
 
 Ruby在執行階段可以存取class內部資訊。亦即class是可以被打開的，而且是包函標準庫的所有class。
 
@@ -19,7 +21,7 @@ end
 
 class關鍵字比較像是作用域操作符，其任務是把你帶到class的上下文中，讓你可以在裡面定義方法。
 
-###### Monkeypatch
+### Monkeypatch
 
 打開class可以創建新的方法，但如果方法名已經存在，就會覆寫掉原本的方法，(Monkeypatch)在處理標準庫時要注意
 
@@ -75,7 +77,7 @@ end
 
 詳見[魔法師的手杖](http://sibevin.github.io/posts/2016-05-02-163010-refinement-in-ruby)。
 
-###### 實例變量在顯式賦值後才會出現
+### 實例變量在顯式賦值後才會出現
 
 class 實例化之前不會有實例變量，唯有實例化之後，且執行到定義實例變量的地方時，實例變量才會真正被建立出來，注意，實例變量初始化時不可不賦值。
 
@@ -96,7 +98,7 @@ a.gen_var_2
 a.instance_variables #=> [:@var_1, :@var_2]
 ```
 
-###### object 的本質
+### object 的本質
 
 對象的本質是***實例變量（object.instance_variables）***、***對自身class的引用（object.class）***、***對象的唯一標識符（object.object_id）***。
 
@@ -104,7 +106,7 @@ a.instance_variables #=> [:@var_1, :@var_2]
 
 類裡面有類方法和實例方法。這些方法不存在對象中，而在對象的class中。
 
-###### class 的本質
+### class 的本質
 
 ***class的本質是Class的實例（SomeClass.class）***、***一組實例方法（SomeClass.instance_methods）***、***和對超類的引用（SomeClass.superclass）***。
 
@@ -129,7 +131,7 @@ BasicObject 是所有類的祖先，Class則繼承於Module，Module提供了new
 
 class 的名字是常量。object 是變量。
 
-###### 常量
+### 常量
 
 大寫開頭的即是常量。在Java和C#中，任意的class也是Class的實例，但類和對象有很大的差別，類的功能也比對象有限。不能在運行時創建一個類，或修改類方法。對Java和C#，Class實例比較像是描述符，而非真正的類。
 
@@ -150,7 +152,7 @@ Module.nesting      # 獲得當前常量的路徑
 
 一個module基本上就是一組實例方法，而class則是增加若干新方法的module，繼承於module。兩者的差異處，在於使用module主要是***提供命名空間***（如上例）和希望將來***被include進某個class中***，而class則是將來希望能被實例化或是被繼承。
 
-###### require & load
+### require & load
 
 `load('xxx.rb')`可執行xxx.rb的內容，預設情況會將執行後的常量和變量都留下來，汙染當前的命名空間，若要避免被汙染，可以用
 
@@ -166,7 +168,7 @@ Module.nesting      # 獲得當前常量的路徑
 * require要指定相對路徑（例中為./），load則不一定
 * require若載入相同檔案兩次，只會載入並執行第一次，load則是每次載入都會執行。
 
-###### 方法查找
+### 方法查找
 
 執行一個方法時，Ruby會做兩件事（沒有例外）：
 
@@ -233,7 +235,7 @@ module被封裝進一個匿名的class，這樣的include class，`superclass()`
 
 一樣大推魔法師的手杖做的[方法查找](http://sibevin.github.io/images/post/20160511181400-mr2-ch2-method-lookup.png)圖示，一圖勝過千言萬語。
 
-###### self
+### self
 
 執行一個方法時，Ruby會做兩件事（沒有例外）：
 
@@ -266,7 +268,7 @@ self.class #=> Object
 
 self通常是接收到最後一個方法調用的對象來充當，但是在class和module定義中，方法定義之外，self由該class或module充當。
 
-###### private
+### private
 
 了解self，就能了解private方法。
 

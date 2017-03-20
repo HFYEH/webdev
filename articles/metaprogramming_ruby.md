@@ -6,7 +6,7 @@
 
 ## The Object Model
 
-### Open class
+### Open Class
 
 Ruby在執行階段可以存取class內部資訊。亦即class是可以被打開的，而且是包函標準庫的所有class。
 
@@ -17,6 +17,7 @@ Ruby在執行階段可以存取class內部資訊。亦即class是可以被打開
   end
 end
 ```
+
 每次執行時，都打開了這個class C，並且執行了`puts "Hello"`。第一次，C沒有定義，所以Ruby會定義，而內容會被執行，第二次和第三次，因為已經定義過了，Ruby只是打開它並執行裡面的語句而已。
 
 class關鍵字比較像是作用域操作符，其任務是把你帶到class的上下文中，讓你可以在裡面定義方法。

@@ -8,7 +8,7 @@
 
 ### Open Class
 
-Ruby在執行階段可以存取class內部資訊。亦即class是可以被打開的，而且是包函標準庫的所有class。
+Ruby在透過內省機制，在執行階段可以存取class內部資訊。亦即class是可以被打開的。
 
 ```
 3.times do

@@ -24,73 +24,8 @@ class關鍵字比較像是作用域操作符，其任務是把你帶到class的�
 
 改變一個現有的方法比較有風險，較安全的作法是新增一個方法。
 
-### Inside the Object Model
 
-`object`本身只包含實例變量，其方法作為實例方法存在於其class中。
-
-`SomeClass`在Ruby中也是一種object，這種object預設會有幾種實例方法，定義在Class裡。所有的SomeClass都是Class的實例。
-
-```
-Class.instance_methods(false)  #=> [:allocate, :new, :superclass]
-```
-
-所以當我們定義SomeClass，都會具備這三個方法。第一個書中說幾乎不會用到，new是產生新實例的時候用的，superclass是引用其父輩class。（所以SomeClass這些object間有繼承關係，但一般object沒有）
-
-`Module`是Class的父輩，Class只是一種Module，多了可以實例化object的功能。
-
-Class和Module很接近，但一般是用Module做namespacing，用Class作實例化。module關鍵字會產生Module實例，class關鍵字會產生Class實例。
-
-SomeClass只不過是object，而SomeClass的名字只是常數。
-
-Constant與一般變數不同的地方是Constant具有scope，讓程式結構像資料夾一樣。
-
-```ruby
-MyConstant = "Outside module"
-
-module MyModule
-  MyConstant = "Outer constant"
-  ::MyConstant                     #=> "Outside module"
-  class MyClass
-    MyConstant = "Inner constant"
-    ::MyConstant                   #=> "Outside module"
-  end
-end
-
-MyModule::MyConstant               #=> "Outer constant"
-MyModule::MyClass::Myconstant      #=> "Inner constant"
-
-module M
-  class C
-    module M2
-      Module.nesting               #=> [M::C::M2, M::C, M]
-    end
-  end
-end
-```
-
-### load and require
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=================================================
-
-
-### Monkeypatch的問題與refinement
+#### Monkeypatch的問題與refinement
 
 打開class可以創建新的方法，但如果方法名已經存在，就會覆寫掉原本的方法，(Monkeypatch)在處理標準庫時要注意
 
@@ -146,26 +81,92 @@ end
 
 詳見[魔法師的手杖](http://sibevin.github.io/posts/2016-05-02-163010-refinement-in-ruby)。
 
-### 實例變量在顯式賦值後才會出現
+### Inside the Object Model
 
-class 實例化之前不會有實例變量，唯有實例化之後，且執行到定義實例變量的地方時，實例變量才會真正被建立出來，注意，實例變量初始化時不可不賦值。
+#### Object
+
+`object`本身只包含實例變量，其方法作為實例方法存在於其class中。
+
+
+#### Class
+
+我這邊用SomeClass代表除Class class外的其他Class，包含自定義的class。
+
+`SomeClass`在Ruby中也是一種object，這種object預設會有幾種實例方法，定義在Class裡。所有的SomeClass都是Class的實例。
+
+```
+Class.instance_methods(false)  #=> [:allocate, :new, :superclass]
+```
+
+所以當我們定義SomeClass，都會具備這三個方法。第一個書中說幾乎不會用到，new是產生新實例的時候用的，superclass是引用其父輩class。（所以SomeClass這些object間有繼承關係，但一般object沒有）
+
+`Module`是Class的父輩，Class只是一種Module，多了可以實例化object的功能。
+
+Class和Module很接近，但一般是用Module做namespacing，用Class作實例化。module關鍵字會產生Module實例，class關鍵字會產生Class實例。
+
+SomeClass只不過是object，而SomeClass的名字只是常數。
+
+Constant與一般變數不同的地方是Constant具有scope，讓程式結構像資料夾一樣。
 
 ```ruby
-class A
-  def initialize
-    @var_1 = 1
-  end
+MyConstant = "Outside module"
 
-  def gen_var_2
-    @var_2 = 1
+module MyModule
+  MyConstant = "Outer constant"
+  ::MyConstant                     #=> "Outside module"
+  class MyClass
+    MyConstant = "Inner constant"
+    ::MyConstant                   #=> "Outside module"
   end
 end
 
-a = A.new
-a.instance_variables #=> [:@var_1]
-a.gen_var_2
-a.instance_variables #=> [:@var_1, :@var_2]
+MyModule::MyConstant               #=> "Outer constant"
+MyModule::MyClass::Myconstant      #=> "Inner constant"
+
+module M
+  class C
+    module M2
+      Module.nesting               #=> [M::C::M2, M::C, M]
+    end
+  end
+end
 ```
+
+#### require & load
+
+`load('xxx.rb')`
+
+可執行xxx.rb的內容，預設情況會將執行後的常量和變量都留下來，汙染當前的命名空間，若要避免被汙染，可以用
+
+`load('xxx.rb', true);`
+
+如此會將xxx.rb的內容全部用一個匿名module包住，執行完成後，該module會被銷毀。
+
+`require('./xxx')`是用來導入library的，而這些類名是你導入時就希望得到的，所以通常你不會須要銷毀它，所以也沒有參數可選。
+
+兩者還有一些差異
+
+- require可以不加副檔名，load一定要加
+- require要指定相對路徑（例中為./），load則不一定
+- require若載入相同檔案兩次，只會載入並執行第一次，load則是每次載入都會執行
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=================================================
+
 
 ### object 的本質
 
@@ -221,21 +222,6 @@ Module.nesting      # 獲得當前常量的路徑
 
 一個module基本上就是一組實例方法，而class則是增加若干新方法的module，繼承於module。兩者的差異處，在於使用module主要是***提供命名空間***（如上例）和希望將來***被include進某個class中***，而class則是將來希望能被實例化或是被繼承。
 
-### require & load
-
-`load('xxx.rb')`可執行xxx.rb的內容，預設情況會將執行後的常量和變量都留下來，汙染當前的命名空間，若要避免被汙染，可以用
-
-`load('xxx.rb', true);`
-
-如此會將xxx.rb的內容全部用一個匿名Module包住，執行完成後，會被銷毀。
-
-`require('./xxx')`是用來導入類庫的，而這些類名是你導入時就希望得到的，所以通常你不會須要銷毀它。
-
-兩者還有一些差異
-
-* require可以不加副檔名，load一定要加
-* require要指定相對路徑（例中為./），load則不一定
-* require若載入相同檔案兩次，只會載入並執行第一次，load則是每次載入都會執行。
 
 ### 方法查找
 

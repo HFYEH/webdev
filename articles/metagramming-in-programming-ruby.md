@@ -66,7 +66,7 @@ MyClass = Class.new
 由於class也是object，當我們在class內使用`self.xxx`時，也是在為class object建立實例函數，故也會產生新的singleton class，繼承於原本的class，當前的class也會變成該singleton class的實例。
 
 ### Reopen singleton class
-```
+```ruby
 class << your_object   # 打開your_object的singleton class
   def xxx              # 為your_object定義instance method
   end
@@ -102,7 +102,7 @@ has_many和attr_accessor這類的magic就是這樣泡製出來的。我們只是
 
 書中舉例
 
-```
+```ruby
 class People
   def self.say_hi
     def say_hi(foo)
@@ -125,7 +125,7 @@ Engineer.new.say_hi("xxx")
 
 不過，當使用 has_many 時，我們是依據參數內容產生不同名的實例方法，這意味著要動態的生成方法，我們可以使用define_method 做到這點
 
-```
+```ruby
 module ActiveRecord
   class Base                           # 類比ActiveRecord::Base，實現has_many
     def self.has_many(things)
@@ -153,7 +153,7 @@ Factory.new.cars                       # 因為has_many後面接了cars，所有
 
 直接上demo code。
 
-```
+```ruby
 module MyModule
   # include 後會成為 instance method
   def my_instance_method
@@ -184,20 +184,20 @@ Example.new.my_instance_method
 
 ### 第一種
 
-```
+```ruby
 class A < B
 end
 ```
 B可以換成任何回傳一class object的東西，比方`Struct.new`會回傳一個class object，所以也可以寫成像
 
-```
+```ruby
 class A < Struct.new(:name, :age)
 end
 ```
 
 ### 第二種
 
-```
+```ruby
 SomeClass = Class.new do
   def some_method
   end
@@ -210,7 +210,7 @@ SomeClass.new
 
 Object#instance_eval, Module#class_eval, Module#module_eval 讓我們可以將 `self` 設定為任意 object，執行 block 內容後，再將 `self` 指回原本的 object
 
-```
+```ruby
 "Yoo".instance_eval { self.upcase }
 #=> "YOO"
 
@@ -226,7 +226,7 @@ A.say_hello
 ```
 
 class_eval 也如同 instance_eval，只不過它多設定了可以定義方法的環境，就像 reopen class 一樣。
-```
+```ruby
 # 定義 instance method
 class A; end
 A.class_eval do
@@ -254,7 +254,7 @@ hooked methods == callbacks
 
 在有別的 class 繼承於當前 class 時被調用，參數為 child class
 
-```
+```ruby
 class Parent
   def self.inherited(child)
     puts "Some class inherited from this"
@@ -271,7 +271,7 @@ end
 完整參數：`def method_missing(name, *args, &block) ...`
 
 以下簡化書中範例，自己寫一個只讀的 OpenStruct，。繼承於 BasicObject 以獲得最少的實例方法。我附上註解。
-```
+```ruby
 class MyOpenStruct < BasicObject
   def initialize(initial_values = {})
     @values = initial_values    # MyOpenStruct的實例變數是一個hash

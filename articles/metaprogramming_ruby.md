@@ -10,7 +10,7 @@
 
 Ruby透過內省機制，在執行階段可以存取class內部資訊。亦即class是可以被打開的。
 
-```
+```ruby
 3.times do
   class C
     puts "Hello"
@@ -44,7 +44,7 @@ SomeClass只不過是object，而SomeClass的名字只是常數。
 
 Constant與一般變數不同的地方是Constant具有scope，讓程式結構像資料夾一樣。
 
-```
+```ruby
 MyConstant = "Outside module"
 
 module MyModule
@@ -67,6 +67,8 @@ module M
   end
 end
 ```
+
+### load and require
 
 
 
@@ -92,7 +94,7 @@ end
 
 打開class可以創建新的方法，但如果方法名已經存在，就會覆寫掉原本的方法，(Monkeypatch)在處理標準庫時要注意
 
-```
+```ruby
 class A
   def foo
     "bar from foo"
@@ -110,7 +112,7 @@ A.new.foo #=> "rewrite foo"
 
 class被reopen以後，所有的方法會同時被改寫，我們也無法調用到改寫前的方法，refinement可以解決此問題。
 
-```
+```ruby
 class C
   def say_hi
     "before reopen"
@@ -148,7 +150,7 @@ end
 
 class 實例化之前不會有實例變量，唯有實例化之後，且執行到定義實例變量的地方時，實例變量才會真正被建立出來，注意，實例變量初始化時不可不賦值。
 
-```
+```ruby
 class A
   def initialize
     @var_1 = 1
@@ -180,10 +182,10 @@ a.instance_variables #=> [:@var_1, :@var_2]
 換言之，所有的類方法，都是class Class的實例方法。
 
 Ruby 中所有東西都是對象，任何的 class C 都是 Class 這個類的實例。
-```
+```ruby
 String.class #=> Class
 Object.class #=> Class
-Class.class #=> Class
+Class.class  #=> Class
 ```
 
 因此任意的 class A 的類方法都是 Class 這個類的的實例方法，大推。
@@ -574,6 +576,6 @@ String.instance_methods(false) # 只顯示非繼承而來的自有實例方法
 String.superclass              # 查看String的父輩class
 
 Module.nesting                 # 顯示當前路徑
-Module.constants               # 顯示當前程式中所有頂層常數
+Module.constants               # 回傳所有頂級常量，包含class名
 SomeModule.constants           # 顯示此SomeModule的內部常數
 ```

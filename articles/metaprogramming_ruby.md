@@ -8,7 +8,7 @@
 
 ### Open Class
 
-Ruby在透過內省機制，在執行階段可以存取class內部資訊。亦即class是可以被打開的。
+Ruby透過內省機制，在執行階段可以存取class內部資訊。亦即class是可以被打開的。
 
 ```
 3.times do
@@ -22,7 +22,73 @@ end
 
 class關鍵字比較像是作用域操作符，其任務是把你帶到class的上下文中，讓你可以在裡面定義方法。
 
-### Monkeypatch
+改變一個現有的方法比較有風險，較安全的作法是新增一個方法。
+
+### Inside the Object Model
+
+`object`本身只包含實例變量，其方法作為實例方法存在於其class中。
+
+`SomeClass`在Ruby中也是一種object，這種object預設會有幾種實例方法，定義在Class裡。所有的SomeClass都是Class的實例。
+
+```
+Class.instance_methods(false)  #=> [:allocate, :new, :superclass]
+```
+
+所以當我們定義SomeClass，都會具備這三個方法。第一個書中說幾乎不會用到，new是產生新實例的時候用的，superclass是引用其父輩class。（所以SomeClass這些object間有繼承關係，但一般object沒有）
+
+`Module`是Class的父輩，Class只是一種Module，多了可以實例化object的功能。
+
+Class和Module很接近，但一般是用Module做namespacing，用Class作實例化。module關鍵字會產生Module實例，class關鍵字會產生Class實例。
+
+SomeClass只不過是object，而SomeClass的名字只是常數。
+
+Constant與一般變數不同的地方是Constant具有scope，讓程式結構像資料夾一樣。
+
+```
+MyConstant = "Outside module"
+
+module MyModule
+  MyConstant = "Outer constant"
+  ::MyConstant                     #=> "Outside module"
+  class MyClass
+    MyConstant = "Inner constant"
+    ::MyConstant                   #=> "Outside module"
+  end
+end
+
+MyModule::MyConstant               #=> "Outer constant"
+MyModule::MyClass::Myconstant      #=> "Inner constant"
+
+module M
+  class C
+    module M2
+      Module.nesting               #=> [M::C::M2, M::C, M]
+    end
+  end
+end
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=================================================
+
+
+### Monkeypatch的問題與refinement
 
 打開class可以創建新的方法，但如果方法名已經存在，就會覆寫掉原本的方法，(Monkeypatch)在處理標準庫時要注意
 
@@ -494,3 +560,20 @@ Block僅是可調用對象的一員，其他還有像proc，lambda這樣的對�
 
 目前為止講的都是Ruby物件導向的特性，然而在這一章講的block，觀念是繼承於functional programming language。
 
+
+
+
+## 方法速查表
+
+```
+String.instance_methods        # 查看String class的實例方法
+"abc".methods                  # 查看"abc"這個實例的方法，與上相等
+
+String.instance_methods(false) # 只顯示非繼承而來的自有實例方法
+"abc".class                    # 查看實例"abc"的class
+String.superclass              # 查看String的父輩class
+
+Module.nesting                 # 顯示當前路徑
+Module.constants               # 顯示當前程式中所有頂層常數
+SomeModule.constants           # 顯示此SomeModule的內部常數
+```

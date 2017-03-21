@@ -1,4 +1,24 @@
+<!-- TOC -->
 
+- [Metaprogramming in Programming Ruby](#metaprogramming-in-programming-ruby)
+    - [Object and Class](#object-and-class)
+        - [self的幾個用途](#self的幾個用途)
+        - [self in class object](#self-in-class-object)
+    - [Singletons](#singletons)
+        - [Reopen singleton class](#reopen-singleton-class)
+    - [Module and Mixins](#module-and-mixins)
+    - [Class-level Macros](#class-level-macros)
+    - [Class Method and Modules](#class-method-and-modules)
+    - [Tow Other Forms of Class Definition](#tow-other-forms-of-class-definition)
+        - [第一種](#第一種)
+        - [第二種](#第二種)
+    - [instance_eval and class_eval](#instance_eval-and-class_eval)
+    - [Hooked Methods](#hooked-methods)
+        - [inherited](#inherited)
+        - [method_missing to simulate accessors](#method_missing-to-simulate-accessors)
+        - [method_missing as a filter](#method_missing-as-a-filter)
+
+<!-- /TOC -->
 
 # Metaprogramming in Programming Ruby
 

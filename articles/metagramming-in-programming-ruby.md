@@ -39,7 +39,7 @@ MyClass = Class.new
 
 對Ruby來說，類只是物件的一種而已。
 
-`Object`包含一些flag，實例變數，和關聯到的class。
+`Object`包含 flag (object.object_id)，實例變數，和關聯到的 class。
 
 `Class`因為也是object，所以包含上面所有，再加上一些（實例）方法和關聯到的superclass。
 

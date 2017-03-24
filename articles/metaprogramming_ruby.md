@@ -1,3 +1,32 @@
+<!-- TOC -->
+
+- [Metaprogramming Ruby](#metaprogramming-ruby)
+    - [The Object Model](#the-object-model)
+        - [Open Class](#open-class)
+            - [Monkeypatch的問題與refinement](#monkeypatch的問題與refinement)
+        - [Inside the Object Model](#inside-the-object-model)
+            - [Object](#object)
+            - [Class](#class)
+            - [常量](#常量)
+            - [require & load](#require--load)
+        - [Method Lookup](#method-lookup)
+            - [Modules and Lookup](#modules-and-lookup)
+            - [The Kernel](#the-kernel)
+        - [Method Execution](#method-execution)
+            - [The self Keyword](#the-self-keyword)
+            - [The Top Level](#the-top-level)
+        - [private](#private)
+            - [Class Definitions and self](#class-definitions-and-self)
+        - [Refinements](#refinements)
+    - [Methods](#methods)
+                    - [Dynamic Dispatch](#dynamic-dispatch)
+                    - [Dynamic method](#dynamic-method)
+                    - [Ghost Method](#ghost-method)
+- [Metaprogramming Ruby 代碼塊](#metaprogramming-ruby-代碼塊)
+    - [方法速查表](#方法速查表)
+
+<!-- /TOC -->
+
 此系列為Metaprogramming Ruby第二版的筆記，記錄於此作為複習之用。
 
 # Metaprogramming Ruby
@@ -104,8 +133,6 @@ Class.instance_methods(false)  #=> [:allocate, :new, :superclass]
 
 所以當我們定義SomeClass，都會具備這三個方法。第一個書中說幾乎不會用到，new是產生新實例的時候用的，superclass是引用其父輩class。（所以SomeClass這些object間有繼承關係，但一般object沒有）
 
-
-
 #### 常量
 
 大寫開頭的即是常量。在Java和C#中，任意的class也是Class的實例，但類和對象有很大的差別，類的功能也比對象有限。不能在運行時創建一個類，或修改類方法。對Java和C#，Class實例比較像是描述符，而非真正的類。
@@ -182,7 +209,6 @@ receiver 是調用方法所在的對象。ancestor 則是一個包含 class 和 
 
 #### Modules and Lookup
 
-
 Kernel或是其他自定義的module，當被include進其他class的時候，會創建一個封裝該module的匿名class，並插入到ancestors中，位置在被插入的class的上方。舉例
 
 ```
@@ -245,29 +271,9 @@ A.ancestors  # [A, Object, Kernel, BasicObject] 查詢 A 的 ancestors
 
 一些常用的方法被放在Kernel裡，如ap，puts，print等，因為Ruby所有執行都是在某object之中，而object的又必然有Kernel，所以這些方法可以直接被使用，不用加receiver（object內部的receiver預設是self，即自身）。
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### Method Execution
 
-### self
+#### The self Keyword
 
 self是特殊的變量，保存的是當前的object。object調用method或實例變數都會使用self作為receiver。
 
@@ -286,14 +292,14 @@ end
 3. 把self的值換成這個新產生的實例
 4. 接下來一直執行到end為止
 
+#### The Top Level
+
 既然所有東西都是對象，而調用對象方法時self就會成為那個object，那我們在irb中還沒有調用任何方法前，self是什麽呢？self是一個叫作main的Object實例。這個對象有時被稱為頂級上下文top level context，是謂棧頂。
 
 ```
 self #=> main
 self.class #=> Object
 ```
-
-self通常是接收到最後一個方法調用的對象來充當，但是在class和module定義中，方法定義之外，self由該class或module充當。
 
 ### private
 
@@ -306,7 +312,7 @@ private方法由兩條規則控制：
 
 綜合兩個規則，private方法只能在自身中調用private方法。
 
-```
+```ruby
 class C
   def public_method_1
     self.private_method
@@ -325,7 +331,7 @@ C.new.public_method_2 #=> nil
 ```
 
 可以使用superclass的private方法，因為無須顯式的指定receiver。
-```
+```ruby
 class C
   private
   def private_method; end
@@ -340,15 +346,17 @@ end
 D.new.private_method #=> nil
 ```
 
+#### Class Definitions and self
+
+self通常是接收到最後一個方法調用的對象來充當，但是在class和module定義中，方法定義之外，self由該class或module充當。
+
+### Refinements
+
+略
 
 
 
-
-
-
-
-
-# Metapromgramming Ruby 方法
+## Methods
 
 ###### Dynamic Dispatch
 ```

@@ -36,6 +36,7 @@
                 - [Scope Gates](#scope-gates)
                 - [Flattening the Scope (Nested Lexical Scopes)](#flattening-the-scope-nested-lexical-scopes)
                 - [Sharing the Scope](#sharing-the-scope)
+        - [instance_eval()](#instance_eval)
     - [方法速查表](#方法速查表)
 
 <!-- /TOC -->
@@ -614,7 +615,7 @@ p b                      #=> undefined local variable or method `b` for main:Obj
 
 與其他語言不同，Ruby的內部scope不會看到外部scope，所以每次換環境（下面會說切換的時機）時，部份的bindings會被換成新環境的。
 
-class關鍵字會建起新的scope，直到結束為止，再回到頂層scope。class內的方法將會有新的scope，但在調用前都不會創建，而且執行完立即銷毀。
+比方說class關鍵字會建起新的scope，直到end為止，再回到頂層scope。class內的方法將會有新的scope，但在調用前都不會創建，而且執行完立即銷毀。
 
 ##### Global Varaibles and Top-Level Instance Variables
 
@@ -690,6 +691,29 @@ end
 ```
 
 ##### Sharing the Scope
+
+有了socpe gates和flat scope，就可以隨心所欲控制scope。在flat scope中定義方法，即可對內共享，對外隔離local variables。
+
+```ruby
+def define_methods
+  shared = 0
+
+  Kernel.send :define_method, :counter do
+    shared
+  end
+end
+
+define_methods
+counter   #=> 0
+```
+
+只有counter方法會知道shared變量，其他都不會知道，因為在define_methods外。這個技巧較少使用。
+
+### instance_eval()
+
+
+
+
 
 
 

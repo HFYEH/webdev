@@ -30,6 +30,11 @@
             - [BasicObject](#basicobject)
     - [Blocks](#blocks)
         - [Blocks Are Closures](#blocks-are-closures)
+            - [Scope](#scope)
+                - [Changing Scope](#changing-scope)
+                - [Global Varaibles and Top-Level Instance Variables](#global-varaibles-and-top-level-instance-variables)
+                - [Scope Gates](#scope-gates)
+                - [Flattening the Scope](#flattening-the-scope)
     - [方法速查表](#方法速查表)
 
 <!-- /TOC -->
@@ -269,7 +274,7 @@ module被封裝進一個匿名的class，這樣的include class，`superclass()`
 
 #### The Kernel
 
-```
+```ruby
 class A
 end
 
@@ -288,7 +293,7 @@ self是特殊的變量，保存的是當前的object。object調用method或實�
 
 而這樣的程式碼，其實是在做三件事：
 
-```
+```ruby
 class Test
  doing something...
 end
@@ -303,7 +308,7 @@ end
 
 既然所有東西都是對象，而調用對象方法時self就會成為那個object，那我們在irb中還沒有調用任何方法前，self是什麽呢？self是一個叫作main的Object實例。這個對象有時被稱為頂級上下文top level context，是謂棧頂。
 
-```
+```ruby
 self #=> main
 self.class #=> Object
 ```
@@ -560,7 +565,84 @@ Block僅是可調用對象的一員，其他還有像proc，lambda這樣的對�
 
 ### Blocks Are Closures
 
-當程式執行時，除了程式碼本身，還須要其環境，環境包括local varaibles, instance variables, self...。在Block中亦然，在執行block時除了程式碼本身，還須要給它綁定（binding）環境。
+當程式執行時，除了程式碼本身，還須要其環境，環境包括local varaibles, instance variables, self...。在Block中亦然，在執行block時除了程式碼本身，還須要給它綁定（binding）環境。 ***Block會綁定建立時的環境***。
+
+```ruby
+def my_method
+  x = "Goodbye"
+  yield("cruel")
+end
+
+x = "Hello"
+my_method { |y| "#{x}, #{y} world" }
+#=> "Hello, cruel world"
+```
+
+如上例，在定義block時，它就記住了它的環境，如 `x = "Hello"`，當在方法中yield時，block完全不知道外部的參數 `x = "Goodbye"`。
+
+再來一個從魔法師的手杖提供的[例子](http://sibevin.github.io/posts/2016-06-19-123921-mr2-ch4-blocks)，說明何謂closure。Block因為有修改所在scope的特性，我們稱block為closure。
+
+```ruby
+a = "a in the top"
+
+def say(word)            #=> 方法內有其獨立的scope
+  a = "a in the method"
+  p a                    #=> "a in the method"
+  yield(word)            # block環境為其定義時的環境，不知道此方法內a的存在
+  p a                    #=> "a in the method"
+end
+
+p a                      #=> "a in the top" 還沒執行方法前，a還是保持原值
+
+say("Hi") do |w|
+  a = "a in the block"   #=> 改變了頂層的a
+  b = "b in the block"   #=> block內新建的環境在block結束後會被刪除
+end
+
+p a                      #=> "a in the block"
+p b                      #=> undefined local variable or method `b` for main:Object (NameError)
+```
+
+#### Scope
+
+當程式執行到一半中斷時，你所處的環境就是當時的scope。 ***在scope中可以看到許多binding。有local varaibles，有當前所在的object，即self，和它自身的methods和instance variables，有constants和global variables。***
+
+切換scope時，並不是所有bindings都被換掉，比如一個方法調用同一object的其他方法時，instance varialbles是不會變的。但local variable在切換scope時總是會變。
+
+##### Changing Scope
+
+與其他語言不同，Ruby的內部scope不會看到外部scope，所以每次換環境（下面會說切換的時機）時，部份的bindings會被換成新環境的。
+
+class關鍵字會建起新的scope，直到結束為止，再回到頂層scope。class內的方法將會有新的scope，但在調用前都不會創建，而且執行完立即銷毀。
+
+##### Global Varaibles and Top-Level Instance Variables
+
+Global variables可以在任何scope被調用。因此，能不用就不用，因為會難以追蹤誰改了global variables。
+
+可以用top-level instance variables去代替global variables。
+
+```ruby
+@var = 1            # @var 是定義在top-level object 'main'中的instance variable
+
+def my_method
+  puts @var         # 調用時會創建scope，該scope裡有self
+end
+
+my_method  #=> 1    # 當self是main的時候，可以找到@var
+```
+
+##### Scope Gates
+
+切換scope的時機有三：
+
+1. Class definitions `class`
+2. Module definitions `module`
+3. Methods `def`
+
+唯一的細微差異是，在class和module內的程式是會被立即執行的，而def內的程式要一直到被調用時才會執行。
+
+
+##### Flattening the Scope
 
 
 
@@ -568,7 +650,7 @@ Block僅是可調用對象的一員，其他還有像proc，lambda這樣的對�
 
 ## 方法速查表
 
-```
+```ruby
 String.instance_methods        # 查看String class的實例方法
 "abc".methods                  # 查看"abc"這個實例的方法，與上相等
 
@@ -579,4 +661,15 @@ String.superclass              # 查看String的父輩class
 Module.nesting                 # 顯示當前路徑
 Module.constants               # 回傳所有頂級常量，包含class名
 SomeModule.constants           # 顯示此SomeModule的內部常數
+
+String.ancestors               # 查看其繼承鏈，包含module
+Object#send                    # 調用方法第二種方式
+
+define_method "name" do |x|    # 在class內動態定義方法
+end
+
+remove_method :to_s            # 在class僅移除自己的方法  
+undef_method :to_s             # 在class移除所有的，包含繼承來的方法
+
+Kernel.local_varaibles         # 查看當前scope內的local variables
 ```

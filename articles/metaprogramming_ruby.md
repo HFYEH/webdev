@@ -19,10 +19,13 @@
             - [Class Definitions and self](#class-definitions-and-self)
         - [Refinements](#refinements)
     - [Methods](#methods)
-                    - [Dynamic Dispatch](#dynamic-dispatch)
-                    - [Dynamic method](#dynamic-method)
-                    - [Ghost Method](#ghost-method)
-- [Metaprogramming Ruby 代碼塊](#metaprogramming-ruby-代碼塊)
+        - [Dynamic Methods](#dynamic-methods)
+            - [Calling Method Dynamically](#calling-method-dynamically)
+            - [Defining Methods Dynamically](#defining-methods-dynamically)
+        - [Method Missing](#method-missing)
+            - [Overriding method_missing](#overriding-method_missing)
+            - [Ghost Methods](#ghost-methods)
+    - [Blocks](#blocks)
     - [方法速查表](#方法速查表)
 
 <!-- /TOC -->
@@ -354,12 +357,17 @@ self通常是接收到最後一個方法調用的對象來充當，但是在clas
 
 略
 
-
-
 ## Methods
 
-###### Dynamic Dispatch
-```
+在靜態語言中，在編譯階段就須要檢查函數名，如果不存在，就會報錯。但在動態語言，直到你真正調用方法時，才會去找該方法。而Ruby甚至讓我們可以動態的定義方法，所以不用像靜態語言一樣把所有方法都寫齊，只是為了使編譯器開心。
+
+### Dynamic Methods
+
+#### Calling Method Dynamically
+
+使用`Object#send`動態的呼叫方法。
+
+```ruby
 class C
   def public_m1
     "public_m1"
@@ -381,17 +389,22 @@ c.public_m1               #=> "public_m1"
 c.public_m2               #=> "public_m2"
 c.private_m               #=> 無法顯示呼叫private method
 c.call_private_m          #=> "private" 只有class內可以使用private method
-c.send(:public_m1)        #=> "public_m1" 使用send動態的呼叫方法c.send(:private_m)        #=> "private" 使用send也可以呼叫private method
-c.send(:method_m1, param1, param2, ...) 
+c.send(:public_m1)        #=> "public_m1" 使用send動態的呼叫方法
+c.send(:private_m)        #=> "private" 使用send也可以呼叫private method
+
 # 方法名只要送入字串或symbol(preferred)即可，send方法把「選擇用哪個實例方法」的時間點延到執行時才決定。
+c.send(:method_m1, param1, param2, ...) 
 ```
 
-###### Dynamic method
->所有的method都是procedure，所有的method name都是symbol
+使用`Object#send`，method都是一段procedure，所有的method name都是symbol或string，可以用串接的方式拼湊方法名，此即 ***Dynamic Dispatch***。
 
-可以發現剛剛public_m1, public_m2有許多相似處，可以動態的定義方法如下：
+#### Defining Methods Dynamically
 
-```
+動態定義方法，使用`Module#define_method`，提供method name為第一參數，和block作為method body。
+
+可以發現剛剛public_m1, public_m2有許多相似處，可以在runtime動態的定義方法如下（直到C被調用時觸發）：
+
+```ruby
 class C
   ['public_m1', 'public_m2'].each do |m|
     define_method "#{m}" do
@@ -407,17 +420,21 @@ c.send(:public_m1)            #=> "public_m1"
 c.send(:public_m1)            #=> "public_m2"
 ```
 
-###### Ghost Method
+### Method Missing
 
-當在ancestors中找不到方法，Ruby解釋器會在最初的receiver上調用method_missing()方法。因為method_missing是BasicObject的private instance method，所以一定會找到此方法。
+BasicObject#method_missing是一private method，所有object都有此方法。當在自身與ancestors中找不到方法時，Ruby解釋器會在最初的receiver上調用method_missing()方法。此方法預設會拋出NoMethodError例外。
 
-```
+#### Overriding method_missing
+
+```ruby
 class O
 end
 
+# 預設找不到方法時在原receiver調用method_missing，拋出例外
 o = O.new
 o.hihi               #=> NoMethodError: undefined method `hihi' for #<O:0x00000002765e60>
 
+# 重新定義method_missing後的效果
 class O
   def method_missing(method, *args)
     puts "You are calling #{method} (#{args.join(',')}), but not this method, haha"
@@ -427,9 +444,11 @@ end
 o.jkjk(123,321)     #=> You are calling jkjk(123,321), but not this method, haha
 ```
 
+#### Ghost Methods
+
 再舉一例，製作類似attr_reader的功能，並補充一些事。
 
-```
+```ruby
 class C
   def public_mx
     "public_mx"
@@ -476,7 +495,7 @@ Ghost method優先權最低，如果希望用到ghost method不會被同名方�
 
 可以用`undef_method`和`remove_method`移除已定義的方法
 
-```
+```ruby
 class C
   def to_s
     "New to_s"
@@ -501,7 +520,7 @@ c.to_s                         #=> NoMethodError
 
 或是直接繼承BasicObject，它是擁有最少實例方法的class對象，稱作blank slate class。
 
-```
+```ruby
 class C < BasicObject
 end
 ```
@@ -523,8 +542,7 @@ Ruby有一些保留方法，長得像`__method__`，比如`__send__()`，其實�
 
 
 
-# Metaprogramming Ruby 代碼塊
-
+## Blocks
 
 代碼塊（Block）是控制作用域（Scope）的手段。
 

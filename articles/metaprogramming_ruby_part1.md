@@ -29,6 +29,7 @@
             - [Removing Methods](#removing-methods)
             - [BasicObject](#basicobject)
     - [Blocks](#blocks)
+        - [Blocks Are Closures](#blocks-are-closures)
     - [方法速查表](#方法速查表)
 
 <!-- /TOC -->
@@ -557,6 +558,9 @@ Block僅是可調用對象的一員，其他還有像proc，lambda這樣的對�
 
 目前為止講的都是Ruby物件導向的特性，然而在這一章講的block，觀念是繼承於functional programming language。
 
+### Blocks Are Closures
+
+當程式執行時，除了程式碼本身，還須要其環境，環境包括local varaibles, instance variables, self...。在Block中亦然，在執行block時除了程式碼本身，還須要給它綁定（binding）環境。
 
 
 

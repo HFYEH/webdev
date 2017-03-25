@@ -34,7 +34,8 @@
                 - [Changing Scope](#changing-scope)
                 - [Global Varaibles and Top-Level Instance Variables](#global-varaibles-and-top-level-instance-variables)
                 - [Scope Gates](#scope-gates)
-                - [Flattening the Scope](#flattening-the-scope)
+                - [Flattening the Scope (Nested Lexical Scopes)](#flattening-the-scope-nested-lexical-scopes)
+                - [Sharing the Scope](#sharing-the-scope)
     - [方法速查表](#方法速查表)
 
 <!-- /TOC -->
@@ -642,9 +643,53 @@ my_method  #=> 1    # 當self是main的時候，可以找到@var
 唯一的細微差異是，在class和module內的程式是會被立即執行的，而def內的程式要一直到被調用時才會執行。
 
 
-##### Flattening the Scope
+##### Flattening the Scope (Nested Lexical Scopes)
 
+至此終於搞懂為何class定義有兩種方式。
 
+```ruby
+class A
+  # 因為scope gates，會建立新的scope
+end
+
+A = Class.new do
+  # 在block之中會取得外部的scope
+end
+```
+
+而定義方法的define_method也有類似的功用
+
+```ruby
+def say
+  # 因為scope gates，會建立新的scope
+end
+
+define_method do
+  # 在block中會取得外部的scope
+end
+```
+
+所以若想要將外部變數傳入class甚至方法定義中，可以這樣做
+
+```ruby
+my_var = "Success"
+
+# my_var傳不進去，因此調用時會找不到該變數而拋出例外
+class A
+  def say
+    my_var
+  end
+end
+
+# my_var會穿過兩個blocks，所以最內部可以找到該變數
+A = Class.new do
+  define_method :say do
+    my_var    # 在此如改變其值，因為綁定了頂層環境，所以會改變頂層my_var的值
+  end
+end
+```
+
+##### Sharing the Scope
 
 
 

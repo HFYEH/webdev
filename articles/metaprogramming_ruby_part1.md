@@ -43,6 +43,9 @@
         - [Callable Objects](#callable-objects)
             - [Proc Objects](#proc-objects)
             - [The & Operator](#the--operator)
+            - [Procs vs. Lambdas](#procs-vs-lambdas)
+        - [Method Objects](#method-objects)
+            - [Unbound Methods](#unbound-methods)
         - [Writing a DSL](#writing-a-dsl)
         - [A Better DSL](#a-better-dsl)
     - [Class Definitions](#class-definitions)
@@ -797,7 +800,7 @@ Block不是object，但可以存在proc中，Ruby提供Proc產生proc實例去�
 
 Ruby提供數種方法產生proc，其中Kernel的proc和lambda會產生性質有些微差異的proc，其差異後述。
 
-```
+```ruby
 a = Proc.new {|x| puts x}
 a.call("Hello")    　　　　　　   # Deferred Evaluation，先定義，之後再調用
 
@@ -808,8 +811,50 @@ a = ->(x) {puts "Hello"}         # 同上
 
 #### The & Operator
 
+調用方把時傳入的block可以視為一暱名的參數。雖然可以用yield調用block，但如果我們想要將block內容重複在不同方法內調用時，就必須一再重寫。
+
+為此，我們可以顯式的給其名字，並封裝進proc中。透過`&`操作符達成。`&`操作符的意思是，我想要取得進入此方法的block，並將之轉換成proc instance。
+
+在方法中，如果要將proc轉為block，一樣是使用`&`。簡言之，`&`可以將proc轉成block，也可以將block轉成proc。
+
+#### Procs vs. Lambdas
+
+可以用Proc#lambda?檢查某proc實例是否是lambda。
+
+Ruby中最讓人困惑的就是proc和lambda間的差異。其主要差異有二：`return`關鍵字的作用和檢查參數與否。
+
+proc中的return會試圖從 ***定義時的scope*** return，lambda則簡單從lambda中return。
+
+lambda會嚴格檢查參數，proc則否。proc會把多予的參數丟棄，把少輸入的參數以nil代之。
+
+通常我們會使用lambda，因為它跟一般的method call比較類似（從自身return，會檢查參數）。
+
+### Method Objects
+
+從上已經知道proc和lambda是object，那一般的method是否可以轉成proc呢？
+
+```ruby
+class MyClass
+  def my_method
+    puts "Hello"
+  end
+end
+
+object = MyClass.new
+m = object.method :my_method    # Kernel#method 會將method以method object傳回
+m.call   #=> "Hello"  該method object隨後可以以Kernel#call執行
+```
+
+Method#to_proc可以將method轉為proc，define_method可以將block轉為method。但記住其差異：lambda的scope是其定義時的環境，而method的scope是其所在的object。
+
+#### Unbound Methods
+
+略
 
 ### Writing a DSL
+
+
+
 
 ### A Better DSL
 
@@ -823,25 +868,35 @@ a = ->(x) {puts "Hello"}         # 同上
 ## 方法速查表
 
 ```ruby
-String.instance_methods        # 查看String class的實例方法
-"abc".methods                  # 查看"abc"這個實例的方法，與上相等
+String.instance_methods               # 查看String class的實例方法
+"abc".methods                         # 查看"abc"這個實例的方法，與上相等
 
-String.instance_methods(false) # 只顯示非繼承而來的自有實例方法
-"abc".class                    # 查看實例"abc"的class
-String.superclass              # 查看String的父輩class
+String.instance_methods(false)        # 只顯示非繼承而來的自有實例方法
+"abc".class                           # 查看實例"abc"的class
+String.superclass                     # 查看String的父輩class
 
-Module.nesting                 # 顯示當前路徑
-Module.constants               # 回傳所有頂級常量，包含class名
-SomeModule.constants           # 顯示此SomeModule的內部常數
+Module.nesting                        # 顯示當前路徑
+Module.constants                      # 回傳所有頂級常量，包含class名
+SomeModule.constants                  # 顯示此SomeModule的內部常數
 
-String.ancestors               # 查看其繼承鏈，包含module
-Object#send                    # 調用方法第二種方式
+String.ancestors                      # 查看其繼承鏈，包含module
+Kernel.send                           # 調用方法第二種方式
 
-define_method "name" do |x|    # 在class內動態定義方法
+define_method "name" do |x|           # 在class內動態定義方法
 end
 
-remove_method :to_s            # 在class僅移除自己的方法  
-undef_method :to_s             # 在class移除所有的，包含繼承來的方法
+remove_method :to_s                   # 在class僅移除自己的方法  
+undef_method :to_s                    # 在class移除所有的，包含繼承來的方法
 
-Kernel.local_varaibles         # 查看當前scope內的local variables
+Kernel.local_varaibles                # 查看當前scope內的local variables
+
+object.instance_eval {}               # 以object為self執行block內容
+object.instance_exec {|x| ..}         # 以object為self執行block內容，可代額外參數
+
+Proc#lambda                           # 檢查某proc instance是否為lambda
+
+Kernel#method :my_method              # 將某method以method object傳回
+Kernel#singleton_method :my_method    # 將某singleton method以method object傳回
+
+
 ```

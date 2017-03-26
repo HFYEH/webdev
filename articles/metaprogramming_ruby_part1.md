@@ -47,8 +47,11 @@
         - [Method Objects](#method-objects)
             - [Unbound Methods](#unbound-methods)
         - [Writing a DSL](#writing-a-dsl)
-        - [A Better DSL](#a-better-dsl)
     - [Class Definitions](#class-definitions)
+        - [Class Definition Demystified (去神祕化)](#class-definition-demystified-去神祕化)
+            - [Inside Class Definitions](#inside-class-definitions)
+            - [The Current Class](#the-current-class)
+            - [Class Instance Variables](#class-instance-variables)
     - [Code That Writes Code](#code-that-writes-code)
     - [方法速查表](#方法速查表)
 
@@ -853,14 +856,82 @@ Method#to_proc可以將method轉為proc，define_method可以將block轉為metho
 
 ### Writing a DSL
 
-
-
-
-### A Better DSL
+略，有空再讀。此章舉例為多，基本原理還是上述幾章。
 
 ## Class Definitions
 
+在class中實際上就是在執行程式，這是重要的概念，我卻很晚才知道。
+
+因為是在執行程式，可以在class內做兩個很有威力的事情，一是class macros（可以修改class的方法）和around aliases（可以將多的程式碼包裹至其他方法中）。
+
+提醒：本章提到的class，用module來取代都也是一樣的。
+
+### Class Definition Demystified (去神祕化)
+
+#### Inside Class Definitions
+
+class內部就是在執行程式，且也會回傳最後一個值。
+
+```ruby
+result = class A
+  self
+end
+
+result  #=> A
+```
+
+#### The Current Class
+
+在Ruby中，你永遠有self代表current object，也永遠會有current class (module)。定義方法時，該方法就會成為該current class的實例方法。
+
+Current class並無透過關鍵字直接取得，通常只要看程式就知道誰是current class了。分為下列幾種情情：
+
+1. 在top-level，current class是Object，即main object的class。定義方法時，會直接成為Object的實例方法。
+2. 在方法內，current class是object的class。方法內定義方法，會成為同一class的實例方法。
+3. 使用`class`關鍵字打開class時，current class就是你打開的class。
+
+如果事前不知道class名，就無法以class關鍵字打開class。可以改使用Module#class_eval
+
+```ruby
+class A; end
+
+self.class        #=> Object
+A.class_eval do   # current class從Object變為A
+  def my_method
+    puts "Hi"
+  end
+end
+
+A.new.my_method  #=> "Hi"
+```
+
+所以instance_eval是把self設成receiver，且把current class設成singleton class；而class_eval是把self設成receiver（某class），且把current class設成也設成該receiver。
+
+相比class關鍵字，class_eval明顯的好處是，可以以變量調用，而且使用flat scope。
+
+```ruby
+someClass = class A; self; end
+
+my_var = 123
+someClass.class_eval do
+  puts my_var
+end
+#=> 123
+```
+
+#### Class Instance Variables
+
+
+
+
+
+
+
+
 ## Code That Writes Code
+
+
+
 
 
 
@@ -892,11 +963,13 @@ Kernel.local_varaibles                # 查看當前scope內的local variables
 
 object.instance_eval {}               # 以object為self執行block內容
 object.instance_exec {|x| ..}         # 以object為self執行block內容，可代額外參數
+class.class_eval {}                   # 以class為self，且將current class設為class
+class.class_exec {}
 
 Proc#lambda                           # 檢查某proc instance是否為lambda
 
 Kernel#method :my_method              # 將某method以method object傳回
 Kernel#singleton_method :my_method    # 將某singleton method以method object傳回
 
-
+Module#class_eval {}                  # 改變current class為receiver class並執行block內容
 ```

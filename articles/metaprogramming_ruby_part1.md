@@ -41,6 +41,8 @@
             - [Breaking Encapsulation](#breaking-encapsulation)
             - [Clean Rooms](#clean-rooms)
         - [Callable Objects](#callable-objects)
+            - [Proc Objects](#proc-objects)
+            - [The & Operator](#the--operator)
         - [Writing a DSL](#writing-a-dsl)
         - [A Better DSL](#a-better-dsl)
     - [Class Definitions](#class-definitions)
@@ -787,6 +789,24 @@ Clean Room是一個evalute block的環境，class最好繼承BasicObject，再�
 
 ### Callable Objects
 
+proc, lambda, method是package code的三種方式。
+
+#### Proc Objects
+
+Block不是object，但可以存在proc中，Ruby提供Proc產生proc實例去儲存程式碼片段。
+
+Ruby提供數種方法產生proc，其中Kernel的proc和lambda會產生性質有些微差異的proc，其差異後述。
+
+```
+a = Proc.new {|x| puts x}
+a.call("Hello")    　　　　　　   # Deferred Evaluation，先定義，之後再調用
+
+a = proc {|x| puts "Hello"}      # 同上
+a = lambda {|x| puts "Hello"}    # 產生Proc:lambda
+a = ->(x) {puts "Hello"}         # 同上
+```
+
+#### The & Operator
 
 
 ### Writing a DSL

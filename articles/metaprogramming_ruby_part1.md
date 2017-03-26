@@ -37,6 +37,14 @@
                 - [Flattening the Scope (Nested Lexical Scopes)](#flattening-the-scope-nested-lexical-scopes)
                 - [Sharing the Scope](#sharing-the-scope)
         - [instance_eval()](#instance_eval)
+            - [instance_exec](#instance_exec)
+            - [Breaking Encapsulation](#breaking-encapsulation)
+            - [Clean Rooms](#clean-rooms)
+        - [Callable Objects](#callable-objects)
+        - [Writing a DSL](#writing-a-dsl)
+        - [A Better DSL](#a-better-dsl)
+    - [Class Definitions](#class-definitions)
+    - [Code That Writes Code](#code-that-writes-code)
     - [方法速查表](#方法速查表)
 
 <!-- /TOC -->
@@ -711,8 +719,83 @@ counter   #=> 0
 
 ### instance_eval()
 
+`BasicObject#instance_eval`後的block使用receiver object的context，亦即將object作為self代入block中。Block定義時同樣具有flat scope，可以看到其外的local variables。
+
+所以instance_eval的用途，就像是把一段程式碼放入object中執行，這稱作context probe。
+
+```ruby
+class A
+  def initialize
+    @v = 1
+  end
+end
+
+obj = A.new
+obj.instance_eval do
+  self                       #=> #<A: 0x3340dc @v=1>
+  @v                         #=> 1
+end
+
+my_var = 2
+obj.instance_eval { @v = my_var }
+obj.instance_eval {@v}       #=> 2
+```
+
+#### instance_exec
+
+與instance_eval幾乎相同，差別是可以代入參數，強化版的instance_eval。
+
+下例中，因為 ***instance variables的尋找是依據self*** ，所以在B#show_a_and_b_by_instance_eval是找不到@b的。
+
+```ruby
+class A
+  def initialize
+    @a = 1
+  end
+end
+
+class B
+  def initialize
+    @b = 2
+  end
+
+  def show_a_and_b_by_instance_eval
+    A.new.instance_eval { "#{@a} and #{@b}"}
+  end
+
+  def show_a_and_b_by_instance_exec
+    A.new.instance_exec(@b) {|b| "#{@a} and #{b}"}
+  end
+end
+
+B.new.show_a_and_b_by_instance_eval   #=> "1 and "
+B.new.show_a_and_b_by_instance_exec   #=> "1 and 2"
+```
+
+#### Breaking Encapsulation
+
+可以看到instance_eval是會破壞物件封裝的。只有在兩件事情時會利用此特性。
+
+1. 想使用irb了解object內部，用instance_eval可以快速達成目的
+2. Arguably testing
+
+Encapsulation 在 Ruby 中只是一項彈性的功能，使用者可以忽略它，但也必須因此冒部份風險。
+
+#### Clean Rooms
+
+Clean Room是一個evalute block的環境，class最好繼承BasicObject，再以該class新增實例。
+
+### Callable Objects
 
 
+
+### Writing a DSL
+
+### A Better DSL
+
+## Class Definitions
+
+## Code That Writes Code
 
 
 

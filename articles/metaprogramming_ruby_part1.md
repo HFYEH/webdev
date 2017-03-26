@@ -52,6 +52,9 @@
             - [Inside Class Definitions](#inside-class-definitions)
             - [The Current Class](#the-current-class)
             - [Class Instance Variables](#class-instance-variables)
+        - [Singleton Methods](#singleton-methods)
+        - [Singleton Classes](#singleton-classes)
+        - [Method Wrappers](#method-wrappers)
     - [Code That Writes Code](#code-that-writes-code)
     - [方法速查表](#方法速查表)
 
@@ -814,7 +817,7 @@ a = ->(x) {puts "Hello"}         # 同上
 
 #### The & Operator
 
-調用方把時傳入的block可以視為一暱名的參數。雖然可以用yield調用block，但如果我們想要將block內容重複在不同方法內調用時，就必須一再重寫。
+調用方把時傳入的block可以視為一匿名的參數。雖然可以用yield調用block，但如果我們想要將block內容重複在不同方法內調用時，就必須一再重寫。
 
 為此，我們可以顯式的給其名字，並封裝進proc中。透過`&`操作符達成。`&`操作符的意思是，我想要取得進入此方法的block，並將之轉換成proc instance。
 
@@ -921,9 +924,51 @@ end
 
 #### Class Instance Variables
 
+Instance variable是在self裡找的。
+
+因為class和object都是object的一種，可以為其定義instance variable。
+
+```ruby
+class A
+  @class_instance_var = "Hihi"
+
+  def self.show_var
+    @class_instance_var # 因為self是A，可以找得到
+  end
+
+  def show_var          # 在A的instance裡面找不到
+    @class_instance_var
+  end
+end
+
+A.show_var              #=> "Hihi"
+A.new.show_var          #=> nil
+```
+
+最後提到，class variable不是存在class中，而是存在class的外層，會被外層改變，不要用。
+
+使用Class.new定義class
+
+```
+my_class = Class.new {}     # 建立匿名class，my_class索引此class
+my_class.name               #=> nil
+MyClass = my_class          # 告訴此匿名class的名字為MyClass
+my_class.name               #=> MyClass
+```
 
 
 
+
+### Singleton Methods
+
+
+
+
+### Singleton Classes
+
+
+
+### Method Wrappers
 
 
 
@@ -972,4 +1017,6 @@ Kernel#method :my_method              # 將某method以method object傳回
 Kernel#singleton_method :my_method    # 將某singleton method以method object傳回
 
 Module#class_eval {}                  # 改變current class為receiver class並執行block內容
+
+Class.new(Array) {}                   # 建新的class，繼承於Array
 ```

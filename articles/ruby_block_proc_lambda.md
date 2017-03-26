@@ -17,7 +17,7 @@ Ruby有三種具有函數功能的東西，即一般的函數，Proc和lambda。
 - Ruby的函數都是有名字的，每次呼叫函數必定會尋找receiver，再決定呼叫哪個物件的同名方法。
 - Block包含一段待執行的程式碼，也是Ruby中唯一不是物件的東西。Block本身被設計成不能access的，只能在被包裝成物件後才能被access。
 - Ruby可以將block存成proc物件，再於他處執行。
-- Ruby也可以將block存成lambda，與proc有物件有些微不同。lambda表現更像是常見的暱名函數。
+- Ruby也可以將block存成lambda，與proc有物件有些微不同。lambda表現更像是常見的匿名函數。
 
 ## 函數
 

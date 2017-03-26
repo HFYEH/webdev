@@ -23,7 +23,7 @@
   * [capistrano一個專案一台機器兩個branch部暑成兩個app](articles/a-project-a-machine-two-summer-branch-into-two-app.md)
   * [理解 Rails delegate](articles/understanding-rails-delegate.md)
   * [Websocket 資料](articles/websocket-data.md)
-  * [Metaprogramming in Programming Ruby](articles/metagramming-in-programming-ruby.md)
+  * [Metaprogramming in Programming Ruby](articles/metaprogramming-in-programming-ruby.md)
   * [Metaprogramming Ruby Part I](articles/metaprogramming_ruby_part1.md)
   * [Metaprogramming Ruby Part II](articles/metaprogramming_ruby_part2.md)
   * [Metaprogramming Ruby Part III](articles/metaprogramming_ruby_part3.md)

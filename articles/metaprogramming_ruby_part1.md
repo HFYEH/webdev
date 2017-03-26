@@ -53,6 +53,7 @@
             - [The Current Class](#the-current-class)
             - [Class Instance Variables](#class-instance-variables)
         - [Singleton Methods](#singleton-methods)
+            - [Class Macros](#class-macros)
         - [Singleton Classes](#singleton-classes)
         - [Method Wrappers](#method-wrappers)
     - [Code That Writes Code](#code-that-writes-code)
@@ -956,12 +957,21 @@ MyClass = my_class          # 告訴此匿名class的名字為MyClass
 my_class.name               #=> MyClass
 ```
 
-
-
-
 ### Singleton Methods
 
+Class methods本身就是該class的singleton methods。
 
+定義singleton methods的方式
+
+```ruby
+def object.class; end
+```
+
+上述的object可以是普通object，可以是ClassName，也可以是self。如果object是class或self，就是定義class的singleton method；如果object是普通object，就是定義該object的singleton method。
+
+#### Class Macros
+
+略，已寫於[這裡](metaprogramming-in-programming-ruby.md#class-level-macros)。
 
 
 ### Singleton Classes

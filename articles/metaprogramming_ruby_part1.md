@@ -973,19 +973,43 @@ def object.class; end
 
 略，已寫於[這裡](metaprogramming-in-programming-ruby.md#class-level-macros)。
 
-
 ### Singleton Classes
 
+略，已寫於[這裡](metaprogramming-in-programming-ruby.md#singletons)。
 
+![](../images/metaprogramming-ruby-2.jpg)
+
+最後書中整理出七項規則，為完整的object model大一統理論。
+
+1. 只能是一種object，regular object或module
+2. 只能是一種module，regular module, class, singleton class
+3. 只有一種方法，它存在module，而且通常存在class
+4. 每一object(包含class)必定有其真正的class，regular class或singleton class
+5. 除了BasicObject外，每一class只會有一直接的ancestor，為superclass或module
+6. object的singleton class的superclass是object的class，class的singleton class的superclass是class的superclass的singleton class
+7. Go right to receiver's class and then go up the ancestor chain
 
 ### Method Wrappers
 
+Module#alias_method :new_name, :old_name可以為方法重新取名。用途是當須要改寫一個方法時，可以先給其一個新名字，再重新定義舊方法。
 
+```ruby
+class String
+  alias_method :real_length, :length
+  def lenth
+    real_length > 5 ? "long" : "short"
+  end
+end
 
+"Hello kitty".length       #=> "long"
+"Hello kitty".real_length  #=> 11
+```
+
+略過許多部份。
 
 ## Code That Writes Code
 
-
+略。
 
 
 
@@ -1029,4 +1053,7 @@ Kernel#singleton_method :my_method    # 將某singleton method以method object�
 Module#class_eval {}                  # 改變current class為receiver class並執行block內容
 
 Class.new(Array) {}                   # 建新的class，繼承於Array
+
+"abc".singleton_class                 # 取得"abc"的singleton class
+class << obj; end                     # 取得obj的singleton class
 ```

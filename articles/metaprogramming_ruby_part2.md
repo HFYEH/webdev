@@ -7,7 +7,12 @@
 
 ## The Design of Active Record
 
+### A Short Active Record Example
 
+```ruby
+require 'active_record' 
+ActiveRecord::Base.establish_connection :adapter => "sqlite3", :database => "dbfile"
+```
 
 
 ## Active Support's Concern Module

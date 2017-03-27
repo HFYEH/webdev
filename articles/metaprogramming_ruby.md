@@ -1,4 +1,3 @@
-此系列為Metaprogramming Ruby第二版的筆記，記錄於此作為複習之用。
 
 # Metaprogramming Ruby
 
@@ -156,11 +155,13 @@ end
 
 
 
+### What Happens When You Call a Method?
 
 
 
 
 
+page 45
 
 
 

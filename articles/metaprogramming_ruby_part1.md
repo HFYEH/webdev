@@ -799,7 +799,9 @@ Clean Room是一個evalute block的環境，class最好繼承BasicObject，再�
 
 ### Callable Objects
 
-proc, lambda, method是package code的三種方式。
+先寫，後執行，這個模式不侷限於block。
+
+proc, lambda, method是package code的三種方式。不像block，這三個都是object。這種可以調用的object稱作callable object。
 
 #### Proc Objects
 

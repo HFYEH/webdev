@@ -168,9 +168,10 @@ nginx操作
 sudo service nginx start
 sudo service nginx stop
 sudo service nginx restart
-sudo service nginx configtest
-sudo nginx -t      // 設定檔路徑和格式檢查
-netstat -tlpn      // check netstate binding
+sudo service nginx configtest              // 設定檔路徑和格式檢查
+sudo nginx -t                              // 同上
+netstat -tlpn                              // check netstate binding
+sudo netstat -tulpn | grep --color :80     // 同上，順便印出PID
 ```
 
 

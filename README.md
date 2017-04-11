@@ -25,7 +25,7 @@ WebDev記錄。
   * [Railsfun Rails 介紹](articles/railsfun-rails.md)
   * [Grape 初體驗（於rails）](articles/grape-first-experience.md)
   * [Grape-Swagger](articles/grape-swagger.md)
-  * [伺服器圖片轉移至S3，並使用自訂的domain name](articles/paperclip.md)
+  * [Paperclip使用S3，並使用自訂的 Domain Name](articles/paperclip.md)
   * [Rack Middleware](articles/rack-middleware.md)
   * [一個專案部署成兩個Heroku Apps](articles/deploy-a-project-into-two-heroku-apps.md)
   * [capistrano一個專案一台機器兩個branch部暑成兩個app](articles/a-project-a-machine-two-summer-branch-into-two-app.md)

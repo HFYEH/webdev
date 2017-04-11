@@ -1,6 +1,9 @@
+# Paperclip使用S3，並使用自訂的 Domain Name
+
 把原本在public中的圖轉移至S3圖庫時沒有什麽問題，但在轉換為自訂的domain name時，發生許多問題，解法和問題記錄在此。（我們使用Paperclip作為圖片上傳工具）
 
-# 資料轉移
+
+## 資料轉移
 
 在Gemfile加上`gem 'aws-sdk', '< 2.0'`，可以試著不用限定版本，不過我在上傳時有碰到問題，解法就是限制降版。
 
@@ -15,11 +18,4 @@
 
 [Paperclip 圖片上傳與額外說明](http://railsfun.tw/t/paperclip/64)
 
-
-
-
-http://blog.project-sierra.de/archives/1701
-https://www.stormconsultancy.co.uk/blog/development/ror-using-paperclip-with-amazon-s3-and-cloudfront/
 http://stackoverflow.com/questions/29756313/custom-url-with-paperclip-and-aws-s3
-https://github.com/thoughtbot/paperclip/blob/master/lib/paperclip/storage/s3.rb
-http://www.rubydoc.info/github/thoughtbot/paperclip/Paperclip/Storage/S3#s3_host_alias-instance_method

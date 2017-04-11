@@ -54,6 +54,26 @@ PasswordAuthentication no
 
 `ssh -t username@xxx.xxx.xxx.xxx /bin/sh`
 
+讓登入者不執行以sudo執行指令時不須密碼
+
+```
+sudo visudo  進入編輯
+
+...
+# User privilege specification
+#root   ALL=(ALL:ALL) ALL
+root    ALL=(ALL) NOPASSWD: ALL
+deploy  ALL=(ALL) NOPASSWD: ALL
+
+# Members of the admin group may gain root privileges
+%admin ALL=(ALL) ALL
+
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL
+%sudo   ALL=(ALL) NOPASSWD: ALL
+...
+```
+
 # Part 5 裝機
 
 - 先裝git `sudo apt-get install git`

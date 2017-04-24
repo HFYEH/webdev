@@ -55,6 +55,7 @@
         - [Singleton Methods](#singleton-methods)
             - [Class Macros](#class-macros)
         - [Singleton Classes](#singleton-classes)
+            - [Singleton Classes Revealed](#singleton-classes-revealed)
         - [Method Wrappers](#method-wrappers)
     - [Code That Writes Code](#code-that-writes-code)
     - [方法速查表](#方法速查表)
@@ -245,7 +246,7 @@ receiver 是調用方法所在的對象。ancestor 則是一個包含 class 和 
 
 Kernel或是其他自定義的module，當被include進其他class的時候，會創建一個封裝該module的匿名class，並插入到ancestors中，位置在被插入的class的上方。舉例
 
-```
+```ruby
 module M
   def method_a
     "method_a in M"
@@ -587,7 +588,7 @@ Block僅是可調用對象的一員，其他還有像proc，lambda這樣的對�
 
 ### Blocks Are Closures
 
-當程式執行時，除了程式碼本身，還須要其環境，環境包括local varaibles, instance variables, self...。在Block中亦然，在執行block時除了程式碼本身，還須要給它綁定（binding）環境。 ***Block會綁定建立時的環境***。
+當程式執行時，除了程式碼本身，還須要其環境，環境包括local varaibles, instance variables, self...。在Block中亦然，在執行block時除了程式碼本身，還須要給它綁定（binding）環境。 ***Block會綁定建立時的環境***。綁定的行為其實就是把環境的變數名對應到物件，所以稱其為bindings。
 
 ```ruby
 def my_method
@@ -602,7 +603,7 @@ my_method { |y| "#{x}, #{y} world" }
 
 如上例，在定義block時，它就記住了它的環境，如 `x = "Hello"`，當在方法中yield時，block完全不知道外部的參數 `x = "Goodbye"`。
 
-再來一個從魔法師的手杖提供的[例子](http://sibevin.github.io/posts/2016-06-19-123921-mr2-ch4-blocks)，說明何謂closure。Block因為有修改所在scope的特性，我們稱block為closure。
+再來一個從魔法師的手杖提供的[例子](http://sibevin.github.io/posts/2016-06-19-123921-mr2-ch4-blocks)，說明何謂closure。Block因為有修改定義時的scope的特性，我們稱block為closure。
 
 ```ruby
 a = "a in the top"
@@ -896,7 +897,7 @@ Current class並無透過關鍵字直接取得，通常只要看程式就知道�
 2. 在方法內，current class是object的class。方法內定義方法，會成為同一class的實例方法。
 3. 使用`class`關鍵字打開class時，current class就是你打開的class。
 
-如果事前不知道class名，就無法以class關鍵字打開class。可以改使用Module#class_eval
+設想要定義一個方法，接受參數class，為該class定義一些方法。但是事前不知道class名，就無法以class關鍵字打開class。可以改使用Module#class_eval
 
 ```ruby
 class A; end
@@ -909,9 +910,14 @@ A.class_eval do   # current class從Object變為A
 end
 
 A.new.my_method  #=> "Hi"
+
+class_var = A
+class_var.class_eval {}  # 也可以用變數引用
 ```
 
-所以instance_eval是把self設成receiver，且把current class設成singleton class；而class_eval是把self設成receiver（某class），且把current class設成也設成該receiver。
+所以instance_eval是把self設成receiver，且把current class設成receiver的class。如果receiver是一般物件，則current class是其所屬的class，如果receiver是class，則current class會變成其singleton class。
+
+而class_eval是self設成receiver（某class），且把current class設成也設成該receiver。
 
 相比class關鍵字，class_eval明顯的好處是，可以以變量調用，而且使用flat scope。
 
@@ -927,7 +933,7 @@ end
 
 #### Class Instance Variables
 
-Instance variable是在self裡找的。
+Instance variable是存在於current object，也就是self裡的。
 
 因為class和object都是object的一種，可以為其定義instance variable。
 
@@ -952,7 +958,7 @@ A.new.show_var          #=> nil
 
 使用Class.new定義class
 
-```
+```ruby
 my_class = Class.new {}     # 建立匿名class，my_class索引此class
 my_class.name               #=> nil
 MyClass = my_class          # 告訴此匿名class的名字為MyClass
@@ -963,10 +969,10 @@ my_class.name               #=> MyClass
 
 Class methods本身就是該class的singleton methods。
 
-定義singleton methods的方式
+定義singleton methods的格式，不管是class的singleton methods或是object的singleton methods都是如此。
 
 ```ruby
-def object.class; end
+def object.singleton_method_name; end
 ```
 
 上述的object可以是普通object，可以是ClassName，也可以是self。如果object是class或self，就是定義class的singleton method；如果object是普通object，就是定義該object的singleton method。
@@ -977,7 +983,36 @@ def object.class; end
 
 ### Singleton Classes
 
-略，已寫於[這裡](metaprogramming-in-programming-ruby.md#singletons)。
+每當為一個普通的object建立一個單件實例方法時，`def obj.some_method; end`，它會產生一個anonymous class (singleton class)，object會成為該class的實例，而object原本的class會變成此class的parent class。
+
+下圖可以發現我們找不到object可以放some_method。既不能存在obj中，也不能存在MyClass中（不然會被共用）
+
+![](../images/metaprogramming-ruby-instance-method.jpg)
+
+由於class也是object，當我們在class內使用`def self.some_method; end`時，也會產生一個anonymous class，是該class object真正的class，該class object變成此anonymous class的實例。所以`some_method`就變成class object這個 **實例** 的 **函數**。
+
+同樣的，下圖中我們也找不到object可以放some_method。
+
+![](../images/metaprogramming-ruby-class-method.jpg)
+
+#### Singleton Classes Revealed
+
+當我們想用SomeClass.class是叫不到的，因為singleton class是匿名的。要以下列方式打開。
+
+```ruby
+singleton = class << your_object   # 打開your_object的singleton class
+  self
+end
+
+singleton = obj.singleton_class    # 便捷的方法
+```
+
+Ruby會禁止你用singleton class建新的實例，這是取名singleton class的原因。Singleton class也不能被繼承。最重要的，它是我們定義singleton methods時存放的地方。
+
+```
+def obj.my_singleton_method; end              # 定義singleton method於
+singleton_class.instance_methods.grep(/my_/)  #=> [:my_singleton_method]
+```
 
 ![](../images/metaprogramming-ruby-2.jpg)
 

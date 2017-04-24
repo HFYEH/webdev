@@ -5,7 +5,6 @@
         - [self的幾個用途](#self的幾個用途)
         - [self in class object](#self-in-class-object)
     - [Singletons](#singletons)
-        - [Reopen singleton class](#reopen-singleton-class)
     - [Module and Mixins](#module-and-mixins)
     - [Class-level Macros](#class-level-macros)
     - [Class Method and Modules](#class-method-and-modules)
@@ -61,18 +60,7 @@ MyClass = Class.new
 
 ## Singletons
 
-每當為一個object建立一個實例方法時，它會產生一個anonymous class (singleton class)，object會成為該class的實例，而object原本的class會變成此class的parent class。
-
-由於class也是object，當我們在class內使用`self.xxx`時，也是在為class object建立實例函數，故也會產生新的singleton class，繼承於原本的class，當前的class也會變成該singleton class的實例。
-
-### Reopen singleton class
-```ruby
-class << your_object   # 打開your_object的singleton class
-  def xxx              # 為your_object定義instance method
-  end
-end
-```
-Ruby會禁止你用singleton class建新的實例，這是取名singleton class的原因。
+以下內容移至[Singleton Classes](metaprogramming-in-programming-ruby.md#singleton-classes)。較進階，也較完整。
 
 ## Module and Mixins
 

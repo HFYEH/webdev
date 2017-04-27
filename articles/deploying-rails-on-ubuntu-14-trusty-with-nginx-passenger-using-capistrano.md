@@ -142,6 +142,13 @@ ALTER USER deploy WITH PASSWORD 'your_password';
 
 
 移除系統預裝的nginx
+
+`sudo apt-get remove nginx nginx-common` # Removes all but config files.
+
+`sudo apt-get purge nginx nginx-common` # Removes everything.
+
+`sudo apt-get autoremove` # After using any of the above commands, use this in order to remove dependencies used by nginx which are no longer required.
+
 `sudo apt-get purge nginx nginx-full nginx-light nginx-naxsi nginx-common`
 
 `sudo rm -rf /etc/nginx`

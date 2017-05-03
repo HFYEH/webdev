@@ -64,6 +64,9 @@
   * [jQuery memo](articles/jquery-memo.md)
   * [CSS設計模式摘要集](articles/css-design-pattern-digest.md)
   * [BFC & IFC](articles/bfc_collapsing_margins.md)
+* Mobile
+  * [手動導入 Openframeworks 至現有的 APP (Android版)](articles/implement_of_into_android.md)
+  * [手動導入 Openframeworks 至現有的 APP (iOS版)](articles/implement_of_into_ios.md)
 * Design
   * [Note on Landing Page Design Course](articles/udemy-course-landing-page-design-note.md)
 * Arduino & Raspberry Pi

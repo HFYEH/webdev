@@ -24,19 +24,19 @@
 
 保持簡單就好，這邊使用OF開一個UseOpenframeworks專案。
 
-圖1
+![](../images/imple_of_android_1.jpg)
 
 Mininum SDK不要選太高，確保可以向下相容。接下來因為我們會在Android原生的acitivity中intent給OFActivity，所以創一個初始的Activity，使用EmptyActivity即可。其他就照預設按Next。
 
-圖2
+![](../images/imple_of_android_2.jpg)
 
 再來把Project的結構改成從Android改成Project，結構會變成下圖。
 
-圖3
+![](../images/imple_of_android_3.jpg)
 
 因為沒有使用SDK Manager安裝NDK，所以須要手動設定NDK路徑。在 File > Project Structure ... 的SDK Location中，修改Android NDK Location欄位。
 
-圖4
+![](../images/imple_of_android_4.jpg)
 
 至此，專案完成。
 
@@ -54,7 +54,7 @@ project(':openFrameworks').projectDir = new File(ofRoot + 'libs/openFrameworks')
 
 並且sync，可以看到openFrameworks的原始碼被引入了。
 
-圖5
+![](../images/imple_of_android_5.jpg)
 
 繼續加入
 
@@ -65,7 +65,7 @@ project(':ofAndroidLib').projectDir = new File(ofRoot + 'addons/ofxAndroid/ofAnd
 
 這是OF的Android package，之後可以直接將之實例化，放入AndroidManifest.xml中當作一個activity來用。如果是SDK Platform要更新，就點擊錯誤訊息更新即可。加入成功後如下圖
 
-圖6
+![](../images/imple_of_android_6.jpg)
 
 繼續加入
 
@@ -76,7 +76,7 @@ project(':openFrameworksProject').projectDir = new File(ofRoot + 'libs/openFrame
 
 這個是重點。引入並用gradle build時，會將OF原始碼建成可執行檔，並且會進入專案，將project_folder/src內的native code也建成.o檔。
 
-圖7
+![](../images/imple_of_android_7.jpg)
 
 上面`def ofRoot`要小心，windows和linux路徑表示方式不同，而最後一定要加`/`或`\\`才會正確進入該資料夾。
 
@@ -90,13 +90,6 @@ project(':openFrameworksProject').projectDir = new File(ofRoot + 'libs/openFrame
 在windows須要安裝MinGW的GCC編譯器才能compile，所以接著安裝MinGW，看[教學](http://blog.jex.tw/blog/2013/12/17/windows-install-gcc-compiler-mingw/)。
 
 然後還要安裝[Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm)，讓windows看得懂Makefile。跟MinGW一樣，也要設定環境變數。
-
-
-
-
-
-
-
 
 
 

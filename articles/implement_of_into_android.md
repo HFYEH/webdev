@@ -101,6 +101,9 @@ project(':openFrameworksProject').projectDir = new File(ofRoot + 'libs/openFrame
 
 
 
+app/build.gradle
+
+buildtoolversion 23.0.2
 
 
 

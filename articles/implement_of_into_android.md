@@ -91,16 +91,15 @@ project(':openFrameworksProject').projectDir = new File(ofRoot + 'libs/openFrame
 
 然後還要安裝[Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm)，讓windows看得懂Makefile。跟MinGW一樣，也要設定環境變數。
 
+但是Windows編譯還是失敗...至此放棄Windows，以下只講Linux。
 
+接著是build tool要更新成23.0.2以上。
 
-
+```
 app/build.gradle
 
 buildtoolversion 23.0.2
-
-
-
-
+```
 
 在app/build.gradle加入compile project(':ofAndroidLib')
 
@@ -125,18 +124,200 @@ tasks.whenTaskAdded { task ->
 }
 ```
 
+專案目錄下新增config.make，複製一份OF專案的config.make來用，修改OF_ROOT到正確的位置。也複製一份OF專案的jni的資料夾過來。
 
-add a makefile and cmake
+建好你的src在專案目錄下，並且放入ofApp.cpp, ofApp.h, main.cpp等檔案。如果有addons，請再加入addons.make，內容為你加入的addons。
 
-看起來openframworkProject的用意在建起一個類似虛擬機的動作，作完後會在libs裡新增一個armeabi-v7a
+如果有想要讓Native C code讀的檔案，可以在專案目錄下新增bin/data，在這裡的檔案可以被讀到。
 
+在RN的預設狀況下，會同時編譯出armeabi-v7a和x86，要把x86停用才能正確開啟OF。
 
-把Makefile和config.make新增過去，在config.make內
+最後的app/build.gradle長這樣（以RN為例）
 
 ```
-ifndef OF_ROOT
-    OF_ROOT=$(realpath ../../..)
-endif
+apply plugin: "com.android.application"
+
+import com.android.build.OutputFile
+
+/**
+ * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
+ * and bundleReleaseJsAndAssets).
+ * These basically call `react-native bundle` with the correct arguments during the Android build
+ * cycle. By default, bundleDebugJsAndAssets is skipped, as in debug/dev mode we prefer to load the
+ * bundle directly from the development server. Below you can see all the possible configurations
+ * and their defaults. If you decide to add a configuration block, make sure to add it before the
+ * `apply from: "../../node_modules/react-native/react.gradle"` line.
+ *
+ * project.ext.react = [
+ *   // the name of the generated asset file containing your JS bundle
+ *   bundleAssetName: "index.android.bundle",
+ *
+ *   // the entry file for bundle generation
+ *   entryFile: "index.android.js",
+ *
+ *   // whether to bundle JS and assets in debug mode
+ *   bundleInDebug: false,
+ *
+ *   // whether to bundle JS and assets in release mode
+ *   bundleInRelease: true,
+ *
+ *   // whether to bundle JS and assets in another build variant (if configured).
+ *   // See http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Build-Variants
+ *   // The configuration property can be in the following formats
+ *   //         'bundleIn${productFlavor}${buildType}'
+ *   //         'bundleIn${buildType}'
+ *   // bundleInFreeDebug: true,
+ *   // bundleInPaidRelease: true,
+ *   // bundleInBeta: true,
+ *
+ *   // the root of your project, i.e. where "package.json" lives
+ *   root: "../../",
+ *
+ *   // where to put the JS bundle asset in debug mode
+ *   jsBundleDirDebug: "$buildDir/intermediates/assets/debug",
+ *
+ *   // where to put the JS bundle asset in release mode
+ *   jsBundleDirRelease: "$buildDir/intermediates/assets/release",
+ *
+ *   // where to put drawable resources / React Native assets, e.g. the ones you use via
+ *   // require('./image.png')), in debug mode
+ *   resourcesDirDebug: "$buildDir/intermediates/res/merged/debug",
+ *
+ *   // where to put drawable resources / React Native assets, e.g. the ones you use via
+ *   // require('./image.png')), in release mode
+ *   resourcesDirRelease: "$buildDir/intermediates/res/merged/release",
+ *
+ *   // by default the gradle tasks are skipped if none of the JS files or assets change; this means
+ *   // that we don't look at files in android/ or ios/ to determine whether the tasks are up to
+ *   // date; if you have any other folders that you want to ignore for performance reasons (gradle
+ *   // indexes the entire tree), add them here. Alternatively, if you have JS files in android/
+ *   // for example, you might want to remove it from here.
+ *   inputExcludes: ["android/**", "ios/**"],
+ *
+ *   // override which node gets called and with what additional arguments
+ *   nodeExecutableAndArgs: ["node"]
+ *
+ *   // supply additional arguments to the packager
+ *   extraPackagerArgs: []
+ * ]
+ */
+
+apply from: "../../node_modules/react-native/react.gradle"
+
+/**
+ * Set this to true to create two separate APKs instead of one:
+ *   - An APK that only works on ARM devices
+ *   - An APK that only works on x86 devices
+ * The advantage is the size of the APK is reduced by about 4MB.
+ * Upload all the APKs to the Play Store and people will download
+ * the correct one based on the CPU architecture of their device.
+ */
+def enableSeparateBuildPerCPUArchitecture = false
+
+/**
+ * Run Proguard to shrink the Java bytecode in release builds.
+ */
+def enableProguardInReleaseBuilds = false
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.theia"
+        minSdkVersion 16
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+        ndk {
+            // abiFilters "armeabi-v7a", "x86"
+            abiFilters "armeabi-v7a"
+        }
+    }
+    splits {
+        abi {
+            reset()
+            enable enableSeparateBuildPerCPUArchitecture
+            universalApk false  // If true, also generate a universal APK
+            // include "armeabi-v7a", "x86"
+            include "armeabi-v7a"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+    // applicationVariants are e.g. debug, release
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            // For each separate APK per architecture, set a unique version code as described here:
+            // http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits
+            // def versionCodes = ["armeabi-v7a":1, "x86":2]
+            def versionCodes = ["armeabi-v7a":1]
+            def abi = output.getFilter(OutputFile.ABI)
+            if (abi != null) {  // null for the universal-debug, universal-release variants
+                output.versionCodeOverride =
+                        versionCodes.get(abi) * 1048576 + defaultConfig.versionCode
+            }
+        }
+    }
+
+    sourceSets {
+        main {
+//            manifest.srcFile 'AndroidManifest.xml'
+            jni.srcDirs = []
+            java.srcDirs = ['src/main/java']
+            jniLibs.srcDirs = ['../libs']
+            println "Yes read libs----------------------------------"
+//            resources.srcDirs = ['srcJava']
+//            aidl.srcDirs = ['srcJava']
+//            renderscript.srcDirs = ['srcJava']
+//            res.srcDirs = ['res']
+//            assets.srcDirs = ['assets']
+        }
+    }
+}
+
+dependencies {
+    // Openframeworks
+    compile project(':ofAndroidLib')
+
+    // React Native and native
+    compile project(':react-native-image-picker')
+    compile project(':react-native-i18n')
+    compile project(':react-native-vector-icons')
+    compile project(':react-native-device-info')
+    compile project(':react-native-config')
+    compile fileTree(dir: "libs", include: ["*.jar"])
+    compile "com.android.support:appcompat-v7:23.0.1"
+    compile "com.facebook.react:react-native:+"  // From node_modules
+}
+
+// Run this once to be able to run the application with BUCK
+// puts all compile dependencies into folder libs for BUCK to use
+task copyDownloadableDepsToLibs(type: Copy) {
+    from configurations.compile
+    into 'libs'
+}
+
+// Openframeworks implement
+clean.dependsOn(":openFrameworksProject:clean")
+
+tasks.whenTaskAdded { task ->
+    if (task.name == 'assembleDebug') {
+        task.dependsOn ':openFrameworksProject:compileDebugOF'
+    }
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name == 'assembleDebug') {
+        task.dependsOn ':openFrameworksProject:compileReleaseOF'
+    }
+}
 ```
 
+然後NDK會試著透過openFrameworksCompiled的內容來build我們的src，由於RN專案有太多檔案，導致search path過長，所以又要改一下openFrameworksCompiled的設定，只要看log就知道應該改哪裡了，限於篇幅就不贅述。
 
+總之，不使用OF提供的方案去使用，而要自己用Native去包它的話，是很麻煩的，在Android上最後還是有成功（使用intent和URL Scheme），但不穩定，常會crash，在iOS則是直接失敗。

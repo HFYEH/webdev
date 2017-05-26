@@ -9,9 +9,12 @@
 3. 新增環境變數以使用tensorflow
 
 ```
-echo export CUDA_HOME=/usr/local/cuda >> ~/.bashrc
-echo export LD_LIBRARY_PATH=${CUDA_HOME}/lib64:${CUDA_HOME} >> ~/.bashrc
-echo export PATH=${CUDA_HOME}/bin:${PATH} >> ~/.bashrc
+vi ~/.bashrc
+
+# 最下面新增三行
+export CUDA_HOME=/usr/local/cuda
+export LD_LIBRARY_PATH=${CUDA_HOME}/lib64:${CUDA_HOME}
+export PATH=${CUDA_HOME}/bin:${PATH}
 ```
 
 4. 重新套用shell

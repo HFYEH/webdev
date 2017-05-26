@@ -2,7 +2,7 @@
 
 `passwd`
 
-2. 在家目幕用virtualenv建立虛擬環境於tensorflow資料夾（官網教學的這個步驟有錯）
+2. 在家目錄用virtualenv建立虛擬環境於tensorflow資料夾（官網教學的這個步驟有錯）
 
 `virtualenv tensorflow`
 

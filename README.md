@@ -18,7 +18,7 @@ WebDev記錄。
   * [CSRF and CORS](articles/csrf-and-cors.md)
   * [GnuPG 加密](articles/gpg.md)
   * [OAuth](articles/oauth.md)
-* Deep Learning
+* Machine Learning & Deep Learning
   * [第一次使用Tensorflow](articles/first-tf-setup.md)
 * Ruby & Rails
   * [Linux 部署環境配置 \(Nginx + Passenger + Rails by Capistrano\)](articles/deploying-rails-on-ubuntu-14-trusty-with-nginx-passenger-using-capistrano.md)

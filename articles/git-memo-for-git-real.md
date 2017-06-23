@@ -242,6 +242,7 @@ git log --since=1.day(hour/month).ago   # 只顯示一天\(小時\/月\)以內�
 ```
 git tag                               # 檢視所有 tags
 git tag -a v0.0.3 -m "version 0.0.3"  # 加上tag
+git tag -a v0.0.3 9fceb02 -m "msg"    # 為特定的commit增加tag
 git push --tags                       # 將本地的所有tag推到為遠端 Repo
 git checkout v0.0.1                   # 切換到具有'v0.0.1'的特定 commit
 ```

@@ -1,5 +1,3 @@
-
-
 # 手動導入 Openframeworks 至現有的 APP (Android版)
 
 ## 簡述

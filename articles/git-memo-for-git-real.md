@@ -196,6 +196,12 @@ git rebase master               # 先在本 branch 上跑 master 的 commit, 再
 git checkout master
 git merge <branch>              # 用此指令會是 fast-forward，只有一支
 git merge <branch> --no-ff      # 不用 fast-forward 的情況下，會產生新的 merge commit，一個 merge 就代表一個 feature 的完成
+
+# 進階用法
+# https://git-scm.com/book/zh-tw/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E8%A1%8D%E5%90%88
+# server的base在master，client的base在server，要想直接rebase client到master
+git rebase --onto master server client  # 如此會從client的base以後重演commit在master上
+git rebase master server                # 在client和master後重演commit
 ```
 
 有了這層認識後，`git pull --rebase`就不難理解了。

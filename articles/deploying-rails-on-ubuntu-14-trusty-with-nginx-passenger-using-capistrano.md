@@ -289,6 +289,13 @@ nslookup your_name_server
 # Part 9 SSL 設置
 [Setting up a SSL Cert from Comodo](https://gist.github.com/bradmontgomery/6487319)
 
+
+### Letsencrpyt
+
+在public先新增資料夾.well-known/acme-challenge/
+
+`sudo certbot certonly --webroot -w /home/deploy/apps/mappa_caffe/current/public/ -d map-aroma.com -d www.map-aroma.com`
+
 # nginx 設置
 
 [DingTaxi設置](https://gist.github.com/HFYEH/914827ce9c31710b5853fa322b7bc08c)

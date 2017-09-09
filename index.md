@@ -27,7 +27,6 @@
   * [Metaprogramming in Programming Ruby](articles/metaprogramming-in-programming-ruby.md)
   * [Metaprogramming Ruby Part I](articles/metaprogramming_ruby_part1.md)
   * [Metaprogramming Ruby Part II](articles/metaprogramming_ruby_part2.md)
-  * [Metaprogramming Ruby Part III](articles/metaprogramming_ruby_part3.md)
   * [Ruby中的block, Proc和Lambda](articles/ruby_block_proc_lambda.md)
   * [Ruby中一些賦值與調用時的不同處](articles/ruby-call-and-set-param.md)
   * [Action Cable Chat Room](articles/action-cable-chatroom.md)

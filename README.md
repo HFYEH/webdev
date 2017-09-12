@@ -94,6 +94,7 @@ WebDev記錄。
   * [Sublime text](articles/sublime-text-hotkey.md)
   * [zsh X vim X tmux](articles/tmux.md)
   * [cURL](articles/curl.md)
+  * [httperf](articles/httperf.md)
   * [adb (Android Debug Bridge)](articles/adb_cheet_sheet.md)
   * [postgresql](articles/postgresql-on-ubuntu.md)
   * [網站工具集](articles/tools.md)

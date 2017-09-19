@@ -146,3 +146,18 @@ curl -o latest.dump`heroku pg:backups public-url --app sushi   //sushi是app名�
 pg_restore latest.dump | psql db_name    //psql後面要接database name，否則會以user為database name
 ```
 
+# 用ActiveRecord看postgres version
+
+`ActiveRecord::Base.connection.select_value('SELECT version()')`
+
+# 使用UUID
+
+Rails 5+
+
+https://lab.io/articles/2017/04/13/uuids-rails-5-1/
+
+https://gist.github.com/wrburgess/c1678788181d5f5577c6e84ac5a3efab
+
+# 安裝9.6
+
+https://askubuntu.com/questions/831292/how-to-install-postgresql-9-6-on-any-ubuntu-version

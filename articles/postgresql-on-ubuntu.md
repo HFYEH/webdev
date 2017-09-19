@@ -169,3 +169,5 @@ http://www.arthurtoday.com/2010/09/ubuntu-add-apt-repository.html
 看現在的 postgres process
 
 `cat /var/run/postgresql/...`
+
+`cat /etc/services | grep postgres`

@@ -161,3 +161,7 @@ https://gist.github.com/wrburgess/c1678788181d5f5577c6e84ac5a3efab
 # 安裝9.6
 
 https://askubuntu.com/questions/831292/how-to-install-postgresql-9-6-on-any-ubuntu-version
+
+疑難排解
+
+http://www.arthurtoday.com/2010/09/ubuntu-add-apt-repository.html

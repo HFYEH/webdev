@@ -165,3 +165,7 @@ https://askubuntu.com/questions/831292/how-to-install-postgresql-9-6-on-any-ubun
 疑難排解
 
 http://www.arthurtoday.com/2010/09/ubuntu-add-apt-repository.html
+
+看現在的 postgres process
+
+`cat /var/run/postgresql/...`

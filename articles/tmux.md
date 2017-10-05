@@ -9,7 +9,11 @@
 
 # vim
 
+[vimrc設定教學](http://wiki.csie.ncku.edu.tw/vim/vimrc)
+
 [Vundle：Vim Plugin 自動下載、安裝、更新與管理工具（Vim Bundle）](https://blog.gtwang.org/linux/vundle-vim-bundle-plugin-manager/)
+
+[ColorTheme](http://vimcolors.com/)
 
 [所需即所获：像 IDE 一样使用 vim](https://github.com/yangyangwithgnu/use_vim_as_ide)
 
@@ -18,6 +22,8 @@
 [exVim](http://exvim.github.io/docs-zh/intro/)
 
 # tmux
+
+[[實用] 終端機 session 管理神器 - tmux](http://larry850806.github.io/2017/02/14/tmux/)
 
 ```
 以下所有指令都在ctrl + b之後進行
@@ -30,6 +36,7 @@ tmux可以開啟server
 ? 看說明 (M 代表要先按一下 Esc 鍵)
 t 時鐘, 現在時間
 : 指令模式
+[ 捲軸
 tmux ls 查目前session
 tmux attach 進入上次的session
 tmux attach -t session_count 選擇session編號進入

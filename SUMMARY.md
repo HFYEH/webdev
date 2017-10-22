@@ -78,6 +78,7 @@
   * [學習資源](articles/database.md)
   * [N+1 query, sql重新包裝利用](articles/n-1-query.md)
   * [Railsfun RDBMS](articles/railsfun_db.md)
+  * [Redis 使用紀錄](articles/redis.md)
 * DevOps
   * [相關文章](articles/devops.md)
   * [User Story and Agile](articles/user-story-agile.md)
@@ -86,7 +87,7 @@
   * [Sublime text](articles/sublime-text-hotkey.md)
   * [zsh X vim X tmux](articles/tmux.md)
   * [cURL](articles/curl.md)
-  * [httperf](articles/httperf.md)
+  * [壓測工具](articles/load-test.md)
   * [adb (Android Debug Bridge)](articles/adb_cheet_sheet.md)
   * [postgresql](articles/postgresql-on-ubuntu.md)
   * [網站工具集](articles/tools.md)

@@ -160,7 +160,7 @@ end
 
 `SomeClass`在Ruby中也是一種object，除了普通的object有的之外，這種特殊的object預設會有幾種實例方法，定義在Class裡。所有的SomeClass都是Class的實例。
 
-`SomeClass`的是Class實例化的object（SomeClass.class == Class）、其本質包含 ***一組實例方法（SomeClass.instance_methods）*** 、和 ***對超類的引用（SomeClass.superclass）*** 。
+`SomeClass`是由Class實例化的object（SomeClass.class == Class）、其本質包含 ***一組實例方法（SomeClass.instance_methods）*** 、和 ***對超類的引用（SomeClass.superclass）*** 。
 
 ```
 Class.instance_methods(false)  #=> [:allocate, :new, :superclass]

@@ -15,46 +15,67 @@
 `vagrant box list` = 看有那些image(box)  
 `vagrant box remove _box_name_` = 移除特定image(box)
 
-（Vagrant基礎說明 http://www.codedata.com.tw/social-coding/vagrant-tutorial-4-guest-host-communication/）
+[Vagrant基礎說明](http://www.codedata.com.tw/social-coding/vagrant-tutorial-4-guest-host-communication/)
+
+[Vagrant多機器](http://gogojimmy.net/2013/05/26/vagrant-tutorial/)
+
+[Vagrant Official site](https://www.vagrantup.com/docs/cli/)
+
+[Vagrant + Docker](http://samchu.logdown.com/posts/288889-docker-fast-with-vagrant-and-construct-development-and-test-environments)
+
 
 # Part 2 更新
 `sudo apt-get update`
 
 `sudo apt-get upgrade`
 
-# Part 3 新增使用者sharefun
+# Part 3 新增使用者 deploy
 
-`sudo adduser sharefun` or `sudo adduser --disabled-password sharefun`  
-`sudo passwd sharefun`  
-`sudo su` # retrieve root  
-`adduser sharefun sudo` # make sharefun have sudo power  
-`exit`  
-`sudo su sharefun` # switch to sharefun  
+`sudo adduser deploy` or `sudo adduser --disabled-password deploy`
+`sudo passwd deploy`
+`sudo su` # retrieve root
+`adduser deploy sudo` # make deploy have sudo power
+`exit`
+`sudo su deploy` # switch to deploy
 
 # Part 4 ssh 登入
-沒有公私鑰才使用下列指令
 
-`ssh-keygen -t rsa`  
+沒有公私鑰才使用下列指令，不然會蓋掉原本的
 
-複製本機的 ~/.ssh/id_rsa.pub 到機器的/home/sharefun/.ssh/authorized_keys  
+`ssh-keygen -t rsa` or `ssh-keygen -t rsa -C "<your email address>"`
 
-`cat ~/.ssh/id_rsa.pub | ssh sharefun@xxx.xxx.xxx.xxx 'cat >> ~/.ssh/authorized_keys'`
+複製本機的 ~/.ssh/id_rsa.pub 到機器的/home/deploy/.ssh/authorized_keys
 
-chmod 644 /home/sharefun/.ssh/authorized_keys  
-chown sharefun:sharefun /home/sharefun/.ssh/authorized_keys  
+`cat ~/.ssh/id_rsa.pub | ssh deploy@xxx.xxx.xxx.xxx 'cat >> ~/.ssh/authorized_keys'`
 
-更改ssh登錄port，並拒絕密碼登入，在server的修改  
+`chmod 644 /home/deploy/.ssh/authorized_keys`
+
+`chmod 700 /home/deploy/.ssh`  owner可以執行和讀寫
+
+`chmod 400 /home/deploy/.ssh/authorized_keys`
+
+`chown deploy:deploy /home/deploy -R`
+
+
+參考[My First 10 Minutes On a Server - Primer for Securing Ubuntu](https://www.codelitt.com/blog/my-first-10-minutes-on-a-server-primer-for-securing-ubuntu/)的安全設定，此篇極有幫助
+
+更改ssh登錄port，並拒絕密碼登入，在server的修改(sshd_config是作為server端的設定，ssh_config是作為client端的設定)
 sudo vi /etc/ssh/sshd_config
 ```
-PasswordAuthentication no
+PermitRootLogin no         # 注意，設定後即不能以root登入了
+PasswordAuthentication no  # 不能以密碼驗證
+
+TCPKeepAlive yes           # 設定讓server固定送alive訊息到client
+ClientAliveInterval 30     # 送出訊息的間隔，預設0是不送
+ClientAliveCountMax 3      # 送出幾次沒回應之後就中斷連線
 ```
-執行`sudo service ssh restart`使之生效  
+執行`sudo service ssh restart`使之生效
 
 如果之後搞壞.bashrc，導致登不進去（我就發生這個問題），可以在不跑.bashrc的情況登入（因為已經不能用密碼登入了）  
 
 `ssh -t username@xxx.xxx.xxx.xxx /bin/sh`
 
-讓登入者不執行以sudo執行指令時不須密碼
+讓登入者以sudo執行指令時不須密碼
 
 ```
 sudo visudo  進入編輯
@@ -77,7 +98,7 @@ deploy  ALL=(ALL) NOPASSWD: ALL
 # Part 5 裝機
 
 - 先裝git `sudo apt-get install git`
-- 調整時區 `sudo dpkg-reconfigure tzdata`
+- 調整時區 `sudo dpkg-reconfigure tzdata`，並以 `date` 檢查是否正確設定
 - 安裝常用套件，以實戰聖經為基礎，新增一些常用的套件，包含nodejs, imagemagick, redis
 
 ```
@@ -296,26 +317,83 @@ nslookup your_name_server
 
 `sudo certbot certonly --webroot -w /home/deploy/apps/mappa_caffe/current/public/ -d map-aroma.com -d www.map-aroma.com`
 
-# nginx 設置
+# Part 10 nginx 設置
 
-[DingTaxi設置](https://gist.github.com/HFYEH/914827ce9c31710b5853fa322b7bc08c)
+[Tuning Nginx for Best Performance](http://dak1n1.com/blog/12-nginx-performance-tuning/)頗值得一看
 
-# Production environment build up 其他參考資料
+[NGINX OPTIMIZATION: UNDERSTANDING SENDFILE, TCP_NODELAY AND TCP_NOPUSH](https://t37.net/nginx-optimization-understanding-sendfile-tcp_nodelay-and-tcp_nopush.html)最佳化原理說明
 
-Ruby China
-https://ruby-china.org/wiki/deployment-rails
+[我的nginx設置（private gitst）](https://gist.github.com/HFYEH/914827ce9c31710b5853fa322b7bc08c)
 
-Ruby China
-https://ruby-china.org/topics/18616
+[nginx 配置之 proxy_pass 神器！](https://www.web-tinker.com/article/21202.html)
+
+[高性能Web服务器Nginx的配置与部署研究（15）Upstream负载均衡模块](http://blog.csdn.net/poechant/article/details/7256184)
+
+[nginx（六）反向代理（proxy）与负载均衡（upstream）以及健康状态监测](http://tz666.blog.51cto.com/10990100/1750087)
+
+[nginx负载均衡(upstream)与反向代理(proxy_pass)](http://nilread.applinzi.com/?p=108)
+
+[【nginx】负载均衡和proxy的配置](http://www.cnblogs.com/chenpingzhao/p/4991591.html)
+
+# Part 11 Advanced security setup
+
+## iptables using uncomplicated firewall (ufw)
+
+查詢當前的網路服務
+
+`sudo netstat -plunt`
+
+查詢當前的設定
+
+`iptables -L -n`
+
+ufw是一套iptables的前端設定，後面走的還是iptables，見[Ubuntu 的 ufw 和 iptables 有關係嗎?](http://www.arthurtoday.com/2015/01/different-between-ufw-and-iptables.html)
+
+ufw語法較單純，容易設定，iptables則可以實現較進階的內容，見[iptables 設定入門](http://s2.naes.tn.edu.tw/~kv/iptables.htm)
+
+照順序執行，別把自己反鎖了
+
+```
+sudo ufw version        # 檢查版本
+sudo ufw status         # 查看狀態，預設是Status: inactive(表示狀態為閒置)
+sudo ufw disable        # 關閉防火牆，會變成上述的閒置狀態
+sudo ufw default deny   # 拒絕所有incoming封包，最後不加incoming/outgoing的話，預設為incoming
+
+# 設定port
+sudo ufw <allow/deny> <port>
+sudo ufw allow smtp     # 允許所有的外部IP訪問本機的25/tcp (smtp)端口(信箱用)
+sudo ufw allow ssh      # 允許所有的外部IP訪問本機的ssh端口(終端機用)這很重要
+sudo ufw allow 53       # 允許外部訪問53端口(tcp/udp) (DNS訪問)這很重要
+sudo ufw allow 80       # 允許外部訪問80端口(tcp/udp) 網頁用
+sudo ufw allow http     # 同上，ufw知道http用80
+sudo ufw allow 443      # 允許外部訪問443端口(tcp/udp)網頁用
+sudo ufw enable         # 打開防火牆，會變成Status: active
+
+sudo ufw <allow/deny> <port/tcp_or_udp>   # 進一步指定規則為tcp或udp連線
+sudo ufw <allow/deny> <in/out> <port>     # 預設是設定連入，要設定連出則加out
+sudo ufw delete <allow/deny> <port>       # 加delete就是刪除規則
+
+# 設定ip
+sudo ufw <allow/deny> <from/to> <ip> port <port>
+
+sudo ufw allow from 10.0.0.0/8
+sudo ufw allow from 172.16.0.0/12
+sudo ufw allow from 192.168.0.0/16   # 以上三行允許所有來自區網網路使用
+
+sudo ufw allow from 127.0.0.1 to any port 3389    # 允許來自 127.0.0.1 (本機) 的 3389 埠口連線 (xrdp)(用於遠端連線)
+sudo ufw allow from 192.168.1.100   # 允許此IP訪問所有的本機端口(非必要)
+```
+
+參考自[Ubuntu based GNU/Linux 上的防火牆 (ufw) 基本設定](https://www.peterdavehello.org/2016/01/ubuntu-based-gnulinux-firewall-ufw-essential-config/)
+
+## Fail2ban
+
+[fail2ban： 新手老手 root 網管都要練的金鐘罩](https://newtoypia.blogspot.tw/2016/04/fail2ban.html)
+
+[用 Fail2Ban 防範暴力破解 (SSH、vsftp、dovecot、sendmail)](http://www.vixual.net/blog/archives/252)
 
 
-# Vagrant 參考資料
+## 設定logrotate
 
-Vagrant多機器
-http://gogojimmy.net/2013/05/26/vagrant-tutorial/
 
-Vagrant Official site
-https://www.vagrantup.com/docs/cli/
-
-Vagrant + Docker
-http://samchu.logdown.com/posts/288889-docker-fast-with-vagrant-and-construct-development-and-test-environments
+## 設定Crontab

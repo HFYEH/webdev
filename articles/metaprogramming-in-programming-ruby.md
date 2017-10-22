@@ -8,7 +8,7 @@
     - [Module and Mixins](#module-and-mixins)
     - [Class-level Macros](#class-level-macros)
     - [Class Method and Modules](#class-method-and-modules)
-    - [Tow Other Forms of Class Definition](#tow-other-forms-of-class-definition)
+    - [Two Other Forms of Class Definition](#two-other-forms-of-class-definition)
         - [第一種](#第一種)
         - [第二種](#第二種)
     - [instance_eval and class_eval](#instance_eval-and-class_eval)
@@ -29,7 +29,7 @@
 
 除了block，Ruby中萬物皆物件。Ruby中沒有真正的類，Ruby的類宣告其實全等於初始化一個類別物件，並指派給一個常數。
 
-```
+```ruby
 class MyClass; end
 
 # Behind the hood
@@ -168,7 +168,7 @@ Example.my_class_method
 Example.new.my_instance_method
 ```
 
-## Tow Other Forms of Class Definition
+## Two Other Forms of Class Definition
 
 ### 第一種
 

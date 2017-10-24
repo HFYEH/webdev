@@ -48,11 +48,9 @@
 
 `cat ~/.ssh/id_rsa.pub | ssh deploy@xxx.xxx.xxx.xxx 'cat >> ~/.ssh/authorized_keys'`
 
-`chmod 644 /home/deploy/.ssh/authorized_keys`
+`chmod 640 /home/deploy/.ssh/authorized_keys`
 
 `chmod 700 /home/deploy/.ssh`  owner可以執行和讀寫
-
-`chmod 400 /home/deploy/.ssh/authorized_keys`
 
 `chown deploy:deploy /home/deploy -R`
 
@@ -345,7 +343,7 @@ nslookup your_name_server
 
 查詢當前的設定
 
-`iptables -L -n`
+`sudo iptables -L -n`
 
 ufw是一套iptables的前端設定，後面走的還是iptables，見[Ubuntu 的 ufw 和 iptables 有關係嗎?](http://www.arthurtoday.com/2015/01/different-between-ufw-and-iptables.html)
 
@@ -368,6 +366,7 @@ sudo ufw allow 80       # 允許外部訪問80端口(tcp/udp) 網頁用
 sudo ufw allow http     # 同上，ufw知道http用80
 sudo ufw allow 443      # 允許外部訪問443端口(tcp/udp)網頁用
 sudo ufw enable         # 打開防火牆，會變成Status: active
+sudo ufw status         # 看目前狀態
 
 sudo ufw <allow/deny> <port/tcp_or_udp>   # 進一步指定規則為tcp或udp連線
 sudo ufw <allow/deny> <in/out> <port>     # 預設是設定連入，要設定連出則加out
@@ -392,6 +391,24 @@ sudo ufw allow from 192.168.1.100   # 允許此IP訪問所有的本機端口(非
 
 [用 Fail2Ban 防範暴力破解 (SSH、vsftp、dovecot、sendmail)](http://www.vixual.net/blog/archives/252)
 
+新增/etc/fail2ban/jail.local
+
+```
+[sshd]
+enabled  = true
+port     = ssh
+filter   = sshd
+logpath  = /var/log/auth.log
+maxretry = 5
+findtime = 600
+bantime  = 1200
+```
+
+`sudo service fail2ban start`
+
+`sudo fail2ban-client status`
+
+`sudo fail2ban-client status sshd`
 
 ## 設定logrotate
 

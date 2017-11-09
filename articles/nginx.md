@@ -31,6 +31,24 @@ https://www.cyberciti.biz/faq/linux-unix-nginx-too-many-open-files/
 
 [Nginx开发从入门到精通](http://tengine.taobao.org/book/index.html)
 
+
+[Tuning Nginx for Best Performance](http://dak1n1.com/blog/12-nginx-performance-tuning/)頗值得一看
+
+[NGINX OPTIMIZATION: UNDERSTANDING SENDFILE, TCP_NODELAY AND TCP_NOPUSH](https://t37.net/nginx-optimization-understanding-sendfile-tcp_nodelay-and-tcp_nopush.html)最佳化原理說明
+
+[我的nginx設置（private gitst）](https://gist.github.com/HFYEH/914827ce9c31710b5853fa322b7bc08c)
+
+[nginx 配置之 proxy_pass 神器！](https://www.web-tinker.com/article/21202.html)
+
+[高性能Web服务器Nginx的配置与部署研究（15）Upstream负载均衡模块](http://blog.csdn.net/poechant/article/details/7256184)
+
+[nginx（六）反向代理（proxy）与负载均衡（upstream）以及健康状态监测](http://tz666.blog.51cto.com/10990100/1750087)
+
+[nginx负载均衡(upstream)与反向代理(proxy_pass)](http://nilread.applinzi.com/?p=108)
+
+[【nginx】负载均衡和proxy的配置](http://www.cnblogs.com/chenpingzhao/p/4991591.html)
+
+
 # nginx video streaming
 
 [Setting up HLS live streaming server using NGINX + nginx-rtmp-module on Ubuntu](https://docs.peer5.com/guides/setting-up-hls-live-streaming-server-using-nginx/)

@@ -117,9 +117,6 @@ sudo apt-add-repository -y ppa:rael-gc/rvm
 sudo apt-get update
 sudo apt-get install rvm
 
-\curl -sSL https://get.rvm.io | bash -s stable // 預設裝在使者目錄
-\curl -sSL https://get.rvm.io | sudo bash -s stable // 裝在/usr/local/rvm
-
 rvm install 2.3.0
 rvm --default use 2.3.0
 gem install bunlder --no-doc --no-ri
@@ -154,16 +151,11 @@ CREATE ROLE deploy SUPERUSER LOGIN;
 ALTER USER deploy WITH PASSWORD 'your_password';
 ```
  
-- 裝Nginx + Passenger（兩種方式）
+- 裝Nginx + Passenger
 
-[Install Passenger + Nginx with APT](https://www.phusionpassenger.com/library/install/nginx/install/oss/)）
+[Install Passenger + Nginx with APT](https://www.phusionpassenger.com/library/install/nginx/install/oss/)
 
-
-[Install Passenger + Nginx with RVM](https://www.phusionpassenger.com/library/install/nginx/install/oss/rubygems_rvm/)
-
-
-
-移除系統預裝的nginx
+如果需要移除系統預裝的nginx
 
 `sudo apt-get remove nginx nginx-common` # Removes all but config files.
 
@@ -173,56 +165,34 @@ ALTER USER deploy WITH PASSWORD 'your_password';
 
 `sudo apt-get purge nginx nginx-full nginx-light nginx-naxsi nginx-common`
 
-`sudo rm -rf /etc/nginx`
+碰到虛擬記憶體不足的問題，依建議輸入指令即可解決
 
-`gem install passenger --no-ri --no-rdoc`
+驗證安裝是否成功
 
-`which passenger-install-nginx-module`
+`sudo /usr/bin/passenger-config validate-install`
 
-`rvmsudo 上面的輸出`
+檢查記憶體使用狀態
 
-碰到虛擬記憶體不足的問題，依建議輸入指令即可解決  
+`sudo /usr/sbin/passenger-memory-stats`
 
-驗證安裝是否成功  
+片尾有訊息說要改passenger和ruby的路徑，可用下列指令查詢，並在其下找passenger path
 
-`rvmsudo passenger-config validate-install`  
+`which ruby`
 
-片尾有訊息說要改passenger和ruby的路徑，可用下列指令查詢，並在其下找passenger path  
+`which passenger`
 
-`which ruby`  
+nginx 調整見這篇[]
 
-`which passenger`  
-
-如果無法啟動rails server，出現這樣的訊息  
-
-The program 'rails' can be found in the following packages:
- * ruby-railties-3.2
- * ruby-railties-4.0
-Try: sudo apt-get install <selected package>
-
-在.bashrc加入
-source ~/.profile
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-
-接著我們設定 Nginx 啟動腳本：
-```
-git clone git://github.com/jnstq/rails-nginx-passenger-ubuntu.git
-sudo mv rails-nginx-passenger-ubuntu/nginx/nginx /etc/init.d/nginx
-sudo chown root:root /etc/init.d/nginx
-```
-
-nginx操作
+nginx 操作
 ```
 sudo service nginx start
 sudo service nginx stop
 sudo service nginx restart
 sudo service nginx configtest              // 設定檔路徑和格式檢查
 sudo nginx -t                              // 同上
-netstat -tlpn                              // check netstate binding
+netstat -tlpn                              // check netstat binding
 sudo netstat -tulpn | grep --color :80     // 同上，順便印出PID
 ```
-
 
 # Part 6 用 Capistrano 部署 rails app
 Capistrano在本機運行，它的工作是登入你的伺服器，進行一系列shell操作。
@@ -320,21 +290,7 @@ nslookup your_name_server
 
 # Part 10 nginx 設置
 
-[Tuning Nginx for Best Performance](http://dak1n1.com/blog/12-nginx-performance-tuning/)頗值得一看
-
-[NGINX OPTIMIZATION: UNDERSTANDING SENDFILE, TCP_NODELAY AND TCP_NOPUSH](https://t37.net/nginx-optimization-understanding-sendfile-tcp_nodelay-and-tcp_nopush.html)最佳化原理說明
-
-[我的nginx設置（private gitst）](https://gist.github.com/HFYEH/914827ce9c31710b5853fa322b7bc08c)
-
-[nginx 配置之 proxy_pass 神器！](https://www.web-tinker.com/article/21202.html)
-
-[高性能Web服务器Nginx的配置与部署研究（15）Upstream负载均衡模块](http://blog.csdn.net/poechant/article/details/7256184)
-
-[nginx（六）反向代理（proxy）与负载均衡（upstream）以及健康状态监测](http://tz666.blog.51cto.com/10990100/1750087)
-
-[nginx负载均衡(upstream)与反向代理(proxy_pass)](http://nilread.applinzi.com/?p=108)
-
-[【nginx】负载均衡和proxy的配置](http://www.cnblogs.com/chenpingzhao/p/4991591.html)
+移至[nginx](nginx.md)
 
 # Part 11 Advanced security setup
 

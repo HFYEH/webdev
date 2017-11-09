@@ -91,6 +91,8 @@ gunzip -c database.gz | psql database
 // Restore custom dump format
 pg_restore -d database database.sql
 pg_restore database.sql | psql database
+
+psql  --host threal-staging.ckzvhku6dklp.ap-northeast-1.rds.amazonaws.com --port 5432 --username deploy --dbname hen_chiou_staging -f  ~/hen_chiou.sql
 ```
 
 [db權限問題](http://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge)
@@ -171,3 +173,24 @@ http://www.arthurtoday.com/2010/09/ubuntu-add-apt-repository.html
 `cat /var/run/postgresql/...`
 
 `cat /etc/services | grep postgres`
+
+# 主從架構
+
+
+
+參考資料
+
+[Streaming Replication 筆記](http://ravenonhill.blogspot.tw/2016/03/streaming-replication.html)
+
+[PostgreSQL 最佳实践 - 读写分离](https://github.com/digoal/blog/blob/master/201608/20160824_03.md)
+
+[How to Set-Up Master-Slave Replication for PostgreSQL 9.6 on Ubuntu 16.04](https://www.howtoforge.com/tutorial/how-to-set-up-master-slave-replication-for-postgresql-96-on-ubuntu-1604/)
+
+[如何在Ubuntu 16.04上为PostgreSQL 9.6设置主从复制](https://www.howtoing.com/how-to-set-up-master-slave-replication-for-postgresql-96-on-ubuntu-1604)
+
+[PostgreSQL流复制热备](http://www.jianshu.com/p/12bc931ebba3)
+
+[pgpool-II+PG流复制实现HA主备切换](http://www.bijishequ.com/detail/253028?p=67)
+
+[PostgresSQL HA高可用架構實戰](https://read01.com/MJdOon.html#.WgJ38FyWZE4)
+

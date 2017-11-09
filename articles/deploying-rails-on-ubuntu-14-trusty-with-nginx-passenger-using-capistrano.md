@@ -31,11 +31,10 @@
 
 # Part 3 新增使用者 deploy
 
-`sudo adduser deploy` or `sudo adduser --disabled-password deploy`
-`sudo passwd deploy`
-`sudo su` # retrieve root
-`adduser deploy sudo` # make deploy have sudo power
-`exit`
+`adduser --disabled-password deploy`
+
+`adduser deploy sudo` # add user deploy to sudo group
+
 `sudo su deploy` # switch to deploy
 
 # Part 4 ssh 登入
@@ -54,26 +53,7 @@
 
 `chown deploy:deploy /home/deploy -R`
 
-
-參考[My First 10 Minutes On a Server - Primer for Securing Ubuntu](https://www.codelitt.com/blog/my-first-10-minutes-on-a-server-primer-for-securing-ubuntu/)的安全設定，此篇極有幫助
-
-更改ssh登錄port，並拒絕密碼登入，在server的修改(sshd_config是作為server端的設定，ssh_config是作為client端的設定)
-sudo vi /etc/ssh/sshd_config
-```
-PermitRootLogin no         # 注意，設定後即不能以root登入了
-PasswordAuthentication no  # 不能以密碼驗證
-
-TCPKeepAlive yes           # 設定讓server固定送alive訊息到client
-ClientAliveInterval 30     # 送出訊息的間隔，預設0是不送
-ClientAliveCountMax 3      # 送出幾次沒回應之後就中斷連線
-```
-執行`sudo service ssh restart`使之生效
-
-如果之後搞壞.bashrc，導致登不進去（我就發生這個問題），可以在不跑.bashrc的情況登入（因為已經不能用密碼登入了）  
-
-`ssh -t username@xxx.xxx.xxx.xxx /bin/sh`
-
-讓登入者以sudo執行指令時不須密碼
+讓deploy以sudo執行指令時不須密碼
 
 ```
 sudo visudo  進入編輯
@@ -93,6 +73,24 @@ deploy  ALL=(ALL) NOPASSWD: ALL
 ...
 ```
 
+參考[My First 10 Minutes On a Server - Primer for Securing Ubuntu](https://www.codelitt.com/blog/my-first-10-minutes-on-a-server-primer-for-securing-ubuntu/)的安全設定，此篇極有幫助
+
+更改ssh登錄port，並拒絕密碼登入，在server的修改(sshd_config是作為server端的設定，ssh_config是作為client端的設定)
+sudo vi /etc/ssh/sshd_config
+```
+PermitRootLogin no         # 注意，設定後即不能以root登入了
+PasswordAuthentication no  # 不能以密碼驗證
+
+TCPKeepAlive yes           # 設定讓server固定送alive訊息到client
+ClientAliveInterval 30     # 送出訊息的間隔，預設0是不送
+ClientAliveCountMax 3      # 送出幾次沒回應之後就中斷連線
+```
+執行`sudo service ssh restart`使之生效
+
+如果之後搞壞.bashrc，導致登不進去（我就發生這個問題），可以在不跑.bashrc的情況登入（因為已經不能用密碼登入了）  
+
+`ssh -t username@xxx.xxx.xxx.xxx /bin/sh`
+
 # Part 5 裝機
 
 - 先裝git `sudo apt-get install git`
@@ -104,16 +102,21 @@ deploy  ALL=(ALL) NOPASSWD: ALL
 sudo apt-get install build-essential zlib1g zlib1g-dev libssl-dev libreadline6-dev libyaml-dev git-core bison openssl curl libsqlite3-0 libsqlite3-dev sqlite3 autoconf libc6-dev libpcre3-dev curl libcurl4-nss-dev libxml2-dev libxslt-dev libffi-dev redis-server imagemagick nodejs ruby-dev liblzma-dev libgmp-dev
 
 // 下載並安裝NodeJS
-curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh
-
-sudo bash nodesource_setup.sh
-
-sudo apt-get install nodejs
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
 sudo apt-get install vim
 
 // Install rvm and Ruby
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+
+// Ubuntu已可以透過套件管理系統安裝RVM
+sudo apt-get install software-properties-common
+
+sudo apt-add-repository -y ppa:rael-gc/rvm
+sudo apt-get update
+sudo apt-get install rvm
+
 \curl -sSL https://get.rvm.io | bash -s stable // 預設裝在使者目錄
 \curl -sSL https://get.rvm.io | sudo bash -s stable // 裝在/usr/local/rvm
 

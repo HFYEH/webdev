@@ -17,9 +17,12 @@
 
 壓測，增加--rate和--hog，漸增，看每秒可以承受多少requests
 
-httperf --server theiadev.owlsian.com --port 80 --uri /api/v1/stories/feed --method GET --num-conns 1000 --add-header="Content-Type:application/json\nProperty1:Value1\nProperty2:Value2\n" --rate 150 --hog --timeout 5
+httperf --server theiadev.owlsian.com --port 443 --ssl --uri /api/v1/stories/feed --method GET --num-conns 1000 --add-header="Content-Type:application/json\nProperty1:Value1\nProperty2:Value2\n" --rate 150 --hog --timeout 5
 
 另外在[How to Generate Millions of HTTP Requests](http://dak1n1.com/blog/14-http-load-generate/)這篇文章中，作者建議使用Tsung，而且說ab的能力太差，以下是Tsung用法
+
+中文說明：[Tsung load test](http://longfamily.pixnet.net/blog/post/332114443-tsung-load-test)
+
 
 安裝缺少的perl module
 
@@ -32,5 +35,10 @@ Upgrade CPAN
 
 Tsung執行是要吃xml設定檔的，安裝完之後，對不同的測試有一些範例檔可用，位置在`/usr/share/doc/tsung/examples`，可以複製到當前目錄使用，執行時使用`tsung -f config.xml start`，若不帶 f，則預設會去找`~/.tsung/tsung.xml`，執行完會存在`~/.tsung/log`下
 
-[Tsung Doc](http://tsung.erlang-projects.org/user_manual/index.html)
+報表：
+mac: `perl /usr/local/lib/tsung/bin/tsung_stats.pl`
 
+ubuntu: `/usr/lib/tsung/bin/tsung_stats.pl`
+
+[Tsung Doc](http://tsung.erlang-projects.org/user_manual/index.html)
+[Tsung 報告項目解釋](http://www.voidcn.com/article/p-dagfzaoo-bda.html)

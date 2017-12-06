@@ -8,6 +8,10 @@
 
 `sudo apt-get install pgadmin3`
 
+安裝9.6
+
+https://askubuntu.com/questions/831292/how-to-install-postgresql-9-6-on-any-ubuntu-version
+
 # 操作
 
 切換到 postgres 帳號， postgres 預設沒有密碼且是 superuser 權限
@@ -194,3 +198,10 @@ http://www.arthurtoday.com/2010/09/ubuntu-add-apt-repository.html
 
 [PostgresSQL HA高可用架構實戰](https://read01.com/MJdOon.html#.WgJ38FyWZE4)
 
+# 掛載USB
+
+`fdisk -l`
+
+`mkdir /mnt/usb`
+
+`mount -v -t auto /dev/sdc1 /mnt/usb`

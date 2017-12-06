@@ -4,6 +4,8 @@
 
 [Nginx配置参数中文说明](http://wangying.sinaapp.com/archives/931)
 
+[官方文件](http://www.nginx.cn/doc/)
+
 [備份](https://www.evernote.com/shard/s54/sh/94dcad4b-3586-4fed-b964-2e1a491ded42/943f819fd8ec437ffcdbdec1a96c4f47)
 
 # nginx 最佳化調整
@@ -11,6 +13,8 @@
 https://www.cyberciti.biz/tips/linux-procfs-file-descriptors.html
 
 https://www.cyberciti.biz/faq/linux-unix-nginx-too-many-open-files/
+
+https://www.cyberciti.biz/faq/linux-increase-the-maximum-number-of-open-files/
 
 
 # nginx 細節說明
@@ -21,9 +25,16 @@ https://www.cyberciti.biz/faq/linux-unix-nginx-too-many-open-files/
 
 [備份](https://www.evernote.com/shard/s54/sh/dd230107-6094-41f5-871e-e140b81e3f8c/ebd801cedefa6121ae22882dd484d74b)
 
+[nginx配置url重写](https://xuexb.com/post/nginx-url-rewrite.html)
+
 [关于nginx中的host变量](https://rocfang.gitbooks.io/dev-notes/content/guan_yu_nginx_zhong_de_host_bian_liang.html)
 
 [关于proxy_pass的参数路径问题](https://rocfang.gitbooks.io/dev-notes/content/guan_yu_proxy_pass_de_can_shu_lu_jing_wen_ti.html)
+
+
+[nginx - KeepAlive詳細解釋](https://read01.com/zh-tw/yjNP7B.html#.Wg-Da7D1XOQ)
+
+[nginx優化筆記（keepalive、https等）](http://www.itread01.com/content/1509519844.html)
 
 # nginx 文件
 
@@ -38,6 +49,8 @@ https://www.cyberciti.biz/faq/linux-unix-nginx-too-many-open-files/
 
 [我的nginx設置（private gitst）](https://gist.github.com/HFYEH/914827ce9c31710b5853fa322b7bc08c)
 
+[NGINX Tuning For Best Performance](https://github.com/denji/nginx-tuning)(DDOS)
+
 [nginx 配置之 proxy_pass 神器！](https://www.web-tinker.com/article/21202.html)
 
 [高性能Web服务器Nginx的配置与部署研究（15）Upstream负载均衡模块](http://blog.csdn.net/poechant/article/details/7256184)
@@ -47,6 +60,8 @@ https://www.cyberciti.biz/faq/linux-unix-nginx-too-many-open-files/
 [nginx负载均衡(upstream)与反向代理(proxy_pass)](http://nilread.applinzi.com/?p=108)
 
 [【nginx】负载均衡和proxy的配置](http://www.cnblogs.com/chenpingzhao/p/4991591.html)
+
+[通过 ulimit 改善系统性能](https://www.ibm.com/developerworks/cn/linux/l-cn-ulimit/)
 
 
 # nginx video streaming

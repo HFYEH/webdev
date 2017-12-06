@@ -110,6 +110,8 @@ sudo apt-get install vim
 // Install rvm and Ruby
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 
+\curl -sSL https://get.rvm.io | bash -s stable
+
 // Ubuntu已可以透過套件管理系統安裝RVM
 sudo apt-get install software-properties-common
 
@@ -368,6 +370,17 @@ bantime  = 1200
 `sudo fail2ban-client status`
 
 `sudo fail2ban-client status sshd`
+
+## Monit
+
+`sudo apt-get install monit`
+
+編輯 monitrc 打開 set httpd 的那四行
+
+輸入 sudo service monit restart 重啟
+
+輸入 sudo monit status 可以看到應該有成功在監測 sidekiq
+
 
 ## 設定logrotate
 

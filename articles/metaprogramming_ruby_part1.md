@@ -917,7 +917,7 @@ class_var.class_eval {}  # 也可以用變數引用
 
 所以instance_eval是把self設成receiver，且把current class設成receiver的class。如果receiver是一般物件，則current class是其所屬的class，如果receiver是class，則current class會變成其singleton class。
 
-而class_eval是self設成receiver（某class），且把current class設成也設成該receiver。
+而class_eval是self設成receiver（某class），且把current class也設成該receiver。
 
 相比class關鍵字，class_eval明顯的好處是，可以以變量調用，而且使用flat scope。
 

@@ -312,7 +312,7 @@ A.ancestors  # [A, Object, Kernel, BasicObject] 查詢 A 的 ancestors
 
 self是特殊的變量，保存的是當前的object。object調用method或實例變數都會使用self作為receiver。
 
-只有兩種方式可以修改self的值,一是`.`，一是`class`關鍵字。
+只有兩種方式可以修改self的值，一是`.`，一是`class`關鍵字。
 
 而這樣的程式碼，其實是在做三件事：
 

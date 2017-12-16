@@ -83,7 +83,7 @@ PasswordAuthentication no  # 不能以密碼驗證
 
 TCPKeepAlive yes           # 設定讓server固定送alive訊息到client
 ClientAliveInterval 30     # 送出訊息的間隔，預設0是不送
-ClientAliveCountMax 3      # 送出幾次沒回應之後就中斷連線
+ClientAliveCountMax 3      # 送出幾次沒回應之後就中斷連線
 ```
 執行`sudo service ssh restart`使之生效
 

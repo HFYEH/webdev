@@ -204,4 +204,4 @@ http://www.arthurtoday.com/2010/09/ubuntu-add-apt-repository.html
 
 `mkdir /mnt/usb`
 
-`mount -v -t auto /dev/sdc1 /mnt/usb`
+`mount -v -t auto /dev/sdc /mnt/usb`

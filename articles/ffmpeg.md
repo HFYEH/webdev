@@ -343,6 +343,27 @@ ffmpeg -i <input> -stream_loop -1 -i music.mp3 -shortest <output>
 ffmpeg -i input.mp4 -profile:v baseline -level 3.0 -s 640x360 -start_number 0 -hls_time 10 -hls_list_size 0 -f hls index.m3u8
 
 ffmpeg -i in.mkv -map 0 -codec:v libx264 -codec:a libfaac -f ssegment -segment_list out.list out%03d.ts
+
+ffmpeg -i color_depth_test_movie.mp4 -hls_time 10 -hls_list_size 0 color_depth_movie_1024.m3u8
+
+ffmpeg -i input \
+    ... [encoding parameters 1] ... output1 \
+    ... [encoding parameters 2] ... output2 \
+    ....[encoding parameters 3] ... output3
+
+
+# To DASH
+ffmpeg -threads 4 -f v4l2 -i  /dev/video0 -acodec libfaac -ar 44100 -ab 128k -ac 2 -vcodec libx264 -r 30 -s 1280x720  -f mp4 -y "$movie" > temp1.mp4 && MP4Box -dash 10000 -frag 1000 -rap "$movie"
+
+
+
+ffmpeg -i in.video -c:v libvpx-vp9 -keyint_min 150 \
+-g 150 -tile-columns 4 -frame-parallel 1  -f webm -dash 1 \
+-an -vf scale=160:190 -b:v 250k -dash 1 video_160x90_250k.webm \
+-an -vf scale=320:180 -b:v 500k -dash 1 video_320x180_500k.webm \
+-an -vf scale=640:360 -b:v 750k -dash 1 video_640x360_750k.webm \
+-an -vf scale=640:360 -b:v 1000k -dash 1 video_640x360_1000k.webm \
+-an -vf scale=1280:720 -b:v 1500k -dash 1 video_1280x720_1500k.webm
 ```
 
 

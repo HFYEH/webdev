@@ -290,6 +290,9 @@ nslookup your_name_server
 
 `sudo certbot certonly --webroot -w /home/deploy/apps/mappa_caffe/current/public/ -d map-aroma.com -d www.map-aroma.com`
 
+檢查ssl到期日
+`curl -sIv https://community.letsencrypt.org/230 |& grep expire`
+
 # Part 10 nginx 設置
 
 移至[nginx](nginx.md)

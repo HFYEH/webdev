@@ -9,7 +9,9 @@ https://dpn543ao3406d.cloudfront.net/sharefun.jpg
 
 Ubuntu
 
-https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
+http://ubuntuhandbook.org/index.php/2017/10/ffmpeg-3-4-released-install-ubuntu-16-04/
+
+https://github.com/qrtt1/ffmpeg_lab/wiki/FFmpeg-Tool-Notes
 
 macOS
 ```

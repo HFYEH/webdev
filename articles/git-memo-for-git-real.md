@@ -318,6 +318,10 @@ git remote prune origin        # 清理 origin 中被沒有追蹤的分支，應
 
 可以使用BFG或filter-branch，[BFG](https://rtyley.github.io/bfg-repo-cleaner/)要安裝，[filter-branch](https://help.github.com/articles/removing-sensitive-data-from-a-repository/)較慢
 
+## 大檔尋找
+
+`git ls-tree -r -t -l --full-name HEAD | sort -n -k 4 | tail -n 10`
+
 ## git cherry-pick
 ```
 # 要把別的branch的特定commit複製一份到當前branch，複製過來的commit有不同的SHA

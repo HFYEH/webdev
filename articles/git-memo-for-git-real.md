@@ -1,3 +1,48 @@
+<!-- TOC -->
+
+- [Setup](#setup)
+    - [Configuration](#configuration)
+    - [查看說明](#查看說明)
+- [Git commands](#git-commands)
+    - [裸裝與平裝的分別](#裸裝與平裝的分別)
+    - [glt clone](#glt-clone)
+    - [git diff](#git-diff)
+    - [git reset](#git-reset)
+    - [git revert](#git-revert)
+    - [git checkout](#git-checkout)
+    - [git remote](#git-remote)
+    - [git fetch](#git-fetch)
+    - [git pull](#git-pull)
+        - [以merge操作](#以merge操作)
+        - [以rebase操作](#以rebase操作)
+    - [git push](#git-push)
+                    - [情境：merge發生conflict](#情境merge發生conflict)
+                    - [情境：rebase發生conflict](#情境rebase發生conflict)
+    - [git rebase](#git-rebase)
+    - [git rebase -i (Interactive rebase)](#git-rebase--i-interactive-rebase)
+    - [git branch](#git-branch)
+    - [git log](#git-log)
+    - [git tag (用於釋出版本)](#git-tag-用於釋出版本)
+    - [git blame](#git-blame)
+    - [建立遠端 branch](#建立遠端-branch)
+    - [git stash](#git-stash)
+    - [清理遠端branch和本地的origin](#清理遠端branch和本地的origin)
+    - [git filter-branch](#git-filter-branch)
+    - [大檔尋找](#大檔尋找)
+    - [git cherry-pick](#git-cherry-pick)
+    - [git modules](#git-modules)
+    - [在 Heroku 部署 local 分支](#在-heroku-部署-local-分支)
+    - [exclude (專屬自己的資料夾,不給別人看的)](#exclude-專屬自己的資料夾不給別人看的)
+    - [.gitignore (所有repo中都有的,要故意忽略的)](#gitignore-所有repo中都有的要故意忽略的)
+                    - [情境：要將本來在repo的檔案停止追蹤但不刪除](#情境要將本來在repo的檔案停止追蹤但不刪除)
+- [Github](#github)
+    - [fork project workflow](#fork-project-workflow)
+    - [Issue](#issue)
+- [[commit messges 七條準則](https://chris.beams.io/posts/git-commit/)](#commit-messges-七條準則httpschrisbeamsiopostsgit-commit)
+- [Early branch releases](#early-branch-releases)
+
+<!-- /TOC -->
+
 # Setup
 
 ## Configuration
@@ -423,3 +468,23 @@ git commit -m "resolves #1"
 5. 使用祈使句，要滿足這樣的句式：If applied, this commit will <your_commit_message>
 6. 主體也以一行72個字母為限
 7. 使用主體解釋 what, why vs. how，說明為何做，之前是如何，現在變得如何
+
+# Early branch releases
+
+為了滿足
+
+1. 跨團隊間不共享機密資料
+2. 減少釋出新版本過程的人為操作
+
+暫列出以下步驟，使得可以用原專案 repository 直接釋出到另一個跨團隊共享的 repository 並限制機密資料的流出
+
+Firstly, add release repository to current project `git remote add ios <git-repository-url>`
+
+(On master branch)
+1. Create tag (assuming iOS_v1.0)
+2. Copy all files that are about to be released out from current project
+3. Encrypt sensitive data and remove them
+4. `git checkout iOS_release`, this branch serves the purpose of release
+5. Move all files copied in step 1 and encrypted data in step 2 into current project
+6. Create a new commit
+7. `git push ios HEAD:refs/tags/iOS_v1.0`

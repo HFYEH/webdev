@@ -487,4 +487,4 @@ Firstly, add release repository to current project `git remote add ios <git-repo
 4. `git checkout iOS_release`, this branch serves the purpose of release
 5. Move all files copied in step 1 and encrypted data in step 2 into current project
 6. Create a new commit
-7. `git push ios HEAD:refs/tags/iOS_v1.0` == `git push ios iOS_release:/refs/tags/iOS_v1.0`
+7. `git push ios HEAD:refs/tags/iOS_v1.0` (or `git push ios iOS_release:/refs/tags/iOS_v1.0`)

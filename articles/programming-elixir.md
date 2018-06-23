@@ -9,6 +9,8 @@
         - [Atoms](#atoms)
         - [Lists](#lists)
         - [Tuples](#tuples)
+        - [Keyword lists (associative collections)](#keyword-lists-associative-collections)
+        - [Maps (associative collections)](#maps-associative-collections)
 
 <!-- /TOC -->
 
@@ -84,6 +86,41 @@ iex> [1,2,3] ++ 4
 
 ### Tuples
 
+Similar to lists, continuous in memory, fast in accessing its length, slow in modificating it
+
 `{}`
 
+Tuples usually are additional function returning messages
 
+### Keyword lists (associative collections)
+
+A special list of two-element tuples, the first element in the tuple is atom, performance is as same as lists
+
+```
+iex> [{:foo, "bar"}, {:hello, "world"}]
+iex> [{:foo, "bar"}, {:hello, "world"}, {{:hello, "kitty"}}]
+```
+
+1. Keys are atoms
+2. Keys are ordered
+3. Keys may not be unique
+
+Keyword lists are most commonly used to pass options to functions
+
+### Maps (associative collections)
+
+A key-value pair, no restriction on data type and un-orderd
+
+`%{}`
+
+```
+iex> map = %{:foo => "bar", "hello" => :world}
+iex> map.foo
+"bar"
+iex> map[:foo]
+"bar"
+iex> map["hello]
+:world
+iex> %{map | foo: "baz"}
+%{:foo => "baz", "hello" => :world}
+```

@@ -9,10 +9,20 @@
             - [Atoms](#atoms)
             - [Tuples](#tuples)
             - [Lists](#lists)
-        - [Keyword lists](#keyword-lists)
+            - [Keyword lists](#keyword-lists)
             - [Maps](#maps)
         - [Variable Scope](#variable-scope)
             - [`with` expression](#with-expression)
+        - [Anonymous Functions](#anonymous-functions)
+        - [Modules and Named Functions](#modules-and-named-functions)
+            - [Guard Clauses](#guard-clauses)
+            - [Default Parameters](#default-parameters)
+            - [The |> Operator](#the--operator)
+            - [Modules](#modules)
+                - [Directive](#directive)
+            - [Module Attributes](#module-attributes)
+            - [Module Names](#module-names)
+            - [Calling a Function in an Erlang Library](#calling-a-function-in-an-erlang-library)
 
 <!-- /TOC -->
 
@@ -132,7 +142,7 @@ iex> [1,2,3] ++ 4
 [1, 2, 3 | 4]
 ```
 
-### Keyword lists
+#### Keyword lists
 
 A special list of two-element tuples, the first element in the tuple is atom, performance is as same as lists
 
@@ -196,7 +206,163 @@ lp = with some_pattern_matching,
      end
 ```
 
+### Anonymous Functions
+
+```
+fn
+  paramter-list -> body
+  paramter-list -> body
+end
+
+iex> sum = fn (a, b) -> a + b end
+# The dot indicates the function call
+iex> sum.(1,2)
+3
+```
+
+When making a function call, it do pattern matching to the input arguments with parameter list.
+And only the body that has input matched parameter list will be returned.
+
+Function can also return function. A closure.
+
+```
+iex> greeter = fn name -> (fn -> "Hello #{name}" end) end
+iex> dave_greeter = greeter.("Dave")
+iex> dave_greeter.()
+"Hello Dave"
+
+iex> add_one = &(&1 + 1) # same as add_one = fn (n) -> n + 1 end
+```
+
+If the body of anonymous function is just a call to named function, Elixir replaces it with a direct reference to that function. (Arguements must in order)
+
+```
+iex> rnd = &(Float.round(&1, &2))
+&Float.round/2
+```
+
+### Modules and Named Functions
+
+All of the following are the same, `do...end` is just syntactic sugur of `do:`, and `do:` is just a term in a keyword list
+```
+def xxx(), do: ooo
+
+def xxx, do: (
+    ooo
+)
+
+def xxx do
+  ooo
+end
+```
+
+Elixir tries functions from the top down, executing the first match.
+```
+defmodule BadFactorial do
+  def of(0), do: 1
+  def of(n), do: n * of(n-1)
+end
+
+defmodule BadFactorial do
+  def of(n), do: n * of(n-1)
+  def of(0), do: 1
+end
+```
+
+#### Guard Clauses
+
+```
+defmodule Guard do
+  def what_is(x) when is_number(x) do
+    IO.puts "#{x} is a number"
+  end
+  def what_is(x) when is_list(x) do
+    IO.puts "#{inspect(x)} is a list"
+  end
+  def what_is(x) when is_atom(x) do
+    IO.puts "#{x} is an atom"
+  end
+end
+```
+
+#### Default Parameters
+
+Simply add a function head with no body that contains the default parameters, and use regular parameters for the rest. The defaults will apply to all calls to the function.
+
+```
+defmodule Params do
+  def func(p1, p2 \\ 123)
+  def func(p1, p2) when is_list(p1) do
+    "You said #{p2} with a list"
+  end
+  def func(p1, p2) do
+    "You passed in #{p1} and #{p2}"
+  end
+end
+```
+
+#### The |> Operator
+
+The `|>` operator takes the result of the expression to its left and inserts it as the first parameter of the function invocation to its right.
+
+Always use `()` in `|>`.
+
+#### Modules
+
+##### Directive
+
+Lexically scoped.
+
+`import Module [, only:|except: ]`
+```
+defmodule Example do
+  def func1 do
+    List.flatten [1,[2,3],4]
+  end
+  def func2 do
+    import List, only: [flatten: 1]
+    flatten [5,[6,7],8]
+  end 
+end
+```
+
+alias
+```
+defmodule Example do
+  def compile_and_go(source) do
+    alias My.Other.Module.Parser, as: Parser
+    alias My.Other.Module.Runner, as: Runner
+    source
+      |> Parser.parse()
+      |> Runner.execute()
+  end
+end
+```
+
+require
+
+You require a module if you want to use any macros it defines.
+
+#### Module Attributes
+
+Works only at the top level of a module.
+```
+defmodule Example do
+  @example "My example"
+end
+```
+
+These attributes are not variables in the conventional sense. Use them for configuration and metadata only. (Similar to Ruby constants.)
+
+#### Module Names
+
+Module names are atoms. Elixir auto converts upper case `IO` to atom `Elixir.IO`.
 
 
+#### Calling a Function in an Erlang Library
+
+Erlang variables start with an uppercase letter and atoms are lowercase names.
+
+Such as `:io`, `:timer`.
 
 

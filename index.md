@@ -10,6 +10,8 @@
   * [OAuth](articles/oauth.md)
 * Machine Learning & Deep Learning
   * [第一次使用Tensorflow](articles/first-tf-setup.md)
+* AWS
+  * [大檔直傳S3](articles/client-upload-large-file-to-s3.md)
 * Ruby & Rails
   * [Linux 部署環境配置 \(Nginx + Passenger + Rails by Capistrano\)](articles/deploying-rails-on-ubuntu-14-trusty-with-nginx-passenger-using-capistrano.md)
   * [RSpec資料](articles/rspec.md)
@@ -34,6 +36,7 @@
   * [Rails Patterns 2/4: Front Controller](articles/rails-patterns-front-controller.md)
   * [Rails Patterns 3/4: Intercepting Filter](articles/rails-patterns-intercepting-filter.md)
   * [Rails Patterns 4/4: Template View](articles/rails-patterns-template-view.md)
+  * [Using Array in Grape](articles/using-array-in-grape.md)
 * Elixir
   * [Programming Elixir](articles/programming-elixir.md)
 * JavaScript

@@ -395,4 +395,7 @@ bantime  = 1200
 https://awesomism.co.uk/nokogiri-slow-install/
 
 簡言之，使用 native library
-`env NOKOGIRI_USE_SYSTEM_LIBRARIES=true gem install nokogriri --no-doc --no-ri`
+`env NOKOGIRI_USE_SYSTEM_LIBRARIES=true gem install nokogri -v 'x.x.x' --no-doc --no-ri`
+or
+`gem install nokogiri -- --use-system-libraries`
+

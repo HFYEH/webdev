@@ -389,3 +389,10 @@ bantime  = 1200
 
 
 ## 設定Crontab
+
+## Nokogiri太慢可以看這篇
+
+https://awesomism.co.uk/nokogiri-slow-install/
+
+簡言之，使用 native library
+`env NOKOGIRI_USE_SYSTEM_LIBRARIES=true gem install nokogriri --no-doc --no-ri`

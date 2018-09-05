@@ -370,9 +370,30 @@ ffmpeg -i in.video -c:v libvpx-vp9 -keyint_min 150 \
 
 
 
+## 影片裁切和拉伸
+Reference: https://ffmpeg.org/ffmpeg-filters.html
+```
+把長或寬調整到 1280 另一邊等比例縮放，但是要是偶數
+-filter:v 'scale=1280:trunc(ow/dar/2)*2'
+-filter:v 'scale=trunc(oh*dar/2)*2:1280'
 
+這前面 crop 是裁切一半寬 從 0:0 開始
+-filter:v 'crop=in_w/2:in_h:0:0,scale=2560:trunc(ow/dar/4)*2'
 
+scale 要我要的大小
+-filter:v “scale=ow*2:oh”
+-filter:v “scale=in_w*2:in_h"
+```
 
+```
+in_w, in_h => The input width and height.
+iw, ih => These are the same as in_w and in_h.
+```
+
+```
+out_w, out_h => The output (cropped) width and height.
+ow, oh => These are the same as out_w and out_h.
+```
 
 
 mp4 to gif

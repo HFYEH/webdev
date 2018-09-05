@@ -23,6 +23,14 @@
             - [Module Attributes](#module-attributes)
             - [Module Names](#module-names)
             - [Calling a Function in an Erlang Library](#calling-a-function-in-an-erlang-library)
+        - [Lists and Recursion](#lists-and-recursion)
+        - [Maps, Keyword Lists, Sets, and Structs](#maps-keyword-lists-sets-and-structs)
+        - [Enum and Stream](#enum-and-stream)
+        - [Processing Collections](#processing-collections)
+        - [Strings and Binaries](#strings-and-binaries)
+        - [Organizing a Project](#organizing-a-project)
+    - [Part2 Concurrent Programming](#part2-concurrent-programming)
+        - [Working with Multiple Processes](#working-with-multiple-processes)
 
 <!-- /TOC -->
 
@@ -182,6 +190,8 @@ iex> %{map | foo: "baz"}
 3. Used for pattern matching
 
 *In general, use keyword lists for things such as command-line parameters and for passing around options, and use maps when you want an associative array.*
+
+Pattern matching cannot bind keys. Pattern matching can match variable keys (using `^` operator).
 
 ### Variable Scope
 
@@ -364,5 +374,67 @@ Module names are atoms. Elixir auto converts upper case `IO` to atom `Elixir.IO`
 Erlang variables start with an uppercase letter and atoms are lowercase names.
 
 Such as `:io`, `:timer`.
+
+### Lists and Recursion
+
+List is a head and tail, the tail itself is a list.
+
+```
+# Single element list
+iex> [3]
+iex> [3 | []]
+# Two elements list
+iex> [1,2]
+iex> [1 | [2 | []]]
+```
+
+### Maps, Keyword Lists, Sets, and Structs
+
+### Enum and Stream
+
+### Processing Collections
+
+### Strings and Binaries
+
+### Organizing a Project
+
+
+## Part2 Concurrent Programming
+
+### Working with Multiple Processes
+
+Elixir use *actor model* of concurrency. An actor is an independent process that shares nothing whith any other process. Elixir uses processes support in Erlang. They have very little overhead.
+
+```
+# Run named function in a module, with a list of arguments
+defmodule SpawnBasic do
+  def greet do
+    IO.puts "Hello"
+  end
+end
+
+iex> spawn(SomeModule, :some_method, [])
+#PID<0.108.0>
+
+# Run anonymous function
+iex> spawn(fn -> IO.puts "hello" end)
+#PID<0.110.0>
+```
+
+spawn itself returns a PID, and the process will run the code we specified. You don't know when will it be executed.
+
+Send message to process using `send`, the messge are often atoms or tuples. Wait a message using 'receive`.
+
+```
+defmodule Spawn1 do
+  def greet do
+    receive do
+      {sender, msg} ->
+      send sender, { :ok, "Hello, #{msg}" }
+    end
+  end
+end
+
+```
 
 

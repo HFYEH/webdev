@@ -367,6 +367,8 @@ git remote prune origin        # 清理 origin 中被沒有追蹤的分支，應
 
 `git ls-tree -r -t -l --full-name HEAD | sort -n -k 4 | tail -n 10`
 
+`git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA' --prune-empty --tag-name-filter cat -- --all`
+
 ## git cherry-pick
 ```
 # 要把別的branch的特定commit複製一份到當前branch，複製過來的commit有不同的SHA

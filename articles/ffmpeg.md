@@ -378,11 +378,15 @@ Reference: https://ffmpeg.org/ffmpeg-filters.html
 -filter:v 'scale=trunc(oh*dar/2)*2:1280'
 
 這前面 crop 是裁切一半寬 從 0:0 開始
--filter:v 'crop=in_w/2:in_h:0:0,scale=2560:trunc(ow/dar/4)*2'
+-filter:v 'crop=in_w/2:in_h:0:0,scale=1280:trunc(ow/dar/4)*2'
+
+ffmpeg -i input.mp4 -filter:v 'crop=in_w/2:in_h:0:0' output.mp4
 
 scale 要我要的大小
--filter:v “scale=ow*2:oh”
--filter:v “scale=in_w*2:in_h"
+-filter:v 'scale=ow*2:oh'
+-filter:v 'scale=in_w*2:in_h'
+若無法成功，手動設定 dar 就可以了
+-filter:v 'scale=in_w*2:in_h,setdar=dar=16/9'
 ```
 
 ```

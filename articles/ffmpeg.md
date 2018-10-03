@@ -377,6 +377,9 @@ Reference: https://ffmpeg.org/ffmpeg-filters.html
 -filter:v 'scale=1280:trunc(ow/dar/2)*2'
 -filter:v 'scale=trunc(oh*dar/2)*2:1280'
 
+## 兩部影片（寬被壓縮一半）合成 side-by-side
+ffmpeg -i auo_trim_fhd_megadepth.mp4 -vf "movie=auo_trim_fhd_resize.mp4 [in1]; [in]pad=iw*2:ih:iw:0[in0]; [in0][in1] overlay=0:0 [out]" sidebyside.mp4
+
 這前面 crop 是裁切一半寬 從 0:0 開始
 -filter:v 'crop=in_w/2:in_h:0:0,scale=1280:trunc(ow/dar/4)*2'
 

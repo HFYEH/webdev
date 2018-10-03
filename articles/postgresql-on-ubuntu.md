@@ -1,5 +1,7 @@
 # 安裝
 
+（如果只需要client則只需安裝 postgresql-common 和 postgresql-client）
+
 安裝必要lib和postgres
 
 `sudo apt-get install postgresql libpq-dev postgresql-contrib postgresql-client`
@@ -96,6 +98,7 @@ gunzip -c database.gz | psql database
 pg_restore -d database database.sql
 pg_restore database.sql | psql database
 
+// text format dump
 psql  --host threal-staging.ckzvhku6dklp.ap-northeast-1.rds.amazonaws.com --port 5432 --username deploy --dbname hen_chiou_staging -f  ~/hen_chiou.sql
 ```
 

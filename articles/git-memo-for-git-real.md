@@ -151,6 +151,7 @@ git remote                            # 列出所有遠端repo (-v可看網址�
 git remote add <name> <address>       # 新增一個遠端 Repo
 git remote rm <name>                  # 刪除遠端 Repo
 heroku create                         # 創建新的遠端 Repo 於 Heroku 上並且在本地加入遠端 Repo
+git remote update origin --prune      # 更新本地的 remote branche
 
 git remote show origin                # 做下列三件事
 
@@ -296,6 +297,15 @@ git tag -a v0.0.3 -m "version 0.0.3"  # 加上tag
 git tag -a v0.0.3 9fceb02 -m "msg"    # 為特定的commit增加tag
 git push --tags                       # 將本地的所有tag推到為遠端 Repo
 git checkout v0.0.1                   # 切換到具有'v0.0.1'的特定 commit
+git show v0.0.3                       # 檢視 tag 的 commit 資料
+git tag -d v0.0.3                     # 刪除本地 tag
+git tag -d `git tag | grep -E '.'`    # 刪除本地全部的 tag
+git tag -d $(git tag -l)              # 刪除本地全部的 tag
+git push origin --delete $(git tag -l)# 將與本地同名的遠端 tag 刪除
+git push origin :refs/tags/v0.0.3     # 刪除遠端 tag
+
+# 刪除遠端全部 tag
+git ls-remote --tags origin | awk '/^(.*)(s+)(.*[a-zA-Z0-9])$/ {print ":" $2}' | xargs git push origin
 ```
 
 ## git blame

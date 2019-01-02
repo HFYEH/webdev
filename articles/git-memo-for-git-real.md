@@ -1,47 +1,4 @@
-<!-- TOC -->
-
-- [Setup](#setup)
-    - [Configuration](#configuration)
-    - [查看說明](#查看說明)
-- [Git commands](#git-commands)
-    - [裸裝與平裝的分別](#裸裝與平裝的分別)
-    - [glt clone](#glt-clone)
-    - [git diff](#git-diff)
-    - [git reset](#git-reset)
-    - [git revert](#git-revert)
-    - [git checkout](#git-checkout)
-    - [git remote](#git-remote)
-    - [git fetch](#git-fetch)
-    - [git pull](#git-pull)
-        - [以merge操作](#以merge操作)
-        - [以rebase操作](#以rebase操作)
-    - [git push](#git-push)
-                    - [情境：merge發生conflict](#情境merge發生conflict)
-                    - [情境：rebase發生conflict](#情境rebase發生conflict)
-    - [git rebase](#git-rebase)
-    - [git rebase -i (Interactive rebase)](#git-rebase--i-interactive-rebase)
-    - [git branch](#git-branch)
-    - [git log](#git-log)
-    - [git tag (用於釋出版本)](#git-tag-用於釋出版本)
-    - [git blame](#git-blame)
-    - [建立遠端 branch](#建立遠端-branch)
-    - [git stash](#git-stash)
-    - [清理遠端branch和本地的origin](#清理遠端branch和本地的origin)
-    - [git filter-branch](#git-filter-branch)
-    - [大檔尋找](#大檔尋找)
-    - [git cherry-pick](#git-cherry-pick)
-    - [git modules](#git-modules)
-    - [在 Heroku 部署 local 分支](#在-heroku-部署-local-分支)
-    - [exclude (專屬自己的資料夾,不給別人看的)](#exclude-專屬自己的資料夾不給別人看的)
-    - [.gitignore (所有repo中都有的,要故意忽略的)](#gitignore-所有repo中都有的要故意忽略的)
-                    - [情境：要將本來在repo的檔案停止追蹤但不刪除](#情境要將本來在repo的檔案停止追蹤但不刪除)
-- [Github](#github)
-    - [fork project workflow](#fork-project-workflow)
-    - [Issue](#issue)
-- [[commit messges 七條準則](https://chris.beams.io/posts/git-commit/)](#commit-messges-七條準則httpschrisbeamsiopostsgit-commit)
-- [Early branch releases](#early-branch-releases)
-
-<!-- /TOC -->
+<!-- TOC -->autoauto- [Setup](#setup)auto    - [Configuration](#configuration)auto    - [查看說明](#查看說明)auto- [Git commands](#git-commands)auto    - [裸裝與平裝的分別](#裸裝與平裝的分別)auto    - [glt clone](#glt-clone)auto    - [git diff](#git-diff)auto    - [git reset](#git-reset)auto    - [git revert](#git-revert)auto    - [git checkout](#git-checkout)auto    - [git remote](#git-remote)auto    - [git fetch](#git-fetch)auto    - [git pull](#git-pull)auto        - [以merge操作](#以merge操作)auto        - [以rebase操作](#以rebase操作)auto    - [git push](#git-push)auto                    - [情境：merge發生conflict](#情境merge發生conflict)auto                    - [情境：rebase發生conflict](#情境rebase發生conflict)auto    - [git rebase](#git-rebase)auto    - [git rebase -i (Interactive rebase)](#git-rebase--i-interactive-rebase)auto    - [git branch](#git-branch)auto    - [git log](#git-log)auto    - [git tag (用於釋出版本)](#git-tag-用於釋出版本)auto    - [git blame](#git-blame)auto    - [建立遠端 branch](#建立遠端-branch)auto    - [git stash](#git-stash)auto    - [清理遠端branch和本地的origin](#清理遠端branch和本地的origin)auto    - [git filter-branch](#git-filter-branch)auto    - [大檔尋找](#大檔尋找)auto    - [git cherry-pick](#git-cherry-pick)auto    - [git modules](#git-modules)auto    - [在 Heroku 部署 local 分支](#在-heroku-部署-local-分支)auto    - [exclude (專屬自己的資料夾,不給別人看的)](#exclude-專屬自己的資料夾不給別人看的)auto    - [.gitignore (所有repo中都有的,要故意忽略的)](#gitignore-所有repo中都有的要故意忽略的)auto                    - [情境：要將本來在repo的檔案停止追蹤但不刪除](#情境要將本來在repo的檔案停止追蹤但不刪除)auto- [Github](#github)auto    - [fork project workflow](#fork-project-workflow)auto    - [Issue](#issue)auto- [[commit messges 七條準則](https://chris.beams.io/posts/git-commit/)](#commit-messges-七條準則httpschrisbeamsiopostsgit-commit)auto- [Early branch releases](#early-branch-releases)autoauto<!-- /TOC -->
 
 # Setup
 
@@ -365,6 +322,10 @@ git remote prune origin        # 清理 origin 中被沒有追蹤的分支，應
 ```
 
 ## git filter-branch
+
+計算 repository 大小
+
+`git count-objects -vH`
 
 這些情況下會有檔案要從所有歷史中完全移除。
 

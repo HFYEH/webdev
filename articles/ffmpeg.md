@@ -1,19 +1,13 @@
-https://s3-ap-northeast-1.amazonaws.com/threal3d-movie-hls/out/index.m3u8
-https://dpn543ao3406d.cloudfront.net/out/index.m3u8
-
-https://s3-ap-northeast-1.amazonaws.com/threal3d-movie-hls/sharefun.jpg
-https://dpn543ao3406d.cloudfront.net/sharefun.jpg
-
+<!-- TOC -->autoauto- [安裝](#安裝)auto- [形式](#形式)auto- [流程](#流程)auto- [一般選項](#一般選項)auto- [主要選項](#主要選項)auto- [視訊選項](#視訊選項)auto- [編碼器選項](#編碼器選項)auto- [影片裁切和拉伸](#影片裁切和拉伸)autoauto<!-- /TOC -->
 
 ## 安裝
 
 Ubuntu
 
 http://ubuntuhandbook.org/index.php/2017/10/ffmpeg-3-4-released-install-ubuntu-16-04/
-
 https://github.com/qrtt1/ffmpeg_lab/wiki/FFmpeg-Tool-Notes
 
-macOS
+OSX
 ```
 brew install ffmpeg \
     --with-tools \
@@ -28,121 +22,21 @@ brew install ffmpeg \
 ```
 
 ## 形式
+
 ```
 ffmpeg 一般選項 -c:v 視訊解碼器 -c:a 音訊解碼器 -f 多工解訊器 -i 輸入檔 -c:v 視訊編碼器 -c:a 音訊編碼器 -f 多工器 輸出檔
 ```
 
-通常不需要手動指定 解碼器 (Decoder)、多工解訊器 (Demuxer)，因為 ffmpeg 會依輸入自動判斷，也不需要手動指定 多工器 (Muxer)，ffmpeg 會依輸出副檔名自動判斷
+通常不需要手動指定 解碼器 (Decoder)、多工解訊器 (Demuxer)，因為 ffmpeg 會依輸入自動判斷，也不需要手動指定多工器 (Muxer)，ffmpeg 會依輸出副檔名自動判斷
 
 ## 流程
+
 ```
 # Input process
 File => Demuxer => Stream => Decoder => Video, Audio ...
 
 # Output process
 File <= Demuxer <= Stream <= Decoder <= Video, Audio ...
-```
-
-## 一般選項
-
-```
--L
-  授權條款
-
--h, -?, -help, --help [參數]
-  顯示說明，如果沒有參數則顯示基本說明。
-
-  可用參數如下:
-
-  long
-    顯示更多選項。
-
-  full
-    顯示全部選項 (包括所有格式和編解碼器特定的選項。
-
-  decoder=解碼器名稱
-    顯示指定解碼器 (Decoder) 訊息。
-
-  encoder=編碼器名稱
-    顯示指定編碼器 (Encoder) 訊息。
-
-  demuxer=多工解訊器名稱
-    顯示指定多工解訊器 (Demuxer) 訊息。
-
-  muxer=多工器名稱
-    顯示指定多工器 (Muxer) 訊息。
-
-  filter=篩選器名稱
-    顯示指定篩選器 (Filter) 訊息。
-
--version
-  顯示版本訊息。
-
--formats
-  列出可用檔案格式。
-
--codecs
-  列出可用的編解碼器。
-
--decoders
-  列出可用的解碼器。
-
--encoders
-  列出可用的編碼器。
-
--bsfs
-  列出可用的位元流篩選器。
-
--protocols
-  列出可用的協議。
-
--filters
-  列出可用的篩選器。
-
--pix_fmts
-  列出可用的像素格式。
-
--sample_fmts
-  列出可用的取樣格式。
-
--colors
-  列出認可的顏色名稱。
-
--loglevel, -v [repeat+]日誌等級
-  設定日誌等級。
-
-  日誌等級:
-
-  quiet, -8
-    不顯示任何訊息。
-
-  panic, 0
-    只顯示可能導致程式崩潰的致命錯誤訊息。
-
-  fatal, 8
-    只顯示致命錯誤訊息。
-
-  error, 16
-    顯示全部錯誤訊息。
-
-  warning, 24
-    只顯示致命警告與錯誤訊息。
-
-  info, 32
-    在處理期間顯示資訊訊息。
-
-  verbose, 40
-    與 info 相似，但更加冗長。
-
-  debug, 48
-    顯示任何訊息。
-
--report
-  傾印完整命列與控制台輸出至目前目錄下一個名為 program-YYYYMMDD-HHMMSS.log 的檔案。
-  與 -loglevel verbose 相同詳細程度等級。
-
--hide_banner
-  所有FFmpeg的工具通常會顯示版權聲明，建置(build)選項和程式庫(library)版本。這個選項可以用來隱藏這些訊息。
 ```
 
 ## 主要選項
@@ -371,7 +265,9 @@ ffmpeg -i in.video -c:v libvpx-vp9 -keyint_min 150 \
 
 
 ## 影片裁切和拉伸
+
 Reference: https://ffmpeg.org/ffmpeg-filters.html
+
 ```
 把長或寬調整到 1280 另一邊等比例縮放，但是要是偶數
 -filter:v 'scale=1280:trunc(ow/dar/2)*2'
@@ -402,12 +298,14 @@ out_w, out_h => The output (cropped) width and height.
 ow, oh => These are the same as out_w and out_h.
 ```
 
+## 常用指令
 
-mp4 to gif
-ffmpeg -i input.mp4 -r 10 frames/frame%03d.png
-convert -delay 5 -loop 0 frames/frame*.png output.gif
+將一張圖片轉成長度1:30秒30fps的影片
+
+`ffmpeg -loop 1 -i image.jpg -r 30 -t 00:01:30 output.mp4`
+
+將連續圖片轉成24fps的影片（一張6秒）
+
+`ffmpeg -r 1/6 -i color%1dP.jpg -r 24 output.mp4`
 
 
-ffmpeg -i input.mp4 -r 10 output%05d.png
-convert output*.png output.gif
-rm output*.png
